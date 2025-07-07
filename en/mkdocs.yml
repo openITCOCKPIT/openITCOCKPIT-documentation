@@ -1,7 +1,7 @@
 site_name: openITCOCKPIT 5
 site_url: http://mkdocs.oitc.itn:8000/
-repo_url: https://github.com/it-novum/openITCOCKPIT-documentation
-edit_uri: https://github.com/it-novum/openITCOCKPIT-documentation/blob/main/en/docs/
+repo_url: https://github.com/openITCOCKPIT/openITCOCKPIT-documentation
+edit_uri: https://github.com/openITCOCKPIT/openITCOCKPIT-documentation/blob/main/en/docs/
 repo_name: GitHub
 dev_addr: 0.0.0.0:8000
 
@@ -184,7 +184,7 @@ extra:
     - icon: fontawesome/brands/reddit
       link: https://www.reddit.com/r/openitcockpit/
     - icon: fontawesome/brands/github
-      link: https://github.com/it-novum/openITCOCKPIT
+      link: https://github.com/openITCOCKPIT/openITCOCKPIT
   alternate:
     - link: /
       name: de - Deutsch

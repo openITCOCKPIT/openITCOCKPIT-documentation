@@ -26,7 +26,7 @@ If you have a question about a possible bug, please feel free to join our [Disco
 
 ### GitHub
 
-You can easily create bug reports as well as feature requests via [ :fontawesome-brands-github: GitHub](https://github.com/it-novum/openITCOCKPIT/issues).
+You can easily create bug reports as well as feature requests via [ :fontawesome-brands-github: GitHub](https://github.com/openITCOCKPIT/openITCOCKPIT/issues).
 
 ### Security
 

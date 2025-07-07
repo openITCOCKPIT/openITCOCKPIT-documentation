@@ -33,7 +33,7 @@ beitreten.
 ### GitHub
 
 Fehler und Feature Requests können Sie einfach
-über [ :fontawesome-brands-github: GitHub](https://github.com/it-novum/openITCOCKPIT/issues)
+über [ :fontawesome-brands-github: GitHub](https://github.com/openITCOCKPIT/openITCOCKPIT/issues)
 erstellen.
 
 ### Security

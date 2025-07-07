@@ -26,7 +26,7 @@ Danach scrollen Sie im Design Editor nach ganz unten. Dort finden Sie eine Schal
 
 Um ein exportiertes Design wieder zu importieren, klicken Sie auf die Schaltfläche "Importieren" und laden die entsprechende `.json` Datei hoch.
 
-Über diese Methode können Sie zum Beispiel unser [Halloween Thema für openITCOCKPIT ](https://github.com/it-novum/oitc-halloween-theme) laden.
+Über diese Methode können Sie zum Beispiel unser [Halloween Thema für openITCOCKPIT ](https://github.com/openITCOCKPIT/oitc-halloween-theme) laden.
 
 ![Halloween theme for openITCOCKPIT](/images/openitcockpit-Halloween-login.jpg)
 

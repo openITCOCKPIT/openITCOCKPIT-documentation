@@ -157,7 +157,7 @@ rm -rf /opt/openitc/frontend
 
 ```bash
 cd /opt/openitc/
-git clone -b development https://github.com/it-novum/openITCOCKPIT frontend
+git clone -b development https://github.com/openITCOCKPIT/openITCOCKPIT frontend
 ```
 
 

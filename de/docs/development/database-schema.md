@@ -19,11 +19,11 @@ Das aktuelle Datenbankschema kann unter [https://dbdocs.io/community/openITCOCKP
 Alternative kann die Dokumentation der Datenbank auch auf einem eigenen System betrieben werden. Alle Informationen dafür,
 können dem GitHub Repository entnommen werden.
 
-[https://github.com/it-novum/openITCOCKPIT-dbschema](https://github.com/it-novum/openITCOCKPIT-dbschema)
+[https://github.com/openITCOCKPIT/openITCOCKPIT-dbschema](https://github.com/openITCOCKPIT/openITCOCKPIT-dbschema)
 
 ![self-hosted database schema of openITCOCKPIT](/images/foliant2.png)
 
 ## DBML Dateien
 
-Die .dbml-Datei, welche das Schema definiert, kann dem GitHub Repository entnommen werden: [https://github.com/it-novum/openITCOCKPIT-dbschema](https://github.com/it-novum/openITCOCKPIT-dbschema)
+Die .dbml-Datei, welche das Schema definiert, kann dem GitHub Repository entnommen werden: [https://github.com/openITCOCKPIT/openITCOCKPIT-dbschema](https://github.com/openITCOCKPIT/openITCOCKPIT-dbschema)
 

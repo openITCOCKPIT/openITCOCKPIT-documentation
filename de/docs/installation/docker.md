@@ -59,7 +59,7 @@ Die Standardanmeldeinformationen sind:
 
 1. Am einfachsten ist es, wenn Sie zuerst mit `git` eine lokale Kopie des Repositories erstellen, welches alle benötigten Daten enthält.
 ```
-git clone https://github.com/it-novum/openITCOCKPIT-ce-docker.git
+git clone https://github.com/openITCOCKPIT/openITCOCKPIT-ce-docker.git
 ```
 
 2. Wechseln Sie nun in den Ordner
@@ -304,7 +304,7 @@ Um die Änderungen zu übernehmen, starten Sie alle Container neu, oder den `mod
 
 1. Als Name können sie `openitcockpit-ce` setzen.
 
-2. Das [Docker-Compose-File](https://raw.githubusercontent.com/it-novum/openITCOCKPIT-ce-docker/main/compose.yml) können Sie entweder über den Web-Editor hinzufügen, oder alternativ direkt aus dem GitHub Repository `https://github.com/it-novum/openITCOCKPIT-ce-docker` beziehen.
+2. Das [Docker-Compose-File](https://raw.githubusercontent.com/it-novum/openITCOCKPIT-ce-docker/main/compose.yml) können Sie entweder über den Web-Editor hinzufügen, oder alternativ direkt aus dem GitHub Repository `https://github.com/openITCOCKPIT/openITCOCKPIT-ce-docker` beziehen.
 
     **Bitte beachten Sie**, dass alle Verweise auf das `openitcockpit.env`-File durch `stack.env` ersetzten müssen.
 

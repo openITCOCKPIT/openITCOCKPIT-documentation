@@ -242,18 +242,18 @@ As of openITCOCKPIT 3.6, performance data (used for graphs) is stored in [Whispe
 !!! info
     No automatic migration takes place if you upgrade from an older version of openITCOCKPIT to version 3.6 or newer. For this reason, empty graphs will be displayed until new data has been collected.
 
-To ensure that migrating from RRDTool to Whisper is as easy as possible, we offer our own tool: [rrd2whisper](https://github.com/it-novum/rrd2whisper)
+To ensure that migrating from RRDTool to Whisper is as easy as possible, we offer our own tool: [rrd2whisper](https://github.com/openITCOCKPIT/rrd2whisper)
 
 
 ### Downloading and installing rrd2whisper
 
-We provide our own rrd2whisper packages for every supported distribution on the [official download page](https://github.com/it-novum/rrd2whisper/releases).
+We provide our own rrd2whisper packages for every supported distribution on the [official download page](https://github.com/openITCOCKPIT/rrd2whisper/releases).
 
 !!! info "Internet connection required"
     To install rrd2whisper, a working Internet connection is required. If you need an HTTP proxy connection, [you will need to configure this first](https://wiki.ubuntuusers.de/Proxyserver/#Alternatives-Verfahren)
 
 ```bash
-sudo wget -O /usr/local/bin/rrd2whisper https://github.com/it-novum/rrd2whisper/releases/download/v2.0.1/rrd2whisper_v2.0.1_$(lsb_release -sc)_amd64
+sudo wget -O /usr/local/bin/rrd2whisper https://github.com/openITCOCKPIT/rrd2whisper/releases/download/v2.0.1/rrd2whisper_v2.0.1_$(lsb_release -sc)_amd64
 sudo chmod +x /usr/local/bin/rrd2whisper
 sudo apt-get install rrdtool
 ```

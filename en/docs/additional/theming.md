@@ -19,7 +19,7 @@ To export a design, you must first create and save a design. You will then need 
 
 To import an exported design, click on the "Import" button and upload the corresponding `.json` file.
 
-For example, you can use this method to load our [Halloween theme for openITCOCKPIT ](https://github.com/it-novum/oitc-halloween-theme).
+For example, you can use this method to load our [Halloween theme for openITCOCKPIT ](https://github.com/openITCOCKPIT/oitc-halloween-theme).
 
 ![Halloween theme for openITCOCKPIT](/images/openitcockpit-Halloween-login.jpg)
 

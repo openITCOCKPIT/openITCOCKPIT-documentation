@@ -17,7 +17,7 @@ Using this method, pre existing Naemon, Nagios, Shinken, Icinga 1 and Sensu plug
 The openITCOCKPIT Monitoring Agent is available and tested for Windows (32 and 64 bit), macOS (Intel and Apple Silicon) and the common Linux
  distributions such as Debian, Ubuntu, Red Hat Linux, CentOS, SLES and openSUSE (amd64 and arm64).
 
-Please visit the [release page](https://github.com/it-novum/openitcockpit-agent-go/releases) to download the latest or older versions.
+Please visit the [release page](https://github.com/openITCOCKPIT/openitcockpit-agent-go/releases) to download the latest or older versions.
 
 ## Communication methods
 The openITCOCKPIT Monitoring Agent can operate in Pull or Push Mode. By default the communication is encrypted by TLS and transferred via HTTPS. You don't have to manually create TLS certificates openITCOCKPIT will take care of this.
@@ -35,7 +35,7 @@ In Push Mode, the openITCOCKPIT Monitoring Agent will push the check results eve
 By default, the connections gets secured by HTTPS with self-signed certificates.
 We recommend to use valid certificates like from [Let’s Encrypt](https://letsencrypt.org/) for this use case, but it is not required.
 
-The Agent's in-build web server is disabled in Push mode. You can enable it via the [config.ini](https://github.com/it-novum/openitcockpit-agent-go/blob/83ae5bafc4219fcd9e059437a0d25497de0fb268/example/config_example.ini#L165-L168) if you like.
+The Agent's in-build web server is disabled in Push mode. You can enable it via the [config.ini](https://github.com/openITCOCKPIT/openitcockpit-agent-go/blob/83ae5bafc4219fcd9e059437a0d25497de0fb268/example/config_example.ini#L165-L168) if you like.
 
 Communication way: `openITCOCKPIT Monitoring Agent => openITCOCKPIT Monitoring Server (HTTPS)`
 

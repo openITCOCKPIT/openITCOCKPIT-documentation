@@ -22,11 +22,11 @@ The latest database schema definition is available at:
 Alternatively, the documentation of the database can also be self-hosted. Please see the GitHub repository
 for more information.
 
-[https://github.com/it-novum/openITCOCKPIT-dbschema](https://github.com/it-novum/openITCOCKPIT-dbschema)
+[https://github.com/openITCOCKPIT/openITCOCKPIT-dbschema](https://github.com/openITCOCKPIT/openITCOCKPIT-dbschema)
 
 ![self-hosted database schema of openITCOCKPIT](/images/foliant2.png)
 
 ## DBML files
 
-The .dbml file, which defines the schema, is available on GitHub: [https://github.com/it-novum/openITCOCKPIT-dbschema](https://github.com/it-novum/openITCOCKPIT-dbschema)
+The .dbml file, which defines the schema, is available on GitHub: [https://github.com/openITCOCKPIT/openITCOCKPIT-dbschema](https://github.com/openITCOCKPIT/openITCOCKPIT-dbschema)
 

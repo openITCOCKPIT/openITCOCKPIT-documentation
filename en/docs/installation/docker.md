@@ -59,7 +59,7 @@ The default login credentials are:
 
 1. The easiest way to check out fully containerized openITCOCKPIT is to use `git` to create a local copy of the repository that contains all the data you need.
 ```
-git clone https://github.com/it-novum/openITCOCKPIT-ce-docker.git
+git clone https://github.com/openITCOCKPIT/openITCOCKPIT-ce-docker.git
 ```
 
 2. Change to docker directory
@@ -313,7 +313,7 @@ Through _Stacks_, the Portainer interface allows you to manage Docker Compose fi
 
 1. As name you can set `openitcockpit-ce`.
 
-2. You can either add the [Docker Compose File](https://raw.githubusercontent.com/it-novum/openITCOCKPIT-ce-docker/main/compose.yml) via the web editor, or alternatively get it directly from the GitHub repository `https://github.com/it-novum/openITCOCKPIT-ce-docker`.
+2. You can either add the [Docker Compose File](https://raw.githubusercontent.com/it-novum/openITCOCKPIT-ce-docker/main/compose.yml) via the web editor, or alternatively get it directly from the GitHub repository `https://github.com/openITCOCKPIT/openITCOCKPIT-ce-docker`.
 
     **Please note** that all references to the `openitcockpit.env` file must be replaced by `stack.env`.
 

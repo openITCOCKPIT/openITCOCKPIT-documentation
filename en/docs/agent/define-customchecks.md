@@ -23,7 +23,7 @@ customchecks = /etc/openitcockpit-agent/customchecks.ini
 ```
 
 ## Define custom checks
-The [default customchecks.ini](https://github.com/it-novum/openitcockpit-agent-go/blob/main/example/customchecks_example.ini) provides a huge variety of how to define custom checks on Linux, macOS and Windows. It covers Bash-Scripts, Powershell-Scripts and Binaries.
+The [default customchecks.ini](https://github.com/openITCOCKPIT/openitcockpit-agent-go/blob/main/example/customchecks_example.ini) provides a huge variety of how to define custom checks on Linux, macOS and Windows. It covers Bash-Scripts, Powershell-Scripts and Binaries.
 
 ## Add custom checks to the monitoring
 Open the openITCOCKPIT web interface and navigate to `openITCOCKPIT Agent -> Agents Overview -> Pull / Push` and select `Edit` from the drop down menu. Follow the instructions and select all custom checks at the step `Create services`

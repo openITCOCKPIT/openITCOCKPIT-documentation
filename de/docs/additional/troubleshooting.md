@@ -269,11 +269,11 @@ Da die openITCOCKPIT Versionen 3.x und 4.x nicht mehr gewartet werden, muss die 
 Öffnen Sie die Datei `/usr/share/openitcockpit/app/Console/Command/Task/SystemMetricsTask.php` und ersetzten Sie in Zeile 90 `packagemanager.it-novum.com`
 durch `packagemanager.openitcockpit.io`.
 
-GitHub: [https://github.com/it-novum/openITCOCKPIT/blob/779a60216416ac8bb5c4cb73f82f3515ac65ed46/app/Console/Command/Task/SystemMetricsTask.php#L90](https://github.com/it-novum/openITCOCKPIT/blob/779a60216416ac8bb5c4cb73f82f3515ac65ed46/app/Console/Command/Task/SystemMetricsTask.php#L90)
+GitHub: [https://github.com/openITCOCKPIT/openITCOCKPIT/blob/779a60216416ac8bb5c4cb73f82f3515ac65ed46/app/Console/Command/Task/SystemMetricsTask.php#L90](https://github.com/openITCOCKPIT/openITCOCKPIT/blob/779a60216416ac8bb5c4cb73f82f3515ac65ed46/app/Console/Command/Task/SystemMetricsTask.php#L90)
 
 Offnen Sie die Datei `/usr/share/openitcockpit/app/src/itnovum/openITCOCKPIT/Core/PackagemanagerRequestBuilder.php` und ersetzten Sie in Zeile 45 `packagemanager.it-novum.com` durch `packagemanager.openitcockpit.io`.
 
-GitHub: [https://github.com/it-novum/openITCOCKPIT/blob/779a60216416ac8bb5c4cb73f82f3515ac65ed46/app/src/itnovum/openITCOCKPIT/Core/PackagemanagerRequestBuilder.php#L45](https://github.com/it-novum/openITCOCKPIT/blob/779a60216416ac8bb5c4cb73f82f3515ac65ed46/app/src/itnovum/openITCOCKPIT/Core/PackagemanagerRequestBuilder.php#L45)
+GitHub: [https://github.com/openITCOCKPIT/openITCOCKPIT/blob/779a60216416ac8bb5c4cb73f82f3515ac65ed46/app/src/itnovum/openITCOCKPIT/Core/PackagemanagerRequestBuilder.php#L45](https://github.com/openITCOCKPIT/openITCOCKPIT/blob/779a60216416ac8bb5c4cb73f82f3515ac65ed46/app/src/itnovum/openITCOCKPIT/Core/PackagemanagerRequestBuilder.php#L45)
 
 Ab jetzt sollte der Paketmanager wieder funktionieren.
 
@@ -282,11 +282,11 @@ Ab jetzt sollte der Paketmanager wieder funktionieren.
 Öffnen Sie die Datei `/opt/openitc/frontend/src/Command/SystemMetricsCommand.php` und ersetzten Sie in Zeile 111 `packagemanager.it-novum.com`
 durch `packagemanager.openitcockpit.io`.
 
-GitHub: [https://github.com/it-novum/openITCOCKPIT/blob/e24ff4327edd98bf8dfcf12c404ecbb24f4eb758/src/Command/SystemMetricsCommand.php#L111](https://github.com/it-novum/openITCOCKPIT/blob/e24ff4327edd98bf8dfcf12c404ecbb24f4eb758/src/Command/SystemMetricsCommand.php#L111)
+GitHub: [https://github.com/openITCOCKPIT/openITCOCKPIT/blob/e24ff4327edd98bf8dfcf12c404ecbb24f4eb758/src/Command/SystemMetricsCommand.php#L111](https://github.com/openITCOCKPIT/openITCOCKPIT/blob/e24ff4327edd98bf8dfcf12c404ecbb24f4eb758/src/Command/SystemMetricsCommand.php#L111)
 
 Offnen Sie die Datei `/opt/openitc/frontend/src/itnovum/openITCOCKPIT/Core/PackagemanagerRequestBuilder.php` und ersetzten Sie in den Zeilen 32 und 45 `packagemanager.it-novum.com` durch `packagemanager.openitcockpit.io`.
 
-GitHub: [https://github.com/it-novum/openITCOCKPIT/blob/e24ff4327edd98bf8dfcf12c404ecbb24f4eb758/src/itnovum/openITCOCKPIT/Core/PackagemanagerRequestBuilder.php#L32-L45](https://github.com/it-novum/openITCOCKPIT/blob/e24ff4327edd98bf8dfcf12c404ecbb24f4eb758/src/itnovum/openITCOCKPIT/Core/PackagemanagerRequestBuilder.php#L32-L45)
+GitHub: [https://github.com/openITCOCKPIT/openITCOCKPIT/blob/e24ff4327edd98bf8dfcf12c404ecbb24f4eb758/src/itnovum/openITCOCKPIT/Core/PackagemanagerRequestBuilder.php#L32-L45](https://github.com/openITCOCKPIT/openITCOCKPIT/blob/e24ff4327edd98bf8dfcf12c404ecbb24f4eb758/src/itnovum/openITCOCKPIT/Core/PackagemanagerRequestBuilder.php#L32-L45)
 
 Ab jetzt sollte der Paketmanager wieder funktionieren.
 

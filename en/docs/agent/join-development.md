@@ -6,7 +6,7 @@ Please make sure you have [Golang](https://golang.org/) >= 1.15.6 and [Visual St
 
 1. Clone the repository
 ```
-git clone https://github.com/it-novum/openitcockpit-agent-go.git
+git clone https://github.com/openITCOCKPIT/openitcockpit-agent-go.git
 ```
 
 2. Run Visual Studio Code and make sure that you have installed the [Go extension](https://marketplace.visualstudio.com/items?itemName=golang.Go)

@@ -98,7 +98,7 @@ By going to `/example_module/test/index.json` you will get the JSON representati
 ### New menu item
 
 By default, the openITCOCKPIT menu is divided into four
-categories ([MenuHeadline](https://github.com/it-novum/openITCOCKPIT/blob/development/src/itnovum/openITCOCKPIT/Core/Menu/Menu.php#L32-L35)):
+categories ([MenuHeadline](https://github.com/openITCOCKPIT/openITCOCKPIT/blob/development/src/itnovum/openITCOCKPIT/Core/Menu/Menu.php#L32-L35)):
 Overview, Monitoring, Administration and System Configuration.
 
 You can either create links in these categories or create your own categories.

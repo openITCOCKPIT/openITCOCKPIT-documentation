@@ -16,7 +16,7 @@ Mit dieser Methode können vorgefertigte Naemon-, Nagios-, Shinken-, Icinga 1- u
 
 Der openITCOCKPIT Monitoring Agent ist verfügbar und getestet für Windows (32 und 64 Bit), macOS (Intel und Apple Silicon) sowie die gängigen Linux-Distributionen wie Debian, Ubuntu, Red Hat Linux, CentOS, SLES und openSUSE (amd64 und arm64).
 
-Bitte besuchen Sie die [Release-Seite](https://github.com/it-novum/openitcockpit-agent-go/releases), um die neueste oder ältere Versionen herunterzuladen.
+Bitte besuchen Sie die [Release-Seite](https://github.com/openITCOCKPIT/openitcockpit-agent-go/releases), um die neueste oder ältere Versionen herunterzuladen.
 
 ## Kommunikationsmethoden
 Der openITCOCKPIT Monitoring Agent kann im Pull- oder Push-Modus betrieben werden. Standardmäßig ist die Kommunikation durch TLS verschlüsselt und wird über HTTPS übertragen. Sie müssen keine TLS-Zertifikate manuell erstellen, openITCOCKPIT kümmert sich darum.
@@ -34,7 +34,7 @@ Im Push-Modus sendet der openITCOCKPIT Monitoring Agent alle 60 Sekunden die Pr�
 Standardmäßig wird die Verbindung durch HTTPS mit selbstsignierten Zertifikaten gesichert.
 Wir empfehlen die Verwendung gültiger Zertifikate, z.B. von [Let’s Encrypt](https://letsencrypt.org/), für diesen Anwendungsfall, aber es ist nicht zwingend erforderlich.
 
-Der eingebaute Webserver des Agenten ist im Push-Modus deaktiviert. Sie können ihn bei Bedarf über die [config.ini](https://github.com/it-novum/openitcockpit-agent-go/blob/83ae5bafc4219fcd9e059437a0d25497de0fb268/example/config_example.ini#L165-L168) aktivieren.
+Der eingebaute Webserver des Agenten ist im Push-Modus deaktiviert. Sie können ihn bei Bedarf über die [config.ini](https://github.com/openITCOCKPIT/openitcockpit-agent-go/blob/83ae5bafc4219fcd9e059437a0d25497de0fb268/example/config_example.ini#L165-L168) aktivieren.
 
 Kommunikationsweg: `openITCOCKPIT Monitoring Agent => openITCOCKPIT Monitoring Server (HTTPS)`
 

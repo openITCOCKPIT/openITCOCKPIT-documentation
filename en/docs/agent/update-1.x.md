@@ -78,7 +78,7 @@ It is also recommended to refresh the Agent configuration while you are stepping
 The update process is different per operating system and frome linux distribution to linux distribution. Please follow the instructions carefully.
 
 ### Debian and Ubuntu
-Download the latest `openitcockpit-agent_3.x.x_amd64.deb` package from the [releases page](https://github.com/it-novum/openitcockpit-agent-go/releases) and install the package via apt.
+Download the latest `openitcockpit-agent_3.x.x_amd64.deb` package from the [releases page](https://github.com/openITCOCKPIT/openitcockpit-agent-go/releases) and install the package via apt.
 ```
 apt-get install ./openitcockpit-agent_3.x.x_amd64.deb
 ```
@@ -91,7 +91,7 @@ systemctl restart openitcockpit-agent
 ```
 
 ### Red Hat Linux / CentOS / openSUSE
-Download the latest `openitcockpit-agent-3.x.x-1.x86_64.rpm` package from the [releases page](https://github.com/it-novum/openitcockpit-agent-go/releases).
+Download the latest `openitcockpit-agent-3.x.x-1.x86_64.rpm` package from the [releases page](https://github.com/openITCOCKPIT/openitcockpit-agent-go/releases).
 
 #### Uninstall old Agent
 ```
@@ -114,7 +114,7 @@ systemctl restart openitcockpit-agent
 Please keep in mind to apply the [required configuration changes](#required-configuration-changes).
 
 ### Arch Linux
-Download the latest `openitcockpit-agent-3.x.x-1-x86_64.pkg.tar.zst` package from the [releases page](https://github.com/it-novum/openitcockpit-agent-go/releases).
+Download the latest `openitcockpit-agent-3.x.x-1-x86_64.pkg.tar.zst` package from the [releases page](https://github.com/openITCOCKPIT/openitcockpit-agent-go/releases).
 
 #### Uninstall old Agent
 ```
@@ -137,7 +137,7 @@ systemctl restart openitcockpit-agent
 Please keep in mind to apply the [required configuration changes](#required-configuration-changes).
 
 ### Windows
-Download the latest `openitcockpit-agent-3.x.x-amd64.msi` package from the [releases page](https://github.com/it-novum/openitcockpit-agent-go/releases).
+Download the latest `openitcockpit-agent-3.x.x-amd64.msi` package from the [releases page](https://github.com/openITCOCKPIT/openitcockpit-agent-go/releases).
 
 Double click on the file to run the graphical installer. The MSI will automatically uninstall any old versions.
 
@@ -155,7 +155,7 @@ Copy old configuration
 
 #### Uninstall old Agent
 
-Download the latest `openitcockpit-agent-uninstaller-3.x.x-darwin-amd64.pkg` package from the [releases page](https://github.com/it-novum/openitcockpit-agent-go/releases).
+Download the latest `openitcockpit-agent-uninstaller-3.x.x-darwin-amd64.pkg` package from the [releases page](https://github.com/openITCOCKPIT/openitcockpit-agent-go/releases).
 
 Double click on the file to run the graphical uninstaller.
 
@@ -166,7 +166,7 @@ sudo installer -pkg openitcockpit-agent-uninstaller-3.x.x-darwin-amd64.pkg -targ
 
 #### Install new Agent
 
-Download the latest `openitcockpit-agent-3.x.x-darwin-amd64.pkg` package from the [releases page](https://github.com/it-novum/openitcockpit-agent-go/releases).
+Download the latest `openitcockpit-agent-3.x.x-darwin-amd64.pkg` package from the [releases page](https://github.com/openITCOCKPIT/openitcockpit-agent-go/releases).
 
 Double click on the file to run the graphical installer.
 
@@ -203,7 +203,7 @@ The following list of checks have breaking changes and needs to be manually modi
 
 ##### Windows
 * System Load / CPU Load on Windows got removed
-* Disk drive letters without trailing backslash [#1062](https://github.com/it-novum/openITCOCKPIT/issues/1062)
+* Disk drive letters without trailing backslash [#1062](https://github.com/openITCOCKPIT/openITCOCKPIT/issues/1062)
   - The resolve the issue edit the service and remove the trailing backslash from the `Mountpoint` command argument. E.g.: `C:\` to `C:`
 * Windows Event Log Checks
   - Windows Event Log got reimplemented. It's recommended to delete the old Windows Event Log related services and recreated them via the Wizard

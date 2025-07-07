@@ -12,7 +12,7 @@ The frontend is based on an [Angular](https://angular.dev/) and [CoreUI](https:/
 
 We recommend [JetBrains PHPStorm](https://www.jetbrains.com/phpstorm/) as your IDE and [Mozilla Firefox](https://www.mozilla.org/en-US/firefox/new/) as your Browser.
 
-The sample code is available on GitHub: <https://github.com/it-novum/openITCOCKPIT-ExampleModule>
+The sample code is available on GitHub: <https://github.com/openITCOCKPIT/openITCOCKPIT-ExampleModule>
 
 ### Prerequisites
 

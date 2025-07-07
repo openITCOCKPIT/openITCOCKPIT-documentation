@@ -280,7 +280,7 @@ Dazu muss ein Verzeichnis auf dem Hostsystem angelegt werden, in dem die entspre
 
 Die Datei interface.yml ist entsprechende Konfigurationsdatei, die alle Konfigurierbaren Parameter enthält. Eine
 Beispieldatei befindet sich im
-Repository [interface.example.yml](https://github.com/it-novum/openITCOCKPIT-Mobile/blob/development/interface/interface.example.yml).
+Repository [interface.example.yml](https://github.com/openITCOCKPIT/openITCOCKPIT-Mobile/blob/development/interface/interface.example.yml).
 
 Damit die Änderungen wirksam werden, muss beim Aufruf des Docker Containers ein zusätzlicher Parameter hinzugefügt
 werden:
@@ -301,7 +301,7 @@ Containers erfolgen - ein neu laden der Webseite genügt.
 Dies ist eine Beispielkonfiguration um zu veranschaulichen, wie sich eine Konfiguration der `interface.yml` Datei
 auswirkt.
 
-Als Vorlage diente der [Halloween theme](https://github.com/it-novum/oitc-halloween-theme) von openITCOCKPIT.
+Als Vorlage diente der [Halloween theme](https://github.com/openITCOCKPIT/oitc-halloween-theme) von openITCOCKPIT.
 
 ![ci-login](/images/mobile-website/ci-login.png){ width="300"; align=center }
 

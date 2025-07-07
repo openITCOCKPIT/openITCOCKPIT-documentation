@@ -15,7 +15,7 @@ Before you start, install the openITCOCKPIT Monitoring Agent on the target syste
 
 To download the agent, we recommend using the [official download site](https://openitcockpit.io/download_agent/).
 
-The source code is available via the GitHub repository: :fontawesome-brands-github: [https://github.com/it-novum/openitcockpit-agent-go](https://github.com/it-novum/openitcockpit-agent-go)
+The source code is available via the GitHub repository: :fontawesome-brands-github: [https://github.com/openITCOCKPIT/openitcockpit-agent-go](https://github.com/openITCOCKPIT/openitcockpit-agent-go)
 
 ## Monitoring a host with the openITCOCKPIT Monitoring Agent
 
@@ -49,7 +49,7 @@ configuration file. You just need to select the operating system you want to mon
     It is strongly recommended that you select Auto-TLS as the connection type. This will automatically secure and encrypt
     the connection between the openITCOCKPIT Server and the openITCOCKPIT Monitoring Agent. More information about the
     security of the openITCOCKPIT Monitoring Agent can be found in
-    the [documentation](https://github.com/it-novum/openitcockpit-agent-go/wiki/Agent-Overview).
+    the [documentation](https://github.com/openITCOCKPIT/openitcockpit-agent-go/wiki/Agent-Overview).
 
 ![pull config](/images/agent-basic-pull-configuration.png)
 
@@ -90,7 +90,7 @@ generate graphs whenever this is possible.
 By default, openITCOCKPIT will ping the target system to determine the host status. However, instead of a ping it is
 possible to use the results of the openITCOCKPIT Monitoring Agent to determine the host status. For more information,
 please see the
-documentation: [https://github.com/it-novum/openitcockpit-agent-go/wiki/Determining-the-host-status](https://github.com/it-novum/openitcockpit-agent-go/wiki/Determining-the-host-status)
+documentation: [https://github.com/openITCOCKPIT/openitcockpit-agent-go/wiki/Determining-the-host-status](https://github.com/openITCOCKPIT/openitcockpit-agent-go/wiki/Determining-the-host-status)
 
 ## Push mode
 
@@ -158,6 +158,6 @@ openITCOCKPIT will now evaluate the timestamp for the last message received from
 determine whether the host is available or not.
 
 For more information, please see the
-documentation: [https://github.com/it-novum/openitcockpit-agent-go/wiki/Determining-the-host-status](https://github.com/it-novum/openitcockpit-agent-go/wiki/Determining-the-host-status)
+documentation: [https://github.com/openITCOCKPIT/openitcockpit-agent-go/wiki/Determining-the-host-status](https://github.com/openITCOCKPIT/openitcockpit-agent-go/wiki/Determining-the-host-status)
 
 ![agent push host status](/images/agent-push-host-status.png)

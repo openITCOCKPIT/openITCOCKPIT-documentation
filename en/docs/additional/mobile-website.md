@@ -268,7 +268,7 @@ level.
     * `favicon.png`
 
 The file `interface.yml` is the corresponding configuration file, which contains all configurable parameters. You will
-an example of the file in the repository [interface.example.yml](https://github.com/it-novum/openITCOCKPIT-Mobile/blob/development/interface/interface.example.yml).
+an example of the file in the repository [interface.example.yml](https://github.com/openITCOCKPIT/openITCOCKPIT-Mobile/blob/development/interface/interface.example.yml).
 
 In order to take effect you will need to add the following parameter with your custom directory to the docker
 commandline:
@@ -289,7 +289,7 @@ required.
 This is an example configuration to illustrate how a configuration of the `interface.yml` file affects the mobile
 website.
 
-This example was inspired by the [Halloween theme](https://github.com/it-novum/oitc-halloween-theme) for openITCOCKPIT.
+This example was inspired by the [Halloween theme](https://github.com/openITCOCKPIT/oitc-halloween-theme) for openITCOCKPIT.
 
 ![ci-login](/images/mobile-website/ci-login.png){ width="300"}
 

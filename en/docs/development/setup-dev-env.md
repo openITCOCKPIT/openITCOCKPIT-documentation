@@ -123,8 +123,8 @@ sudo cp composer.phar /usr/local/bin/composer
 ## Cloning the GitHub source code 
 openITCOCKPIT uses git as a version control system. The repositories are publicly hosted on GitHub:
 
-- [openITCOCKPIT (back-end)](https://github.com/it-novum/openITCOCKPIT)
-- [openITCOCKPIT-frontend-angular](https://github.com/it-novum/openITCOCKPIT-frontend-angular)
+- [openITCOCKPIT (back-end)](https://github.com/openITCOCKPIT/openITCOCKPIT)
+- [openITCOCKPIT-frontend-angular](https://github.com/openITCOCKPIT/openITCOCKPIT-frontend-angular)
 
 ### Forking the openITCOCKPIT repositories
 Although not strictly necessary, it is strongly recommended that you create personal forks of both the front-end and back-end repositories. This will allow you to create pull requests and submit your changes to the openITCOCKPIT project.
@@ -154,8 +154,8 @@ git clone -b development https://github.com/%YOUR_ACCOUNT_NAME%/openITCOCKPIT-fr
 _(only recommended if you do NOT have a GitHub account)_
 ```bash
 cd /opt/openitc/
-git clone -b development https://github.com/it-novum/openITCOCKPIT frontend
-git clone -b development https://github.com/it-novum/openITCOCKPIT-frontend-angular frontend-angular
+git clone -b development https://github.com/openITCOCKPIT/openITCOCKPIT frontend
+git clone -b development https://github.com/openITCOCKPIT/openITCOCKPIT-frontend-angular frontend-angular
 ```
 
 ### Installing dependencies

@@ -357,7 +357,7 @@ $result = $ExampleNotesTable->find()
 ## Host und Servicestatus abfragen
 
 openITCOCKPIT unterstützt mehrere Datenbank-Backends in welchen Statusinformationen gespeichert werden können. Aus
-diesem Grund müssen zusammenhängende Tabellen immer über das [DbBackend](https://github.com/it-novum/openITCOCKPIT/blob/development/src/itnovum/openITCOCKPIT/Core/DbBackend.php) Objekt geladen werden.
+diesem Grund müssen zusammenhängende Tabellen immer über das [DbBackend](https://github.com/openITCOCKPIT/openITCOCKPIT/blob/development/src/itnovum/openITCOCKPIT/Core/DbBackend.php) Objekt geladen werden.
 
 Das DbBackend Objekt ist standardmäßig in jedem Controller verfügbar.
 

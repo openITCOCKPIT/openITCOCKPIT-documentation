@@ -1,6 +1,6 @@
 # [Work in progress] openITCOCKPIT-documentation
 
-This repository contains the documentation of [openITCOCKPIT](https://github.com/it-novum/openITCOCKPIT)
+This repository contains the documentation of [openITCOCKPIT](https://github.com/openITCOCKPIT/openITCOCKPIT)
 in German and English language.
 
 ## For users
@@ -18,7 +18,7 @@ Feel free to send a pull request.
 
 1. Clone this repository
 ```
-git clone https://github.com/it-novum/openITCOCKPIT-documentation.git
+git clone https://github.com/openITCOCKPIT/openITCOCKPIT-documentation.git
 cd openITCOCKPIT-documentation/
 ```
 
@@ -53,7 +53,7 @@ This part describes how to deploy the documentation as static HTML files. This i
 
 1. Clone this repository
 ```
-git clone https://github.com/it-novum/openITCOCKPIT-documentation.git
+git clone https://github.com/openITCOCKPIT/openITCOCKPIT-documentation.git
 cd openITCOCKPIT-documentation/
 ```
 

@@ -177,7 +177,7 @@ Currently, the following views support this feature:
 |Hosts|index <br /> notMonitored <br /> disabled|
 |Services|index <br /> notMonitored <br /> disabled|
 
-If you need a link in a previously unsupported view, please open an [issue on GitHub](https://github.com/it-novum/openITCOCKPIT/issues).
+If you need a link in a previously unsupported view, please open an [issue on GitHub](https://github.com/openITCOCKPIT/openITCOCKPIT/issues).
 
 `AdditionalLinks` are defined in the file `/opt/openitc/frontend/plugins/ExampleModule/src/Lib/AdditionalLinks.php` definiert.
 
