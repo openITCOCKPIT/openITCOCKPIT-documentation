@@ -179,6 +179,31 @@ Wenn Sie die Rotation im Vollbild modus anschauen möchten, klicken Sie wieder z
 
 ![](/images/mapmodule-rotationviewfullscreen.png)
 
+### Karten Generatoren
+
+Karten Generatoren können automatisch Karten mit Zusammenfassungselementen erstellen.
+
+![](/images/mapmodule-mapgeneratorindex.png)
+
+#### Generierung durch Container-Struktur
+
+Als Ausgangspunkt der Generierung dienen die Hosts. Es werden alle Hosts sowie Container von jeden Host bis zum Mandanten-Container berücksichtigt. Für jeden dieser Container wird eine Karte erstellt. Karten/Container, die hierarchisch in der Container-Struktur weiter unten stehen, werden den darüberliegenden Karten als Zusammenfassungselemente hinzugefügt, sodass die Container-Struktur durchgeklickt werden kann. Hosts werden ebenfalls der generierten Karte, die den zugewiesenen Container darstellt, als Zusammenfassungselemente hinzugefügt.
+
+![](/images/mapmodule-mapgeneratormapexample.png)
+
+Die Generierung kann durch die Angabe von Start-Containern eingeschränkt werden. Wenn Start-Container definiert sind, muss einer dieser Container in der Container-Hierarchie des Hosts bis zum Mandanten-Container vorkommen. Andernfalls wird der Host sowie dessen Hierarchie ignoriert. Diese Start-Container bilden dann die ersten Container in der Hierarchie, anstelle des Mandanten-Containers.
+
+![](/images/mapmodule-mapgeneratorgeneratedmaps.png)
+
+Die generierten Karten erhalten den Mandanten-Container oder, bei Verwendung von Start-Containern, den jeweiligen Start-Container in der Hierarchie als zugewiesenen Container.
+
+Das Feld „Elemente pro Zeile“ gibt an, wie viele Elemente in einer Reihe platziert werden, bevor ein Zeilenumbruch erfolgt.
+
+![](/images/mapmodule-mapgeneratoredit.png)
+
+Eine Karten-Generierung kann erneut gestartet werden. Dabei werden neue Elemente zu den bestehenden generierten Karten hinzugefügt oder neue Karten und Elemente erstellt, falls neue Hosts oder Container vorhanden sind.
+
+![](/images/mapmodule-mapgeneratorgenerate.png)
 
 ## OpenStreetMap <span class="badge badge-danger badge-outlined" title="Enterprise Edition">EE</span>
 

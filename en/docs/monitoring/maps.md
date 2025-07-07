@@ -176,6 +176,29 @@ Wenn Sie die Rotation im Vollbild modus anschauen möchten, klicken Sie wieder z
 
 ![](/images/mapmodule-rotationviewfullscreen.png)
 
+### Map generators
+
+Map generators can automatically create maps with summary items.
+
+#### Generation through container structure
+
+The hosts serve as the starting point for generation. All hosts and containers from each host to the client container are taken into account. A map is created for each of these containers. Maps/containers that are further down the hierarchy in the container structure are added to the maps above them as summary items so that the container structure can be clicked through. Hosts are also added as summary items to the generated map representing the assigned container.
+
+![](/images/mapmodule-mapgeneratormapexample.png)
+
+The generation can be restricted by specifying start containers. If start containers are defined, one of these containers must appear in the container hierarchy of the host up to the client container. Otherwise, the host and its hierarchy are ignored. These start containers then form the first containers in the hierarchy, instead of the client container.
+
+![](/images/mapmodule-mapgeneratorgeneratedmaps.png)
+
+The generated maps are assigned the client container or, if start containers are used, the respective start container in the hierarchy as the assigned container.
+
+The “Items per line” field specifies how many items are placed in a row before a line break occurs.
+
+![](/images/mapmodule-mapgeneratoredit.png)
+
+A map generation can be restarted. New items are added to the existing generated maps or new maps and items are created if new hosts or containers are available.
+
+![](/images/mapmodule-mapgeneratorgenerate.png)
 
 ## OpenStreetMap <span class="badge badge-danger badge-outlined" title="Enterprise Edition">EE</span>
 
