@@ -179,6 +179,31 @@ Wenn Sie die Rotation im Vollbild modus anschauen möchten, klicken Sie wieder z
 
 ![](/images/mapmodule-rotationviewfullscreen.png)
 
+### Karten Generatoren
+
+Karten Generatoren können automatisch Karten mit Zusammenfassungselementen erstellen.
+
+![](/images/mapmodule-mapgeneratorindex.png)
+
+#### Generierung durch Container-Struktur
+
+Als Ausgangspunkt der Generierung dienen die Hosts. Es werden alle Hosts sowie Container von jeden Host bis zu den angegebenen Container berücksichtigt. Für jeden dieser Container wird eine Karte erstellt. Karten/Container, die hierarchisch in der Container-Struktur weiter unten stehen, werden den darüberliegenden Karten als Zusammenfassungselemente hinzugefügt, sodass die Container-Struktur durchgeklickt werden kann. Hosts werden ebenfalls der generierten Karte, die den zugewiesenen Container darstellt, als Zusammenfassungselemente hinzugefügt.
+
+![](/images/mapmodule-mapgeneratormapexample.png)
+
+Die Generierung wird durch die Angabe von Containern eingeschränkt. Bei den angegebenen Containern, muss einer dieser Container in der Container-Hierarchie des Hosts bis zum Mandanten-Container vorkommen. Andernfalls wird der Host sowie dessen Hierarchie ignoriert. Diese Container bilden dann die ersten Container in der Hierarchie.
+
+![](/images/mapmodule-mapgeneratorgeneratedmaps.png)
+
+Die generierten Karten erhalten den angegebenen Container, der in der Hierarchie vorkommt, als zugewiesenen Container.
+
+Das Feld „Elemente pro Zeile“ gibt an, wie viele Elemente in einer Reihe platziert werden, bevor ein Zeilenumbruch erfolgt.
+
+![](/images/mapmodule-mapgeneratoredit.png)
+
+Eine Karten-Generierung kann erneut gestartet werden. Dabei werden neue Elemente zu den bestehenden generierten Karten hinzugefügt oder neue Karten und Elemente erstellt, falls neue Hosts oder Container vorhanden sind.
+
+![](/images/mapmodule-mapgeneratorgenerate.png)
 
 ## OpenStreetMap <span class="badge badge-danger badge-outlined" title="Enterprise Edition">EE</span>
 
