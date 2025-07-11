@@ -187,15 +187,15 @@ Karten Generatoren können automatisch Karten mit Zusammenfassungselementen erst
 
 #### Generierung durch Container-Struktur
 
-Als Ausgangspunkt der Generierung dienen die Hosts. Es werden alle Hosts sowie Container von jeden Host bis zum Mandanten-Container berücksichtigt. Für jeden dieser Container wird eine Karte erstellt. Karten/Container, die hierarchisch in der Container-Struktur weiter unten stehen, werden den darüberliegenden Karten als Zusammenfassungselemente hinzugefügt, sodass die Container-Struktur durchgeklickt werden kann. Hosts werden ebenfalls der generierten Karte, die den zugewiesenen Container darstellt, als Zusammenfassungselemente hinzugefügt.
+Als Ausgangspunkt der Generierung dienen die Hosts. Es werden alle Hosts sowie Container von jeden Host bis zu den angegebenen Container berücksichtigt. Für jeden dieser Container wird eine Karte erstellt. Karten/Container, die hierarchisch in der Container-Struktur weiter unten stehen, werden den darüberliegenden Karten als Zusammenfassungselemente hinzugefügt, sodass die Container-Struktur durchgeklickt werden kann. Hosts werden ebenfalls der generierten Karte, die den zugewiesenen Container darstellt, als Zusammenfassungselemente hinzugefügt.
 
 ![](/images/mapmodule-mapgeneratormapexample.png)
 
-Die Generierung kann durch die Angabe von Start-Containern eingeschränkt werden. Wenn Start-Container definiert sind, muss einer dieser Container in der Container-Hierarchie des Hosts bis zum Mandanten-Container vorkommen. Andernfalls wird der Host sowie dessen Hierarchie ignoriert. Diese Start-Container bilden dann die ersten Container in der Hierarchie, anstelle des Mandanten-Containers.
+Die Generierung wird durch die Angabe von Containern eingeschränkt. Bei den angegebenen Containern, muss einer dieser Container in der Container-Hierarchie des Hosts bis zum Mandanten-Container vorkommen. Andernfalls wird der Host sowie dessen Hierarchie ignoriert. Diese Container bilden dann die ersten Container in der Hierarchie.
 
 ![](/images/mapmodule-mapgeneratorgeneratedmaps.png)
 
-Die generierten Karten erhalten den Mandanten-Container oder, bei Verwendung von Start-Containern, den jeweiligen Start-Container in der Hierarchie als zugewiesenen Container.
+Die generierten Karten erhalten den angegebenen Container, der in der Hierarchie vorkommt, als zugewiesenen Container.
 
 Das Feld „Elemente pro Zeile“ gibt an, wie viele Elemente in einer Reihe platziert werden, bevor ein Zeilenumbruch erfolgt.
 
