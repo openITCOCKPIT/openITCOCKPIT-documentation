@@ -180,11 +180,13 @@ Wenn Sie die Rotation im Vollbild modus anschauen möchten, klicken Sie wieder z
 
 Map generators can automatically create maps with summary items.
 
+![](/images/mapmodule-mapgeneratorindex.png)
+
+![](/images/mapmodule-mapgeneratormapexample.png)
+
 #### Generation through container structure
 
 The hosts serve as the starting point for the generation. All hosts and containers from each host up to the tenant container are taken into account. A map is created for each of these containers. Maps/containers that are further down the hierarchy in the container structure are added to the maps above them as summary items so that the container structure can be clicked through. Hosts are also added as summary items to the generated map that represents the assigned container.
-
-![](/images/mapmodule-mapgeneratormapexample.png)
 
 The generation will be restricted by the specification of containers. For the specified containers, one of these containers must occur in the container hierarchy of the host up to the tenant container. Otherwise, the host and its hierarchy are ignored.
 

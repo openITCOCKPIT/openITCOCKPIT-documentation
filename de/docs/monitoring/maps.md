@@ -185,11 +185,11 @@ Karten Generatoren können automatisch Karten mit Zusammenfassungselementen erst
 
 ![](/images/mapmodule-mapgeneratorindex.png)
 
+![](/images/mapmodule-mapgeneratormapexample.png)
+
 #### Generierung durch Container-Struktur
 
 Als Ausgangspunkt der Generierung dienen die Hosts. Es werden alle Hosts sowie Container von jeden Host bis zu den Tenant Container berücksichtigt. Für jeden dieser Container wird eine Karte erstellt. Karten/Container, die hierarchisch in der Container-Struktur weiter unten stehen, werden den darüberliegenden Karten als Zusammenfassungselemente hinzugefügt, sodass die Container-Struktur durchgeklickt werden kann. Hosts werden ebenfalls der generierten Karte, die den zugewiesenen Container darstellt, als Zusammenfassungselemente hinzugefügt.
-
-![](/images/mapmodule-mapgeneratormapexample.png)
 
 Die Generierung wird durch die Angabe von Containern eingeschränkt. Bei den angegebenen Containern, muss einer dieser Container in der Container-Hierarchie des Hosts bis zum Tenant-Container vorkommen. Andernfalls wird der Host sowie dessen Hierarchie ignoriert.
 
