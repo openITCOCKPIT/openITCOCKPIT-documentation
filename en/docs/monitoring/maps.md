@@ -182,15 +182,15 @@ Map generators can automatically create maps with summary items.
 
 #### Generation through container structure
 
-The hosts serve as the starting point for the generation. All hosts and containers from each host up to the specified container are taken into account. A map is created for each of these containers. Maps/containers that are further down the hierarchy in the container structure are added to the maps above them as summary items so that the container structure can be clicked through. Hosts are also added as summary items to the generated map that represents the assigned container.
+The hosts serve as the starting point for the generation. All hosts and containers from each host up to the tenant container are taken into account. A map is created for each of these containers. Maps/containers that are further down the hierarchy in the container structure are added to the maps above them as summary items so that the container structure can be clicked through. Hosts are also added as summary items to the generated map that represents the assigned container.
 
 ![](/images/mapmodule-mapgeneratormapexample.png)
 
-The generation will be restricted by the specification of containers. For the specified containers, one of these containers must occur in the container hierarchy of the host up to the client container. Otherwise, the host and its hierarchy are ignored. These containers then form the first containers in the hierarchy.
+The generation will be restricted by the specification of containers. For the specified containers, one of these containers must occur in the container hierarchy of the host up to the tenant container. Otherwise, the host and its hierarchy are ignored.
 
 ![](/images/mapmodule-mapgeneratorgeneratedmaps.png)
 
-The generated maps receive the specified container that occurs in the hierarchy as the assigned container.
+The generated maps receive the tenant container that occurs in the hierarchy as the assigned container.
 
 The “Items per line” field specifies how many items are placed in a row before a line break occurs.
 
@@ -199,6 +199,14 @@ The “Items per line” field specifies how many items are placed in a row befo
 A map generation can be restarted. New items are added to the existing generated maps or new maps and items are created if new hosts or containers are available.
 
 ![](/images/mapmodule-mapgeneratorgenerate.png)
+
+#### Generation through hostname splitting
+
+When generating by host name splitting, all host names are split according to the specified levels and their dividers. A map is created for each part, whereby the map further down in the level hierarchy is added to the upper one as a summary item. No map is created for the last specified level. The system checks whether there is a host with this name for this level. This is then added to the last map in the level hierarchy as a summary item. The entire host with its levels is not included in the generation if no host is found. The number of parts must also match the number of defined levels in order to be included in the generation.
+
+One of the defined levels must be defined as a container level. This level is checked to see whether there is a container with this name. It must also match one of the containers specified above. If neither is the case, the host and its levels are ignored during generation.
+
+![](/images/mapmodule-mapgeneratoredit-hostnamesplitting.png)
 
 ## OpenStreetMap <span class="badge badge-danger badge-outlined" title="Enterprise Edition">EE</span>
 

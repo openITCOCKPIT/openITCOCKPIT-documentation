@@ -187,15 +187,15 @@ Karten Generatoren können automatisch Karten mit Zusammenfassungselementen erst
 
 #### Generierung durch Container-Struktur
 
-Als Ausgangspunkt der Generierung dienen die Hosts. Es werden alle Hosts sowie Container von jeden Host bis zu den angegebenen Container berücksichtigt. Für jeden dieser Container wird eine Karte erstellt. Karten/Container, die hierarchisch in der Container-Struktur weiter unten stehen, werden den darüberliegenden Karten als Zusammenfassungselemente hinzugefügt, sodass die Container-Struktur durchgeklickt werden kann. Hosts werden ebenfalls der generierten Karte, die den zugewiesenen Container darstellt, als Zusammenfassungselemente hinzugefügt.
+Als Ausgangspunkt der Generierung dienen die Hosts. Es werden alle Hosts sowie Container von jeden Host bis zu den Tenant Container berücksichtigt. Für jeden dieser Container wird eine Karte erstellt. Karten/Container, die hierarchisch in der Container-Struktur weiter unten stehen, werden den darüberliegenden Karten als Zusammenfassungselemente hinzugefügt, sodass die Container-Struktur durchgeklickt werden kann. Hosts werden ebenfalls der generierten Karte, die den zugewiesenen Container darstellt, als Zusammenfassungselemente hinzugefügt.
 
 ![](/images/mapmodule-mapgeneratormapexample.png)
 
-Die Generierung wird durch die Angabe von Containern eingeschränkt. Bei den angegebenen Containern, muss einer dieser Container in der Container-Hierarchie des Hosts bis zum Mandanten-Container vorkommen. Andernfalls wird der Host sowie dessen Hierarchie ignoriert. Diese Container bilden dann die ersten Container in der Hierarchie.
+Die Generierung wird durch die Angabe von Containern eingeschränkt. Bei den angegebenen Containern, muss einer dieser Container in der Container-Hierarchie des Hosts bis zum Tenant-Container vorkommen. Andernfalls wird der Host sowie dessen Hierarchie ignoriert.
 
 ![](/images/mapmodule-mapgeneratorgeneratedmaps.png)
 
-Die generierten Karten erhalten den angegebenen Container, der in der Hierarchie vorkommt, als zugewiesenen Container.
+Die generierten Karten erhalten den Tenant Container, der in der Hierarchie vorkommt, als zugewiesenen Container.
 
 Das Feld „Elemente pro Zeile“ gibt an, wie viele Elemente in einer Reihe platziert werden, bevor ein Zeilenumbruch erfolgt.
 
@@ -204,6 +204,14 @@ Das Feld „Elemente pro Zeile“ gibt an, wie viele Elemente in einer Reihe pla
 Eine Karten-Generierung kann erneut gestartet werden. Dabei werden neue Elemente zu den bestehenden generierten Karten hinzugefügt oder neue Karten und Elemente erstellt, falls neue Hosts oder Container vorhanden sind.
 
 ![](/images/mapmodule-mapgeneratorgenerate.png)
+
+#### Generierung durch Hostname Teilung
+
+Bei der Generierung durch Hostnamen Teilung werden alle Hostnamen anhand der angegebenen Ebenen und ihre Teiler zerstückelt. Pro Teil wird eine Karte erstellt. wobei die Karte die weiter unten in der Ebenen Hierarchie steht der oberen als Zusammenfassungselement hinzugefügt wird. Für die letzte angebene Ebene wird keine Karte erstellt. Für diese Ebene wird geprüft ob es einen Host mit diesem Namen gibt. Dieser wird dann der letzten Karte in der Ebenen Hierarchie als Zusammenfassungselement hinzugefügt. Der gesammte Host mit seinen Ebenen wird in der Generierung nicht berücksichtigt falls kein Host gefunden wurde. Ebenfalls müssen die Anzahl der Teile mit der Anzahl der definierten Ebenen übereinstimmen um bei der Generierung berücksichtigt zu werden.
+
+Eines der definierten Ebenen muss als Container Ebene definiert sein. Bei dieser Ebene wird geprüft ob es einen Container mit diesem Namen gibt. Ebenfalls muss er mit einer der weiter oben angegebenen Containern übereinstimmen. Ist eins von beiden nicht der Fall wird der Host und seine Ebenen bei der Generierung ingoriert. 
+
+![](/images/mapmodule-mapgeneratoredit-hostnamesplitting.png)
 
 ## OpenStreetMap <span class="badge badge-danger badge-outlined" title="Enterprise Edition">EE</span>
 
