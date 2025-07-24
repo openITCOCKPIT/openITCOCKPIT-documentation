@@ -23,9 +23,9 @@ Create a new Request Header with the name `Authorization` and as value `X-OITC-A
 
 For Example:
 
-| Name            | Value                                        |
-|-----------------|----------------------------------------------|
-| `Authorization` | `X-OITC-APIfe9ab803c661d712059c0e6c15[...]`  |
+| Name            | Value                                         |
+|-----------------|-----------------------------------------------|
+| `Authorization` | `X-OITC-API fe9ab803c661d712059c0e6c15[...]`  |
 
 ![openITCOCKPIT Authorization header](/images/modheader-kiosk.png)
 
