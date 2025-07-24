@@ -304,7 +304,7 @@ Um die Änderungen zu übernehmen, starten Sie alle Container neu, oder den `mod
 
 1. Als Name können sie `openitcockpit-ce` setzen.
 
-2. Das [Docker-Compose-File](https://raw.githubusercontent.com/it-novum/openITCOCKPIT-ce-docker/main/compose.yml) können Sie entweder über den Web-Editor hinzufügen, oder alternativ direkt aus dem GitHub Repository `https://github.com/openITCOCKPIT/openITCOCKPIT-ce-docker` beziehen.
+2. Das [Docker-Compose-File](https://raw.githubusercontent.com/openITCOCKPIT/openITCOCKPIT-ce-docker/main/compose.yml) können Sie entweder über den Web-Editor hinzufügen, oder alternativ direkt aus dem GitHub Repository `https://github.com/openITCOCKPIT/openITCOCKPIT-ce-docker` beziehen.
 
     **Bitte beachten Sie**, dass alle Verweise auf das `openitcockpit.env`-File durch `stack.env` ersetzten müssen.
 
@@ -323,7 +323,7 @@ Um die Änderungen zu übernehmen, starten Sie alle Container neu, oder den `mod
     Sie können dies mit Hilfe des Web-Editors durchführen. (`CTRL + F` oder `CMD + F`)
     ![Find and replace openitcockpit.env with stack.env](/images/docker/portainer_stack_env.png)
 
-3. Wähle Sie unter `Environment variables` den `Advanced mode` und kopieren Sie den Inhalt der Datei [openitcockpit.env](https://raw.githubusercontent.com/it-novum/openITCOCKPIT-ce-docker/main/openitcockpit.env).
+3. Wähle Sie unter `Environment variables` den `Advanced mode` und kopieren Sie den Inhalt der Datei [openitcockpit.env](https://raw.githubusercontent.com/openITCOCKPIT/openITCOCKPIT-ce-docker/main/openitcockpit.env).
     Alternative können Sie auch `Load variables from .env file` auswählen dann die Datei `openitcockpit.env` hochladen.
     ![Portainer Stack configuration for openITCOCKPIT](/images/docker/portainer_create_stack.png)
 

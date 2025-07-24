@@ -4,7 +4,7 @@
 
 Um professionellen Support zu erhalten, ist eine Subskription erforderlich. Weitere Informationen zum professionellen
 Support und den verfügbaren Lizenzen erhalten Sie auf der Webseite der
-[it-novum.com](https://it-services.it-novum.com/monitoring-zukunft/openitcockpit-enterprise-subscription/)
+[openitcockpit.io](https://openitcockpit.io/editions/)
 
 ## Community Support
 

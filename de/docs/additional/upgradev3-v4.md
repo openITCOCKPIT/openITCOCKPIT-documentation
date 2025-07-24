@@ -100,7 +100,7 @@ Kompatibilitätscheck-Skript zur verfügung.
 Führen Sie das Skript auf ihrer openITCOCKPIT Instanz aus.
 
 ```bash
-curl -s https://raw.githubusercontent.com/it-novum/openITCOCKPIT/development/bin/scripts/oitc3to4.sh | sudo /bin/bash
+curl -s https://raw.githubusercontent.com/openITCOCKPIT/openITCOCKPIT/development/bin/scripts/oitc3to4.sh | sudo /bin/bash
 ```
 
 ![oitc 3-4](/images/oitc3to4.png)
@@ -243,7 +243,7 @@ apt-get dist-upgrade
 **Danach führen Sie das openITCOCKPIT Satelliten Checklisten Skript aus und folgen den Anweisungen**
 
 ```bash
-curl -s https://raw.githubusercontent.com/it-novum/openITCOCKPIT/development/bin/scripts/oitcSat3to4.sh | sudo /bin/bash
+curl -s https://raw.githubusercontent.com/openITCOCKPIT/openITCOCKPIT/development/bin/scripts/oitcSat3to4.sh | sudo /bin/bash
 ```
 
 ### Bekannte Probleme
@@ -384,5 +384,5 @@ Danach sollte die Weboberfläche sichtbar und die Distributionsaktualisierung ab
 
 #### Ich nutze Ubuntu Trusty oder Debian Jessie
 
-Bitte Kontaktieren Sie uns über unser [Sales Kontaktformular](https://it-services.it-novum.com/)
+Bitte Kontaktieren Sie uns über unser [Sales Kontaktformular](https://www.allgeier-its.com/unternehmen/#kontakt)
 

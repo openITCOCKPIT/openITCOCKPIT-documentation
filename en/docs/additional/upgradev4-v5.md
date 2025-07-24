@@ -139,7 +139,7 @@ To ensure that your system is capable of being updated to openITCOCKPIT 5.x, we 
 Execute the following script on your openITCOCKPIT instance:
 
 ```bash
-curl -s https://raw.githubusercontent.com/it-novum/openITCOCKPIT/development/bin/scripts/oitc4to5.sh | sudo /bin/bash
+curl -s https://raw.githubusercontent.com/openITCOCKPIT/openITCOCKPIT/development/bin/scripts/oitc4to5.sh | sudo /bin/bash
 ```
 
 ![oitc4to5 successful compatibility check](/images/openitcockpit5/oitc4to5_success.png)
@@ -332,7 +332,7 @@ To ensure that your system is capable of being updated to openITCOCKPIT 5.x, we 
 Execute the following script on your openITCOCKPIT Satellite instance:
 
 ```bash
-curl -s https://raw.githubusercontent.com/it-novum/openITCOCKPIT/refs/heads/development/bin/scripts/oitcSat4to5.sh | sudo /bin/bash
+curl -s https://raw.githubusercontent.com/openITCOCKPIT/openITCOCKPIT/refs/heads/development/bin/scripts/oitcSat4to5.sh | sudo /bin/bash
 ```
 
 #### Step 4 -  Updating openITCOCKPIT Satellite
@@ -353,7 +353,7 @@ Some Enterprise Linux installations still use PHP 8.0, in this case you need to 
 Due to the amount of support complexity with Enterprise Linux systems, only the [openITCOCKPIT Enterprise Edition](https://openitcockpit.io/editions/) is avaiable for
 Red Hat Enterprise Linux and RHEL based distributions such as: CentOS, Rocky Linux AlmaLinux or Oracle Linux.
 
-Please get in [touch with us](https://it-services.it-novum.com/en/) if you need assistants upgrading your installation of openITCOCKPIT.
+Please get in [touch with us](https://www.allgeier-its.com/unternehmen/#kontakt) if you need assistants upgrading your installation of openITCOCKPIT.
 
 
 Before you start, make sure you have installed the latest updates for your system:
@@ -465,4 +465,4 @@ For the update process to complete successfully, you must be using at least vers
 
 #### What if I use Ubuntu Bionic, Debian Buster or openITCOCKPIT 3?
 
-Please get in [touch with us](https://it-services.it-novum.com/en/).
+Please get in [touch with us](https://www.allgeier-its.com/unternehmen/#kontakt).

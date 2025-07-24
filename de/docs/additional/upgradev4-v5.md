@@ -138,7 +138,7 @@ Um sicherzustellen, dass Ihr System auf openITCOCKPIT 5.x aktualisiert werden ka
 Führen Sie das folgende Skript auf Ihrer openITCOCKPIT-Instanz aus:
 
 ```bash
-curl -s https://raw.githubusercontent.com/it-novum/openITCOCKPIT/development/bin/scripts/oitc4to5.sh | sudo /bin/bash
+curl -s https://raw.githubusercontent.com/openITCOCKPIT/openITCOCKPIT/development/bin/scripts/oitc4to5.sh | sudo /bin/bash
 ```
 
 ![oitc4to5 Erfolgreiche Kompatibilitätsprüfung](/images/openitcockpit5/oitc4to5_success.png)
@@ -326,7 +326,7 @@ Um sicherzustellen, dass Ihr System auf openITCOCKPIT 5.x aktualisiert werden ka
 Führen Sie das folgende Skript auf Ihrer openITCOCKPIT-Satellit-Instanz aus:
 
 ```bash
-curl -s https://raw.githubusercontent.com/it-novum/openITCOCKPIT/refs/heads/development/bin/scripts/oitcSat4to5.sh | sudo /bin/bash
+curl -s https://raw.githubusercontent.com/openITCOCKPIT/openITCOCKPIT/refs/heads/development/bin/scripts/oitcSat4to5.sh | sudo /bin/bash
 ```
 
 #### Schritt 4 - openITCOCKPIT-Satellit aktualisieren
@@ -347,7 +347,7 @@ Einige Enterprise Linux Installationen verwenden noch PHP 8.0. In diesem Fall m�
 Aufgrund der Komplexität des Supports für Enterprise Linux Systeme ist nur die [openITCOCKPIT Enterprise Edition](https://openitcockpit.io/editions/) für 
 Red Hat Enterprise Linux und RHEL-basierte Distributionen wie CentOS, Rocky Linux, AlmaLinux oder Oracle Linux verfügbar.
 
-Bitte nehmen Sie [Kontakt mit uns auf](https://it-services.it-novum.com/de/), wenn Sie Unterstützung bei der Aktualisierung Ihrer openITCOCKPIT Installation benötigen.
+Bitte nehmen Sie [Kontakt mit uns auf](https://www.allgeier-its.com/unternehmen/#kontakt), wenn Sie Unterstützung bei der Aktualisierung Ihrer openITCOCKPIT Installation benötigen.
 
 Stellen Sie vor dem Start sicher, dass Sie die neuesten Updates für Ihr System installiert haben:
 ```bash

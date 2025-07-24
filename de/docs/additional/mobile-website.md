@@ -5,7 +5,7 @@
 Die Mobile Webseite ist so konzipiert, dass Sie auf einem eigenen Server betrieben werden kann.
 
 Um eine Instanz der Mobilen Webseite zu erzeugen, benötigen Sie eine openITCOCKPIT Enterprise Lizenz, welche Sie
-berechtigt, die Mobile Webseite zu installieren. Bitte Kontaktieren Sie uns über unser [Sales-Kontaktformular](https://it-services.it-novum.com/)
+berechtigt, die Mobile Webseite zu installieren. Bitte Kontaktieren Sie uns über unser [Sales-Kontaktformular](https://www.allgeier-its.com/)
 
 Sind die voraussetzungen dafür geschaffen, benötigen Sie auf ihrem neuen System Docker.
 

@@ -19,7 +19,7 @@ Bitte melden Sie eventuelle Schwachstellen und Sicherheitslücken in openITCOCKP
 Alle bekannten Schwachstellen sind hier einsehbar: [https://openitcockpit.io/security/](https://openitcockpit.io/security/)
 
 ## Support
-Professionelle Unterstützung und Support wird durch die [it-novum GmbH](https://it-services.it-novum.com/support-2/) angeboten.
+Professionelle Unterstützung und Support wird durch die [Allgeier IT Services GmbH](https://www.allgeier-its.com/) angeboten.
 
 ### Community
 
@@ -33,6 +33,7 @@ openITCOCKPIT und die Dokumentation stehen unter einer dualen Lizenz:
 
 ```
 Copyright (C) 2015-2025  it-novum GmbH
+Copyright (C) 2025-today Allgeier IT Services GmbH
 
 
 openITCOCKPIT is dual licensed

@@ -5,7 +5,7 @@
 The Mobile Website is designed to run on its own server.
 
 To create an instance of the Mobile Website you need an openITCOCKPIT Enterprise License, which entitles you to install
-the Mobile Website. Please contact us via our [sales contact form](https://it-services.it-novum.com/)
+the Mobile Website. Please contact us via our [sales contact form](https://www.allgeier-its.com/unternehmen/#kontakt)
 
 Once the requirements are met, you will need Docker on your new system.
 

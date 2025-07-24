@@ -2,7 +2,7 @@
 
 ## Professional Support
 
-To receive Professional support, a subscription is required. Further information regarding Professional support and the licenses available to you can be found on the [it-novum.com](https://it-services.it-novum.com/monitoring-zukunft/openitcockpit-enterprise-subscription/) website.
+To receive Professional support, a subscription is required. Further information regarding Professional support and the licenses available to you can be found on the [openitcockpit.io](https://openitcockpit.io/editions) website.
 
 ## Community Support
 

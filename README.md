@@ -91,6 +91,7 @@ Go to `http://127.0.0.1:8080/`
 ## License
 ```
 Copyright (C) 2015-2025  it-novum GmbH
+Copyright (C) 2025-today Allgeier IT Services GmbH
 
 
 openITCOCKPIT is dual licensed
