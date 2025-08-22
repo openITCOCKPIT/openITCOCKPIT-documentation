@@ -31,6 +31,16 @@ echo "deb [signed-by=/etc/apt/keyrings/openitcockpit-keyring.asc] https://packag
 apt-get update
 ```
 
+#### Docker für Ubuntu
+
+openITCOCKPIT benötigt Docker. Alternativ können Sie auch der [offiziellen Anleitung](https://docs.docker.com/engine/install/ubuntu/) folgen.
+
+```
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
+echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu $(. /etc/os-release && echo "${UBUNTU_CODENAME:-$VERSION_CODENAME}") stable" | tee /etc/apt/sources.list.d/docker.list > /dev/null
+apt-get update
+```
+
 ### Debian
 
 Stellen Sie sicher, dass Sie `contrib` und `non-free` Repositorys in `/etc/apt/sources.list.d/debian.sources` aktiviert haben.
@@ -54,6 +64,16 @@ apt-get install apt-transport-https curl gnupg2 ca-certificates
 mkdir -p /etc/apt/keyrings
 curl https://packages5.openitcockpit.io/repokey.txt | tee /etc/apt/keyrings/openitcockpit-keyring.asc
 echo "deb [signed-by=/etc/apt/keyrings/openitcockpit-keyring.asc] https://packages5.openitcockpit.io/openitcockpit/$(lsb_release -sc)/stable $(lsb_release -sc) main" > /etc/apt/sources.list.d/openitcockpit.list
+apt-get update
+```
+
+#### Docker für Debian
+
+openITCOCKPIT benötigt Docker. Alternativ können Sie auch der [offiziellen Anleitung](https://docs.docker.com/engine/install/debian/) folgen.
+
+```
+curl -fsSL https://download.docker.com/linux/debian/gpg -o /etc/apt/keyrings/docker.asc
+echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/debian $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | tee /etc/apt/sources.list.d/docker.list > /dev/null
 apt-get update
 ```
 
