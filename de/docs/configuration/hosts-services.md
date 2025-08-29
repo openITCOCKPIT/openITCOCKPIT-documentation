@@ -473,8 +473,9 @@ Danach Speichert man und die Hostgruppe ist fertig erstellt.
 | Name | :fontawesome-solid-xmark: | Name der Hostgruppe |
 | Beschreibung |  | Beschreibung der Hostgruppe |
 | Hostgruppen URL |  | URL der Hostgruppe |
+| Stichworte |  | Tags |
 | Hosts |  | [Hosts](#hosts) die zur Hostgruppe hinzugefügt werden sollen |
-| Hostvorlagen | :fontawesome-solid-xmark: | Die [Hostvorlagen](#hostvorlagen) die zur Hostgruppe hinzugefügt werden sollen |
+| Hostvorlagen |  | Die [Hostvorlagen](#hostvorlagen) die zur Hostgruppe hinzugefügt werden sollen |
 
 ### Erweiterte Ansicht
 
@@ -511,8 +512,9 @@ Danach Speichert man und die Servicegruppe ist fertig erstellt.
 | Name | :fontawesome-solid-xmark: | Name der Servicegruppe |
 | Beschreibung |  | Beschreibung der Servicegruppe |
 | Servicegruppen URL |  | URL der Servicegruppe |
+| Stichworte |  | Tags |
 | Services |  | [Services](#services) die zur Hostgruppe hinzugefügt werden sollen |
-| Servicevorlage | :fontawesome-solid-xmark: | Die [Servicevorlagen](#servicevorlagen) die zur Servicegruppe hinzugefügt werden sollen |
+| Servicevorlage |  | Die [Servicevorlagen](#servicevorlagen) die zur Servicegruppe hinzugefügt werden sollen |
 
 ### Erweiterte Ansicht
 

@@ -463,8 +463,9 @@ You can now save your work and the host group will be created.
 | Name           | :fontawesome-solid-xmark: | The name of the host group                                                    |
 | Description    |                           | The description of the host group                                             |
 | Host group URL |                           | The URL of the host group                                                     |
+| Keywords       |                           | Tags                                                                          |   
 | Hosts          |                           | [Hosts](#hosts) to add to the host group                                      |
-| Host templates | :fontawesome-solid-xmark: | The [Host templates](#host-templates) to add to the host group                |
+| Host templates |                           | The [Host templates](#host-templates) to add to the host group                |
 
 ### Expanded view
 
@@ -504,8 +505,9 @@ You can now save your work and the service group will be created.
 | Name              | :fontawesome-solid-xmark: | The name of the service group                                                    |
 | Description       |                           | A description of the service group                                               |
 | Service group URL |                           | The URL for the service group                                                    |
+| Keywords          |                           | Tags                                                                             |   
 | Services          |                           | [Services](#services) to be added to the host group                              |
-| Service templates | :fontawesome-solid-xmark: | The [Servicevorlagen](#service-templates) to be added to the service group       |
+| Service templates |                           | The [Servicevorlagen](#service-templates) to be added to the service group       |
 
 ### Expanded view
 
