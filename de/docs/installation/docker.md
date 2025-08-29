@@ -106,6 +106,52 @@ Die Docker-Registry von openITCOCKPIT beinhaltet für alle Container die folgend
 
 - `nightly` - Ein **ungetesteter** Build von openITCOCKPIT, welcher automatisiert erstellt und veröffentlicht wurde. Kann zum Testen von neuen Versionen und Feature genutzt werden. **Nicht für den produktiven Einsatz gedacht!**
 
+## TLS-Zertifikate einrichten
+Standardmäßig erstellt und verwendet openITCOCKPIT ein selbstsigniertes Zertifikat. Es ist jedoch auch möglich, eigene Zertifikate wie zum Beispiel von Let’s Encrypt zu verwenden.
+
+Zuerst müssen Sie den Pfad zu den Zertifikatsdateien in der Datei `openitcockpit.env` anpassen:
+```
+OITC_NGINX_SSL_CERTIFICATE=/tmp/Lets_Encrypt/cert.crt
+OITC_NGINX_SSL_CERTIFICATE_KEY=/tmp/Lets_Encrypt/private.key
+```
+
+Im nächsten Schritt müssen Sie die Zertifikatsdateien in den Container einbinden. Dies geschieht, indem Sie in der `compose.yml` einen Bind-Mount für den `openitcockpit`-Container erstellen.
+
+Kurzes Beispiel
+```yml
+    volumes:
+      - /host/ssl/Lets_Encrypt:/tmp/Lets_Encrypt:ro                           # Pfad zu den Zertifikatsdateien
+```
+
+Komplettes Beispiel
+```yml
+  openitcockpit:
+    image: openitcockpit/openitcockpit-ce:latest                              # Community Edition of openITCOCKPIT
+    init: true
+    env_file:
+     - openitcockpit.env
+    ports:
+      - "80:80"       # HTTP
+      - "443:443"     # HTTPS
+    networks:
+      - oitc-backend
+    volumes:
+      - naemon-config:/opt/openitc/nagios/etc/config                          # Configuration files related to Naemon
+      - naemon-var:/opt/openitc/nagios/var                                    # The status.dat is required for the recurring downtimes cronjob
+      - oitc-frontend-src:/opt/openitc/src_sharing/frontend                   # Frontend of openITCOCKPIT to be shared with mod_gearman container so that the container can execute the EVC plugin
+      - oitc-webroot:/opt/openitc/frontend/webroot                            # Webroot of openITCOCKPIT to keep images and share files with puppeteer
+      - oitc-maps:/opt/openitc/frontend/plugins/MapModule/webroot/img         # Images of the MapModule
+      - oitc-agent-cert:/opt/openitc/agent                                    # TLS certificats of the openITCOCKPIT Monitoring Agent
+      - oitc-agent-etc:/opt/openitc/receiver/etc                              # Configuration for the openITCOCKPIT Monitoring Agent Check Reciver
+      - oitc-var:/opt/openitc/var                                             # A safe harbor to store .lock files
+      - oitc-backups:/opt/openitc/nagios/backup                               # Automaticaly generated MySQL dumps
+      #- oitc-import:/opt/openitc/frontend/plugins/ImportModule/webroot/files # Uplaoded files of the ImportModule
+      - oitc-styles:/opt/openitc/frontend/plugins/DesignModule/webroot/css    # Custom styles of the DesignModule
+      - checkmk-agents:/opt/openitc/check_mk/agents:ro
+      - checkmk-etc:/opt/openitc/check_mk/etc/check_mk
+      - checkmk-var:/opt/openitc/check_mk/var/check_mk
+      - /host/ssl/Lets_Encrypt:/tmp/Lets_Encrypt:ro                           # Pfad zu den Zertifikatsdateien
+```
 
 ## Fehlersuche
 

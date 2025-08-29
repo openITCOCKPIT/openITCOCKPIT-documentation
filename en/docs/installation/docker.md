@@ -105,6 +105,52 @@ The Docker registry of openITCOCKPIT includes the following tags for all contain
 
 - `nightly` - An **untested** build of openITCOCKPIT which has been automatically created and released. Can be used for testing new versions and features. **Not intended for production use!**
 
+## Setup TLS Certificates
+By default, openITCOCKPIT will generate and use a self-signed certificate. It is also possible to use own certificates like Let’s Encrypt for example.
+
+First, you have to change the path to the certificate files through the file `openitcockpit.env`:
+```
+OITC_NGINX_SSL_CERTIFICATE=/tmp/Lets_Encrypt/cert.crt
+OITC_NGINX_SSL_CERTIFICATE_KEY=/tmp/Lets_Encrypt/private.key
+```
+
+In the next step you need to mount the certificate files into the container. You can do this by adding a bind-mount for the `openitcockpit` container into the `compose.yml`
+
+Short example:
+```yml
+    volumes:
+      - /host/ssl/Lets_Encrypt:/tmp/Lets_Encrypt:ro                           # Pass Lets Encrypt Certificate
+```
+
+Full example:
+```yml
+  openitcockpit:
+    image: openitcockpit/openitcockpit-ce:latest                              # Community Edition of openITCOCKPIT
+    init: true
+    env_file:
+     - openitcockpit.env
+    ports:
+      - "80:80"       # HTTP
+      - "443:443"     # HTTPS
+    networks:
+      - oitc-backend
+    volumes:
+      - naemon-config:/opt/openitc/nagios/etc/config                          # Configuration files related to Naemon
+      - naemon-var:/opt/openitc/nagios/var                                    # The status.dat is required for the recurring downtimes cronjob
+      - oitc-frontend-src:/opt/openitc/src_sharing/frontend                   # Frontend of openITCOCKPIT to be shared with mod_gearman container so that the container can execute the EVC plugin
+      - oitc-webroot:/opt/openitc/frontend/webroot                            # Webroot of openITCOCKPIT to keep images and share files with puppeteer
+      - oitc-maps:/opt/openitc/frontend/plugins/MapModule/webroot/img         # Images of the MapModule
+      - oitc-agent-cert:/opt/openitc/agent                                    # TLS certificats of the openITCOCKPIT Monitoring Agent
+      - oitc-agent-etc:/opt/openitc/receiver/etc                              # Configuration for the openITCOCKPIT Monitoring Agent Check Reciver
+      - oitc-var:/opt/openitc/var                                             # A safe harbor to store .lock files
+      - oitc-backups:/opt/openitc/nagios/backup                               # Automaticaly generated MySQL dumps
+      #- oitc-import:/opt/openitc/frontend/plugins/ImportModule/webroot/files # Uplaoded files of the ImportModule
+      - oitc-styles:/opt/openitc/frontend/plugins/DesignModule/webroot/css    # Custom styles of the DesignModule
+      - checkmk-agents:/opt/openitc/check_mk/agents:ro
+      - checkmk-etc:/opt/openitc/check_mk/etc/check_mk
+      - checkmk-var:/opt/openitc/check_mk/var/check_mk
+      - /host/ssl/Lets_Encrypt:/tmp/Lets_Encrypt:ro                           # Pass Lets Encrypt Certificate
+```
 
 ## Troubleshooting
 
