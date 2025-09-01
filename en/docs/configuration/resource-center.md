@@ -44,17 +44,24 @@ By clicking on a specific resource group, a detailed view is displayed.
 
 By clicking the <code>+ New</code> button, the area where you can create a new resource group opens.
 
-The container determines the visibility of this group. Automatically, this serves as a filter for user selection. The user selection determines which users are allowed to set a status. The division between Region Manager, Manager, and Users determines who receives a reminder email, status email, escalation email, or cumulative status email.
-An escalation is triggered if no status is set even after the reminder email is sent. The reminder email goes to all users and managers. The escalation email or status email goes only to managers. The cumulative status email is sent to the Region Manager.
+The container determines the visibility of this group. Automatically, this serves as a filter for user selection. The
+user selection determines which users are allowed to set a status. The division between Region Manager, Manager, and
+Users determines who receives a reminder email, status email, escalation email, or cumulative status email.
+An escalation is triggered if no status is set even after the reminder email is sent. The reminder email goes to all
+users and managers. The escalation email or status email goes only to managers. The cumulative status email is sent to
+the Region Manager.
 
-| Field          | Required                  | Description                                                                                                      |
-|----------------|---------------------------|------------------------------------------------------------------------------------------------------------------|
-| Container      | :fontawesome-solid-xmark: | The container determines the visibility of this group. Automatically, this serves as a filter for user selection |
-| Name           | :fontawesome-solid-xmark: | Name of the resource group                                                                                       |
-| Description    |                           | Description of the resource group                                                                                |
-| Users          | :fontawesome-solid-xmark: | Users who receive a reminder and escalation email                                                                |
-| Managers       | :fontawesome-solid-xmark: | Users who receive an escalation email                                                                            |
-| Region Manager | :fontawesome-solid-xmark: | Users who receive a cumulative status email                                                                      |
+| Field                         | Required                  | Description                                                                                                      |
+|-------------------------------|---------------------------|------------------------------------------------------------------------------------------------------------------|
+| Container                     | :fontawesome-solid-xmark: | The container determines the visibility of this group. Automatically, this serves as a filter for user selection |
+| Name                          | :fontawesome-solid-xmark: | Name of the resource group                                                                                       |
+| Description                   |                           | Description of the resource group                                                                                |
+| Users                         | :fontawesome-solid-xmark: | Users who receive a reminder and escalation email                                                                |
+| Users [Mailing list]          | :fontawesome-solid-xmark: | Mailing lists who receive a reminder and escalation email                                                        |
+| Managers                      | :fontawesome-solid-xmark: | Users who receive an escalation or status email                                                                  |
+| Managers [Mailing list]       | :fontawesome-solid-xmark: | Mailing lists who receive an escalation or status email                                                          |
+| Region Manager                |                           | Users who receive a cumulative status email                                                                      |
+| Region Manager [Mailing list] |                           | Mailing lists who receive a cumulative status email                                                              |
 
 #### Reminder Email
 
@@ -72,11 +79,33 @@ An escalation is triggered if no status is set even after the reminder email is 
 
 ![Cumulative Status Email](/images/scm/scm_cumulative_report_mail.png)
 
-
 All emails are logged in the database and can be viewed via the "Notifications" menu item. The resource names in the
 email are linked to the openITCOCKPIT web interface.
 
 ![Resource Groups Notifications](/images/scm/scm_resourcegroup_notifications.png)
+
+## Mail-Verteiler
+
+Beim Ressourcen-Verwaltung Modul können neben dem normalen Benutzer auch Mail-Verteiler hinterlegt werden. Dies
+ermöglicht, dass man beim Mail-Versand mehrere Mail-Adressen gleichzeitig verwenden kann, ohne für jede Mail-Adresse
+einen Benutzer erstellen zu müssen. Wie auch in der Benutzerauswahl, können die Mail-Verteiler beim Benutzer-, Manager-
+und auch Regional-Manager eingetragen werden.
+
+Unter dem Menüpunkt `Administration -> Resource Center -> Mail Verteiler` befindet sich der Konfigurationsbereich. Hier
+können Mail-Verteiler aufgelistet, hinzugefügt, geändert und gelöscht werden.
+
+Neuen Mail-Verteiler erstellen
+
+Um einen neuen Mail-Verteiler zu erstellen, muss man auf die Schaltfläche "+ Neu" in der oberen rechten Ecke des
+Bildschirms klicken.
+
+| Feld         | Erforderlich              | Beschreibung                                                                                                                       |
+|--------------|---------------------------|------------------------------------------------------------------------------------------------------------------------------------|
+| Container    | :fontawesome-solid-xmark: | Über den Container legt man die Sichtbarkeit des Mail Verteilers fest. Automatisch dient dieser, als Filter für den Mail Verteiler |
+| Name         | :fontawesome-solid-xmark: | Name des Mail Verteilers                                                                                                           |
+| Beschreibung |                           | Beschreibung des Mail Verteilers                                                                                                   |
+| Abteilung    |                           | Dieses Feld wird Mail-Versand verwendet. Wenn dieses Feld gesetzt ist, wird dieser in der Mail mit angezeigt                       |
+| Mail Listen  |                           | Format Name + Mail-Adresse                                                                                                         |
 
 ## Resource
 
