@@ -84,7 +84,7 @@ email are linked to the openITCOCKPIT web interface.
 
 ![Resource Groups Notifications](/images/scm/scm_resourcegroup_notifications.png)
 
-## Mail-Verteiler
+## Mailing lists
 
 
 In the Resource Management Module, in addition to regular users, mailing lists can also be stored. This allows you to use multiple email addresses at once when sending emails, without having to create a openITCOCKPIT-user for each email address. As with user selection, the mailing lists can be assigned to users, managers, and also regional managers.
@@ -96,13 +96,13 @@ Create a new mailing list
 To create a new mailing list, click the "+ New" button in the upper right corner of
 
 
-| Feld         | Erforderlich              | Beschreibung                                                                                                                       |
-|--------------|---------------------------|------------------------------------------------------------------------------------------------------------------------------------|
-| Container    | :fontawesome-solid-xmark: | Über den Container legt man die Sichtbarkeit des Mail Verteilers fest. Automatisch dient dieser, als Filter für den Mail Verteiler |
-| Name         | :fontawesome-solid-xmark: | Name des Mail Verteilers                                                                                                           |
-| Beschreibung |                           | Beschreibung des Mail Verteilers                                                                                                   |
-| Abteilung    |                           | Dieses Feld wird Mail-Versand verwendet. Wenn dieses Feld gesetzt ist, wird dieser in der Mail mit angezeigt                       |
-| Mail Listen  |                           | Format Name + Mail-Adresse                                                                                                         |
+| Field        | Required                  | Description                                                                                                                      |
+|--------------|---------------------------|----------------------------------------------------------------------------------------------------------------------------------|
+| Container    | :fontawesome-solid-xmark: | The container defines the visibility of the mailing list. Automatically, this serves as a filter for the distribution.           |
+| Name         | :fontawesome-solid-xmark: | Name of the mailing list                                                                                                         |
+| Description  |                           | Description of the mailing list                                                                                                  |
+| Department   |                           | This field is used for mail dispatch. If this field is set, it will be displayed in the email                                    |
+| Recipients   |                           | List of E-Mail Addresses and Names                                                                                               |
 
 ## Resource
 

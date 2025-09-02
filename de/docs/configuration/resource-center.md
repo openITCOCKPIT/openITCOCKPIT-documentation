@@ -112,7 +112,7 @@ Bildschirms klicken.
 | Name         | :fontawesome-solid-xmark: | Name des Mail Verteilers                                                                                                           |
 | Beschreibung |                           | Beschreibung des Mail Verteilers                                                                                                   |
 | Abteilung    |                           | Dieses Feld wird Mail-Versand verwendet. Wenn dieses Feld gesetzt ist, wird dieser in der Mail mit angezeigt                       |
-| Mail Listen  |                           | Format Name + Mail-Adresse                                                                                                         |
+| Empfänger   |                            | Liste von E-Mail Adressen und Namen                                                                                                |
 
 ## Ressource
 
