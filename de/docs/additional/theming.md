@@ -2,19 +2,12 @@
 
 ## Design Modul
 
-Das Erscheinungsbild von openITCOCKPIT kann mithilfe des DesignModule, welches über den integrierten
-Paketmanager von openITCOCKPIT installiert werden kann, nach Bedarf angepasst werden.
+Das Erscheinungsbild von openITCOCKPIT kann mithilfe des DesignModule, welches über den [integrierten Paketmanager](/configuration/packagemanager/) von openITCOCKPIT installiert werden kann, nach Bedarf angepasst werden.
 
 Über den Designeditor lassen sich die Farben der Weboberfläche, sowie die vom System verwenden Logos
 anpassen. Dafür sind keine Programmierkenntnisse erforderlich.
 
 ![Modify the openITCOCKPIT theme](/images/openitcockpit-design-editor.png)
-
-Neben dem standard mäßig genutzten hellen Theme, bietet openITCOCKPIT auch ein dunkles Theme.
-Dieses ist vorkonfiguriert und lässt sich über die Schaltfläche "Dunkles Thema" im Designeditor laden.
-Zum Anwenden klicken Sie im Anschluss auf "Stil aktualisieren".
-
-![Default openITCOCKPIT dark theme](/images/openitcockpit-dark-theme.png)
 
 ### Design Exportieren / Importieren
 
@@ -39,3 +32,32 @@ Schriftarten nach Bedarf angepasst werden.
     Das Erstellen von CSS-Regeln erfordert Kenntnisse von Cascading Stylesheets und sollte nur von erfahrenen Benutzern
     eingerichtet werden.
 
+
+!!! Angular-Selektoren
+Es können wiederverwendete Angular-Komponenten anhand ihres Selektors systemweit gestylt werden. Zum Beispiel können Sie unsere Statussymbole so umgestalten. Beispielsweise können mit diesem Code alle Service- und Host-Status-Icons im Fehlerfall zum Blinken gebracht werden.
+
+```CSS
+/* Make status icons blink */
+oitc-hoststatus-icon .btn-danger {
+  animation: alarmAnimation 1s steps(2, start) infinite;
+  -webkit-animation: alarmAnimation 1s steps(2, start) infinite;
+}
+oitc-servicestatus-icon .btn-danger {
+  animation: alarmAnimation 1s steps(2, start) infinite;
+  -webkit-animation: alarmAnimation 1s steps(2, start) infinite;
+}
+
+@keyframes alarmAnimation {
+  to {
+    background:red;
+  }
+  from {
+    background:yellow;
+  }
+}
+@-webkit-keyframes alarmAnimation {
+  to {
+    background:red;
+  }
+}
+```
