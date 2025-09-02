@@ -4,11 +4,11 @@ Mit dem Change Kalender Feature können Infrastrukturänderungen direkt in openI
 
 ## Kalender Management
 
-Im Menü ist der Changekalender unter `Changekalendar` aufrufbar. Hier können Änderungskalender aufgelistet, hinzugefügt, geändert und gelöscht werden.
+Im Menü ist der Changekalender unter `Changekalender` aufrufbar. Hier können Änderungskalender aufgelistet, hinzugefügt, geändert und gelöscht werden.
 
 ![](/images/change_calendar/list_calendars.png)
 
-## Neuen Kalendar erstellen
+## Neuen Kalender erstellen
 
 Um einen neuen Kalender von Grund auf zu erstellen, muss man auf die Schaltfläche "+ Neu" in der oberen rechten Ecke des Bildschirms klicken.
 
@@ -31,7 +31,7 @@ Um einen neuen Kalender von Grund auf zu erstellen, muss man auf die Schaltfläc
 
 ![](/images/change_calendar/new_calendar_example.png)
 
-**Changekalendar erfolgreich erstellt**
+**Changekalender erfolgreich erstellt**
 
 ![](/images/change_calendar/calendar_created_success.png)
 

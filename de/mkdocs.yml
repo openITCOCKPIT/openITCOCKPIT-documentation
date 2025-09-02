@@ -78,6 +78,7 @@ nav:
       - 'Import / Export': 'configuration/import_export'
       - 'Import Modul': 'configuration/import-module.md'
       - 'Service Capacity Management Modul': 'configuration/resource-center.md'
+      - 'Organigramme (Virtuelle Bäume)': 'configuration/organizational-trees.md'
   - 'Development':
       - 'API': 'development/api.md'
       - 'Datenbankschema': 'development/database-schema.md'
