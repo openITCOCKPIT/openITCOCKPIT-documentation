@@ -44,17 +44,24 @@ By clicking on a specific resource group, a detailed view is displayed.
 
 By clicking the <code>+ New</code> button, the area where you can create a new resource group opens.
 
-The container determines the visibility of this group. Automatically, this serves as a filter for user selection. The user selection determines which users are allowed to set a status. The division between Region Manager, Manager, and Users determines who receives a reminder email, status email, escalation email, or cumulative status email.
-An escalation is triggered if no status is set even after the reminder email is sent. The reminder email goes to all users and managers. The escalation email or status email goes only to managers. The cumulative status email is sent to the Region Manager.
+The container determines the visibility of this group. Automatically, this serves as a filter for user selection. The
+user selection determines which users are allowed to set a status. The division between Region Manager, Manager, and
+Users determines who receives a reminder email, status email, escalation email, or cumulative status email.
+An escalation is triggered if no status is set even after the reminder email is sent. The reminder email goes to all
+users and managers. The escalation email or status email goes only to managers. The cumulative status email is sent to
+the Region Manager.
 
-| Field          | Required                  | Description                                                                                                      |
-|----------------|---------------------------|------------------------------------------------------------------------------------------------------------------|
-| Container      | :fontawesome-solid-xmark: | The container determines the visibility of this group. Automatically, this serves as a filter for user selection |
-| Name           | :fontawesome-solid-xmark: | Name of the resource group                                                                                       |
-| Description    |                           | Description of the resource group                                                                                |
-| Users          | :fontawesome-solid-xmark: | Users who receive a reminder and escalation email                                                                |
-| Managers       | :fontawesome-solid-xmark: | Users who receive an escalation email                                                                            |
-| Region Manager | :fontawesome-solid-xmark: | Users who receive a cumulative status email                                                                      |
+| Field                         | Required                  | Description                                                                                                      |
+|-------------------------------|---------------------------|------------------------------------------------------------------------------------------------------------------|
+| Container                     | :fontawesome-solid-xmark: | The container determines the visibility of this group. Automatically, this serves as a filter for user selection |
+| Name                          | :fontawesome-solid-xmark: | Name of the resource group                                                                                       |
+| Description                   |                           | Description of the resource group                                                                                |
+| Users                         | :fontawesome-solid-xmark: | Users who receive a reminder and escalation email                                                                |
+| Users [Mailing list]          | :fontawesome-solid-xmark: | Mailing lists who receive a reminder and escalation email                                                        |
+| Managers                      | :fontawesome-solid-xmark: | Users who receive an escalation or status email                                                                  |
+| Managers [Mailing list]       | :fontawesome-solid-xmark: | Mailing lists who receive an escalation or status email                                                          |
+| Region Manager                |                           | Users who receive a cumulative status email                                                                      |
+| Region Manager [Mailing list] |                           | Mailing lists who receive a cumulative status email                                                              |
 
 #### Reminder Email
 
@@ -72,11 +79,30 @@ An escalation is triggered if no status is set even after the reminder email is 
 
 ![Cumulative Status Email](/images/scm/scm_cumulative_report_mail.png)
 
-
 All emails are logged in the database and can be viewed via the "Notifications" menu item. The resource names in the
 email are linked to the openITCOCKPIT web interface.
 
 ![Resource Groups Notifications](/images/scm/scm_resourcegroup_notifications.png)
+
+## Mailing lists
+
+
+In the Resource Management Module, in addition to regular users, mailing lists can also be stored. This allows you to use multiple email addresses at once when sending emails, without having to create a openITCOCKPIT-user for each email address. As with user selection, the mailing lists can be assigned to users, managers, and also regional managers.
+
+Under the menu item `Administration -> Resource Center -> Mailing lists` you will find the configuration area. Here, mailing lists can be listed, added, edited, and deleted.
+
+Create a new mailing list
+
+To create a new mailing list, click the "+ New" button in the upper right corner of
+
+
+| Field        | Required                  | Description                                                                                                                      |
+|--------------|---------------------------|----------------------------------------------------------------------------------------------------------------------------------|
+| Container    | :fontawesome-solid-xmark: | The container defines the visibility of the mailing list. Automatically, this serves as a filter for the distribution.           |
+| Name         | :fontawesome-solid-xmark: | Name of the mailing list                                                                                                         |
+| Description  |                           | Description of the mailing list                                                                                                  |
+| Department   |                           | This field is used for mail dispatch. If this field is set, it will be displayed in the email                                    |
+| Recipients   |                           | List of E-Mail Addresses and Names                                                                                               |
 
 ## Resource
 
