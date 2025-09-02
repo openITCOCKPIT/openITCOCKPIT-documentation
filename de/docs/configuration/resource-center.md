@@ -58,14 +58,17 @@ User
 und Manager, Eskalationsmail beziehungsweise Statusmail geht nur an Manager. Eine kumulierte Statusmail wird an die
 Region Manager verschickt.
 
-| Feld           | Erforderlich              | Beschreibung                                                                                                                  |
-|----------------|---------------------------|-------------------------------------------------------------------------------------------------------------------------------|
-| Container      | :fontawesome-solid-xmark: | Über den Container legt man die Sichtbarkeit dieser Gruppe fest. Automatisch dient dieser, als Filter für die Benutzerauswahl |
-| Name           | :fontawesome-solid-xmark: | Name der Ressourcengruppe                                                                                                     |
-| Beschreibung   |                           | Beschreibung der Ressourcengruppe                                                                                             |
-| Benutzer       | :fontawesome-solid-xmark: | Benutzer die eine Erinnerungsmail bekommen                                                                                    |
-| Manager        | :fontawesome-solid-xmark: | Benutzer die eine Eskalationsmail und Statusmail bekommen                                                                     |
-| Region Manager | :fontawesome-solid-xmark: | Benutzer die eine kumulierte Statusmail bekommen                                                                              |
+| Feld                            | Erforderlich              | Beschreibung                                                                                                                  |
+|---------------------------------|---------------------------|-------------------------------------------------------------------------------------------------------------------------------|
+| Container                       | :fontawesome-solid-xmark: | Über den Container legt man die Sichtbarkeit dieser Gruppe fest. Automatisch dient dieser, als Filter für die Benutzerauswahl |
+| Name                            | :fontawesome-solid-xmark: | Name der Ressourcengruppe                                                                                                     |
+| Beschreibung                    |                           | Beschreibung der Ressourcengruppe                                                                                             |
+| Benutzer                        | :fontawesome-solid-xmark: | Benutzer die eine Erinnerungsmail bekommen                                                                                    |
+| Benutzer [Mail-Verteiler]       | :fontawesome-solid-xmark: | Mail-Verteiler der eine Erinnerungsmail bekommen                                                                              |
+| Manager                         | :fontawesome-solid-xmark: | Benutzer die eine Eskalationsmail und Statusmail bekommen                                                                     |
+| Manager [Mail-Verteiler]        | :fontawesome-solid-xmark: | Mail-Verteiler der eine Eskalationsmail und Statusmail bekommen                                                               |
+| Region Manager                  |                           | Benutzer die eine kumulierte Statusmail bekommen                                                                              |
+| Region Manager [Mail-Verteiler] |                           | Mail-Verteiler der eine kumulierte Statusmail bekommen                                                                        |
 
 #### Erinnerungsmail
 
@@ -87,6 +90,29 @@ Alle E-Mails werden in der Datenbank protokolliert und sind über den Menüpunkt
 Ressourcen-Namen in der E-Mail mit der openITCOCKPIT Weboberfläche verlinkt.
 
 ![Ressourcengruppen Benachrichtigungen](/images/scm/scm_resourcegroup_notifications.png)
+
+## Mail-Verteiler
+
+Beim Ressourcen-Verwaltung Modul können neben dem normalen Benutzer auch Mail-Verteiler hinterlegt werden. Dies
+ermöglicht, dass man beim Mail-Versand mehrere Mail-Adressen gleichzeitig verwenden kann, ohne für jede Mail-Adresse
+einen Benutzer erstellen zu müssen. Wie auch in der Benutzerauswahl, können die Mail-Verteiler beim Benutzer-, Manager-
+und auch Regional-Manager eingetragen werden.
+
+Unter dem Menüpunkt `Administration -> Resource Center -> Mail Verteiler` befindet sich der Konfigurationsbereich. Hier
+können Mail-Verteiler aufgelistet, hinzugefügt, geändert und gelöscht werden.
+
+Neuen Mail-Verteiler erstellen
+
+Um einen neuen Mail-Verteiler zu erstellen, muss man auf die Schaltfläche "+ Neu" in der oberen rechten Ecke des
+Bildschirms klicken.
+
+| Feld         | Erforderlich              | Beschreibung                                                                                                                       |
+|--------------|---------------------------|------------------------------------------------------------------------------------------------------------------------------------|
+| Container    | :fontawesome-solid-xmark: | Über den Container legt man die Sichtbarkeit des Mail Verteilers fest. Automatisch dient dieser, als Filter für den Mail Verteiler |
+| Name         | :fontawesome-solid-xmark: | Name des Mail Verteilers                                                                                                           |
+| Beschreibung |                           | Beschreibung des Mail Verteilers                                                                                                   |
+| Abteilung    |                           | Dieses Feld wird Mail-Versand verwendet. Wenn dieses Feld gesetzt ist, wird dieser in der Mail mit angezeigt                       |
+| Mail Listen  |                           | Format Name + Mail-Adresse                                                                                                         |
 
 ## Ressource
 
