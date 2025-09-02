@@ -95,7 +95,7 @@ Ressourcen-Namen in der E-Mail mit der openITCOCKPIT Weboberfläche verlinkt.
 
 Beim Ressourcen-Verwaltung Modul können neben dem normalen Benutzer auch Mail-Verteiler hinterlegt werden. Dies
 ermöglicht, dass man beim Mail-Versand mehrere Mail-Adressen gleichzeitig verwenden kann, ohne für jede Mail-Adresse
-einen Benutzer erstellen zu müssen. Wie auch in der Benutzerauswahl, können die Mail-Verteiler beim Benutzer-, Manager-
+einen openITCOCKPIT-Benutzer erstellen zu müssen. Wie auch in der Benutzerauswahl, können die Mail-Verteiler beim Benutzer-, Manager-
 und auch Regional-Manager eingetragen werden.
 
 Unter dem Menüpunkt `Administration -> Resource Center -> Mail Verteiler` befindet sich der Konfigurationsbereich. Hier

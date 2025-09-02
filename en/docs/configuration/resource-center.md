@@ -86,18 +86,15 @@ email are linked to the openITCOCKPIT web interface.
 
 ## Mail-Verteiler
 
-Beim Ressourcen-Verwaltung Modul können neben dem normalen Benutzer auch Mail-Verteiler hinterlegt werden. Dies
-ermöglicht, dass man beim Mail-Versand mehrere Mail-Adressen gleichzeitig verwenden kann, ohne für jede Mail-Adresse
-einen Benutzer erstellen zu müssen. Wie auch in der Benutzerauswahl, können die Mail-Verteiler beim Benutzer-, Manager-
-und auch Regional-Manager eingetragen werden.
 
-Unter dem Menüpunkt `Administration -> Resource Center -> Mail Verteiler` befindet sich der Konfigurationsbereich. Hier
-können Mail-Verteiler aufgelistet, hinzugefügt, geändert und gelöscht werden.
+In the Resource Management Module, in addition to regular users, mailing lists can also be stored. This allows you to use multiple email addresses at once when sending emails, without having to create a openITCOCKPIT-user for each email address. As with user selection, the mailing lists can be assigned to users, managers, and also regional managers.
 
-Neuen Mail-Verteiler erstellen
+Under the menu item `Administration -> Resource Center -> Mailing lists` you will find the configuration area. Here, mailing lists can be listed, added, edited, and deleted.
 
-Um einen neuen Mail-Verteiler zu erstellen, muss man auf die Schaltfläche "+ Neu" in der oberen rechten Ecke des
-Bildschirms klicken.
+Create a new mailing list
+
+To create a new mailing list, click the "+ New" button in the upper right corner of
+
 
 | Feld         | Erforderlich              | Beschreibung                                                                                                                       |
 |--------------|---------------------------|------------------------------------------------------------------------------------------------------------------------------------|
