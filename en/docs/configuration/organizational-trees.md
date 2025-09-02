@@ -1,52 +1,42 @@
-Mit dem Container-Visualisierungsbaum können Container unabhängig von Berechtigungen in einer frei definierbaren
-Baumstruktur angeordnet und visualisiert werden. Die Zuordnung erfolgt per Parent/Child-Beziehung und dient
-ausschließlich der übersichtlichen Darstellung und Gruppierung von Containern, ohne Auswirkungen auf die Zugriffsrechte.
+With the container visualization tree, containers can be arranged and visualized in a freely definable tree structure, independent of permissions. The assignment is done via parent/child relationships and serves exclusively for the clear presentation and grouping of containers, without affecting access rights.
 
-Auf der Browser-Übersicht `/browser` Seite wird eine alternative Sicht der Containerstruktur angezeigt. Diese Übersicht
-dient dazu Organisationsstruktur sowie derer Abhängigkeiten visuell darzustellen.
+On the browser overview `/browser` page, an alternative view of the container structure is displayed. This overview is used to visually represent the organizational structure and its dependencies.
 
 ![status_tree](/images/organizational_trees/status_tree.png)
 
-In der Übersicht werden im System hinterlegte Rechte berücksichtigt. Das bedeutet alle Container, auf die ein Benutzer
-keine Rechte hat, werden automatisch ausgeblendet. Anhand der Container-Id soll ein zusätzlicher Tab für Organigramm angezeigt werden.
+The overview takes into account the user permissions stored in the system. This means that all containers to which a user does not have access rights are automatically hidden. Based on the container ID, an additional tab for the organizational chart will be displayed.
 
 ![browser_tree](/images/organizational_trees/browser_tree.png)
 
-Es können mehrere virtuelle Bäume, je Container erstellt werden. Für die
-Host-Statusübersicht wird die Einstellung des virtuellen Containers `is_recursive` für das Auflösen aller
-Child-Container
-berücksichtigt. Zusätzlich können mehrere Benutzer (openITCOCKPIT Benutzer) hinterlegt werden (optional), um bei einem
-Ausfall als die richtige Ansprechperson identifiziert zu werden.
+Multiple virtual trees can be created per container. For the host status overview, the setting of the virtual container `is_recursive` is taken into account for resolving all child containers. Additionally, multiple users (openITCOCKPIT users) can be assigned (optional) to be identified as the correct contact person in the event of a failure.
 
-##Konfiguration der virtuellen Bäume
+## Configuration of Virtual Trees
 
-Im Konfigurationsbereich kann ein Organigramm erstellt und bearbeitet werden. Folgende Felder stehen zur Verfügung:
+In the configuration area, an organizational chart can be created and edited. The following fields are available:
 
-* Name des Baumes (Pflichtfeld)
-* Beschreibung (optional)
+* Name of the tree (required)
+* Description (optional)
 
-Auf der linken Seite befindet sich eine Auswahl verfügbarer Container-Typen, wie:
+On the left side, there is a selection of available container types, such as:
 
-* Mandant
-* Standort
-* Knoten
+* Tenant
+* Location
+* Node
 
-Diese Auswahl kann per Drag & Drop in den rechten Bereich gezogen und frei positioniert werden.
+This selection can be dragged and dropped and positioned freely.
 
 ![config_edit](/images/organizational_trees/config_edit.png)
 
-Über `Bearbeiten` Button kann Bearbeitungsbereich eines bestimmten Knotens geöffnet werden.
+By clicking the `Edit` button, the editing area of a specific node can be opened.
 
 ![edit](/images/organizational_trees/edit.png)
 
-Es öffnet sich ein neues Fenster, in dem je nach Typ ein bestimmter Container ausgewählt werden kann. Zusätzlich können
-weitere Einstellungen vorgenommen werden:
+A new window opens in which, depending on the type, a specific container can be selected. Additional settings can also be made:
 
-* Containername (Pflichtfeld)
-* `is_recursive` Wenn diese Option aktiviert ist, werden Host und Service-Statusübersicht für alle Child-Container des
-  ausgewählten Containers berücksichtigt und angezeigt.
+* Container name (required)
+* `is_recursive` If this option is enabled, the host and service status overview for all child containers of the selected container will be considered and displayed.
 * Regional manager (optional)
 * Manager (optional)
-* Benutzer (optional)
+* User (optional)
 
 ![config_modal](/images/organizational_trees/config_modal.png)

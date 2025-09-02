@@ -18,7 +18,7 @@ Child-Container
 berücksichtigt. Zusätzlich können mehrere Benutzer (openITCOCKPIT Benutzer) hinterlegt werden (optional), um bei einem
 Ausfall als die richtige Ansprechperson identifiziert zu werden.
 
-##Konfiguration der virtuellen Bäume
+## Konfiguration der virtuellen Bäume
 
 Im Konfigurationsbereich kann ein Organigramm erstellt und bearbeitet werden. Folgende Felder stehen zur Verfügung:
 
