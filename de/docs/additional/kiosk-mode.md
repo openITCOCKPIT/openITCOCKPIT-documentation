@@ -11,12 +11,10 @@ Das Primärziel dieses Artikels ist es, ein System einzurichten, welches keine m
 Zuerst müssen Sie einen neuen Benutzer in openITCOCKPIT erstellen, welcher sehr geringe Berechtigungen hat. Während Sie den Benutzer erstellen, können Sie dem Benutzer auch gleich einen [API Keys](/development/api/#api-keys) hinzufügen.
 [API Keys](/development/api/#api-keys) können auch später noch erstellt werden.
 
-!!! info
-    In der Vergangenheit haben wir die Browsererweiterung `ModHeader` empfohlen, die für alle gängigen Browser verfügbar ist/war. Wir wurden von unserer Community darüber informiert, dass die Erweiterung Werbung einfügt und nicht mehr Open Source ist.
+Im nächsten Schritt installieren Sie auf dem Kiosk-System die Browser-Erweiterung  [SimpleModifyHeaders](https://github.com/didierfred/SimpleModifyHeaders). Die SimpleModifyHeaders Browser-Erweiterung wird später den API Key an alle Anfragen, welche vom Webbrowser ausgeführt werden, automatisch anhängen. Somit sind keine weiteren Anmeldedaten mehr erforderlich.
 
-    Bitte lassen Sie es uns wissen, wenn Sie eine gute Alternative kennen.
-
-Im nächsten Schritt installieren Sie auf dem Kiosk-System die Browser-Erweiterung ModHeader. Die ModHeader Browser-Erweiterung wird später den API Key an alle Anfragen, welche vom Webbrowser ausgeführt werden, automatisch anhängen. Somit sind keine weiteren Anmeldedaten mehr erforderlich.
+- SimpleModifyHeaders für [Chrome](https://chrome.google.com/webstore/detail/simple-modify-headers/gjgiipmpldkpbdfjkgofildhapegmmic)
+- SimpleModifyHeaders für [Firefox](https://addons.mozilla.org/firefox/addon/simple-modify-header/)
 
 
 Erstellen Sie einen neuen Request Header mit dem Namen `Authorization` und setzen Sie `X-OITC-API <API-KEY>` als Value.
@@ -25,9 +23,10 @@ Zum Beispiel:
 
 | Name            | Value                                         |
 |-----------------|-----------------------------------------------|
+| `Url Patterns`  | `https://monitoring.itsm.love/*`              |
 | `Authorization` | `X-OITC-API fe9ab803c661d712059c0e6c15[...]`  |
 
-![openITCOCKPIT Authorization header](/images/modheader-kiosk.png)
+![openITCOCKPIT Authorization header](/images/simple_modify_header_firefox_example.png)
 
 Ab jetzt können Sie auf openITCOCKPIT zugreifen, ohne Anmeldedaten eingeben zu müssen.
 
