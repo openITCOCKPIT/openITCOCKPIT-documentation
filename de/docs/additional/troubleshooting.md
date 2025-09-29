@@ -244,6 +244,24 @@ Sollte dies das Problem nicht beheben, schauen Sie sich bitte den [Mod-Gearman A
 
 Sollte Ihre openITCOCKPIT Oberfläche kein `Grafana` enthalten, kann dies mit `apt-get install openitcockpit-module-grafana` nachinstalliert werden.
 
+### `liburiparser`
+
+For security reasopns the package `liburiparser` is marked as recommended, as it has two security vulnerabilities:
+Aus Sicherheitsgründen wird das Paket  `liburiparser` von openITCOCKPIT nur empfohlen, da es aktuell von zwei Sicherheitslücken betroffen ist:
+
+- [CVE-2024-34402](https://ubuntu.com/security/CVE-2024-34402)
+- [CVE-2024-34403](https://ubuntu.com/security/CVE-2024-34403)
+
+Die Bibliothek wird vom Plugin `check_curl` verwendet. Falls der folgende Fehler auftritt, können Sie entweder zu `check_http` wechseln oder `liburiparser` installieren.
+
+```
+/opt/openitc/nagios/libexec/check_curl: error while loading shared libraries: liburiparser.so.1: cannot open shared object file: No such file or directory
+```
+
+```
+apt-get install liburiparser
+```
+
 ## Paketmanager leer
 
 !!! info
