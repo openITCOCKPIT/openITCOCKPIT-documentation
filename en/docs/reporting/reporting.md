@@ -29,20 +29,21 @@ If you want to automatically send a report every day, week, month or year, the â
 Once this option has been enabled, you can send reports to one or more users.
 
 
-| Field                      | Required                  | Description                                                  |
-| -------------------------- | ------------------------- | ------------------------------------------------------------ |
-| Container                  | :fontawesome-solid-xmark: | Container in which the immediate report is to be created     |
-| Name                       | :fontawesome-solid-xmark: | Name of the instant report                                   |
-| Type                       | :fontawesome-solid-xmark: | Object type to be evaluated. Host groups, hosts, service groups and services are possible |
-| Type-Object                | :fontawesome-solid-xmark: | Depending on the type selected, either hosts, host groups, services or service groups must be selected in the next field |
-| Evaluation                 | :fontawesome-solid-xmark: | Which objects are evaluated -> Only hosts, hosts and services or only services |
-| Time period                | :fontawesome-solid-xmark: | [Time period](../configuration/timeperiods/) to consider     |
-| Reflection State           | :fontawesome-solid-xmark: | The type of state to be evaluated. Hard state or soft and hard state |
-| Consider maintenance times |                           | Determines whether maintenance times are to be taken into account |
+| Field                      | Required                  | Description                                                                                                                     |
+|----------------------------|---------------------------|---------------------------------------------------------------------------------------------------------------------------------|
+| Container                  | :fontawesome-solid-xmark: | Container in which the immediate report is to be created                                                                        |
+| Name                       | :fontawesome-solid-xmark: | Name of the instant report                                                                                                      |
+| Type                       | :fontawesome-solid-xmark: | Object type to be evaluated. Host groups, hosts, service groups and services are possible                                       |
+| Type-Object                | :fontawesome-solid-xmark: | Depending on the type selected, either hosts, host groups, services or service groups must be selected in the next field        |
+| Evaluation                 | :fontawesome-solid-xmark: | Which objects are evaluated -> Only hosts, hosts and services or only services                                                  |
+| Time period                | :fontawesome-solid-xmark: | [Time period](../configuration/timeperiods/) to consider                                                                        |
+| Reflection State           | :fontawesome-solid-xmark: | The type of state to be evaluated. Hard state or soft and hard state                                                            |
+| Consider maintenance times |                           | Determines whether maintenance times are to be taken into account                                                               |
 | Summary Display            |                           | Determines whether an overall view of the status of host and services is displayed instead of the listings of individual hosts. |
-| Send Email                 |                           |                                                              |
-| Sending Interval           | :fontawesome-solid-xmark: | Sending interval: DAY, WEEK, MONTH, YEAR                     |
-| User(s) to send            | :fontawesome-solid-xmark: | User(s) to whom the report is to be sent                     |
+| Send Email                 |                           |                                                                                                                                 |
+| Sending Interval           | :fontawesome-solid-xmark: | Sending interval: DAY, WEEK, MONTH, YEAR                                                                                        |
+| User(s) to send            | :fontawesome-solid-xmark: | User(s) to whom the report is to be sent                                                                                        |
+
 
 ### Generate the Report
 
@@ -105,18 +106,19 @@ Status page elements can have additional informations about acknowledgements, do
 ### Creating
 ![](/images/status-pages/status-page-create.png)
 
-| Field            | Required                  | Description                                                  |
-| ---------------- | ------------------------- | ------------------------------------------------------------ |
-| Container | :fontawesome-solid-xmark: | The container determines the element selection,elements of the root container aere always selectable|
-| Name             | :fontawesome-solid-xmark: | The name of the page |
-| Description      |                           | Optional page description |
-| Public           |                           | if marked the page is public - without autentication accessible |
-| Show Downtimes   |                           | if marked all current/planned downimes with their values will be  dispayed at the element | 
-| Show downtime comments  |      | if marked, the origin comment is displayed otherwise a anonymemous generic comment                                    |
-| Show acknowlegements |  | if marked, it is displayed how many of the problems ar acknowledged |
-| Acknowlegements comments  |   | if marked, theo rigin comment swill be displayed, otherwise ageneric comment |
-| Host groups, Service groups, Hosts, Services | | the selectable elements of the status page|
-| Display name | | an optional alias name of the elkement, if given the alias will be displayed, otherwise the original name |
+| Field                                        | Required                  | Description                                                                                               |
+|----------------------------------------------|---------------------------|-----------------------------------------------------------------------------------------------------------|
+| Container                                    | :fontawesome-solid-xmark: | The container determines the element selection,elements of the root container aere always selectable      |
+| Name                                         | :fontawesome-solid-xmark: | The name of the page                                                                                      |
+| Description                                  |                           | Optional page description                                                                                 |
+| Public                                       |                           | if marked the page is public - without autentication accessible                                           |
+| Show Downtimes                               |                           | if marked all current/planned downimes with their values will be  dispayed at the element                 |
+| Show downtime comments                       |                           | if marked, the origin comment is displayed otherwise a anonymemous generic comment                        |
+| Show acknowlegements                         |                           | if marked, it is displayed how many of the problems ar acknowledged                                       |
+| Acknowlegements comments                     |                           | if marked, theo rigin comment swill be displayed, otherwise ageneric comment                              |
+| Host groups, Service groups, Hosts, Services |                           | the selectable elements of the status page                                                                |
+| Display name                                 |                           | an optional alias name of the elkement, if given the alias will be displayed, otherwise the original name |
+
 
 
 ### View 
@@ -133,24 +135,26 @@ In- / external View are generally the same, but in internal view the element nam
 ### State, Color
 the color of the elements are the general oitc state colors. The color will be calculated dependend of the element type.
 
-| Type             |   State/Color                                                                                   |
-| ---------------- | ----------------------------------------------------------------------------------------------- |
-| Service          |  The state(color) ist the state of the service                                                  |
-|Service group     |  The state is the cumulated worst state of all included services                                 |.
-| Host             |  Is the state of the host in Down, Unreachable than this is the state(color) of The element. If the host is UP, the worst state of the included services of the host will be evaluated to the state of the host element. so the color(state) of a host element in a status page can be yellow in case the host is UP(green) but the worst state of the underlying services is WARNING(yellow)  |
-|Host group        | If the worst state of all inherited hosts is other than UP, then this is te state of the host group element. Otherwise the state wiil be cumulated over all services of all hosts.|
-| Status page      | The state of the page is the worst state of all page elements|
+| Type          | State/Color                                                                                                                                                                                                                                                                                                                                                                                  |   |
+|---------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---|
+| Service       | The state(color) ist the state of the service                                                                                                                                                                                                                                                                                                                                                |   |
+| Service group | The state is the cumulated worst state of all included services                                                                                                                                                                                                                                                                                                                              | . |
+| Host          | Is the state of the host in Down, Unreachable than this is the state(color) of The element. If the host is UP, the worst state of the included services of the host will be evaluated to the state of the host element. so the color(state) of a host element in a status page can be yellow in case the host is UP(green) but the worst state of the underlying services is WARNING(yellow) |   |
+| Host group    | If the worst state of all inherited hosts is other than UP, then this is te state of the host group element. Otherwise the state wiil be cumulated over all services of all hosts.                                                                                                                                                                                                           |   |
+| Status page   | The state of the page is the worst state of all page elements                                                                                                                                                                                                                                                                                                                                |   |
+
 
 
 ### Counting of problems/acknowledgements/downtimes
 The counting of problems/downtimes correspndents to the calculating of the state dependend on the element type.
 
-| Type             |   problems(acknowledgements)/downtimes (current, planned)                                       |
-| ---------------- | ----------------------------------------------------------------------------------------------- |
-| Service | If the services is other than OK, it will be counted whether the service ist acknowlwdged. Current downtime and all palnned downtimes of the next 10 days will be counted and displayed |
-|Service group | The problems of all services and how many of them are acknowledged will be counted. The downtimes (planned downtimes) of all services will be counted and displayed |
-| Host | All problems of the host and the included services will be counted. It will be displayed how many of them are acknowleged. Alle downtimes (current, planned) of the host and the inhertited servies will be counted and displayed |
-| Host group | all problems/acknowledgemnts over all hosts and included services will be counted. All downtimes(current, planned) of all hosts and included services will be counted and displayed |
+| Type          | problems(acknowledgements)/downtimes (current, planned)                                                                                                                                                                           |
+|---------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Service       | If the services is other than OK, it will be counted whether the service ist acknowlwdged. Current downtime and all palnned downtimes of the next 10 days will be counted and displayed                                           |
+| Service group | The problems of all services and how many of them are acknowledged will be counted. The downtimes (planned downtimes) of all services will be counted and displayed                                                               |
+| Host          | All problems of the host and the included services will be counted. It will be displayed how many of them are acknowleged. Alle downtimes (current, planned) of the host and the inhertited servies will be counted and displayed |
+| Host group    | all problems/acknowledgemnts over all hosts and included services will be counted. All downtimes(current, planned) of all hosts and included services will be counted and displayed                                               |
+
 
 
 ## Autoreports <span class="badge badge-primary badge-outlined" title="Community Edition">CE</span>
@@ -195,24 +199,25 @@ From here you can select the output format and the time range to be evaluated. A
 
 #### Report configuration
 
-| Field                      | Required                  | Description                                                  |
-| -------------------------- | ------------------------- | ------------------------------------------------------------ |
-| Container                  | :fontawesome-solid-xmark: | Container in which the Autoreport is to be created           |
-| Report name                | :fontawesome-solid-xmark: | Name of the Autoreport                                       |
-| Report description         |                           | Description of the Autoreport                                |
-| Set Start                  |                           | Start date of the report is to be defined                    |
-| Start date                 |                           | Start date of the report. Can only be edited if "Set Start" has been activated. |
-| Time period                | :fontawesome-solid-xmark: | [Time period](../configuration/timeperiods/) to consider     |
-| Evaluation Period          | :fontawesome-solid-xmark: | Day, Week, Month, Quarter or Year                            |
-| Transmission interval      | :fontawesome-solid-xmark: | Daily, Weekly, Monthly, Quarterly, Yearly or Never           |
-| Guaranteed availability    | :fontawesome-solid-xmark: | Availability in percent. Either "Guaranteed availability" or "Maximum number of failures" must be specified |
+| Field                      | Required                  | Description                                                                                                  |
+|----------------------------|---------------------------|--------------------------------------------------------------------------------------------------------------|
+| Container                  | :fontawesome-solid-xmark: | Container in which the Autoreport is to be created                                                           |
+| Report name                | :fontawesome-solid-xmark: | Name of the Autoreport                                                                                       |
+| Report description         |                           | Description of the Autoreport                                                                                |
+| Set Start                  |                           | Start date of the report is to be defined                                                                    |
+| Start date                 |                           | Start date of the report. Can only be edited if "Set Start" has been activated.                              |
+| Time period                | :fontawesome-solid-xmark: | [Time period](../configuration/timeperiods/) to consider                                                     |
+| Evaluation Period          | :fontawesome-solid-xmark: | Day, Week, Month, Quarter or Year                                                                            |
+| Transmission interval      | :fontawesome-solid-xmark: | Daily, Weekly, Monthly, Quarterly, Yearly or Never                                                           |
+| Guaranteed availability    | :fontawesome-solid-xmark: | Availability in percent. Either "Guaranteed availability" or "Maximum number of failures" must be specified  |
 | Maximum number of outages  | :fontawesome-solid-xmark: | Maximum number of outages. Either "Guaranteed availability" or "Maximum number of outages" must be specified |
-| Graph                      | :fontawesome-solid-xmark: | Graph in percent or hours                                    |
-| Reflection State           | :fontawesome-solid-xmark: | The type of state to be evaluated. Hard state or soft and hard state |
-| Consider maintenance times |                           | Maintenance times do not count as outages if enabled         |
-| Consider public holidays   |                           | Public holidays are considered                               |
-| Calendar                   |                           | Calendar with public holidays. Only configurable if "Consider Holidays" is enabled. |
-| User(s)                    |                           | User(s) to whom the report is to be sent                     |
+| Graph                      | :fontawesome-solid-xmark: | Graph in percent or hours                                                                                    |
+| Reflection State           | :fontawesome-solid-xmark: | The type of state to be evaluated. Hard state or soft and hard state                                         |
+| Consider maintenance times |                           | Maintenance times do not count as outages if enabled                                                         |
+| Consider public holidays   |                           | Public holidays are considered                                                                               |
+| Calendar                   |                           | Calendar with public holidays. Only configurable if "Consider Holidays" is enabled.                          |
+| User(s)                    |                           | User(s) to whom the report is to be sent                                                                     |
+
 
 
 
