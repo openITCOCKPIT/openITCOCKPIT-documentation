@@ -108,7 +108,7 @@ Status page elements can have additional informations about acknowledgements, do
 
 | Field                                        | Required                  | Description                                                                                               |
 |----------------------------------------------|---------------------------|-----------------------------------------------------------------------------------------------------------|
-| Container                                    | :fontawesome-solid-xmark: | The container determines the element selection,elements of the root container aere always selectable      |
+| Container                                    | :fontawesome-solid-xmark: | The container determines the element selection,elements of the root container are always selectable      |
 | Name                                         | :fontawesome-solid-xmark: | The name of the page                                                                                      |
 | Description                                  |                           | Optional page description                                                                                 |
 | Public                                       |                           | if marked the page is public - without autentication accessible                                           |
@@ -133,7 +133,16 @@ Status page elements can have additional informations about acknowledgements, do
 In- / external View are generally the same, but in internal view the element names are links to the elements.
 
 ### State, Color
-the color of the elements are the general oitc state colors. The color will be calculated dependend of the element type.
+the color of the elements are the general openITCOCKPIT state colors. The color will be calculated dependend of the element type.
+
+#### Available states
+
+ - **Purple:** Not in Monitoring
+ - **Green:** Operational
+ - **Yellow:** Performance Issues
+ - **Red:** Major Outage
+ - **Gray:** Unknown
+
 
 | Type          | State/Color                                                                                                                                                                                                                                                                                                                                                                                  |   |
 |---------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---|
@@ -156,6 +165,101 @@ The counting of problems/downtimes correspndents to the calculating of the state
 | Host group    | all problems/acknowledgemnts over all hosts and included services will be counted. All downtimes(current, planned) of all hosts and included services will be counted and displayed                                               |
 
 
+## Status page groups
+
+The _Status Page Groups_ feature allows you to organize multiple status pages into a 2-dimensional matrix, providing a clear and high-level overview.
+Each Status Page Group consists of multiple `Collections` and `Categories`.
+
+Let's assume you want to present the status of different data centers in a status page group. First of all you should create status pages for each data center.
+
+In the next step you can define collections such as `Fulda`, `Frankfurt` and `Berlin` to represent data center locations.
+Next, you add categories like `Facility`, `Infrastructure` and `Services`. Each cell in the matrix can contain one or more status pages, giving you a comprehensive view
+of the status for each location and category.
+
+The given example would result in a Status Page Group matrix like this
+
+|            | Facility        | Infrastructure   | Services        |
+|------------|-----------------|------------------|-----------------|
+| Fulda      | [Status Page/s] | [Status Page/s]  | [Status Page/s] |
+| Frankfurt  | [Status Page/s] | [Status Page/s]  | [Status Page/s] |
+| Berlin     | [Status Page/s] | [Status Page/s]  | [Status Page/s] |
+
+
+Optionally, you can add custom text to the Status Page Group. This allows you to include useful information such as phone numbers, links to a wiki, or other relevant details.
+
+### Creating
+
+The creation of new Status Page Groups is separated into two steps. In the first step, you need to define the status page matrix.
+
+![](/images/status-page-groups/create-status-page-group-step1.png)
+
+| Field                                        | Required                  | Description                                                                                               |
+|----------------------------------------------|---------------------------|-----------------------------------------------------------------------------------------------------------|
+| Container                                    | :fontawesome-solid-xmark: | The container determines the element selection,elements of the root container aere always selectable      |
+| Name                                         | :fontawesome-solid-xmark: | The name of the Status Page Group                                                                         |
+| Description                                  |                           | Optional description                                                                                      |
+| Additional information                       |                           | Optional free text field to store relevant information such as phone numbers.                             |
+| Show alerts as Ticker message                |                           | Determins if alerts will be displayed as scrolling text (marquee)                                         |
+| Collection                                   |                           | First dimension of the matrix (Y axis)                                                                    |
+| Category                                     |                           | Second dimension of the matrix (X axis)                                                                   |
+
+
+In the second step, you can assign status pages.
+Each cell can contain multiple status pages, or no status page.
+
+openITCOCKPIT calculates the status of each cell in a Status Page Group by evaluating all assigned status pages and determining the worst state—this is known as the "worst state wins" principle.
+
+- **Cell Status:** Each cell can contain multiple status pages. The cell's status is set to the worst state found among all its status pages.
+- **Collection Status (Row):** The status for a collection (row) is calculated by cumulating the states of all cells in that row. Again, the worst state determines the overall status for the collection.
+- **Category Status (Column):** The status for a category (column) is calculated by cumulating the states of all cells in that column. The worst state in the column will be shown as the category status.
+
+This approach ensures that any critical issue within a group is immediately visible at the collection or category level, making it easy to identify and respond to problems.
+
+![](/images/status-page-groups/create-status-page-group-step2.png)
+
+### View
+
+The view of a Status Page Group starts with the name of the group, followed by an optional description.
+
+At the top, a large icon visually represents the overall state of the Status Page Group. The state is calculated by cumulating the states of all assigned status pages—using the "worst state wins" principle.
+
+#### Available states
+
+ - **Purple:** Not in Monitoring
+ - **Green:** Operational
+ - **Yellow:** Performance Issues
+ - **Red:** Major Outage
+ - **Gray:** Unknown
+
+Next to the icon, you will see a counter displaying the total number of hosts and services represented by the Status Page Group.
+
+Below this, an optional free text field can be shown. This area can be used to display useful information such as phone numbers, email addresses, or other relevant details.
+
+All current problems are listed as scrolling marquee text, making critical issues immediately visible.
+
+#### Status Overview
+
+The "Status Overview" section displays the 2-dimensional matrix of all collections (rows) and categories (columns). Each cell shows the status of the assigned status pages, making it easy to get a high-level overview of your infrastructure.
+
+#### Problems Table
+
+Below the matrix, a table lists all problems (if any) in detail, so you can quickly identify and address issues.
+
+![](/images/status-page-groups/status_page_group_view.png)
+
+#### Dashboard
+
+Status Page Groups can also be added to a user's Dashboard for quick access and monitoring.
+
+![](/images/status-page-groups/status_page_group_widget.png)
+
+The widget displays the same information as the default view of Status Page Groups, including the overall state, host and service counters, custom information, and the status overview matrix.
+![](/images/status-page-groups/statuspage_group_as_dashboard.png)
+
+You can configure an auto-refresh interval for the widget to ensure the displayed data is always up to date.
+
+
+![](/images/status-page-groups/status_page_group_refresh.png)
 
 ## Autoreports <span class="badge badge-primary badge-outlined" title="Community Edition">CE</span>
 

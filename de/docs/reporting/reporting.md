@@ -151,7 +151,13 @@ Jedes Element einer Statusseite kann Informationen über die enthaltenden Proble
 In- und externe Ansicht sind prinzipiell gleich.aber in der internen Ansicht sind die Elementnamen verlinkt.
 
 ### Status, Statusfarbe
-Die farbliche kennzeichnung der Elemente entspricht den oitc Statusfarben. Die Farbe (Status) wird abhängig vom Typ des Elements ermittelt.
+Die farbliche kennzeichnung der Elemente entspricht den openITCOCKPIT Statusfarben. Die Farbe (Status) wird abhängig vom Typ des Elements ermittelt.
+
+ - **Lila:** Nicht im Monitoring
+ - **Grün:** Betrieb
+ - **Gelb:** Leistungsprobleme
+ - **Rot:** Schwerwiegender Ausfall
+ - **Grau:** Unbekannt
 
 | Typ             |   Status/Farbe                                                                                   |
 | ---------------- | ----------------------------------------------------------------------------------------------- |
@@ -172,6 +178,101 @@ Es wird über alles gezählt, was auch zur Ermittlung des Status herangezogen wi
 |Servicegruppe | Es werden die Probleme aller enthaltenen Services gezählt. Es werden alle Downtimes(laufend, geplant) aller entaltenen Services gezählt. |
 | Host | Es werde alle Probleme über den Host und die enthaltenen Services gezählt(angezeigt). Es werden alle Downtimes (laufend, geplant) über den Host und die enthaltenen Services gezählt(angezeigt). |
 | Hostgruppe | Es werden alle Probleme über alle Hosts und alle in den Hosts enthaltenen Services gezählt(angezeigt). Es werden alle Downtimes (laufend, geplant) über alle Hosts und die enthaltenen Services gezählt(angezeigt). |
+
+
+## Statusseiten-Gruppen
+
+Das _Statusseiten-Gruppen_-Feature ermöglicht es Ihnen, mehrere Statusseiten in einer zweidimensionalen Matrix zu organisieren und so eine übersichtliche und hoch aggregierte Darstellung zu erhalten.
+Jede Statusseiten-Gruppe besteht aus mehreren `Sammlungen` und `Kategorien`.
+
+Angenommen, Sie möchten den Status verschiedener Rechenzentren in einer Statusseiten-Gruppe präsentieren. Zunächst sollten Sie für jedes Rechenzentrum eine eigene Statusseite erstellen.
+
+Im nächsten Schritt können Sie Sammlungen wie `Fulda`, `Frankfurt` und `Berlin` definieren, um die Standorte der Rechenzentren darzustellen.
+Anschließend fügen Sie Kategorien wie `Facility`, `Infrastructure` und `Services` hinzu. Jede Zelle in der Matrix kann eine oder mehrere Statusseiten enthalten und bietet Ihnen so einen umfassenden Überblick über den Status jedes Standorts und jeder Kategorie.
+
+Das Beispiel würde zu einer Statusseiten-Gruppen-Matrix wie dieser führen:
+
+|            | Facility        | Infrastructure   | Services        |
+|------------|-----------------|------------------|-----------------|
+| Fulda      | [Statusseite/n] | [Statusseite/n]  | [Statusseite/n] |
+| Frankfurt  | [Statusseite/n] | [Statusseite/n]  | [Statusseite/n] |
+| Berlin     | [Statusseite/n] | [Statusseite/n]  | [Statusseite/n] |
+
+
+Optional können Sie der Statusseiten-Gruppe einen Freitext hinzufügen. So können Sie nützliche Informationen wie Telefonnummern, Links zu einem Wiki oder andere relevante Details hinterlegen.
+
+### Erstellung
+
+Die Erstellung neuer Statusseiten-Gruppen erfolgt in zwei Schritten. Im ersten Schritt definieren Sie die Statusseiten-Matrix.
+
+![](/images/status-page-groups/create-status-page-group-step1.png)
+
+| Feld                              | Erforderlich              | Beschreibung                                                                                        |
+|-----------------------------------|---------------------------|-----------------------------------------------------------------------------------------------------|
+| Container                         | :fontawesome-solid-xmark: | Der Container bestimmt die Auswahl der Elemente, Elemente des Root-Containers sind immer auswählbar |
+| Name                              | :fontawesome-solid-xmark: | Der Name der Statusseiten-Gruppe                                                                    |
+| Beschreibung                      |                           | Optionale Beschreibung                                                                              |
+| Weitere Informationen             |                           | Optionales Freitextfeld für relevante Informationen wie Telefonnummern                              |
+| Zeige Alarme als Ticker-Nachricht |                           | Legt fest, ob Alarme als Lauftext angezeigt werden                                                  |
+| Sammlung                          |                           | Erste Dimension der Matrix (Y-Achse)                                                                |
+| Kategorie                         |                           | Zweite Dimension der Matrix (X-Achse)                                                               |
+
+
+Im zweiten Schritt können Sie Statusseiten zuweisen.
+Jede Zelle kann mehrere Statusseiten enthalten oder auch leer bleiben.
+
+openITCOCKPIT berechnet den Status jeder Zelle in einer Statusseiten-Gruppe, indem alle zugewiesenen Statusseiten ausgewertet werden und der schlechteste Status übernommen wird – dies ist als „Worst State Wins“-Prinzip bekannt.
+
+- **Zellenstatus:** Jede Zelle kann mehrere Statusseiten enthalten. Der Status der Zelle entspricht dem schlechtesten Status aller zugewiesenen Statusseiten.
+- **Sammlungsstatus (Zeile):** Der Status einer Sammlung (Zeile) wird durch die Kumulation der Status aller Zellen in dieser Zeile berechnet. Auch hier bestimmt der schlechteste Status den Gesamtstatus der Sammlung.
+- **Kategorie-Status (Spalte):** Der Status einer Kategorie (Spalte) wird durch die Kumulation der Status aller Zellen in dieser Spalte berechnet. Der schlechteste Status in der Spalte wird als Kategorie-Status angezeigt.
+
+Dieses Vorgehen stellt sicher, dass kritische Probleme innerhalb einer Gruppe sofort auf Sammlungs- oder Kategorie-Ebene sichtbar sind und Sie schnell reagieren können.
+
+![](/images/status-page-groups/create-status-page-group-step2.png)
+
+### Ansicht
+
+Die Ansicht einer Statusseiten-Gruppe beginnt mit dem Namen der Gruppe, gefolgt von einer optionalen Beschreibung.
+
+Oben wird ein großes Icon angezeigt, das den Gesamtstatus der Statusseiten-Gruppe visuell darstellt. Der Status wird durch die Kumulation aller zugewiesenen Statusseiten nach dem „Worst State Wins“-Prinzip berechnet.
+
+#### Verfügbare Zustände
+
+ - **Lila:** Nicht im Monitoring
+ - **Grün:** Betrieb
+ - **Gelb:** Leistungsprobleme
+ - **Rot:** Schwerwiegender Ausfall
+ - **Grau:** Unbekannt
+
+Neben dem Icon wird ein Zähler angezeigt, der die Gesamtanzahl der Hosts und Services darstellt, die von der Statusseiten-Gruppe repräsentiert werden.
+
+Darunter kann ein optionales Freitextfeld angezeigt werden, das für nützliche Informationen wie Telefonnummern, E-Mail-Adressen oder andere Details genutzt werden kann.
+
+Alle aktuellen Probleme werden als Lauftext (Marquee) angezeigt, sodass kritische Probleme sofort sichtbar sind.
+
+#### Statusübersicht
+
+Der Bereich „Statusübersicht“ zeigt die zweidimensionale Matrix aller Sammlungen (Zeilen) und Kategorien (Spalten). Jede Zelle zeigt den Status der zugewiesenen Statusseiten und ermöglicht einen schnellen Überblick über Ihre Infrastruktur.
+
+#### Problemtabelle
+
+Unterhalb der Matrix wird eine Tabelle angezeigt, die alle Probleme (sofern vorhanden) detailliert auflistet, damit Sie diese schnell identifizieren und beheben können.
+
+![](/images/status-page-groups/status_page_group_view.png)
+
+#### Dashboard
+
+Statusseiten-Gruppen können auch zum Dashboard eines Benutzers hinzugefügt werden, um schnellen Zugriff und Monitoring zu ermöglichen.
+
+![](/images/status-page-groups/status_page_group_widget.png)
+
+Das Widget zeigt die gleichen Informationen wie die Standardansicht der Statusseiten-Gruppen, einschließlich Gesamtstatus, Host- und Service-Zähler, benutzerdefinierte Informationen und die Statusübersicht-Matrix.
+![](/images/status-page-groups/statuspage_group_as_dashboard.png)
+
+Sie können ein automatisches Aktualisierungsintervall für das Widget konfigurieren, damit die angezeigten Daten immer aktuell sind.
+
+![](/images/status-page-groups/status_page_group_refresh.png)
 
 
 ## Autoreports <span class="badge badge-primary badge-outlined" title="Community Edition">CE</span>
