@@ -6,40 +6,36 @@ This article contains the best practices for adding new features to openITCOCKPI
 
 ## Getting started with development
 
-The backend of openITCOCKPIT is written in PHP and uses the [CakePHP 4](https://book.cakephp.org/4/en/index.html) framework.
+The backend of openITCOCKPIT is written in PHP and uses the [CakePHP 5](https://book.cakephp.org/5/en/index.html) framework.
 
 The frontend is based on an [Angular](https://angular.dev/) and [CoreUI](https://coreui.io) stack.
 
 We recommend [JetBrains PHPStorm](https://www.jetbrains.com/phpstorm/) as your IDE and [Mozilla Firefox](https://www.mozilla.org/en-US/firefox/new/) as your Browser.
 
-The sample code is available on GitHub: <https://github.com/openITCOCKPIT/openITCOCKPIT-ExampleModule>
+The sample code is available on GitHub:
+
+- [Back-End](https://github.com/openITCOCKPIT/openITCOCKPIT-ExampleModule)
+- [Front-End](https://github.com/openITCOCKPIT/openITCOCKPIT-ExampleModule-Frontend-Angular)
 
 ### Prerequisites
 
-This document exclusively describes the development of modules for openITCOCKPIT.
-You must have experience with CakePHP and AngularJS before attempting to create any bespoke modules.
-
+This document focuses exclusively on the development of modules for openITCOCKPIT. Prior experience with CakePHP and Angular is strongly recommended before attempting to create custom modules.
 ### Working directory
-
-The working directory for openITCOCKPIT is `/opt/openitc/frontend`.
-
-Make sure you are in this folder before you begin.
-
-It is also recommended you use git for tracking your changes.
+The working directory for openITCOCKPIT is located at `/opt/openitc/frontend`.
+Ensure you navigate to this directory before starting your work.
+Using Git to track your changes is also recommended.
 
 ## Activating debug mode
-
 !!! danger "Important"
     Be aware that enabling debug mode can lead to data leaks and the loss of sensitive information.
 
-By default, openITCOCKPIT runs in production mode. To get error messages and uncompressed (not minified) JavaScript, you will have to enable debug mode.
+By default, openITCOCKPIT runs in production mode. To display detailed error messages, you must enable debug mode.
 
 To do this, open the file `/etc/nginx/openitc/master.conf` and set the parameter `OITC_DEBUG` from `0` to `1`.
 
 ```
 fastcgi_param OITC_DEBUG 1;
 ```
-
 In order for your changes to be enabled, you must execute the following command:
 
 ```bash
