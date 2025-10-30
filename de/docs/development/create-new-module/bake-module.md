@@ -1,14 +1,10 @@
 # "Backen" des Moduls
 
-Bevor Sie starten, stellen Sie sicher, dass Sie sich im Ordner `/opt/openitc/frontend` befinden und einen neuen git
-Branch für ihre Entwicklung erstellt haben.
+Bevor Sie starten, stellen Sie sicher, dass Sie sich im Ordner `/opt/openitc/frontend` befinden und einen neuen git  Branch für ihre Entwicklung erstellt haben.
 
 ![new git branch](/images/prepare-for-new-module.png)
 
-openITCOCKPIT besitzt ein eigenes CLI Tool "`oitc`", welches unter anderem ein neues "skeleton" eines neuen Moduls
-erstellen kann.
-Dies ist das sogenannte bake Kommando, welches auf dem CakePHP "[bake](https://book.cakephp.org/4/en/plugins.html#creating-a-plugin-using-bake)"
-Kommando basiert.
+openITCOCKPIT besitzt ein eigenes CLI Tool "`oitc`", welches unter anderem ein neues "skeleton" eines neuen Moduls erstellen kann. Dies ist das sogenannte bake Kommando, welches auf dem CakePHP "[bake](https://book.cakephp.org/5/en/plugins.html#creating-a-plugin-using-bake)" Kommando basiert.
 
 Um ein neues Modul zu erstellen, müssen Sie folgendes Kommando ausführen:
 ```bash
@@ -16,8 +12,7 @@ oitc bake plugin ExampleModule
 ```
 
 !!! warning "Hinweis"
-    Es ist wichtig, dass der Name ihres Moduls auf "Module" endet. Beispiele: Example**Module**, Autoreports**Module**,
-    Mk**Module** und so weiter.
+    Es ist wichtig, dass der Name ihres Moduls auf "Module" endet. Beispiele: Example**Module**, Autoreports**Module**, Mk**Module** und so weiter.
 
 Das System wird Sie nach dem Pfad des Modules (Plugin) fragen.
 ```
@@ -30,7 +25,6 @@ Zudem werden Sie gefragt, ob Sie die `composer.json` Datei überschreiben möcht
 /opt/openitc/frontend/composer.json
 ```
 **Überschreiben Sie diese Datei nicht!** Überspringen Sie dies mit der Antwort `n`.
-
 
 Beispiel zum Erstellen eines Moduls mit dem bake Befehl:
 ```bash
@@ -117,8 +111,7 @@ openITCOCKPIT lädt seine Module automatisch. Es ist keine Manuelle aktion oder 
 Standardmäßig nutzt CakePHP einen Bindestrich (-) als CamelCase separator in der URL. Aufgrund historischer Umstände ist
 es vonnöten, dass Sie diesen Separator durch einen Unterstrich (_) ersetzen.
 
-Dazu öffnen Sie die Datei `/opt/openitc/frontend/plugins/ExampleModule/src/Plugin.php` und suchen nach dem folgenden
-Code.
+Dazu öffnen Sie die Datei `/opt/openitc/frontend/plugins/ExampleModule/src/Plugin.php` und suchen nach dem folgenden Code.
 ```php
 public function routes(RouteBuilder $routes): void
 {
@@ -143,7 +136,6 @@ Nun ändern Sie den Wert des `path` von `example-module` nach `example_module`.
 
 ## Erstellen und Ausführen der Migrationen
 
-
 Migrationen sind Dateien, die die Tabellen für die Anwendung in der Datenbank erstellen.
 
 Erstellen der Verzeichnisse für die Migrationen
@@ -160,18 +152,41 @@ oitc rights
 ```bash
 OITC_DEBUG=1 oitc migrations create -p ExampleModule Initial
 ```
+
 Dieses Kommando erstellt eine Migrationsdatei innerhalb des `/config/Migrations` Verzeichnisses.
 Der Dateiname wird mit dem Zeitstempel gepräfixt und sieht folgendermaßen aus `20220928065505_Initial.php`.
 
 ``` php
 <?php
+// Copyright (C) <2015-present>  <it-novum GmbH>
+//
+// This file is dual licensed
+//
+// 1.
+//     This program is free software: you can redistribute it and/or modify
+//     it under the terms of the GNU General Public License as published by
+//     the Free Software Foundation, version 3 of the License.
+//
+//     This program is distributed in the hope that it will be useful,
+//     but WITHOUT ANY WARRANTY; without even the implied warranty of
+//     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+//     GNU General Public License for more details.
+//
+//     You should have received a copy of the GNU General Public License
+//     along with this program.  If not, see <http://www.gnu.org/licenses/>.
+//
+// 2.
+//     If you purchased an openITCOCKPIT Enterprise Edition you can use this file
+//     under the terms of the openITCOCKPIT Enterprise Edition license agreement.
+//     License agreement and license key will be shipped with the order
+//     confirmation.
 
 declare(strict_types=1);
 
 use Migrations\AbstractMigration;
 
-class Initial extends AbstractMigration
-{
+class Initial extends AbstractMigration {
+
     /**
      * Change Method.
      *
@@ -179,32 +194,30 @@ class Initial extends AbstractMigration
      * https://book.cakephp.org/phinx/0/en/migrations.html#the-change-method
      * @return void
      */
-    public function change(): void
-    {
-        $table = $this->table('examples', ['id' => false, 'primary_key' => ['id']]);
-        $table->addColumn('id', 'integer', [
-            'autoIncrement' => true,
-            'limit' => 11
+    public function change(): void {
+        $table = $this->table('myplugin_settings');
+        $table->addColumn('webhook_url', 'string', [
+            'default' => '',
+            'limit'   => 255,
+            'null'    => false,
         ]);
-        $table->addColumn('name', 'string', [
-            'limit' => 250,
-            'null' => false,
+        $table->addColumn('created', 'datetime', [
+            'default' => null,
+            'null'    => false,
         ]);
-
-        $table->addColumn('created', 'timestamp', [
-            'default' => 'CURRENT_TIMESTAMP',
-            'null' => false,
+        $table->addColumn('modified', 'datetime', [
+            'default' => null,
+            'null'    => false,
         ]);
-
-        $table->addPrimaryKey("id");
         $table->create();
     }
 }
 ```
+
 ### Migration ausführen
 
 ```bash
 oitc migrations migrate -p ExampleModule
 ```
 
-Wenn das Kommando ausgeführt wurde, sieht man eine neue "examples" Tabelle in der Datenbank.
+Wenn das Kommando ausgeführt wurde, sieht man eine neue "myplugin_settings" Tabelle in der Datenbank.
