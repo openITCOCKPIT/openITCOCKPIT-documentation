@@ -82,11 +82,11 @@ To be compatible with as many systems as possible, without making the configurat
 - `intermediate`
 - `modern`
 
-The TLS security level can be configured in the `config.ini` using the `tls_security_level` directive.
+The TLS security level can be configured in the `config.ini` using the `tls-security-level` directive.
 
 
 !!! info
-    If no `tls_security_level` is configured, the Agent will fall back to `lax`.
+    If no `tls-security-level` is configured, the Agent will fall back to `lax`.
 
 #### lax
 Enforce minimum TLS 1.2 but does not restrict usage of cipher suites.

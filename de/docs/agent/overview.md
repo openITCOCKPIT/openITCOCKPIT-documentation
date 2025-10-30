@@ -80,11 +80,11 @@ Um mit möglichst vielen Systemen kompatibel zu sein, ohne die Konfiguration zu 
 - `modern`
 
 
-Die TLS-Sicherheitsstufe kann in der `config.ini` mit der Direktive `tls_security_level` konfiguriert werden.
+Die TLS-Sicherheitsstufe kann in der `config.ini` mit der Direktive `tls-security-level` konfiguriert werden.
 
 
 !!! info
-    Wenn kein `tls_security_level` gesetzt ist, wird der Agent die Einstellung `lax` verwenden.
+    Wenn kein `tls-security-level` gesetzt ist, wird der Agent die Einstellung `lax` verwenden.
 
 #### lax
 Erzwingt mindestens TLS 1.2, schränkt aber die Verwendung von Verschlüsselungssammlungen nicht ein.
