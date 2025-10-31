@@ -9,7 +9,7 @@ git checkout -b example_module
 
 ![new git branch](/images/prepare-for-new-module.png)
 
-openITCOCKPIT has its own CLI tool "`oitc`", which can, among other things, create a "skeleton" for a new module. This is referred to as the bake command, which is based on the CakePHP "[bake](https://book.cakephp.org/4/en/plugins.html#creating-a-plugin-using-bake)" command.
+openITCOCKPIT has its own CLI tool "`oitc`", which can, among other things, create a "skeleton" for a new module. This is referred to as the bake command, which is based on the CakePHP "[bake](https://book.cakephp.org/5/en/plugins.html#creating-a-plugin-using-bake)" command.
 
 To create a new module, you must execute the following command:
 ```bash
@@ -32,7 +32,6 @@ You will also be asked if you want to overwrite the `composer.json`
 **Do not overwrite this file!** Skip over this by typing `n`.
 
 An example of creating a module with the bake command:
-
 ```bash
 root @ /opt/openitc/frontend - [ExampleModule] # oitc bake plugin ExampleModule
 Plugin Name: ExampleModule
@@ -93,7 +92,8 @@ root @ /opt/openitc/frontend - [ExampleModule] #
 
 ## Repairing file permissions
 
-Whenever you use the `oitc` command to generate files, it is recommended you assign the file permissions to the web server user `www-data`.
+Whenever you use the `oitc` command to generate files, it is recommended you assign the file permissions to the web
+server user `www-data`.
 
 openITCOCKPIT offers its own tool for setting these permissions.
 
@@ -104,7 +104,7 @@ oitc rights
 ![oitc rights](/images/oitc-rights.png)
 
 ## Cleaning up the src/Application.php file
-Open the file `/opt/openitc/frontend/src/Application.php` und löschen Sie folgende Zeile:
+Open the file `/opt/openitc/frontend/src/Application.php` and remove the following line from it:
 ```php
 $this->addPlugin('ExampleModule');
 ```
@@ -113,10 +113,10 @@ openITCOCKPIT loads its modules automatically. No manual action or additional co
 
 ## Changing routing
 
-By default, CakePHP uses a hyphen (-) as the CamelCase separator in the URL. However, due to historical reasons, it is necessary to replace this separator with an underscore (_).
+By default, CakePHP uses a hyphen (-) as the CamelCase separator in the URL. However, due to historical reasons, it is
+necessary to replace this separator with an underscore (_).
 
 To do this, open the file `/opt/openitc/frontend/plugins/ExampleModule/src/Plugin.php` and search for the following code.
-
 ```php
 public function routes(RouteBuilder $routes): void
 {
@@ -141,9 +141,9 @@ Now change the value of the `path` from `example-module` to `example_module`.
 
 ## Create and run migration
 
-Migrations are those files which creates table schema for application.
+Migrations modify the database structure for an application. Hence, we will use one to create our own database table.
 
-Create folders for migrations
+Create the folders for the migration's files.
 
 ```bash
 mkdir -p plugins/ExampleModule/config/Migrations
@@ -163,13 +163,35 @@ File name will be prefixed with the timestamp value and look like `2022092806550
 
 ``` php
 <?php
+// Copyright (C) <2015-present>  <it-novum GmbH>
+//
+// This file is dual licensed
+//
+// 1.
+//     This program is free software: you can redistribute it and/or modify
+//     it under the terms of the GNU General Public License as published by
+//     the Free Software Foundation, version 3 of the License.
+//
+//     This program is distributed in the hope that it will be useful,
+//     but WITHOUT ANY WARRANTY; without even the implied warranty of
+//     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+//     GNU General Public License for more details.
+//
+//     You should have received a copy of the GNU General Public License
+//     along with this program.  If not, see <http://www.gnu.org/licenses/>.
+//
+// 2.
+//     If you purchased an openITCOCKPIT Enterprise Edition you can use this file
+//     under the terms of the openITCOCKPIT Enterprise Edition license agreement.
+//     License agreement and license key will be shipped with the order
+//     confirmation.
 
 declare(strict_types=1);
 
 use Migrations\AbstractMigration;
 
-class Initial extends AbstractMigration
-{
+class Initial extends AbstractMigration {
+
     /**
      * Change Method.
      *
@@ -177,30 +199,30 @@ class Initial extends AbstractMigration
      * https://book.cakephp.org/phinx/0/en/migrations.html#the-change-method
      * @return void
      */
-    public function change(): void
-    {
-        $table = $this->table('examples', ['id' => false, 'primary_key' => ['id']]);
-        $table->addColumn('id', 'integer', [
-            'autoIncrement' => true,
-            'limit' => 11
+    public function change(): void {
+        $table = $this->table('myplugin_settings');
+        $table->addColumn('webhook_url', 'string', [
+            'default' => '',
+            'limit'   => 255,
+            'null'    => false,
         ]);
-        $table->addColumn('name', 'string', [
-            'limit' => 250,
-            'null' => false,
+        $table->addColumn('created', 'datetime', [
+            'default' => null,
+            'null'    => false,
         ]);
-
-        $table->addColumn('created', 'timestamp', [
-            'default' => 'CURRENT_TIMESTAMP',
-            'null' => false,
+        $table->addColumn('modified', 'datetime', [
+            'default' => null,
+            'null'    => false,
         ]);
-
-        $table->addPrimaryKey("id");
         $table->create();
     }
 }
 ```
+
 ### Run migration
+
 ```bash
 oitc migrations migrate -p ExampleModule
 ```
-When it executes we should see “examples” table in database.
+
+After the command has finished, you will see the table `myplugin_settings` in the database.
