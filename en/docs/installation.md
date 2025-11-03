@@ -8,10 +8,11 @@ openITCOCKPIT is installed via the package manager of your respective Linux dist
     - Noble (24.04)
     - Jammy (22.04)
 - Debian
+    - Trixie (13)
     - Bookworm (12)
 - Enterprise Linux
-    - Red Hat 8
     - Red Hat 9
+    - Red Hat 8
 
 ## arm64 / Raspberry Pi
 openITCOCKPIT and all components are also available for arm64 processors and the Raspberry Pi.
@@ -42,6 +43,25 @@ apt-get update
 ```
 
 ### Debian
+
+#### Trixie
+
+Ensure you have enabled `contrib` and `non-free` repositories in `/etc/apt/sources.list.d/debian.sources`
+```
+Types: deb deb-src
+URIs: mirror+file:///etc/apt/mirrors/debian.list
+Suites: trixie trixie-updates trixie-backports
+Components: main contrib non-free non-free-firmware
+Signed-By: /usr/share/keyrings/debian-archive-keyring.gpg
+
+Types: deb deb-src
+URIs: mirror+file:///etc/apt/mirrors/debian-security.list
+Suites: trixie-security
+Components: main contrib non-free non-free-firmware
+Signed-By: /usr/share/keyrings/debian-archive-keyring.gpg
+```
+
+#### Bookworm
 
 Ensure you have enabled `contrib` and `non-free` repositories in `/etc/apt/sources.list.d/debian.sources`
 ```
