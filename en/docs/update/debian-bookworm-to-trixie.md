@@ -101,6 +101,13 @@ apt -s full-upgrade $openitcockpit_upd
 apt -y full-upgrade $openitcockpit_upd
 ```
 
+On error:
+
+```bash
+dpkg --configure -a
+```
+
+
 ---
 
 ## Remove unnecessary packages
