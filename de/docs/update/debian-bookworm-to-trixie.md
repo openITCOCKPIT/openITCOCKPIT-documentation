@@ -100,6 +100,11 @@ apt -s full-upgrade $openitcockpit_upd
 # Upgrade wirklich ausführen
 apt -y full-upgrade $openitcockpit_upd
 ```
+Bei Fehler:
+
+```bash
+dpkg --configure -a
+```
 
 ---
 
