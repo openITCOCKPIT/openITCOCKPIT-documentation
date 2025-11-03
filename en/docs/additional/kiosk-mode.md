@@ -33,3 +33,14 @@ You can now access your openITCOCKPIT system without the need to pass any user c
 !!! danger
     SimpleModifyHeaders will add this header and your API key to **all requests**. If you use this system to browse the web, make sure to disable SimpleModifyHeaders to avoid leaking your API key.
 
+# Kiosk Front-End
+Additionally to the kiosk authentication, there's a kiosk-mode for the openITCOCKPIT front-end.
+To enable that, you just need to add the URI parameter `?kiosk` to your openITCOCKPIT address.
+
+Now, the navigation bars, headers and footers will be hidden to make more space for the actual content.
+
+Anyway, if you want to access the navigation again, you can click the button `Exit Kiosk Mode`.
+
+![openITCOCKPIT Kiosk-Mode Front-End](/images/kiosk_mode_front_end.png)
+
+
