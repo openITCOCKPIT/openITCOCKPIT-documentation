@@ -33,4 +33,14 @@ Ab jetzt können Sie auf openITCOCKPIT zugreifen, ohne Anmeldedaten eingeben zu 
 !!! danger
     ModHeader sendet den API-Key **mit jeder Anfrage**. Wenn Sie das System nutzen, um im Internet zu surfen, sollten Sie die Erweiterung deaktivieren, damit Sie ihren API Key nicht preisgeben.
 
+# Kiosk Front-End
+Zusätzlich zum Kiosk-Login gibt es auch den Kiosk-Mode für das Front-End. 
+Wenn an die Adresse des openITCOCKPIT der Parameter `?kiosk` angehängt wird, öffnet sich openITCOCKPIT im Kiosk-Modus.
+
+Jetzt werden Navigationsleisten, Kopf- und Fußzeilen ausgeblendet, um eine möglichst große Darstellungsfläche für die eigentlichen Inhalte zu schaffen.
+
+Wenn die ausgeblendeten Elemente doch gebraucht werden, kann man jederzeit auf den Button `Exit Kiosk Mode` klicken.
+
+![openITCOCKPIT Kiosk-Mode Front-End](/images/kiosk_mode_front_end.png)
+
 
