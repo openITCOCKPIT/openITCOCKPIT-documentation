@@ -8,8 +8,10 @@ e.g., IT services) at a specified time to better channel potential bottlenecks.
 
 ## Global Settings
 
-In this area, it is determined by when (deadline) the status of a resource must be communicated at the latest. A cron
-job checks whether a status has been communicated for each resource. The reminder time (in minutes) specifies the period
+In this area, it is determined by when `Default` (deadline) the status of a resource must be communicated at the latest.
+A cron
+job checks whether a status has been communicated for each resource. The `Default` reminder time (in minutes) specifies
+the period
 within which a reminder email is sent to providers with missing status. Additionally, it can be specified whether an
 already set status can be overwritten (<b>"Allow status overwriting"</b>). Another restriction of status communication
 can be set via the "<b>Require user assignment</b>" setting. If this checkbox is active, only the assigned users are
@@ -51,17 +53,20 @@ An escalation is triggered if no status is set even after the reminder email is 
 users and managers. The escalation email or status email goes only to managers. The cumulative status email is sent to
 the Region Manager.
 
-| Field                         | Required                  | Description                                                                                                      |
-|-------------------------------|---------------------------|------------------------------------------------------------------------------------------------------------------|
-| Container                     | :fontawesome-solid-xmark: | The container determines the visibility of this group. Automatically, this serves as a filter for user selection |
-| Name                          | :fontawesome-solid-xmark: | Name of the resource group                                                                                       |
-| Description                   |                           | Description of the resource group                                                                                |
-| Users                         | :fontawesome-solid-xmark: | Users who receive a reminder and escalation email                                                                |
-| Users [Mailing list]          | :fontawesome-solid-xmark: | Mailing lists who receive a reminder and escalation email                                                        |
-| Managers                      | :fontawesome-solid-xmark: | Users who receive an escalation or status email                                                                  |
-| Managers [Mailing list]       | :fontawesome-solid-xmark: | Mailing lists who receive an escalation or status email                                                          |
-| Region Manager                |                           | Users who receive a cumulative status email                                                                      |
-| Region Manager [Mailing list] |                           | Mailing lists who receive a cumulative status email                                                              |
+| Field                         | Required                  | Description                                                                                                                |
+|-------------------------------|---------------------------|----------------------------------------------------------------------------------------------------------------------------|
+| Container                     | :fontawesome-solid-xmark: | The container determines the visibility of this group. Automatically, this serves as a filter for user selection           |
+| Name                          | :fontawesome-solid-xmark: | Name of the resource group                                                                                                 |
+| Description                   |                           | Description of the resource group                                                                                          |
+| Deadline                      | :fontawesome-solid-xmark: | It is determined by when (deadline) the status of a resource must be communicated at the latest                            |
+| Reminder time                 | :fontawesome-solid-xmark: | The reminder time (in minutes) specifies the period within which a reminder email is sent to providers with missing status |
+| Time period                   |                           | The time period defines working days and holidays that should be considered for the resource group check (optional)        |
+| Users                         | :fontawesome-solid-xmark: | Users who receive a reminder and escalation email                                                                          |
+| Users [Mailing list]          | :fontawesome-solid-xmark: | Mailing lists who receive a reminder and escalation email                                                                  |
+| Managers                      | :fontawesome-solid-xmark: | Users who receive an escalation or status email                                                                            |
+| Managers [Mailing list]       | :fontawesome-solid-xmark: | Mailing lists who receive an escalation or status email                                                                    |
+| Region Manager                |                           | Users who receive a cumulative status email                                                                                |
+| Region Manager [Mailing list] |                           | Mailing lists who receive a cumulative status email                                                                        |
 
 #### Reminder Email
 
@@ -86,23 +91,24 @@ email are linked to the openITCOCKPIT web interface.
 
 ## Mailing lists
 
+In the Resource Management Module, in addition to regular users, mailing lists can also be stored. This allows you to
+use multiple email addresses at once when sending emails, without having to create a openITCOCKPIT-user for each email
+address. As with user selection, the mailing lists can be assigned to users, managers, and also regional managers.
 
-In the Resource Management Module, in addition to regular users, mailing lists can also be stored. This allows you to use multiple email addresses at once when sending emails, without having to create a openITCOCKPIT-user for each email address. As with user selection, the mailing lists can be assigned to users, managers, and also regional managers.
-
-Under the menu item `Administration -> Resource Center -> Mailing lists` you will find the configuration area. Here, mailing lists can be listed, added, edited, and deleted.
+Under the menu item `Administration -> Resource Center -> Mailing lists` you will find the configuration area. Here,
+mailing lists can be listed, added, edited, and deleted.
 
 Create a new mailing list
 
 To create a new mailing list, click the "+ New" button in the upper right corner of
 
-
-| Field        | Required                  | Description                                                                                                                      |
-|--------------|---------------------------|----------------------------------------------------------------------------------------------------------------------------------|
-| Container    | :fontawesome-solid-xmark: | The container defines the visibility of the mailing list. Automatically, this serves as a filter for the distribution.           |
-| Name         | :fontawesome-solid-xmark: | Name of the mailing list                                                                                                         |
-| Description  |                           | Description of the mailing list                                                                                                  |
-| Department   |                           | This field is used for mail dispatch. If this field is set, it will be displayed in the email                                    |
-| Recipients   |                           | List of E-Mail Addresses and Names                                                                                               |
+| Field       | Required                  | Description                                                                                                            |
+|-------------|---------------------------|------------------------------------------------------------------------------------------------------------------------|
+| Container   | :fontawesome-solid-xmark: | The container defines the visibility of the mailing list. Automatically, this serves as a filter for the distribution. |
+| Name        | :fontawesome-solid-xmark: | Name of the mailing list                                                                                               |
+| Description |                           | Description of the mailing list                                                                                        |
+| Department  |                           | This field is used for mail dispatch. If this field is set, it will be displayed in the email                          |
+| Recipients  |                           | List of E-Mail Addresses and Names                                                                                     |
 
 ## Resource
 
@@ -153,14 +159,16 @@ All changes to the ScmModule objects can be viewed via the menu item `Logs -> Ch
 
 ## Dashboards
 
+### My Resources Widget
+
 A custom widget for the dashboard allows users to always see the current status of their assigned resources.
 
 ![Add My Resources Widget](/images/scm/scm_add_my_resources_widget.png)
 
-Depending on the status, an appropriate message is always displayed. As in this example:
-
 ![My Resources Widget](/images/scm/scm_my_resources_widget.png)
 
-If the deadline is exceeded, but not all resources have a status communicated, a notice is displayed.
+### Cronjobs Status Overview Widget
 
-![My Resources Widget with Info Text](/images/scm/scm_my_resources_widget_with_info.png)
+![Add My Resources Widget](/images/scm/scm_add_cronjob_status_widget.png)
+
+![My Resources Widget](/images/scm/scm_cronjob_status_widget.png)
