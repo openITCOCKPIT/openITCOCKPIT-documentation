@@ -1,8 +1,7 @@
 # Additionalplugin_database
 
 ## Core Tabellen mit Plugin tabellen verlinken
-In manchen Fällen wird ein link zu einem openITCOCKPIT core Tabellenobjekt von einem Tabellenobjekt eines Moduls
-benötigt.
+In manchen Fällen wird ein link zu einem openITCOCKPIT core Tabellenobjekt von einem Tabellenobjekt eines Moduls benötigt.
 
 In diesem Beispiel möchten wir die "additional notes" aus der Modul Tabelle löschen, sobald der zugehörige Host gelöscht
 wird. Um dies zu Implementieren müssen wir keinerlei core Code anpassen.
