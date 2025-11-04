@@ -8,13 +8,13 @@ festgelegten Zeitpunkt zu kommunizieren, um somit mögliche Engpässe besser zu 
 
 ## Globale Einstellungen
 
-In diesem Bereich wird festgelegt, bis zu welchem Zeitpunkt (Deadline) der Status einer Ressource spätestens
-kommuniziert werden muss. Ein Cronjob prüft, ob zu jeder Ressource ein Status kommuniziert wurde. Die Erinnerungszeit (
-in Minuten) legt fest, in welchen Zeitraum eine Erinnerungsmail an die Provider mit fehlendem Status verschickt werden
-soll. Zusätzlich kann festgelegt werden, ob ein bereits gesetzter Status überschrieben werden kann (<b>"Allow status
+In diesem Bereich wird festgelegt, welcher Wert als `Default` Zeitpunkt (Deadline)  und `Default` Erinnerungszeit bei
+der Erstellung
+der Ressourcengruppen eingetragen werden soll. Ein Cronjob prüft, ob zu jeder Ressource ein Status kommuniziert wurde.
+Zusätzlich kann festgelegt werden, ob ein bereits gesetzter Status überschrieben werden kann (<b>"Allow status
 overwriting"</b>). Eine weitere Einschränkung der Statuskommunikation kann über die Einstellung "<b>Require user
-assigment</b>" festgelegt werden. Wenn diese Checkbox aktiv ist, ist es nur den zugewiesenen Benutzer erlaubt einen
-Status zu setzen.
+assigment</b>" festgelegt werden. Wenn diese Checkbox aktiv ist, ist es <b>nur</b> den zugewiesenen Benutzer erlaubt
+einen Status zu setzen.
 
 ![Globale Einstellungen](/images/scm/scm_settings.png)
 
@@ -50,25 +50,27 @@ Ressourcengruppe erstellen kann.
 
 Über den Container legt man die Sichtbarkeit dieser Gruppe fest. Automatisch dient dieser, als Filter für die
 Benutzerauswahl. Die Benutzerauswahl legt fest, welche Benutzer einen Status setzen dürfen. Die Unterteilung zwischen
-Region Manager,
-Manager und Users legt fest, an wen eine Erinnerungsmail, Statusmail, Eskalationsmail oder kumulierte Statusmail
-verschickt wird. Eine Eskalation wird
-ausgelöst, sollte auch nach dem Versand der Erinnerungsmail kein Status gesetzt werden. Die Erinnerungsmail geht an alle
-User
-und Manager, Eskalationsmail beziehungsweise Statusmail geht nur an Manager. Eine kumulierte Statusmail wird an die
+Region Manager, Manager und Users legt fest, an wen eine Erinnerungsmail, Statusmail, Eskalationsmail oder kumulierte
+Statusmail
+verschickt wird. Eine Eskalation wird ausgelöst, sollte auch nach dem Versand der Erinnerungsmail kein Status gesetzt
+werden. Die Erinnerungsmail geht an alle
+User und Manager, Eskalationsmail beziehungsweise Statusmail geht nur an Manager. Eine kumulierte Statusmail wird an die
 Region Manager verschickt.
 
-| Feld                            | Erforderlich              | Beschreibung                                                                                                                  |
-|---------------------------------|---------------------------|-------------------------------------------------------------------------------------------------------------------------------|
-| Container                       | :fontawesome-solid-xmark: | Über den Container legt man die Sichtbarkeit dieser Gruppe fest. Automatisch dient dieser, als Filter für die Benutzerauswahl |
-| Name                            | :fontawesome-solid-xmark: | Name der Ressourcengruppe                                                                                                     |
-| Beschreibung                    |                           | Beschreibung der Ressourcengruppe                                                                                             |
-| Benutzer                        | :fontawesome-solid-xmark: | Benutzer die eine Erinnerungsmail bekommen                                                                                    |
-| Benutzer [Mail-Verteiler]       | :fontawesome-solid-xmark: | Mail-Verteiler der eine Erinnerungsmail bekommen                                                                              |
-| Manager                         | :fontawesome-solid-xmark: | Benutzer die eine Eskalationsmail und Statusmail bekommen                                                                     |
-| Manager [Mail-Verteiler]        | :fontawesome-solid-xmark: | Mail-Verteiler der eine Eskalationsmail und Statusmail bekommen                                                               |
-| Region Manager                  |                           | Benutzer die eine kumulierte Statusmail bekommen                                                                              |
-| Region Manager [Mail-Verteiler] |                           | Mail-Verteiler der eine kumulierte Statusmail bekommen                                                                        |
+| Feld                            | Erforderlich              | Beschreibung                                                                                                                                      |
+|---------------------------------|---------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------|
+| Container                       | :fontawesome-solid-xmark: | Über den Container legt man die Sichtbarkeit dieser Gruppe fest. Automatisch dient dieser, als Filter für die Benutzerauswahl                     |
+| Name                            | :fontawesome-solid-xmark: | Name der Ressourcengruppe                                                                                                                         |
+| Beschreibung                    |                           | Beschreibung der Ressourcengruppe                                                                                                                 |
+| Deadline                        | :fontawesome-solid-xmark: | Hier wird es festgelegt, bis zu welchem Zeitpunkt (Deadline) der Status einer Ressource spätestens kommuniziert werden muss                       |
+| Erinnerungszeit                 | :fontawesome-solid-xmark: | Die Erinnerungszeit ( in Minuten) legt fest, in welchen Zeitraum eine Erinnerungsmail an die Provider mit fehlendem Status verschickt werden soll |
+| Zeitraum                        |                           | Der Zeitraum definiert Arbeitstage und Feiertage, die für die Ressourcengruppen-Prüfung berücksichtigt werden sollen(optional)                    |
+| Benutzer                        | :fontawesome-solid-xmark: | Benutzer die eine Erinnerungsmail bekommen                                                                                                        |
+| Benutzer [Mail-Verteiler]       | :fontawesome-solid-xmark: | Mail-Verteiler der eine Erinnerungsmail bekommen                                                                                                  |
+| Manager                         | :fontawesome-solid-xmark: | Benutzer die eine Eskalationsmail und Statusmail bekommen                                                                                         |
+| Manager [Mail-Verteiler]        | :fontawesome-solid-xmark: | Mail-Verteiler der eine Eskalationsmail und Statusmail bekommen                                                                                   |
+| Region Manager                  |                           | Benutzer die eine kumulierte Statusmail bekommen                                                                                                  |
+| Region Manager [Mail-Verteiler] |                           | Mail-Verteiler der eine kumulierte Statusmail bekommen                                                                                            |
 
 #### Erinnerungsmail
 
@@ -95,7 +97,8 @@ Ressourcen-Namen in der E-Mail mit der openITCOCKPIT Weboberfläche verlinkt.
 
 Beim Ressourcen-Verwaltung Modul können neben dem normalen Benutzer auch Mail-Verteiler hinterlegt werden. Dies
 ermöglicht, dass man beim Mail-Versand mehrere Mail-Adressen gleichzeitig verwenden kann, ohne für jede Mail-Adresse
-einen openITCOCKPIT-Benutzer erstellen zu müssen. Wie auch in der Benutzerauswahl, können die Mail-Verteiler beim Benutzer-, Manager-
+einen openITCOCKPIT-Benutzer erstellen zu müssen. Wie auch in der Benutzerauswahl, können die Mail-Verteiler beim
+Benutzer-, Manager-
 und auch Regional-Manager eingetragen werden.
 
 Unter dem Menüpunkt `Administration -> Resource Center -> Mail Verteiler` befindet sich der Konfigurationsbereich. Hier
@@ -112,7 +115,7 @@ Bildschirms klicken.
 | Name         | :fontawesome-solid-xmark: | Name des Mail Verteilers                                                                                                           |
 | Beschreibung |                           | Beschreibung des Mail Verteilers                                                                                                   |
 | Abteilung    |                           | Dieses Feld wird Mail-Versand verwendet. Wenn dieses Feld gesetzt ist, wird dieser in der Mail mit angezeigt                       |
-| Empfänger   |                            | Liste von E-Mail Adressen und Namen                                                                                                |
+| Empfänger    |                           | Liste von E-Mail Adressen und Namen                                                                                                |
 
 ## Ressource
 
@@ -165,16 +168,17 @@ Alle Änderungen der ScmModule - Objekte sind über Menüpunkt `Logs -> Changelo
 
 ## Dashboards
 
+### Meine Ressourcen Widget
+
 Ein eigens erstelltes Widget für das Dashboard ermöglicht es den Benutzern, immer den aktuellen Status der ihnen
 zugewiesenen Ressourcen zu sehen.
 
 ![Meine Ressourcen Widget hinzufügen](/images/scm/scm_add_my_resources_widget.png)
 
-Je nach Status wird immer eine passende Meldung angezeigt. Wie zum in diesem Beispiel:
-
 ![Meine Ressourcen Widget](/images/scm/scm_my_resources_widget.png)
 
-Für den Fall, dass die Deadline überschritten ist, aber noch nicht zu allen Ressourcen ein Status übermittelt wurde,
-wird ein Hinweis angezeigt.
+### Cronjobs Status Übersicht Widget
 
-![Meine Ressourcen Widget mit Infotext](/images/scm/scm_my_resources_widget_with_info.png)
+![Add My Resources Widget](/images/scm/scm_add_cronjob_status_widget.png)
+
+![My Resources Widget](/images/scm/scm_cronjob_status_widget.png)
