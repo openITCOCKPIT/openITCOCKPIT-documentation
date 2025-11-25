@@ -182,6 +182,14 @@ Der OpManager von ManageEngine kann ebenfalls über eine API angebunden werden. 
 
 ![](/images/import-module/import_opmanager_oitc_4.png)
 
+#### FlowChief
+
+Aus dem [FlowChief Plantexplorer](https://facts.flowchief.de/de-de/Topics/Plantexplorer/Plantexplorer.htm) können einzelne Knoten mit ihren Prozessvariablen von openITCOCKPIT importiert werden.
+Knoten werden dabei als Host und Prozessvariablen als Dienste erstellt. Statusänderungen werden über eine WebSocket Schnittstelle aboniert um keine zusätzliche Last auf dem FlowChief System zu erzeugen.
+
+![](/images/import-module/FlowChief_data_in_openitcockpit.png)
+
+
 ### Externe Systeme
 
 Neben Informationen zu der Konfiguration, liefern externe Systeme in der Regel auch weitere Aspekte wie Assetinformationen und Abhängigkeitsbäume, die in openITCOCKPIT als zusätzliche Attribute dargestellt werden können.
