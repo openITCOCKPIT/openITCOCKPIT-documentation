@@ -189,6 +189,17 @@ Knoten werden dabei als Host und Prozessvariablen als Dienste erstellt. Statusä
 
 ![](/images/import-module/FlowChief_data_in_openitcockpit.png)
 
+#### LibreNMS
+
+openITCOCKPIT kann `Geräte`, `Ports`, `Services` und `Alarme`, welche von LibreNMS überwacht und bereitgestellt werde importieren, um eine zentrale Übersicht zu ermöglichen.
+Alle Informationen werden in regelmäßigen Abständen vom LibreNMS System über die HTTP API abgefragt. Sofern möglich, wird openITCOCKPIT auch Metriken in Form von Graphen speichern.
+
+Aktive `Alarme` werden in openITCOCKPIT im Longoutput des Hosts angezeigt und können je nach Konfiguration den Hoststatus auf "Down" wechseln.
+`Ports` und `Services` aus LibreNMS werden in openITCOCKPIT als Service erstellt. openITCOCKPIT versucht dabei den Namen des `Ports` so genau wie möglich nachzubilden.
+
+![](/images/import-module/librenms_example_host.png)
+
+![](/images/import-module/librenms_host_in_openitcockpit.png)
 
 ### Externe Systeme
 

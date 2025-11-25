@@ -189,6 +189,16 @@ openITCOCKPIT will subscribe state change events from a WebSocket interface to a
 
 ![](/images/import-module/FlowChief_data_in_openitcockpit.png)
 
+#### LibreNMS
+
+openITCOCKPIT can import `Devices`, `Ports`, `Services`, and `Alerts` monitored and provided by LibreNMS to build a central overview. All information is retrieved at regular intervals from the LibreNMS system via the HTTP API. If possible, openITCOCKPIT will also store metrics as graphs.
+
+Active `Alerts` are displayed in openITCOCKPIT in the long output of the host and, depending on the configuration, can change the host status to "Down". `Ports` and `Services` from LibreNMS are created as services in openITCOCKPIT. openITCOCKPIT tries to replicate the name of the port as accurately as possible.
+
+![](/images/import-module/librenms_example_host.png)
+
+![](/images/import-module/librenms_host_in_openitcockpit.png)
+
 ### External Systems
 
 In addition information about the configuration, external systems usually also provide other aspects such as asset information and dependency trees, which can be displayed as additional attributes in openITCOCKPIT.
