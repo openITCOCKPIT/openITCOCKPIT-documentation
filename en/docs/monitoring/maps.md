@@ -180,35 +180,50 @@ Wenn Sie die Rotation im Vollbild modus anschauen möchten, klicken Sie wieder z
 
 Map generators can automatically create maps with summary items.
 
-![](/images/mapmodule-mapgeneratorindex.png)
+![](/images/mapmodule-mapgenerator-index.png)
 
-![](/images/mapmodule-mapgeneratormapexample.png)
+![](/images/mapmodule-mapgenerator-container-map-view-example.png)
 
 #### Generation through container structure
-
-The hosts serve as the starting point for the generation. All hosts and containers from each host up to the tenant container are taken into account. A map is created for each of these containers. Maps/containers that are further down the hierarchy in the container structure are added to the maps above them as summary items so that the container structure can be clicked through. Hosts are also added as summary items to the generated map that represents the assigned container.
-
-The generation will be restricted by the specification of containers. For the specified containers, one of these containers must occur in the container hierarchy of the host up to the tenant container. Otherwise, the host and its hierarchy are ignored.
-
-![](/images/mapmodule-mapgeneratorgeneratedmaps.png)
-
-The generated maps receive the tenant container that occurs in the hierarchy as the assigned container.
-
+The containers specified when creating the generator, as well as its subcontainers and hosts to which the user has write access, serve as the starting point for generation.
+![](/images/mapmodule-mapgenerator-container-edit.png)
+The generation displays the container structure and its hosts in the form of maps.
+![](/images/mapmodule-mapgenerator-containers.png)
+![](/images/mapmodule-mapgenerator-container-generated-maps.png)
+A map is created for each of these containers. Maps/containers that are lower down in the container hierarchy are added to the maps above them as summary items, so that the container structure can be clicked through.
+![](/images/mapmodule-mapgenerator-container-map-view-example.png)
+Hosts are also added to the generated map representing the assigned container as summary items.
+![](/images/mapmodule-mapgenerator-container-map-view-example-2.png)
 The “Items per line” field specifies how many items are placed in a row before a line break occurs.
-
-![](/images/mapmodule-mapgeneratoredit.png)
-
-A map generation can be restarted. New items are added to the existing generated maps or new maps and items are created if new hosts or containers are available.
-
-![](/images/mapmodule-mapgeneratorgenerate.png)
+Generation is restricted by specifying containers.
+If write permissions for the specified containers are missing, the container and its subcontainers and hosts are ignored.
+Containers without hosts are also ignored.
+The generated maps are assigned the container they represent as their assigned container.
+The “Map refresh interval” field is added to each newly generated map as the refresh interval.
+![](/images/mapmodule-mapgenerator-container-map-example.png)
+Map generation can be restarted. This adds new items to the existing generated maps or creates new maps and items if new hosts or containers are available.
+![](/images/mapmodule-mapgenerator-generate-view.png)
 
 #### Generation through hostname splitting
-
-When generating by host name splitting, all host names are split according to the specified levels and their dividers. A map is created for each part, whereby the map further down in the level hierarchy is added to the upper one as a summary item. No map is created for the last specified level. The system checks whether there is a host with this name for this level. This is then added to the last map in the level hierarchy as a summary item. The entire host with its levels is not included in the generation if no host is found. The number of parts must also match the number of defined levels in order to be included in the generation.
-
-One of the defined levels must be defined as a container level. This level is checked to see whether there is a container with this name. It must also match one of the containers specified above. If neither is the case, the host and its levels are ignored during generation.
-
-![](/images/mapmodule-mapgeneratoredit-hostnamesplitting.png)
+All hosts to which you have write access serve as the starting point.
+![](/images/mapmodule-mapgenerator-hostnamesplitting-hosts.png)
+When creating the generator, the levels are defined according to which the host names are divided.
+![](/images/mapmodule-mapgenerator-hostnamesplitting-edit.png)
+One of the defined levels must be defined as a container level.
+This level is checked to see whether this part matches the name of a container that appears in the host's container hierarchy.
+The user must also have write permissions for the container.
+If neither of these conditions is met, the host is ignored during generation.
+If both are the case, the container found is used as the container for the generated map.
+![](/images/mapmodule-mapgenerator-hostnamesplitting-host.png)
+![](/images/mapmodule-mapgenerator-hostnamesplitting-map-example.png)
+When generating by hostname splitting, all hostnames are split based on the specified levels and their dividers.
+If the number of levels matches the number of parts in the hostname, the host and its parts are included in the generation.
+One map is created per part.
+![](/images/mapmodule-mapgenerator-hostnamesplitting-generated-maps.png)
+The map that is lower down in the layer hierarchy is added to the upper one as a summary item, so that the layer structure can be clicked through.
+![](/images/mapmodule-mapgenerator-hostnamesplitting-map-view-example-2.png)
+No map is created for the last level specified. Instead, it represents the host, which is added as a summary item of the last map.
+![](/images/mapmodule-mapgenerator-hostnamesplitting-map-view-example.png)
 
 ## OpenStreetMap <span class="badge badge-danger badge-outlined" title="Enterprise Edition">EE</span>
 
