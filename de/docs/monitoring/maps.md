@@ -181,7 +181,7 @@ Wenn Sie die Rotation im Vollbild modus anschauen möchten, klicken Sie wieder z
 
 ### Karten Generatoren
 
-Karten Generatoren können automatisch Karten mit Zusammenfassungselementen erstellen.
+Karten Generatoren können automatisch Karten mit Zusammenfassungsstatuselement erstellen.
 
 ![](/images/mapmodule-mapgenerator-index.png)
 
@@ -189,14 +189,14 @@ Karten Generatoren können automatisch Karten mit Zusammenfassungselementen erst
 
 #### Generierung durch Container-Struktur
 
-Als Ausgangspunkt der Generierung dienen die Container die beim Anlegen des Generators angegeben werden, sowie dessen Untercontainer und Hosts auf die der Nutzer Schreibrechte hat.
+Als Ausgangspunkt der Generierung dienen die Container die beim Anlegen des Generators angegeben werden, sowie dessen Untercontainer, auf die der Nutzer Schreibrechte hat, und Hosts.
 ![](/images/mapmodule-mapgenerator-container-edit.png)
-Durch die Generierung wird die Container Structure und dessen Hosts in Form von Karten dargestellt.
+Durch die Generierung wird die Container Struktur und dessen Hosts in Form von Karten dargestellt.
 ![](/images/mapmodule-mapgenerator-containers.png)
 ![](/images/mapmodule-mapgenerator-container-generated-maps.png)
-Für jeden dieser Container wird eine Karte erstellt. Karten/Container, die hierarchisch in der Container-Struktur weiter unten stehen, werden den darüberliegenden Karten als Zusammenfassungselemente hinzugefügt, sodass die Container-Struktur durchgeklickt werden kann.
+Für jeden dieser Container wird eine Karte erstellt. Karten/Container, die hierarchisch in der Container-Struktur weiter unten stehen, werden den darüberliegenden Karten als Zusammenfassungsstatuselemente hinzugefügt, sodass die Container-Struktur durchgeklickt werden kann.
 ![](/images/mapmodule-mapgenerator-container-map-view-example.png)
-Hosts werden ebenfalls der generierten Karte, die den zugewiesenen Container darstellt, als Zusammenfassungselemente hinzugefügt.
+Hosts werden ebenfalls der generierten Karte, die den zugewiesenen Container darstellt, als Zusammenfassungsstatuselemente hinzugefügt.
 ![](/images/mapmodule-mapgenerator-container-map-view-example-2.png)
 Das Feld „Elemente pro Zeile“ gibt an, wie viele Elemente in einer Reihe platziert werden, bevor ein Zeilenumbruch erfolgt.
 Die Generierung wird durch die Angabe von Containern eingeschränkt. 
@@ -209,7 +209,7 @@ Eine Karten-Generierung kann erneut gestartet werden. Dabei werden neue Elemente
 ![](/images/mapmodule-mapgenerator-generate-view.png)
 
 #### Generierung durch Hostname Teilung
-Als Ausgangspunkt dienen alle Hosts auf die man Schreibrechte hat.
+Als Ausgangspunkt dienen alle Hosts auf dessen Container man Schreibrechte hat.
 ![](/images/mapmodule-mapgenerator-hostnamesplitting-hosts.png)
 Beim Anlegen des Generators werden die Ebenen definiert, anhand derer die Hostnamen geteilt werden.
 ![](/images/mapmodule-mapgenerator-hostnamesplitting-edit.png)
@@ -224,9 +224,9 @@ Bei der Generierung durch Hostnamen Teilung werden alle Hostnamen anhand der ang
 Wenn die Anzahl der Ebenen mit der Anzahl der Teile des Hostnamens übereinstimmt, wird der Host und seine Teile für die Generierung berücksichtigt.
 Pro Teil wird eine Karte erstellt.
 ![](/images/mapmodule-mapgenerator-hostnamesplitting-generated-maps.png)
-Dabei wird die Karte die weiter unten in der Ebenen Hierarchie steht der Oberen als Zusammenfassungselement hinzugefügt, sodass die Ebenen-Struktur durchgeklickt werden kann.
+Dabei wird die Karte die weiter unten in der Ebenen Hierarchie steht der Oberen als Zusammenfassungsstatuselement hinzugefügt, sodass die Ebenen-Struktur durchgeklickt werden kann.
 ![](/images/mapmodule-mapgenerator-hostnamesplitting-map-view-example-2.png)
-Für die letzte angebene Ebene wird keine Karte erstellt, sondern repräsentiert den Host, der als Zusammenfassungselement der letzten Karte hinzugefügt wird.
+Für die letzte angebene Ebene wird keine Karte erstellt, sondern repräsentiert den Host, der als Zusammenfassungsstatuselement der letzten Karte hinzugefügt wird.
 ![](/images/mapmodule-mapgenerator-hostnamesplitting-map-view-example.png)
 
 ## OpenStreetMap <span class="badge badge-danger badge-outlined" title="Enterprise Edition">EE</span>

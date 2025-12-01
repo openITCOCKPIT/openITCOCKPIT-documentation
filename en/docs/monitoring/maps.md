@@ -185,7 +185,7 @@ Map generators can automatically create maps with summary items.
 ![](/images/mapmodule-mapgenerator-container-map-view-example.png)
 
 #### Generation through container structure
-The containers specified when creating the generator, as well as its subcontainers and hosts to which the user has write access, serve as the starting point for generation.
+The containers specified when creating the generator, as well as its subcontainers to which the user has write access, and hosts serve as the starting point for generation.
 ![](/images/mapmodule-mapgenerator-container-edit.png)
 The generation displays the container structure and its hosts in the form of maps.
 ![](/images/mapmodule-mapgenerator-containers.png)
@@ -205,7 +205,7 @@ Map generation can be restarted. This adds new items to the existing generated m
 ![](/images/mapmodule-mapgenerator-generate-view.png)
 
 #### Generation through hostname splitting
-All hosts to which you have write access serve as the starting point.
+All hosts on whose containers you have write permissions serve as the starting point.
 ![](/images/mapmodule-mapgenerator-hostnamesplitting-hosts.png)
 When creating the generator, the levels are defined according to which the host names are divided.
 ![](/images/mapmodule-mapgenerator-hostnamesplitting-edit.png)
