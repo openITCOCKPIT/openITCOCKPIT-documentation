@@ -85,8 +85,8 @@ nav:
       - 'Setup development system': 'development/setup-dev-env.md'
       - 'Creating a new Module':
           - 'Introduction': 'development/create-new-module/introduction.md'
-          - 'Create Module': 'development/create-new-module/bake-module.md'
-          - 'Hello World': 'development/create-new-module/hello-world.md'
+          - 'CakePHP Back-End': 'development/create-new-module/bake-module.md'
+          - 'Angular Front-End': 'development/create-new-module/angular-frontend.md'
           - 'Database access': 'development/create-new-module/database.md'
           - 'Additionalplugin_database': 'development/create-new-module/additionalplugin-database.md'
       - 'Create a new check plugin': 'development/new-check-plugin.md'

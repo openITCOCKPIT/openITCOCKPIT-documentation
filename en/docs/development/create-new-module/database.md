@@ -1,6 +1,8 @@
 # Database access
 
-openITCOCKPIT uses the [CakePHP ORM](https://book.cakephp.org/4/en/orm.html) to access the database. **Always be sure to use the ORM – never write your own plain SQL queries.**
+openITCOCKPIT uses the [CakePHP ORM](https://book.cakephp.org/5/en/orm.html) to access the database. **Always be sure to use the ORM – never write your own plain SQL queries.**
+
+This example builds on the [openITCOCKPIT ExampleModule Repository](https://github.com/openITCOCKPIT/openITCOCKPIT-ExampleModule/tree/master). Feel free to have a look at the code there.
 
 ## Creating a new table in the database
 
@@ -463,106 +465,7 @@ class TestController extends AppController {
 **Result**
 ![hoststatus example](/images/hoststatus-example.png)
 
-## Displaying data
 
-### AngularJS Controller
-
-You first need to implement a method in your `TestIndexController.js` to load the data.
-
-```php
-angular.module('openITCOCKPIT')
-    .controller('TestIndexController', function($scope, $http){
- 
-        //Name TestIndexController same as in ng.states.js
-        //Convention: Controller name + Action Name + 'Controller' = TestIndexController
- 
- 
-        $scope.load = function(){
- 
-            // Query String parameters
-            var params = {
-                'angular': true
-            };
- 
-            $http.get("/example_module/test/index.json", {
-                params: params
-            }).then(function(result){
- 
-                //Save notes from json result into local $scope.notes variable
-                $scope.notes = result.data.result;
- 
-            }, function errorCallback(result){
-                if(result.status === 403){
-                    $state.go('403');
-                }
- 
-                if(result.status === 404){
-                    $state.go('404');
-                }
-            });
-        };
- 
-        //Fire on page load
-        $scope.load();
- 
-    });
-```
-
-### Updating the HTML view
-In the second step, you will need to put your template logic into your view file `templates/Test/index.php`.
-
-```php
-<?php
-/**
- * @var \App\View\AppView $this
- * @var string $message
- */
-?>
- 
-<div class="row">
-    <div class="col-xl-12">
-        <div id="panel-1" class="panel">
-            <div class="panel-hdr">
-                <h2>
-                    <?php echo __('Example Module'); ?>
-                    <span class="fw-300"><i><?php echo __('Hello World'); ?></i></span>
-                </h2>
-            </div>
-            <div class="panel-container show">
-                <div class="panel-content">
- 
-                    <!-- Output "Hello World (HTML)" that was set by the controller -->
-                    <?= h($message); ?>
- 
-                    <table class="table table-striped m-0 table-bordered table-hover table-sm">
-                        <thead>
-                        <tr>
-                            <th><?= __('Host name') ?></th>
-                            <th><?= __('Note') ?></th>
-                        </tr>
-                        </thead>
- 
-                        <tbody>
-                        <!-- Repeat this TR for each record in $scope.notes -->
-                        <tr ng-repeat="note in notes">
-                            <td>
-                                <!-- Print the content of the variable -->
-                                {{ note.host.name }}
-                            </td>
-                            <td>{{ note.notes }}</td>
-                        </tr>
-                        </tbody>
- 
-                    </table>
- 
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-```
-
-![angularjs view with data](/images/angularjs-view-with-data.png)
 
 ## Using your own database
 If you need to store data that is not related to openITCOCKPIT data, we recommend you store it in a separate database. Modules can create and manage their own database connections.

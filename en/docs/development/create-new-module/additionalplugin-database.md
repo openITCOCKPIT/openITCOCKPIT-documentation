@@ -1,7 +1,6 @@
 # Additionalplugin_database
 
 ## Linking core tables with plugin tables
-
 In some cases, a link to an openITCOCKPIT core table object is required from a module's table object.
 
 In this example, we want to delete the "additional notes" from the module table as soon as the associated host is deleted. To implement this, we do not need to modify any core code.
