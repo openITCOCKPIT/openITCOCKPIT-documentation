@@ -79,6 +79,7 @@ satellite-id=ADD_YOUR_SATELLITE_ID_HERE
 api-key=ADD_YOUR_API_KEY_HERE
 endpoint=https://demo.openitcockpit.io
 insecure-https=true
+system-metrics-interval=15
 ```
 
 You will need to restart the NSTA service for the changes to take effect.
