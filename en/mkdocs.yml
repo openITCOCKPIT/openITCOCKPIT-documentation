@@ -40,6 +40,7 @@ nav:
       - 'Monitoring through NRPE': 'beginners/monitoring-nrpe/#monitoring-using-nrpe'
       - 'Maps': 'monitoring/maps.md'
       - 'Eventcorrelation': 'monitoring/eventcorrelation.md'
+      - 'Software Inventory': 'monitoring/software-inventory.md'
   - 'Alerting / Notifications':
       - 'Notifications': 'alerting/alerting.md'
       - 'Setup Email notifications': 'beginners/setup-email-notifications/#setting-up-email-notifications'
