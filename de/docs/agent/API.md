@@ -50,6 +50,65 @@ Nach der Einrichtung von Auto-TLS sind weitere Zertifikatsaktualisierungen nur v
 
 Die `/autotls` Endpunkte sind nur verfügbar, wenn `try-autossl=True` in `config.ini` aktiviert ist.
 
+### GET /packages
+
+Gibt Informationen über installierte Pakete und verfügbare Updates zurück. Der genaue Inhalt der Antwort hängt vom Betriebssystem und dem verwendeten Paketmanager ab.
+
+
+```json
+{
+  "Enabled": true,
+  "Pending": false,
+  "LastUpdate": 1770725707,
+  "Stats": {
+    "InstalledPackages": 86,
+    "UpgradablePackages": 1,
+    "SecurityUpdates": 1,
+    "RebootRequired": true,
+    "LastError": "",
+    "OperatingSystem": "windows",
+    "PackageManager": "windows-updates",
+    "OsName": "Microsoft Windows Server 2022 Standard Evaluation",
+    "OsVersion": "21H2 (10.0.20348.4648 Build 20348.4648)",
+    "OsFamily": "windows",
+    "AgentVersion": "3.5.0",
+    "Uptime": 1132701
+  },
+  "LinuxPackages": [],
+  "LinuxUpdates": [],
+  "WindowsApps": [
+    {
+      "Name": "DigiCert ONE Clients 1.5.1",
+      "Version": "1.5.1",
+      "Publisher": "DigiCert, Inc."
+    },
+    {
+      "Name": "Git",
+      "Version": "2.52.0",
+      "Publisher": "The Git Development Community"
+    },
+    ...
+  ],
+  "WindowsUpdates": [
+    {
+      "Title": "Security Intelligence-Update für Microsoft Defender Antivirus – KB2267602 (Version 1.443.1104.0) – Aktueller Kanal (Allgemein)",
+      "Description": "Installieren Sie dieses Update, um die Dateien zu überarbeiten, die zum Erkenne",
+      "KBArticleIDs": [
+        "2267602"
+      ],
+      "IsInstalled": false,
+      "IsSecurityUpdate": true,
+      "IsOptional": false,
+      "UpdateID": "2a4ed49f-8019-47f3-a1e4-fc73fa6cbe5f",
+      "RevisionNumber": 200,
+      "RebootRequired": false
+    }
+  ],
+  "MacosApps": [],
+  "MacosUpdates": []
+}
+```
+
 ## openITCOCKPIT API Endpunkte
 
 Diese Dokumentation beschreibt die openITCOCKPIT API, die vom Agent im Push-Modus verwendet wird.
@@ -148,7 +207,7 @@ Status: 200 OK
 }
 ```
 
-#### Fehler
+##### Fehler
 ```json
 400 Bad Request
 {
@@ -161,6 +220,47 @@ Status: 200 OK
 {
     "message": "Method Not Allowed",
     "url": "\/agentconnector\/submit_checkdata.json",
+    "code": 405
+}
+```
+
+#### Push package info
+Anfrage: POST `/agentconnector/submit_package_info.json`
+```json
+{
+    "agentuuid": "<uuid>",
+    "password": "32e8d6eefa9c50e07e9296cd0202126a5926dc4dd473400d3...",
+    "checkdata": {
+        "Enabled": true,
+        "Pending": false,
+        "LastUpdate": 1770725707
+        ...
+    }
+}
+```
+Antwort:
+```json
+Status: 200 OK
+{
+    "success": true,
+    "error": ""
+}
+```
+
+##### Fehler
+```json
+400 Bad Request
+{
+    "success": false,
+    "error": "Error while processing package information"
+}
+```
+
+```json
+405 Method Not Allowed
+{
+    "message": "Method Not Allowed",
+    "url": "\/agentconnector\/submit_package_info.json",
     "code": 405
 }
 ```

@@ -52,6 +52,65 @@ After Auto-TLS has been established further certificate updates are only possibl
 
 The `/autotls` endpoints are only available if `try-autossl=True` is enabled in `config.ini`
 
+### GET /packages
+
+Returns information about installed packages and available updates. The exact content of the response depends on the operating system and package manager used.
+
+```json
+{
+  "Enabled": true,
+  "Pending": false,
+  "LastUpdate": 1770725707,
+  "Stats": {
+    "InstalledPackages": 86,
+    "UpgradablePackages": 1,
+    "SecurityUpdates": 1,
+    "RebootRequired": true,
+    "LastError": "",
+    "OperatingSystem": "windows",
+    "PackageManager": "windows-updates",
+    "OsName": "Microsoft Windows Server 2022 Standard Evaluation",
+    "OsVersion": "21H2 (10.0.20348.4648 Build 20348.4648)",
+    "OsFamily": "windows",
+    "AgentVersion": "3.5.0",
+    "Uptime": 1132701
+  },
+  "LinuxPackages": [],
+  "LinuxUpdates": [],
+  "WindowsApps": [
+    {
+      "Name": "DigiCert ONE Clients 1.5.1",
+      "Version": "1.5.1",
+      "Publisher": "DigiCert, Inc."
+    },
+    {
+      "Name": "Git",
+      "Version": "2.52.0",
+      "Publisher": "The Git Development Community"
+    },
+    ...
+  ],
+  "WindowsUpdates": [
+    {
+      "Title": "Security Intelligence-Update für Microsoft Defender Antivirus – KB2267602 (Version 1.443.1104.0) – Aktueller Kanal (Allgemein)",
+      "Description": "Installieren Sie dieses Update, um die Dateien zu überarbeiten, die zum Erkenne",
+      "KBArticleIDs": [
+        "2267602"
+      ],
+      "IsInstalled": false,
+      "IsSecurityUpdate": true,
+      "IsOptional": false,
+      "UpdateID": "2a4ed49f-8019-47f3-a1e4-fc73fa6cbe5f",
+      "RevisionNumber": 200,
+      "RebootRequired": false
+    }
+  ],
+  "MacosApps": [],
+  "MacosUpdates": []
+}
+```
+
+
 ## openITCOCKPIT API Endpoints
 
 This documentation descrips the openITCOCKPIT API used by the Agent in Push mode.
@@ -149,7 +208,7 @@ Status: 200 OK
 }
 ```
 
-#### Error states
+##### Error states
 ```json
 400 Bad Request
 {

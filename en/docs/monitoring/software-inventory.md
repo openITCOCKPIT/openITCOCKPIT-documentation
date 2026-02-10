@@ -117,8 +117,9 @@ The data is collected by the openITCOCKPIT Agent.
 The configuration options for the Software Inventory feature can be found in the `packagemanager` section of the agent's configuration file.
 
 By default, the Software Inventory collection will be performed every 60 minutes.
-For Agents running in Pull mode, the openITCOCKPIT Server will pull the data from the Agent via a cron job.
-For Agents running in Push mode, the Agent will push the data to the Server at the configured interval.
+
+- For Agents running in Pull mode, the openITCOCKPIT Server will pull the data from the Agent via a cron job.
+- For Agents running in Push mode, the Agent will push the data to the Server at the configured interval.
 
 Here is an example configuration: 
 
