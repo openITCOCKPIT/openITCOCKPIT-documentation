@@ -63,6 +63,10 @@ nav:
       - 'Hosts and Services': 'configuration/hosts-services.md'
       - 'User management': 'configuration/usermanagement.md'
       - 'LDAP integration': 'configuration/ldap-integration.md'
+      - 'Login Methods':
+          - 'LDAP / ActiveDirectory' : 'configuration/login_methods/ldap_login.md'
+          - 'oAuth' : 'configuration/login_methods/oauth_login.md'
+          - 'Certificate' : 'configuration/login_methods/certificate_login.md'
       - 'Macros': 'configuration/macros.md'
       - 'Timeperiods': 'configuration/timeperiods.md'
       - 'Change Calendar': 'configuration/change_calendar.md'
