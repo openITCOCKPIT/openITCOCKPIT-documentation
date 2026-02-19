@@ -152,6 +152,7 @@ If the status "State is no longer current" appears, this is usually due to one o
 - Different system times between the master system and satellite. Using an NTP server or activating system time synchronisation via NSTA.
 - The connection between the master system and satellite is broken
 - the satellite system is overloaded
+- more than one master is querying the satellite
 
 ## Activating the satellite frontend
 
