@@ -172,9 +172,11 @@ Das openITCOCKPIT Mastersystem führt in regelmäßigen Abständen einen sogenan
 Satellitensysteme ihre Prüfergebnisse zu den erwarteten Zeitpunkten übermittelt haben.
 
 Der Status "State is no longer current" ist in der Regel auf einen der folgenden Punkte zurückzuführen:
+
 - Unterschiedliche Systemzeiten von Mastersystem und Satellit. NTP-Server nutzen oder Synchronisation der Systemzeit über NSTA aktivieren.
 - Die Verbindung zwischen Mastersystem und Satellit ist unterbrochen
 - Satellitensystem ist überlastet
+- mehrere Master fragen einen Satelliten ab
 
 ## Satelliten Frontend aktivieren
 
