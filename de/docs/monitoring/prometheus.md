@@ -1,4 +1,4 @@
-# Überwachung mit Prometheus <span class="badge badge-danger badge-outlined" title="Enterprise Edition">EE</span>
+# Überwachung mit Prometheus <span class="badge badge-primary badge-outlined" title="Community Edition">CE</span>
 
 ## Was ist Prometheus?
 
@@ -40,7 +40,12 @@ um Linux, Windows, MySQL, Oracle DB, AWS, UniFi und alles nur erdenkliche überw
 
 ### Voraussetzung
 
-Um Prometheus mit openITCOCKPIT nutzen zu können, benötigen Sie eine Enterprise Lizenz, sowie das PrometheusModule.
+Um Prometheus mit openITCOCKPIT nutzen zu können, benötigen Sie eine Community Lizenz, sowie das PrometheusModule.
+
+!!! info "openITCOCKPIT Community Lizenz wird benötigt"
+Um Zugriff auf die Community Module zu erhalten, wird eine Registrierung Ihrer openITCOCKPIT Instanz mit der **
+kostenlosen** Community Lizenz vorausgesetzt.
+
 
 Zusätzlich müssen auf dem zu überwachenden System die entsprechenden Exporter installiert sein. Eine Liste mit 
 verfügbaren Exporter gibt es auf der [Webseite von Prometheus](https://prometheus.io/docs/instrumenting/exporters/)
