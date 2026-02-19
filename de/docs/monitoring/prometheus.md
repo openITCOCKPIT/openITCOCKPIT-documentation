@@ -43,8 +43,8 @@ um Linux, Windows, MySQL, Oracle DB, AWS, UniFi und alles nur erdenkliche überw
 Um Prometheus mit openITCOCKPIT nutzen zu können, benötigen Sie eine Community Lizenz, sowie das PrometheusModule.
 
 !!! info "openITCOCKPIT Community Lizenz wird benötigt"
-Um Zugriff auf die Community Module zu erhalten, wird eine Registrierung Ihrer openITCOCKPIT Instanz mit der **
-kostenlosen** Community Lizenz vorausgesetzt.
+    Um Zugriff auf die Community Module zu erhalten, wird eine Registrierung Ihrer openITCOCKPIT Instanz mit der **
+    kostenlosen** Community Lizenz vorausgesetzt.
 
 
 Zusätzlich müssen auf dem zu überwachenden System die entsprechenden Exporter installiert sein. Eine Liste mit 

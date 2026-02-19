@@ -35,8 +35,8 @@ The exporters are small programs that provide a web server through which Prometh
 To use Prometheus with openITCOCKPIT, you need an Community licence and must have installed the PrometheusModule.
 
 !!! info "openITCOCKPIT Community Licence is required"
-To get access to the community modules, you need to register your openITCOCKPIT instance using the **free** community
-licence.
+    To get access to the community modules, you need to register your openITCOCKPIT instance using the **free** community
+    licence.
 
 In addition, the appropriate exporters must be installed on the target system to be monitored. A list of available exporters can be found on the [Prometheus website](https://prometheus.io/docs/instrumenting/exporters/)
 
