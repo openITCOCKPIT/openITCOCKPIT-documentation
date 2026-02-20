@@ -1,19 +1,19 @@
-# SSL Certificate authentication
-Optionally, you can provide SSL Certificates to the clients, which they use for authentitacion in openITCOCKPIT.
-This is a very secure way to authenticate users, but it is also more complex to set up and maintain.
+# SSL-Zertifikatsauthentifizierung
+Optional können Sie SSL-Zertifikate für die Clients bereitstellen, die diese zur Authentifizierung in openITCOCKPIT verwenden.
+Dies ist eine sehr sichere Methode zur Benutzerauthentifizierung, jedoch auch komplexer in der Einrichtung und Wartung.
 
-## Install prerequisites
+## Abhängigkeiten installieren
 ```bash
 apt-get install gnutls-bin
 ```
 
-## Create a CA
+## Eine CA anlegen
 ```bash
 certtool --generate-privkey --bits 2048 --outfile ca.key
 certtool --generate-self-signed  --load-privkey ca.key --outfile ca.crt
 ```
 
-The following questions must be answered and cannot be left blank.
+Diese Fragen müssen mindestens beantwortet werden:
 ```text
 certtool --generate-self-signed  --load-privkey ca.key --outfile ca.crt
 Common name: Test CA
@@ -25,7 +25,7 @@ Does the certificate belong to an authority? (y/N): y
 Is the above information ok? (y/N): y
 ```
 
-Full output
+Komplette Ausgabe
 ```text
 certtool --generate-self-signed  --load-privkey ca.key --outfile ca.crt
 Generating a self signed certificate...
@@ -123,7 +123,7 @@ Is the above information ok? (y/N): y
 Signing certificate...
 ```
 
-## Server Certificate
+## Server-Zertifikat
 ```bash
 Common name: 192.168.56.103 (Sollte der FQDN oder die IP sein)
 
@@ -132,7 +132,7 @@ The certificate will expire in (days): 300
 Is the above information ok? (y/N): y
 ```
 
-Full output
+Komplette Ausgabe
 ```text
  certtool --generate-certificate --load-privkey server.key --load-ca-privkey ca.key --load-ca-certificate ca.crt --outfile server.crt
 Generating a signed certificate...
@@ -227,8 +227,8 @@ Other Information:
 Is the above information ok? (y/N): y
 ```
 
-## Configure nginx
-The server certificate used by Nginx to support HTTPS is configured in the file /etc/nginx/openitc/ssl_cert.conf.
+## nginx konfigurieren
+Das Server-Zertifikat, welches von Nginx genutzt wird um überhaupt HTTPS zu unterstützen, wird in der Datei /etc/nginx/openitc/ssl_cert.conf konfiguriert.
 
 ```bash
 mkdir -p /etc/nginx/ssl
@@ -238,7 +238,8 @@ cp server.crt /etc/nginx/ssl/
 cp server.key /etc/nginx/ssl/
 ```
 
-Now open the file /etc/nginx/openitc/ssl_cert.conf and enter the new certificates:
+Jetzt die Datei /etc/nginx/openitc/ssl_cert.conf öffnen und die neuen Zertifikate eintragen:
+
 `/etc/nginx/openitc/ssl_cert.conf`
 ```text
 ssl_certificate         /etc/nginx/ssl/server.crt;
@@ -247,10 +248,9 @@ ssl_client_certificate  /etc/nginx/ssl/ca.crt;
 ssl_verify_client optional;
 ```
 
-ssl_certificate and ssl_certificate_key can theoretically remain unchanged and are only required if the server itself should use the certificates signed by the CA. 
+ssl_certificate und ssl_certificate_key können theoretisch bleiben und ist nur erforderlich, wenn der Server selbst die von der CA signierte Zertifikate nutzen soll. Die Optionen ssl_client_certificate und ssl_verify_client sorgen dafür, dass die Validierung der Client Zertifikate, also der des Browsers überprüft werden. Wenn ssl_verify_client auf on gestellt wird, ist die Authentifizierung per Client Zertifikat Pflicht und es kann andernfalls keine Verbindung zu Server aufgebaut werden.
 
-The options ssl_client_certificate and ssl_verify_client ensure that the validation of the client certificates — meaning those of the browser — is performed. If ssl_verify_client is set to on, authentication via client certificate is mandatory; otherwise, no connection to the server can be established.
-## Configure checks for client certificates
+## Client-Zertifikatsprüfungen konfigurieren
 `/etc/nginx/openitc/master.conf`
 
 ```text
@@ -270,9 +270,7 @@ location ~ \.php$ {
 }
 ```
 
-The file /etc/nginx/openitc/master.conf is overwritten with every openITCOCKPIT update or when running openitcockpit-update!
-
-The modifications shown above must then be applied manually again.
+Die Datei /etc/nginx/openitc/master.conf wird bei jedem openITCOCKPIT Update oder beim Aufruf von openitcockpit-update überschrieben! Die oben gezeigten Anpassungen müssen dann wieder manuell angewendet werden!
 
 Restart nginx to apply the changes:
 
@@ -281,16 +279,11 @@ systemctl restart nginx
 ```
 
 ## Create clientCertificates
-First, a new local user must be created in openITCOCKPIT with a first name, last name, and, if applicable, a corresponding email address.
+Zunächst einmal muss einneuer lokaler Benutzer in openITCOCKPIT mit Vorname und Nachname und ggf. passender E-Mail Adresse angelegt werden. Falls eine OU nicht mit dem Namen People angegeben wird, muss die OU Teil der E-Mail Adresse sein (dies ist eine Vorgabe der aktuellen Implementierung in oitc). (OU ist die organizational unit name bei der Zertifikatserstellung)
 
-If an OU is not specified with the name People, the OU must be included as part of the email address (this is a requirement of the current implementation in oitc). (OU refers to the Organizational Unit Name during certificate creation.)
+    Achtung: Der Benutzer sollte umbedingt ein sicheres Passwort bekommen, da auch der Login über E-Mail Adresse + Passwort möglich wäre. Der Befehl pwgen -s -y kann genutzt werden, um sichere Passwörter zu erstellen.
 
-Attention: The user should обязательно be assigned a secure password, since login via email address and password would also be possible.
-
-The command pwgen -s -y can be used to generate secure passwords.
-
-Now you can create the certificate for the user.
-
+Nun kann das Zertifikat für den Benutzer erstellt werden.
 ```bash
 certtool --generate-privkey --bits 2048 --outfile certificate_user.key
 certtool --generate-certificate --load-privkey certificate_user.key --load-ca-privkey ca.key --load-ca-certificate ca.crt --outfile certificate_user.crt
@@ -414,18 +407,20 @@ Signing certificate...
 certtool --to-p12 --load-privkey certificate_user.key --load-certificate certificate_user.crt --load-ca-certificate ca.crt --outder --outfile certificate_user.p12
 ```
 
-These three questions must at least be answered:
+Diese Fragen müssen mindestens beantwortet werden:
 ```text
 Enter a name for the key: Test Key
 Enter password: asdf12
 Confirm password: asdf12
 ```
 
-## Set up your browser
-Now you can import the p12 file into your browser and use the certificate for authentication in openITCOCKPIT. Please note that the Common Name (CN) of the certificate must match the name of the user in openITCOCKPIT. Otherwise, the authentication will fail.
-Also, during the import procedure, you will be asked for the password that you have set for the p12 file.
+## Browser einrichten
+
+Nun können Sie die p12-Datei in Ihren Browser importieren und das Zertifikat für die Authentifizierung in openITCOCKPIT verwenden. Bitte beachten Sie, dass der Common Name (CN) des Zertifikats mit dem Namen des Benutzers in openITCOCKPIT übereinstimmen muss. Andernfalls schlägt die Authentifizierung fehl.
+
+Während des Importvorgangs werden Sie außerdem nach dem Passwort gefragt, das Sie für die p12-Datei festgelegt haben.
 
 ![Importing the certificate to your browser](/images/configuration/login_methods/certificate_login_import.png)
 
-When you now try to navigate to your openITCOCKPIT instance, you should be prompted to select a certificate for authentication.
+Wenn Sie nun versuchen, zu Ihrer openITCOCKPIT-Instanz zu navigieren, sollten Sie aufgefordert werden, ein Zertifikat zur Authentifizierung auszuwählen.
 ![Selecting a certificate to log in](/images/configuration/login_methods/certificate_login_login.png)

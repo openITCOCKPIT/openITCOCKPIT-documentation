@@ -62,7 +62,6 @@ nav:
       - 'Commands': 'configuration/commands.md'
       - 'Hosts and Services': 'configuration/hosts-services.md'
       - 'User management': 'configuration/usermanagement.md'
-      - 'LDAP integration': 'configuration/ldap-integration.md'
       - 'Login Methods':
           - 'LDAP / ActiveDirectory' : 'configuration/login_methods/ldap_login.md'
           - 'oAuth' : 'configuration/login_methods/oauth_login.md'
