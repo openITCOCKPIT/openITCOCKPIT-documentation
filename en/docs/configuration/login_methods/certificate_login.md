@@ -1,7 +1,6 @@
 # SSL Certificate authentication
 Optionally, you can provide SSL Certificates to the clients, which they use for authentitacion in openITCOCKPIT.
 This is a very secure way to authenticate users, but it is also more complex to set up and maintain.
-#
 
 ## Install prerequisites
 ```bash
@@ -58,9 +57,7 @@ Trailing garbage ignored: `y
 Is this a TLS web client certificate? (y/N):
 Will the certificate be used for IPsec IKE operations? (y/N): n
 Is this a TLS web server certificate? (y/N): n
-Enter a dnsName of the subject of the certificate: n
-Enter an additional dnsName of the subject of the certificate: n
-Enter an additional dnsName of the subject of the certificate:
+Enter a dnsName of the subject of the certificate:
 Enter a URI of the subject of the certificate:
 Enter the IP address of the subject of the certificate:
 Enter the e-mail of the subject of the certificate:
@@ -108,8 +105,7 @@ X.509 Certificate Information:
                         Certificate Authority (CA): TRUE
                         Path Length Constraint: 0
                 Subject Alternative Name (not critical):
-                        DNSname: n
-                        DNSname: n
+                        DNSname:
                 Subject Key Identifier (not critical):
                         9befe62f2d2ff437e5e238e1faf1106f06f66a1f
                 CRL Distribution points (not critical):
@@ -339,8 +335,7 @@ Does the certificate belong to an authority? (y/N):
 Is this a TLS web client certificate? (y/N): y
 Will the certificate be used for IPsec IKE operations? (y/N): n
 Is this a TLS web server certificate? (y/N): n
-Enter a dnsName of the subject of the certificate: n
-Enter an additional dnsName of the subject of the certificate:
+Enter a dnsName of the subject of the certificate:
 Enter a URI of the subject of the certificate:
 Enter the IP address of the subject of the certificate:
 Enter the e-mail of the subject of the certificate:
@@ -387,7 +382,7 @@ X.509 Certificate Information:
                 Key Purpose (not critical):
                         TLS WWW Client.
                 Subject Alternative Name (not critical):
-                        DNSname: nDN
+                        DNSname:
                 Key Usage (critical):
                         Digital signature.
                         Key encipherment.
@@ -419,3 +414,12 @@ Enter a name for the key: Test Key
 Enter password: asdf12
 Confirm password: asdf12
 ```
+
+## Set up your browser
+Now you can im port the p12 file into your browser and use the certificate for authentication in openITCOCKPIT. Please note that the Common Name (CN) of the certificate must match the name of the user in openITCOCKPIT. Otherwise, the authentication will fail.
+Also, during the import procedure, you will be asked for the password that you have set for the p12 file.
+
+![Importing the certificate to your browser](/images/configuration/login_methods/certificate_login_import.png)
+
+When you now try to navigate to your openITCOCKPIT instance, you should be prompted to select a certificate for authentication.
+![Selecting a certificate to log in](/images/configuration/login_methods/certificate_login_login.png)
