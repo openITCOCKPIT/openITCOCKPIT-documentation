@@ -384,5 +384,5 @@ Danach sollte die Weboberfläche sichtbar und die Distributionsaktualisierung ab
 
 #### Ich nutze Ubuntu Trusty oder Debian Jessie
 
-Bitte Kontaktieren Sie uns über unser [Sales Kontaktformular](https://www.allgeier-its.com/unternehmen/#kontakt)
+Bitte Kontaktieren Sie uns über unser [Sales Kontaktformular](https://avendis.com/kontakt/)
 

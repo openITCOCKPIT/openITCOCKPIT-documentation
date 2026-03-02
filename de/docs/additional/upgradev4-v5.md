@@ -347,7 +347,7 @@ Einige Enterprise Linux Installationen verwenden noch PHP 8.0. In diesem Fall m�
 Aufgrund der Komplexität des Supports für Enterprise Linux Systeme ist nur die [openITCOCKPIT Enterprise Edition](https://openitcockpit.io/editions/) für 
 Red Hat Enterprise Linux und RHEL-basierte Distributionen wie CentOS, Rocky Linux, AlmaLinux oder Oracle Linux verfügbar.
 
-Bitte nehmen Sie [Kontakt mit uns auf](https://www.allgeier-its.com/unternehmen/#kontakt), wenn Sie Unterstützung bei der Aktualisierung Ihrer openITCOCKPIT Installation benötigen.
+Bitte nehmen Sie [Kontakt mit uns auf](https://avendis.com/kontakt/), wenn Sie Unterstützung bei der Aktualisierung Ihrer openITCOCKPIT Installation benötigen.
 
 Stellen Sie vor dem Start sicher, dass Sie die neuesten Updates für Ihr System installiert haben:
 ```bash

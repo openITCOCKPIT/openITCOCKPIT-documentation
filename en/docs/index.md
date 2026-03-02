@@ -19,7 +19,7 @@ If you believe you have found any vulnerabilities or security issues in openITCO
 All known vulnerabilities can be viewed here: [https://openitcockpit.io/security/](https://openitcockpit.io/security/)
 
 ## Support
-Professional assistance and support is provided by [Allgeier IT Services GmbH](https://www.allgeier-its.com/unternehmen/#kontakt) angeboten.
+Professional assistance and support is provided by [AVENDIS GmbH](https://avendis.com/) angeboten.
 
 ### Community
 
@@ -33,7 +33,7 @@ openITCOCKPIT and its accompanying documentation are covered under a dual licenc
 
 ```
 Copyright (C) 2015-2025  it-novum GmbH
-Copyright (C) 2025-today Allgeier IT Services GmbH
+Copyright (C) 2025-today AVENDIS GmbH
 
 
 openITCOCKPIT is dual licensed

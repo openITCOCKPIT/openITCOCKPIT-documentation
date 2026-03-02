@@ -362,4 +362,4 @@ The web interface should then be visible and the distribution update should be c
 
 #### What if I use Ubuntu Trusty or Debian Jessie?
 
-Please get in touch with us using our [Sales contact form](https://www.allgeier-its.com/unternehmen/#kontakt)
+Please get in touch with us using our [Sales contact form](https://avendis.com/kontakt/)
