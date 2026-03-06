@@ -10,5 +10,6 @@ pip install mkdocs-glightbox==0.5.2
 
 EXPOSE 8000
 
-CMD ["/usr/bin/mkdocs", "serve"]
+# Live reload issue https://github.com/squidfunk/mkdocs-material/issues/8478
+CMD ["/usr/bin/mkdocs", "serve", "--livereload"]
 
