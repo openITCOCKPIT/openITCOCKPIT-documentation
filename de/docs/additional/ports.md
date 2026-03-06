@@ -27,6 +27,7 @@ In der folgenden Tabelle finden Sie die Liste der Ports, die openITCOCKPIT stand
 | 8428  | 127.0.0.1 | Ja                      | Port              | victoria-metrics (Docker)              |
 | 8888  | 127.0.0.1 | Ja                      | Port              | graphite-web (Docker)                  |
 | 9090  | 127.0.0.1 | Ja                      | Port              | Prometheus                             |
+| 9949  | 127.0.0.1 | Ja                      | Port              | Event-Collectd                         |
 | 11211 | 127.0.0.1 | Ja                      | Port              | memcached                              |
 
 

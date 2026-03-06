@@ -27,5 +27,6 @@ See the table below for the list of ports that openITCOCKPIT assigns by default:
 | 8428  | 127.0.0.1 | Yes                | Port             | victoria-metrics (Docker)              |
 | 8888  | 127.0.0.1 | Yes                | Port             | graphite-web (Docker)                  |
 | 9090  | 127.0.0.1 | Yes                | Port             | Prometheus                             |
+| 9949  | 127.0.0.1 | Yes                | Port             | Event-Collectd                         |
 | 11211 | 127.0.0.1 | Yes                | Port             | memcached                              |
 
