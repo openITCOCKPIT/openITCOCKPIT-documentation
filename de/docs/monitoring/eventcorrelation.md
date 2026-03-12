@@ -89,6 +89,19 @@ Der SCORE-Operator kann in vier verschiedenen Modi arbeiten:
 - SCORE Bereich Exklusiv (< 10 oder > 20 – außerhalb des Bereichs von 10 bis 20): Die Gesamtpunktzahl wird geprüft, ob sie außerhalb eines bestimmten Bereichs liegt. Beispiel: Ist die Gesamtpunktzahl 5 und der Warnung-Schwellenwert als Bereich 10 bis 20 gesetzt, ist das Ergebnis Warnung, da 5 außerhalb des Bereichs liegt.
 
 
+In der Ansicht der Ereigniskorrelation wird für jeden Service der jeweilige Punktwert (Score) angezeigt. Die Summe aller Punktwerte (`10` + `1` = `11` im Beispiel) wird verwendet, um den Gesamtstatus des virtuellen Service anhand der definierten Schwellenwerte und des ausgewählten Score-Operators zu bestimmen.
+
+Ein Tooltip zeigt die in der Operator-Konfiguration definierten Schwellenwerte an.
+
+> 11 (Gesamtpunktzahl) ist ≥ 5 (Warnung-Schwellenwert)
+>
+> 11 (Gesamtpunktzahl) ist ≥ 10 (Kritischer-Schwellenwert) → Ergebnis: Kritisch
+>
+> 11 (Gesamtpunktzahl) ist nicht ≥ 900 (Unbekannter-Schwellenwert)
+
+![](/images/EVC-scoreOperator.png)
+
+
 | Feld                               | Erforderlich              | Beschreibung                                                                                                                                 |
 |------------------------------------|---------------------------|----------------------------------------------------------------------------------------------------------------------------------------------|
 | Basiskonfiguration                 |                           |                                                                                                                                              |

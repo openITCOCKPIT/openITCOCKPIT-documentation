@@ -89,6 +89,17 @@ The SCORE operator can operate in four different modes:
 - SCORE Range Inclusive (≥ 10 and ≤ 20 - inside the range of 10 to 20): The total score is compared against the thresholds to check if it falls within a specified range. For example, if the total score is 15 and the warning threshold is set to a range of 10 to 20, the result would be Warning because 15 is within the range of 10 to 20.
 - SCORE Range Exclusive (< 10 or > 20 - outside the range of 10 to 20): The total score is compared against the thresholds to check if it falls outside a specified range. For example, if the total score is 5 and the warning threshold is set to a range of 10 to 20, the result would be Warning because 5 is outside the range of 10 to 20.
 
+In the view of the event correlation, each service will display its score. The sum of all scores (`10` + `1` = `11` in the example) will be used to determine the overall status of the virtual service based on the defined thresholds and the selected score operator.
+
+A tooltip will show the thresholds defined in the operator configuration.
+
+> 11 (total score) is ≥ 5 (warning threshold)
+>
+> 11 (total score) is ≥ 10 (critical threshold) → Result: Critical
+>
+> 11 (total score) is not ≥ 900 (unknown threshold)
+
+![](/images/EVC-scoreOperator.png)
 
 | Field                               | Required                  | Description                                                                                                                   |
 |-------------------------------------|---------------------------|-------------------------------------------------------------------------------------------------------------------------------|
