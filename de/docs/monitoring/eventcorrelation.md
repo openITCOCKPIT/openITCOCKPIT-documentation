@@ -84,7 +84,8 @@ Punktwerte können negative oder positive Werte sein und die Operator-Schwellenw
 Der SCORE-Operator kann in vier verschiedenen Modi arbeiten:
 
 - SCORE Skalar ≥ (größer-gleich): Die Gesamtpunktzahl wird mit den Schwellenwerten per größer-gleich-Vergleich verglichen. Beispiel: Ist die Gesamtpunktzahl 11 und der Warnung-Schwellenwert 5, ist das Ergebnis Warnung, da 11 ≥ 5.
-- SCORE Skalar ≤ (kleiner-gleich): Die Gesamtpunktzahl wird mit den Schwellenwerten per kleiner-gleich-Vergleich verglichen. Beispiel: Ist die Gesamtpunktzahl 3 und der Warnung-Schwellenwert 5, ist das Ergebnis Ok, da 3 ≤ 5.
+- SCORE Skalar ≤ (kleiner-gleich): Die Gesamtpunktzahl wird mit den Schwellenwerten per kleiner-gleich-Vergleich verglichen. Bei diesem Operator gilt je niedriger der Punktewert ist, desto schlechter ist der Status. Das heißt der Warnung Schwellwert sollte höher sein als der Kritisch-Schwellwert. Der Unbekannt-Wert sollte am 
+niedrigsten sein. Beispiel: Der Warnung-Schwellwert ist 15, der Kritsch-Schwellwert ist 10 und der Unbekannt-Schwellwert ist 0. Ist die Gesamtpunktzahl 13, ist das Ergebnis Warnung, da 13 ≤ 15. Ist die Gesamtpunktzahl 10, ist das Ergebnis Kritsch, da 10 ≤ 10 etc. 
 - SCORE Bereich Inklusiv (≥ 10 und ≤ 20 – innerhalb des Bereichs von 10 bis 20): Die Gesamtpunktzahl wird geprüft, ob sie innerhalb eines bestimmten Bereichs liegt. Beispiel: Ist die Gesamtpunktzahl 15 und der Warnung-Schwellenwert als Bereich 10 bis 20 gesetzt, ist das Ergebnis Warnung, da 15 im Bereich liegt.
 - SCORE Bereich Exklusiv (< 10 oder > 20 – außerhalb des Bereichs von 10 bis 20): Die Gesamtpunktzahl wird geprüft, ob sie außerhalb eines bestimmten Bereichs liegt. Beispiel: Ist die Gesamtpunktzahl 5 und der Warnung-Schwellenwert als Bereich 10 bis 20 gesetzt, ist das Ergebnis Warnung, da 5 außerhalb des Bereichs liegt.
 
