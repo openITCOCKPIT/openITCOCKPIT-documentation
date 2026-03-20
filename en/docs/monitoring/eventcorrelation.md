@@ -85,10 +85,12 @@ Scores can be negative or positive values, and the thresholds can be set accordi
 The SCORE operator can operate in four different modes:
 
 - SCORE scalar ≥ (greater-or-equal): The total score is compared against the thresholds using a greater-or-equal comparison. For example, if the total score is 11 and the warning threshold is 5, the result would be Warning because 11 ≥ 5.
-- SCORE scalar ≤ (less-or-equal): The total score is compared against the thresholds using a less-or-equal comparison. With this operator, the lower the score, the worse the status. This means the Warning threshold should be higher than the Critical threshold. The Unknown threshold should be the
+- SCORE scalar ≤ (less-or-equal): The total score is compared against the thresholds using a less-or-equal comparison. With this operator, the lower the score, the worse the status. This means the warning threshold should be higher than the critical threshold. The unknown threshold should be the
   lowest. Example: The warning threshold is 15, the critical threshold is 10, and the unknown threshold is 0. If the total score is 13, the result is Warning, since 13 ≤ 15. If the total score is 10, the result is Critical, since 10 ≤ 10, and so on.
 - SCORE Range Inclusive (≥ 10 and ≤ 20 - inside the range of 10 to 20): The total score is compared against the thresholds to check if it falls within a specified range. For example, if the total score is 15 and the warning threshold is set to a range of 10 to 20, the result would be Warning because 15 is within the range of 10 to 20.
-- SCORE Range Exclusive (< 10 or > 20 - outside the range of 10 to 20): The total score is compared against the thresholds to check if it falls outside a specified range. For example, if the total score is 5 and the warning threshold is set to a range of 10 to 20, the result would be Warning because 5 is outside the range of 10 to 20.
+- SCORE Range Exclusive (< 10 or > 20 - outside the range of 10 to 20): The total score is compared against the thresholds to check if it falls outside a specified range. To ensure that all statuses are taken into account, the thresholds should be set so that the excluded ranges are nested within one another.
+  The unknown threshold has the widest range, and the warning threshold has the narrowest range. Example: The warning threshold is from 2 to 3. The critical threshold is from -2 to 7, and the unknown threshold is from -5 to 5.
+  If the total score is 4, the result is Warning, since 4 lies outside the defined range.
 
 In the view of the event correlation, each service will display its score. The sum of all scores (`10` + `1` = `11` in the example) will be used to determine the overall status of the virtual service based on the defined thresholds and the selected score operator.
 
