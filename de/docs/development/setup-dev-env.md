@@ -266,43 +266,70 @@ sudo cp /etc/samba/smb.conf /etc/samba/smb.conf.backup
 ```
 
 Ersetzen Sie Ihre aktuelle smb Konfiguration, welche unter `/etc/samba/smb.conf` zu finden ist mit der Folgenden:
-```
+```ini
 [global]
+    # Identity & Logging
     workgroup = WORKGROUP
     server string = %h server (Samba, Ubuntu)
- 
-#### Debugging/Accounting ####
     log file = /var/log/samba/log.%m
     max log size = 1000
     logging = file
     panic action = /usr/share/samba/panic-action %d
- 
- 
-####### Authentication #######
+
+    # Protocol Standards (Security & Speed)
     server role = standalone server
+    server min protocol = SMB2_10
+    server max protocol = SMB3
+    security = user
+    guest only = yes
+    map to guest = bad user
+    guest account = nobody
+    usershare allow guests = yes
+
+    # PERFORMANCE-TWEAKS (Windows & Linux-Clients)
+    socket options = TCP_NODELAY IPTOS_LOWDELAY
+    aio read size = 16384
+    aio write size = 16384
+    read raw = yes
+    write raw = yes
+    max xmit = 65535
+    getwd cache = yes
+    nt acl support = no
+
+    # MACOS-OPTIMIZATION
+    # fruit:metadata = stream stores metadata in .DS_Store-like streams instead of separate files
+    vfs objects = fruit streams_xattr
+    fruit:metadata = stream
+    fruit:model = MacSamba
+    fruit:posix_rename = yes
+    fruit:veto_appledouble = no
+    fruit:wipe_intentionally_left_blank_rfork = yes
+    fruit:delete_empty_adfiles = yes
+
+    # FILE HYGIENE
+    # Prevents macOS & Windows temp files from cluttering the Linux system
+    veto files = /._*/.DS_Store/Thumbs.db/desktop.ini/
+    delete veto files = yes
+
+    # PASSWORD SYNCHRONIZATION
     obey pam restrictions = yes
     unix password sync = yes
     passwd program = /usr/bin/passwd %u
     passwd chat = *Enter\snew\s*\spassword:* %n\n *Retype\snew\s*\spassword:* %n\n *password\supdated\ssuccessfully* .
     pam password change = yes
  
-    security = user
-    guest only = yes
-    map to guest = bad user
-    guest account = nobody
- 
-############ Misc ############
-    usershare allow guests = yes
- 
 #======================= Share Definitions =======================
 [frontend]
+    comment = openITCOCKPIT Share for IDEs like PhpStorm
     path = /opt/openitc/frontend
     available = yes
     browseable = yes
     guest ok = no
     writeable = yes
-    create mask = 0644
-    directory mask = 0755
+    create mask = 0664
+    force create mode = 0664
+    directory mask = 0775
+    force directory mode = 0775
     force user = www-data
     valid users = www-data
 ```
