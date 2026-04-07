@@ -218,7 +218,7 @@ können den Zugriff für eine einzelne IP-Adresse oder aber ein ganzes Subnetz f
 IP-Adresse für ihr Netzwerk einzustellen)
 
 ```
-/opt/openitc/frontend/ 192.168.56.0/24(rw,no_subtree_check,no_root_squash,all_squash,anonuid=33,anongid=33)
+/opt/openitc/frontend/ 192.168.56.0/24(rw,async,no_subtree_check,insecure,all_squash,anonuid=33,anongid=33)
 ```
 
 ```bash
@@ -229,7 +229,7 @@ sudo exportfs -a
 sudo apt-get install nfs-common
  
 mkdir ~/openitcockpit-frontend
-mount xxx.xxx.xxx.xxx:/opt/openitc/frontend ~/openitcockpit-frontend
+mount -t nfs -o rw,soft,intr,tcp,rsize=262144,wsize=262144,noatime,actimeo=3 xxx.xxx.xxx.xxx:/opt/openitc/frontend ~/openitcockpit-frontend
 ```
 
 Stellen Sie sicher, dass Sie `xxx.xxx.xxx.xxx` mit der IP-Adresse ihres openITCOCKPIT Servers ersetzen.
@@ -246,7 +246,7 @@ umount ~/openitcockpit-frontend
 
 ```bash
 mkdir ~/openitcockpit-frontend
-sudo mount_nfs -o resvport xxx.xxx.xxx.xxx:/opt/openitc/frontend ~/openitcockpit-frontend
+sudo mount -t nfs -o rw,resvport,nolocks,locallocks,intr,soft,nfc,tcp,rsize=65536,wsize=65536 xxx.xxx.xxx.xxx:/opt/openitc/frontend ~/openitcockpit-frontend
 ```
 Stellen Sie sicher, dass Sie `xxx.xxx.xxx.xxx` mit der IP-Adresse ihres openITCOCKPIT Servers ersetzen
 

@@ -265,7 +265,7 @@ There are three common ways to gain access to the source code via your IDE: NFS,
 Open the file `/etc/exports` on your openITCOCKPIT server and create a new entry as follows: (You can enable access for a single IP address or for an entire subnet. Make sure you set the correct IP address for your network).
 
 ```
-/opt/openitc/frontend/ 192.168.56.0/24(rw,no_subtree_check,no_root_squash,all_squash,anonuid=33,anongid=33)
+/opt/openitc/frontend/ 192.168.56.0/24(rw,async,no_subtree_check,insecure,all_squash,anonuid=33,anongid=33)
 ```
 
 ```bash
@@ -276,7 +276,7 @@ sudo exportfs -a
 sudo apt-get install nfs-common
  
 mkdir ~/openitcockpit-frontend
-mount xxx.xxx.xxx.xxx:/opt/openitc/frontend ~/openitcockpit-frontend
+mount -t nfs -o rw,soft,intr,tcp,rsize=262144,wsize=262144,noatime,actimeo=3 xxx.xxx.xxx.xxx:/opt/openitc/frontend ~/openitcockpit-frontend
 ```
 
 Make sure you replace `xxx.xxx.xxx.xxx` with the IP address of your openITCOCKPIT server.
@@ -293,7 +293,7 @@ umount ~/openitcockpit-frontend
 
 ```bash
 mkdir ~/openitcockpit-frontend
-sudo mount_nfs -o resvport xxx.xxx.xxx.xxx:/opt/openitc/frontend ~/openitcockpit-frontend
+sudo mount -t nfs -o rw,resvport,nolocks,locallocks,intr,soft,nfc,tcp,rsize=65536,wsize=65536 xxx.xxx.xxx.xxx:/opt/openitc/frontend ~/openitcockpit-frontend
 ```
 Make sure you replace `xxx.xxx.xxx.xxx` with the IP address of your openITCOCKPIT server.
 
