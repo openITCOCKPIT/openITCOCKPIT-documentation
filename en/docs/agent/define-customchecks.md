@@ -17,7 +17,7 @@ You can change the location in the `config.ini`
 # Comment to use the default value
 #
 # Linux: /etc/openitcockpit-agent/customchecks.ini
-# Windows: C:\Program Files\it-novum\openitcockpit-agent\customchecks.ini
+# Windows: C:\Program Files\openitcockpit\openitcockpit-agent\customchecks.ini
 # macOS: /Applications/openitcockpit-agent/customchecks.ini
 customchecks = /etc/openitcockpit-agent/customchecks.ini
 ```

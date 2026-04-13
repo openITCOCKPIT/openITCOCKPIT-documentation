@@ -15,13 +15,24 @@
 
 ### Windows
 ```
+C:\Program Files\openitcockpit\openitcockpit-agent
+```
+
+Legacy-Pfad vor Version 3.6.0:
+```
 C:\Program Files\it-novum\openitcockpit-agent
 ```
 
 Registry:
 ```
+HKEY_LOCAL_MACHINE\SOFTWARE\openitcockpit\
+```
+
+Legacy-Pfad vor Version 3.6.0:
+```
 HKEY_LOCAL_MACHINE\SOFTWARE\it-novum\
 ```
+
 ## Im Vordergrund starten
 
 ### Linux
@@ -35,16 +46,21 @@ sudo /usr/bin/openitcockpit-agent --config /etc/openitcockpit-agent/config.ini -
 ### macOS
 ```
 sudo su
-/bin/launchctl stop com.it-novum.openitcockpit.agent
+/bin/launchctl stop io.openitcockpit.agent
 
 /Applications/openitcockpit-agent/openitcockpit-agent --config /Applications/openitcockpit-agent/config.ini --log /tmp/agent.log --verbose --debug
+```
+
+Legacy-Befehl vor Version 3.6.0:
+```
+sudo /bin/launchctl stop com.it-novum.openitcockpit.agent
 ```
 
 ### Windows
 Öffnen Sie ein neues `PowerShell`-Fenster. Administratorrechte sind nicht erforderlich, aber empfohlen. Bitte lesen Sie [Windows-Dienstkonfiguration](/agent/windows-service/), wie Sie die Optionen `Verbose` und `Debug` aktivieren.
 
 ```ps1
-cd "C:\Program Files\it-novum\openitcockpit-agent"
+cd "C:\Program Files\openitcockpit\openitcockpit-agent"
 Stop-Service -Name openITCOCKPITAgent
 
 $env:OITC_AGENT_DEBUG="1"
