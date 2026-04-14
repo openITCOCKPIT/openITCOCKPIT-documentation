@@ -14,3 +14,5 @@ Dort können Sie die folgenden zusätzlichen Konfigurationsschlüssel hinzufüge
 | LogRotate         | 3                          | 0 - N (0 == deaktivieren) |
 | Verbose           | 0                          | 0 oder 1                  |
 | Debug             | 0                          | 0 oder 1                  |
+
+openITCOCKPIT-Agenten, die vor Version 3.6.0 installiert wurden, verwenden den Registrierungspfad `HKEY_LOCAL_MACHINE\SOFTWARE\it-novum\InstalledProducts\openitcockpit-agent`.

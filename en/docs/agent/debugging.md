@@ -15,13 +15,24 @@
 
 ### Windows
 ```
+C:\Program Files\openitcockpit\openitcockpit-agent
+```
+
+Legacy path before version 3.6.0:
+```
 C:\Program Files\it-novum\openitcockpit-agent
 ```
 
 Registry:
 ```
+HKEY_LOCAL_MACHINE\SOFTWARE\openitcockpit\
+```
+
+Legacy path before version 3.6.0:
+```
 HKEY_LOCAL_MACHINE\SOFTWARE\it-novum\
 ```
+
 ## Start in foreground
 
 ### Linux
@@ -35,16 +46,21 @@ sudo /usr/bin/openitcockpit-agent --config /etc/openitcockpit-agent/config.ini -
 ### macOS
 ```
 sudo su
-/bin/launchctl stop com.it-novum.openitcockpit.agent
+/bin/launchctl stop io.openitcockpit.agent
 
 /Applications/openitcockpit-agent/openitcockpit-agent --config /Applications/openitcockpit-agent/config.ini --log /tmp/agent.log --verbose --debug
+```
+
+Legacy command before version 3.6.0:
+```
+sudo /bin/launchctl stop com.it-novum.openitcockpit.agent
 ```
 
 ### Windows
 Open a new `PowerShell` window. Administrator privileges are not required but recommended. Please see [Windows Service Configuration](/agent/windows-service/) how to enable `Verbose` and `Debug` options.
 
 ```ps1
-cd "C:\Program Files\it-novum\openitcockpit-agent"
+cd "C:\Program Files\openitcockpit\openitcockpit-agent"
 Stop-Service -Name openITCOCKPITAgent
 
 $env:OITC_AGENT_DEBUG="1"

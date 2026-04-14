@@ -32,7 +32,7 @@ systemctl start openitcockpit-agent.service
 
 1. Öffnen Sie den Datei-Explorer
 2. Wechseln Sie zu `C:\Program Files\`
-3. Klicken Sie mit der rechten Maustaste auf den Ordner `it-novum`
+3. Klicken Sie mit der rechten Maustaste auf den Ordner `openitcockpit` (oder `it-novum` falls die Agent-Version vor 3.6.0 installiert wurde)
 4. Gehen Sie zu Eigenschaften -> Sicherheit -> Erweitert
 5. Ändern Sie den Besitzer auf den Benutzer, der den Agenten-Dienst ausführen soll
 

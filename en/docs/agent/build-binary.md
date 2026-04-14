@@ -60,12 +60,9 @@ CGO_ENABLED=0 GOARCH=arm64 go build -o agent main.go
 
 #### Windows ARM Support
 
-Windows ARM devices have to use the i386 Version for now. Several libraries we're depending on require changes.
-
-* github.com/go-ole/go-ole
-* github.com/shirou/gopsutil/v3
-
-We could also do this, as the changes should be minor, but we don't have any test devices for this right now.
+```
+CGO_ENABLED=0 GOARCH=arm64 GOOS=windows go build -o agent main.go
+```
 
 #### Build Darwin (macOS) binary on Linux
 ```

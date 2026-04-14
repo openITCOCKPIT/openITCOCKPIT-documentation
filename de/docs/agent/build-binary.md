@@ -58,12 +58,9 @@ CGO_ENABLED=0 GOARCH=arm64 go build -o agent main.go
 
 #### Windows-ARM-Unterstützung
 
-Windows-ARM-Geräte müssen vorerst die i386-Version verwenden. Einige Bibliotheken, von denen wir abhängen, erfordern Änderungen.
-
-* github.com/go-ole/go-ole
-* github.com/shirou/gopsutil/v3
-
-Wir könnten dies auch umsetzen, da die Änderungen geringfügig sein sollten, aber wir haben derzeit keine Testgeräte dafür.
+```
+CGO_ENABLED=0 GOARCH=arm64 GOOS=windows go build -o agent main.go
+```
 
 #### Darwin (macOS)-Binärdatei auf Linux erstellen
 ```
