@@ -43,6 +43,34 @@ Now you will see a list of all transitions in the workflow. In this example, the
 With Jira Cloud, the situation did not improved. The _easiest_ method to get the Close transition ID is, to open your browsers developer console, and close an issue.
 ![Grab transition id from Developer Tools](/images/alerting/jira/cloud/jira_cloud_transition_id.png)
 
+Alternatively, you can query the values directly via the API. To do this, enter the ID (e.g., `PX-6`) in the URL and open it in your browser:
+```
+https://openitcockpit.atlassian.net/rest/api/2/issue/PX-6/transitions
+```
+
+The response will then contain all transitions with their IDs.
+```json
+{
+  "expand": "transitions",
+  "transitions": [
+    {
+      "id": "11",
+      "name": "To Do",
+      "to": {}
+    },
+    {
+      "id": "21",
+      "name": "In Progress",
+      "to": {}
+    },
+    {
+      "id": "31",
+      "name": "Done",
+      "to": {}
+    }
+  ]
+}
+```
 
 ### Jira API keys
 
@@ -173,6 +201,51 @@ Important settings are:
 
 Save the Automation in the top right corner and repeat the steps for the close transition and the close webhook.
 
+## Components (optional)
+
+When creating an issue, you can assign one or more components to the issue, if this is supported by the Jira project type.
+To do this, you need to provide the ID of the respective components.
+
+### Jira Cloud
+
+The easiest way to retrieve the component IDs is via the API. For this, replace the project key in the URL (e.g., `PY`).
+
+```
+https://openitcockpit.atlassian.net/rest/api/2/project/PY
+```
+
+The response contains the IDs of the components.
+
+```json
+{
+  "maxResults": 50,
+  "startAt": 0,
+  "total": 3,
+  "isLast": true,
+  "values": [
+    {
+      "name": "Foobar",
+      "id": "10056"
+    },
+    {
+      "name": "Foo",
+      "id": "10054"
+    },
+    {
+      "name": "Bar",
+      "id": "10055"
+    }
+  ]
+}
+```
+
+### Jira Data Center
+
+In the Jira Data Center version, you can find the required IDs in the component management section. Go to the project administration and select Components from the menu on the left.
+Find the relevant component in the list and open the context menu. Hover over "Edit" and note the ID from the address bar at the bottom of the screen.
+
+![Read Jira component ID](/images/alerting/jira/datacenter/jira_datacenter_project_component.png)
+
 ## Macros
 
 Macros (custom variables) can be used to override the default Jira project, add an assignee or parent issue, or change the issue type. These settings can be defined as custom variables for hosts, services, or contacts.
@@ -181,6 +254,7 @@ Macros (custom variables) can be used to override the default Jira project, add 
 - `JIRA_PROJECT` - Project key to override the default project, e.g., `PX`
 - `JIRA_ISSUE_TYPE` - To override the default issue type, e.g., `Bug` or `Task`
 - `JIRA_PARENT_ISSUE` - A valid Jira issue to assign as a "related issue" (e.g., `PX-30`)
+- `JIRA_COMPONENTS` - A comma-separated list of component IDs, if the project type supports this. (z.B. `10056,10054`)
 
 !!! notice
     Jira Cloud Users: The macro `JIRA_ISSUE_TYPE` requires to pass the Issue Type ID (e.g. 10001) for Jira Cloud!
@@ -206,10 +280,10 @@ The following examples show how to pass parameters as custom variables.
 
 **host-notify-by-jira-macros**
 ```
-/opt/openitc/frontend/bin/cake JiraModule.jira_notification -q --type host --hostuuid "$HOSTNAME$" --notificationtype "$NOTIFICATIONTYPE$" --state $HOSTSTATEID$ --output "$HOSTOUTPUT$" --longoutput "$LONGHOSTOUTPUT$" --jira-assignee "$_CONTACTJIRA_ASSIGNEE$" --jira-project "$_HOSTJIRA_PROJECT$" --jira-issue-type "$_HOSTJIRA_ISSUE_TYPE$" --jira-parent-issue "$_HOSTJIRA_PARENT_ISSUE$"
+/opt/openitc/frontend/bin/cake JiraModule.jira_notification -q --type host --hostuuid "$HOSTNAME$" --notificationtype "$NOTIFICATIONTYPE$" --state $HOSTSTATEID$ --output "$HOSTOUTPUT$" --longoutput "$LONGHOSTOUTPUT$" --jira-assignee "$_CONTACTJIRA_ASSIGNEE$" --jira-project "$_HOSTJIRA_PROJECT$" --jira-issue-type "$_HOSTJIRA_ISSUE_TYPE$" --jira-parent-issue "$_HOSTJIRA_PARENT_ISSUE$" --jira-components "$_CONTACTJIRA_COMPONENTS$"
 ```
 
 **service-notify-by-jira-macros**
 ```
-/opt/openitc/frontend/bin/cake JiraModule.jira_notification -q --type service --hostuuid "$HOSTNAME$" --serviceuuid "$SERVICEDESC$" --notificationtype "$NOTIFICATIONTYPE$" --state $SERVICESTATEID$ --output "$SERVICEOUTPUT$" --longoutput "$LONGSERVICEOUTPUT$" --jira-assignee "$_CONTACTJIRA_ASSIGNEE$" --jira-project "$_HOSTJIRA_PROJECT$" --jira-issue-type "$_HOSTJIRA_ISSUE_TYPE$" --jira-parent-issue "$_HOSTJIRA_PARENT_ISSUE$"
+/opt/openitc/frontend/bin/cake JiraModule.jira_notification -q --type service --hostuuid "$HOSTNAME$" --serviceuuid "$SERVICEDESC$" --notificationtype "$NOTIFICATIONTYPE$" --state $SERVICESTATEID$ --output "$SERVICEOUTPUT$" --longoutput "$LONGSERVICEOUTPUT$" --jira-assignee "$_CONTACTJIRA_ASSIGNEE$" --jira-project "$_HOSTJIRA_PROJECT$" --jira-issue-type "$_HOSTJIRA_ISSUE_TYPE$" --jira-parent-issue "$_HOSTJIRA_PARENT_ISSUE$" --jira-components "$_CONTACTJIRA_COMPONENTS$"
 ```

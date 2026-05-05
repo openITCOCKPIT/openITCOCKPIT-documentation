@@ -41,6 +41,35 @@ Nun sehen Sie eine Liste aller Übergänge im Arbeitsabläuf. In diesem Beispiel
 Bei Jira Cloud hat sich die Situation nicht verbessert. Die _einfachste_ Methode, um die Übergangs-ID zu erhalten, besteht darin, die Entwicklerkonsole Ihres Browsers zu öffnen und ein Problem zu schließen.
 ![Übergangs-ID aus den Entwicklertools abrufen](/images/alerting/jira/cloud/jira_cloud_transition_id.png)
 
+Alternativ können die Werte direkt per API Abgefragt werden, dazu die ID (z.B. `PX-6`) in der URL eintragen und im Browser öffnen
+```
+https://openitcockpit.atlassian.net/rest/api/2/issue/PX-6/transitions
+```
+
+Die Antwort enthält dann all Übergänge mit ID.
+```json
+{
+  "expand": "transitions",
+  "transitions": [
+    {
+      "id": "11",
+      "name": "Zu erledigen",
+      "to": {}
+    },
+    {
+      "id": "21",
+      "name": "In Arbeit",
+      "to": {}
+    },
+    {
+      "id": "31",
+      "name": "Fertig",
+      "to": {}
+    }
+  ]
+}
+```
+
 ### Jira API-Schlüssel
 
 #### Jira Data Center
@@ -170,6 +199,52 @@ Wichtige Einstellungen sind:
 
 Speichern Sie die Automatisierung in der oberen rechten Ecke und wiederholen Sie die Schritte für die Schließungstransition und den Schließen-Webhook.
 
+## Komponenten (optional)
+
+Beim Erstellen eines Issues, können dem Issue eine oder mehrere Komponenten zugeordnet werden, sofern dies vom Jira-Projekt unterstützt wird.
+Dazu muss die ID der jeweiligen Komponenten übergeben werden.
+
+### Jira Cloud
+
+Am einfachsten können die Komponenten-IDs über die API ausgelesen werden. Hierfür müssen Sie in der URL das Kürzel des Projekts (`PY`) ersetzten.
+
+```
+https://openitcockpit.atlassian.net/rest/api/2/project/PY
+```
+
+Die Antwort enthält die IDs der Komponenten.
+
+```json
+{
+  "maxResults": 50,
+  "startAt": 0,
+  "total": 3,
+  "isLast": true,
+  "values": [
+    {
+      "name": "Foobar",
+      "id": "10056"
+    },
+    {
+      "name": "Foo",
+      "id": "10054"
+    },
+    {
+      "name": "Bar",
+      "id": "10055"
+    }
+  ]
+}
+```
+
+### Jira Data Center
+
+In der Jira Data Center Version können die benötigten IDs in der Verwaltung der Komponenten ausgelesen werden. Gehen Sie dazu in die Projektverwaltung und wählen Sie Komponenten links im Menü.
+Suchen Sie die entsprechende Komponente aus der Liste und öffnen Sie das Kontaktmenü. Halten Sie die Maus über "Bearbeiten" und notieren Sie sich die ID aus der Adressleiste am unteren Bildschirmrand.
+
+![Jira Komponenten ID auslesen](/images/alerting/jira/datacenter/jira_datacenter_project_component.png)
+
+
 ## Makros
 
 Makros (benutzerdefinierte Variablen) können verwendet werden, um das Standard-Jira-Projekt zu überschreiben, einen Bearbeiter oder ein übergeordnetes Problem hinzuzufügen oder den Problemtyp zu ändern. Diese Einstellungen können als benutzerdefinierte Variablen für Hosts, Dienste oder Kontakte definiert werden.
@@ -178,6 +253,7 @@ Makros (benutzerdefinierte Variablen) können verwendet werden, um das Standard-
 - `JIRA_PROJECT` - Projektschlüssel zur Überschreibung des Standardprojekts, z.B. `PX`
 - `JIRA_ISSUE_TYPE` - Zur Überschreibung des Standard-Probletyps, z.B. `Bug` oder `Task`
 - `JIRA_PARENT_ISSUE` - Ein gültiges Jira-Issue, das als "verwandtes Problem" zugewiesen werden soll (z.B. `PX-30`)
+- `JIRA_COMPONENTS` - Eine kommaseparierte Liste von Komponenten IDs, sofern der Projekt-Typ dies unterstützt (z.B. `10056,10054`)
 
 !!! notice
     Jira Cloud-Benutzer: Das Makro `JIRA_ISSUE_TYPE` erfordert die Übermittlung der Issue Type ID (z.B. 10001) für Jira Cloud!
@@ -203,10 +279,10 @@ Die folgenden Beispiele zeigen, wie Parameter als benutzerdefinierte Variablen �
 
 **host-notify-by-jira-macros**
 ```
-/opt/openitc/frontend/bin/cake JiraModule.jira_notification -q --type host --hostuuid "$HOSTNAME$" --notificationtype "$NOTIFICATIONTYPE$" --state $HOSTSTATEID$ --output "$HOSTOUTPUT$" --longoutput "$LONGHOSTOUTPUT$" --jira-assignee "$_CONTACTJIRA_ASSIGNEE$" --jira-project "$_HOSTJIRA_PROJECT$" --jira-issue-type "$_HOSTJIRA_ISSUE_TYPE$" --jira-parent-issue "$_HOSTJIRA_PARENT_ISSUE$"
+/opt/openitc/frontend/bin/cake JiraModule.jira_notification -q --type host --hostuuid "$HOSTNAME$" --notificationtype "$NOTIFICATIONTYPE$" --state $HOSTSTATEID$ --output "$HOSTOUTPUT$" --longoutput "$LONGHOSTOUTPUT$" --jira-assignee "$_CONTACTJIRA_ASSIGNEE$" --jira-project "$_HOSTJIRA_PROJECT$" --jira-issue-type "$_HOSTJIRA_ISSUE_TYPE$" --jira-parent-issue "$_HOSTJIRA_PARENT_ISSUE$" --jira-components "$_CONTACTJIRA_COMPONENTS$"
 ```
 
 **service-notify-by-jira-macros**
 ```
-/opt/openitc/frontend/bin/cake JiraModule.jira_notification -q --type service --hostuuid "$HOSTNAME$" --serviceuuid "$SERVICEDESC$" --notificationtype "$NOTIFICATIONTYPE$" --state $SERVICESTATEID$ --output "$SERVICEOUTPUT$" --longoutput "$LONGSERVICEOUTPUT$" --jira-assignee "$_CONTACTJIRA_ASSIGNEE$" --jira-project "$_HOSTJIRA_PROJECT$" --jira-issue-type "$_HOSTJIRA_ISSUE_TYPE$" --jira-parent-issue "$_HOSTJIRA_PARENT_ISSUE$"
+/opt/openitc/frontend/bin/cake JiraModule.jira_notification -q --type service --hostuuid "$HOSTNAME$" --serviceuuid "$SERVICEDESC$" --notificationtype "$NOTIFICATIONTYPE$" --state $SERVICESTATEID$ --output "$SERVICEOUTPUT$" --longoutput "$LONGSERVICEOUTPUT$" --jira-assignee "$_CONTACTJIRA_ASSIGNEE$" --jira-project "$_HOSTJIRA_PROJECT$" --jira-issue-type "$_HOSTJIRA_ISSUE_TYPE$" --jira-parent-issue "$_HOSTJIRA_PARENT_ISSUE$" --jira-components "$_CONTACTJIRA_COMPONENTS$"
 ```
