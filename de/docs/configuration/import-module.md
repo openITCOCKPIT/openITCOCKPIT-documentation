@@ -36,6 +36,8 @@ Das Bild zeigt exemplarische die Zuweisung von Servicetemplate Groups, bei denen
     - Neben klassischen CMDBs können auch andere Monitoringsystem, wie beispielsweise Icinga2, als Datenquellen genutzt werden. Die Besonderheit dabei ist, dass nicht nur die Hosts, sondern auch die Statusinformationen aus dem externen Monitoringsystem ermittelt und dargestellt werden.
 - **CMDB + External monitoring System**
     - Eine Kombination der Methoden ist ebenfalls möglich, dabei erfolgt der Import auf Basis der Informationen aus der CMDB und wird mit den Informationen aus dem externen Monitoringsystem verglichen. Auch in diesem Fall werden nicht nur Hosts importiert, sondern auch die Statusinformationen aus dem externen Monitoring mit übernommen.
+- **Proxmox VE**
+    - Importiert VMs und LXC-Container von einem Proxmox Virtual Environment System.
 
 ### CSV Import
 
@@ -118,6 +120,22 @@ Navigieren Sie zu `Verwaltung -> Objektimport -> Importeure`
 Der Importer kann nun mit beiden Datenquellen erstellt werden.
 
 ![](/images/import-module/importer_both_source.png)
+
+### Proxmox VE
+
+Bevor ein Proxmox VE System als Datenquelle verwendet werden kann, muss es zuerst als externes System erstellt werden.
+
+Die Proxmox VE-spezifischen Verbindungsdaten müssen angegeben werden.
+
+Navigieren Sie zu `Verwaltung -> Objektimport -> Externe Systeme`
+
+![](/images/import-module/proxmox_external_system.png)
+
+Sie können auch definieren, welche Objekttypen importiert werden sollen. Aktuell werden `QEMU` und `LXC` unterstützt.
+
+Nachdem das Proxmox VE System als externes System eingerichtet wurde, kann der Importer wie gewohnt erstellt werden. Wählen Sie das entsprechende Proxmox VE System in Kombination mit dem externen System, das abgefragt werden soll, als Datenquelle aus.
+
+Navigieren Sie zu `Verwaltung -> Objektimport -> Importeure`
 
 ## Import der Daten
 
@@ -224,3 +242,25 @@ Und auch die Abhängigkeiten können ähnlich wie bei i-doit dargestellt werden.
 ![](/images/import-module/import_oitc_itop_tree_1.png)
 
 ![](/images/import-module/import_oitc_itop_tree_2.png)
+
+#### Proxmox VE
+
+openITCOCKPIT kann VMs und LXC-Container aus Proxmox VE über die Proxmox API importieren. Die importierten VMs und LXC-Container werden als Hosts in openITCOCKPIT angelegt.
+Zusätzlich erstellt openITCOCKPIT Services zur Überwachung von CPU-, Speicher- und Festplattennutzung (nur LXC-Container), Festplattenlast, Netzwerkstatistiken, Uptime und dem Status der VM oder des Containers.
+Alle Informationen werden in einem konfigurierbaren Intervall gesammelt und ausschließlich über die Proxmox API abgefragt. Es müssen also keine zusätzlichen Agenten oder Software auf dem Proxmox VE System installiert werden.
+
+Für die Verbindung benötigt openITCOCKPIT ein _normales_ Benutzerkonto auf dem Proxmox VE System oder den VMs.
+
+![](/images/import-module/proxmox_external_system.png)
+
+Hosts, die aus Proxmox VE importiert wurden, erhalten einen "Proxmox VE"-Reiter mit nützlichen Informationen zur VM oder zum Container. Außerdem gibt es einen Link zur entsprechenden VM oder zum Container in der Proxmox VE Weboberfläche.
+Die Graphen zeigen die CPU-Auslastung (in Prozent), die Speicherauslastung (in Gigabyte), den Netzwerkverkehr (in Mbit/s) und die Festplatten-I/O (in MB/s). Die Metriken werden aus der Proxmox VE API übernommen und regelmäßig aktualisiert.
+
+Zusätzlich kann der Benutzer verschiedene Aktionen wie Starten, Stoppen, Neustarten oder Herunterfahren einer VM direkt aus der openITCOCKPIT Weboberfläche ausführen.
+Es ist ebenfalls möglich, Snapshots einer VM oder eines Containers zu erstellen, zu löschen oder zurückzusetzen.
+
+Bei Verwendung der Aktion `Reboot` plant openITCOCKPIT automatisch eine Downtime für den Host inklusive aller Services mit einer Dauer von 15 Minuten ein.
+
+Alle automatisch erstellten Services werden als `Externer Service` markiert, da die Datenerhebung über die Proxmox VE API und nicht über einen Agenten erfolgt.
+
+![](/images/import-module/proxmox_host_tab.png)
