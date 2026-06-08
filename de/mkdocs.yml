@@ -17,6 +17,7 @@ nav:
       - 'Update Ubuntu Jammy auf Noble': 'update/ubuntu-jammy-to-noble.md'
       - 'Update Debian Buster auf Bullseye': 'update/debian-buster-to-bullseye.md'
       - 'Update Debian Bullseye auf Bookworm': 'update/debian-bullseye-to-bookworm.md'
+      - 'Update Debian Bookworm auf Trixie': 'update/debian-bookworm-to-trixie.md'
   - 'Beginners Guide':
       - 'Beginners Guide': 'beginners/beginners.md'
       - 'Container Berechtigungen': 'beginners/container-permissions.md'
