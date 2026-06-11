@@ -137,6 +137,10 @@ Nachdem das Proxmox VE System als externes System eingerichtet wurde, kann der I
 
 Navigieren Sie zu `Verwaltung -> Objektimport -> Importeure`
 
+Um automatisch Services für die importierten VMs und LXC-Container zu erstellen, ist es erforderlich, eine Software-Zuordnung in der Konfiguration des `Host Defaults` zu definieren. Erstellen Sie zwei `Software`-Regeln, eine für `QEMU` und eine für `LXC`, und weisen Sie die entsprechenden Servicetemplategruppen zu.
+
+![](/images/import-module/proxmox_host_defaults_mapping.png)
+
 ## Import der Daten
 
 Nachdem alle Vorbereitungen getroffen wurden, kann nun der Import durchgeführt werden.
@@ -255,6 +259,10 @@ Für die Verbindung benötigt openITCOCKPIT ein _normales_ Benutzerkonto auf dem
 
 Hosts, die aus Proxmox VE importiert wurden, erhalten einen "Proxmox VE"-Reiter mit nützlichen Informationen zur VM oder zum Container. Außerdem gibt es einen Link zur entsprechenden VM oder zum Container in der Proxmox VE Weboberfläche.
 Die Graphen zeigen die CPU-Auslastung (in Prozent), die Speicherauslastung (in Gigabyte), den Netzwerkverkehr (in Mbit/s) und die Festplatten-I/O (in MB/s). Die Metriken werden aus der Proxmox VE API übernommen und regelmäßig aktualisiert.
+
+Um automatisch Services für die importierten VMs und LXC-Container zu erstellen, ist es erforderlich, eine Software-Zuordnung in der Konfiguration des `Host Defaults` zu definieren. Erstellen Sie zwei `Software`-Regeln, eine für `QEMU` und eine für `LXC`, und weisen Sie die entsprechenden Servicetemplategruppen zu.
+
+![](/images/import-module/proxmox_host_defaults_mapping.png)
 
 Zusätzlich kann der Benutzer verschiedene Aktionen wie Starten, Stoppen, Neustarten oder Herunterfahren einer VM direkt aus der openITCOCKPIT Weboberfläche ausführen.
 Es ist ebenfalls möglich, Snapshots einer VM oder eines Containers zu erstellen, zu löschen oder zurückzusetzen.
