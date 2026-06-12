@@ -5,12 +5,14 @@ openITCOCKPIT is installed via the package manager of your respective Linux dist
 ## Supported operating systems
 
 - Ubuntu
+    - Resolute (26.04)
     - Noble (24.04)
-    - Jammy (22.04)
+    - ~~Jammy (22.04)~~ (deprecated)
 - Debian
     - Trixie (13)
-    - Bookworm (12)
+    - ~~Bookworm (12)~~ (deprecated)
 - Enterprise Linux
+    - Red Hat 10
     - Red Hat 9
     - Red Hat 8
 
