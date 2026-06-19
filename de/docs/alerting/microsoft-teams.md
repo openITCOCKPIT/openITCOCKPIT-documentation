@@ -28,23 +28,24 @@ openITCOCKPIT nutzt die API von Microsoft Power Automate, um Nachrichten an Team
 1. Einen "Automatischen Cloud flow" erstellen.
    - ![](/images/microsoft-teams/create-flow.png)
    - ![](/images/microsoft-teams/create-flow-2.png)
-   - Vergeben Sie einen passendenen Namen, überspringen aber die Auswahl des Triggers.
+   - Vergeben Sie einen passendenen Namen, **überspringen aber die Auswahl des Triggers**.
 2. Trigger
+   - Wählen Sie als Trigger `Bei Empfang einer Teams-Webhookanforderung`
    - ![](/images/microsoft-teams/trigger.png)
-3. Aktion 1 "Compose"
+3. Aktion 1 "Compose" (`Verfassen`)
    - Legen Sie die erste Aktion an. Suchen Sie dafür nach "Verfassen" nutzen die gleichnamige Aktion aus der Gruppe "Datenvorgang".
    - ![](/images/microsoft-teams/compose.png)
    - Klicken Sie in das Feld "Eingaben" und dann auf den "fx", um einen Ausdruck einzufügen.
    - ![](/images/microsoft-teams/compose-2.png)
    - Kopieren Sie ``first(triggerBody()?['attachments'])?['content']`` in das große Input-Feld und klicken Sie dann auf "Hinzufügen".
    - ![](/images/microsoft-teams/compose-3.png)
-4. Aktion "Karte in einem Chat oder Kanal veröffentlichen".
+4. Aktion `Karte in einem Chat oder Kanal veröffentlichen`.
    - ![](/images/microsoft-teams/post-1.png)
    - Erstellen Sie die Aktion "Karte in einem Chat oder Kanal veröffentlichen" aus der Gruppe "Microsoft Teams".
    - ![](/images/microsoft-teams/post-2.png)
    - Wählen Sie "Veröffentlichen als" "Flow-Bot", "Veröffentlichen in" "Kanal". Wählen Sie anschließend sowohl Teams als auch Kanal aus.
    - ![](/images/microsoft-teams/post-3.png)
-   - Zuletzt wählen Sie das Feld "Adapitve Karte" an und klicken auf das Blitz-Icon. Hier können Sie "Ausgaben" von "Verfassen" wählen.
+   - Zuletzt wählen Sie das Feld "Adapitve Karte" an und klicken auf das Blitz-Icon. Hier können Sie die `Ausgaben` des Knotens "Verfassen" wählen.
 5. Save & Copy Webhook URL
    - Speichern Sie ihren Flow ab.
    - Wenn Sie ihn wieder öffnen, können Sie aus dem Trigger Ihre Webhook URL für openITCOCKPIT kopieren:
