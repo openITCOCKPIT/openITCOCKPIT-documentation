@@ -1,5 +1,13 @@
 # Mobile Webseite  <span class="badge badge-danger badge-outlined" title="Enterprise Edition">EE</span>
 
+
+!!! danger "End of Life"
+    Die Mobile Webseite von openITCOCKPIT wird in dieser Form ab Version 5.6.1 als veraltet markiert.
+    Bitte nutzen Sie die [Mobile App für iOS und Android Geräte](./mobile-app.md).
+    
+    **Das End of Life ist mit der Version 5.7.0 geplant.**
+    Danach wird es eine neue Version der mobilen Webseite geben, welche eine gemeinsame Codebasis mit der Mobilen App nutzt.
+
 ## Installation
 
 Die Mobile Webseite ist so konzipiert, dass Sie auf einem eigenen Server betrieben werden kann.
