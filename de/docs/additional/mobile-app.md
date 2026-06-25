@@ -29,7 +29,7 @@ Ein großer Vorteil der Mobile App im Vergleich zur webbasierten Variante ist di
 Um dies zu aktivieren, müssen Sie Ihren openITCOCKPIT-Server so konfigurieren, dass Benachrichtigungen über den **von der AVENDIS GmbH bereitgestellten Push Gateway Service** gesendet werden.
 Dieser Service ist für openITCOCKPIT-Nutzer kostenlos.
 
-1. Navigieren Sie zu `System configuration -> System -> Push Notification Settings`
+1. Navigieren Sie zu `Systemkonfiguration -> System -> Push Notification Settings`
 2. Setzen Sie die Relay-Adresse auf `https://pushrelay.openitcockpit.io`
 3. Setzen Sie den Port auf `443`
 4. Klicken Sie auf `Request and test Auth-Key`.
@@ -37,18 +37,18 @@ Dieser Service ist für openITCOCKPIT-Nutzer kostenlos.
 openITCOCKPIT fordert nun einen Authentifizierungsschlüssel beim Push Gateway Service an. Der Push Gateway Service verwendet die übermittelte System-ID,
 um Ihren openITCOCKPIT-Server zu identifizieren, und erzeugt einen neuen Authentifizierungsschlüssel für Ihren Server.
 
-Um die Einrichtung abzuschließen, klicken Sie nach der Schlüsselerstellung auf `Save configuration`.
+Um die Einrichtung abzuschließen, klicken Sie nach der Schlüsselerstellung auf `Konfiguration speichern`.
 
 ![Auth-Key anfordern](/images/mobile-app/setup-push-gateway.png)
 
 ### Benutzer Kontakten zuweisen
 
-Es ist wichtig, Ihrem openITCOCKPIT-Benutzer einen oder mehrere Kontakte zuzuweisen, um Push-Benachrichtigungen für Alarme zu erhalten.
+Es ist wichtig, Ihrem openITCOCKPIT-Benutzer einem oder mehreren Kontakten zuzuweisen, um Push-Benachrichtigungen für Alarme zu erhalten.
 
-Navigieren Sie zunächst zu `Monitoring -> Objects -> Contacts` und wählen Sie den Kontakt aus, den Sie Ihrem Benutzer zuweisen möchten, oder erstellen Sie einen neuen Kontakt.
+Navigieren Sie zunächst zu `Monitoring -> Objekte -> Kontakte` und wählen Sie den Kontakt aus, den Sie Ihrem Benutzer zuweisen möchten, oder erstellen Sie einen neuen Kontakt.
 
-Stellen Sie sicher, dass Ihr openITCOCKPIT-Benutzer im Feld `Users` der Kontaktkonfiguration ausgewählt ist.
-Aktivieren Sie außerdem die Checkbox `Push notifications to browser` für Hosts und Services. Diese Option sendet Benachrichtigungen dann sowohl an die Weboberfläche als auch an die Mobile App.
+Stellen Sie sicher, dass Ihr openITCOCKPIT-Benutzer im Feld `Benutzer` der Kontaktkonfiguration ausgewählt ist.
+Aktivieren Sie außerdem die Checkbox `Push-Benachrichtigungen an Browser` für Hosts und Services. Diese Option sendet Benachrichtigungen dann sowohl an die Weboberfläche als auch an die Mobile App.
 
 ![Benutzer Kontakten zuweisen](/images/mobile-app/assign-users-to-contacts.png)
 
