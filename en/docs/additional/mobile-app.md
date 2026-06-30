@@ -97,7 +97,7 @@ password enter your license key.
 After successful authentication you can download the Docker image:
 
 ```bash
-docker pull cr.openitcockpit.io/openitcockpit/openitcockpit-mobile-waf:latest
+docker pull cr.openitcockpit.io/openitcockpit-mobile-waf:latest
 ```
 
 ### Starting the Docker container
@@ -117,7 +117,7 @@ docker run --rm -it \
 -e SSL_CERT_PATH=/etc/nginx/certs/local.crt \
 -e SSL_CERT_KEY_PATH=/etc/nginx/certs/local.key \
 -v /path/on/host/certs:/etc/nginx/certs:ro \
-cr.openitcockpit.io/openitcockpit/openitcockpit-mobile-waf:latest
+cr.openitcockpit.io/openitcockpit-mobile-waf:latest
 ```
 
 The WAF only supports HTTPS connections, therefore you must provide a valid SSL certificate and key. You can use a self-signed certificate for testing purposes, but we recommend using a valid certificate from a trusted CA for production environments.
@@ -214,5 +214,5 @@ docker run --rm -it \
 -e SSL_CERT_PATH=/etc/nginx/certs/ssl-cert-snakeoil.pem \
 -e SSL_CERT_KEY_PATH=/etc/nginx/certs/ssl-cert-snakeoil.key \
 -v /root/openitcockpit-waf/certs:/etc/nginx/certs:ro \
-cr.openitcockpit.io/openitcockpit/openitcockpit-mobile-waf:latest
+cr.openitcockpit.io/openitcockpit-mobile-waf:latest
 ```
