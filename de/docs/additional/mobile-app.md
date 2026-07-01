@@ -1,9 +1,5 @@
 # Mobile App <span class="badge badge-primary badge-outlined" title="Community Edition">CE</span>
 
-!!! info "Geschlossene Beta"
-    Die openITCOCKPIT Mobile App für iOS und Android befindet sich derzeit in einer geschlossenen Beta-Phase.
-    Zum Zeitpunkt des Lesens ist die App möglicherweise noch nicht im App Store oder im Google Play Store verfügbar.
-
 ![openITCOCKPIT iOS App auf einem iPhone 16e](/images/mobile-app/openitcockpit-ios-app.png){ align=center }
 *Grafik: openITCOCKPIT iOS App auf einem iPhone 16e*
 
