@@ -17,11 +17,17 @@
 
 
 ## Download the App
+The App can be downloaded from the respective app stores. Please note that the app is currently only available for iOS. The Android version will be released soon.
 
-- Apple App Store
-- Google Play Store
+### iOS
+[Apple App Store](https://apps.apple.com/de/app/openitcockpit/id6783364695)
 
-(Links will be added once the app is available in the stores)
+<a href="https://apps.apple.com/de/app/openitcockpit/id6783364695" target="_blank">
+  <img src="/images/mobile-app/Download_on_the_App_Store_Badge_US-UK_RGB_blk_092917.svg" alt="Download on the App Store" width="120">
+</a>
+
+### Android
+Google Play Store (Soon available)
 
 ## Setup Push Notifications
 
