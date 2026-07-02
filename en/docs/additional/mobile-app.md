@@ -147,7 +147,13 @@ In case this redirect is not working, your Browser is probably sending a differe
 
 ![openITCOCKPIT Mobile Web App running in a web browser](/images/mobile-app/waf_desktop_example.png)
 
-#### WAF behind a reverse proxy
+### HTTP 406 Not Acceptable
+
+If the WAF blocks a request, it responds with the HTTP status code **406 Not Acceptable**. This can happen if a route or request method is blocked in the WAF's rule set. In the openITCOCKPIT app, an error message will be displayed in this case.
+
+![Request blocked by the WAF](/images/mobile-app/waf_blocked_request.png)
+
+### WAF behind a reverse proxy
 
 The WAF itself can also be placed behind a reverse proxy. This is useful, if you want to use self-signed certificates inside of the WAF container, but want to use a valid certificate for the outside world. In this case, the reverse proxy will handle the SSL termination and forward the requests to the WAF via HTTPS.
 
@@ -155,7 +161,7 @@ The WAF itself can also be placed behind a reverse proxy. This is useful, if you
 Mobile Device --> Reverse Proxy (valid SSL cert) --> WAF (self-signed SSL cert) --> openITCOCKPIT Server
 ```
 
-##### Apache2 example
+#### Apache2 example
 
 This example shows how to configure an Apache2 reverse proxy in front of the WAF. The reverse proxy will handle the SSL termination and forward the requests to the WAF via HTTPS.
 In this example, the WAF is running on the same server as the reverse proxy `127.0.0.1:5555` and the reverse proxy is listening on `waf.example.org`.
