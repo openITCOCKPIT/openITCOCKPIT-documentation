@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block extrahead %}
+  {{ super() }}
+  <!-- Machine readable AI notice -->
+  <meta name="ai-generated" content="true">
+  <meta name="ai-review-status" content="human-verified">
+  <meta property="schema:digitalSourceType" content="http://schema.org">
+{% endblock %}
+
+<!-- Human readable AI notice -->
+{% block content %}
+  <div class="admonition note admonition-no-icon">
+    <p class="admonition-title">🤖 AI-Assisted Content Notice</p>
+    <p style="font-style: italic;">This documentation was generated with the assistance of artificial intelligence and has been human-reviewed for accuracy.</p>
+  </div>
+
+  <!-- Render the actual content -->
+  {{ super() }} 
+{% endblock %}

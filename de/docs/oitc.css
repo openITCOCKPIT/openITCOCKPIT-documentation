@@ -13,3 +13,11 @@ img {
     color: #fff;
 }
 
+.admonition-no-icon .admonition-title::before {
+    display: none;
+    padding-left: 0.6rem;
+}
+
+.admonition-no-icon .admonition-title {
+    padding-left: 0.6rem!important;
+}
