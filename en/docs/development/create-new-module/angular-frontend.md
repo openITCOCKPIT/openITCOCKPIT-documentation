@@ -126,7 +126,7 @@ ng generate component TestIndex
 </ng-container>
 ```
 
-Right next to your HTML file, the `ng generate` command has also created a TypeScript file for your component at `test-index.component.ts`:
+Right next to your HTML file, the `ng generate` command has also created a TypeScript file for your component at `test-index.component.ts`. In our ExampleModule Repository, you will also find that file.
 ```typescript
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, inject, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
@@ -267,31 +267,6 @@ export class TestIndexComponent implements OnInit, OnDestroy {
 }
 ```
 
-
-Now your new page is created. But we still need to make sure, that openITCOCKPIT actually finds the page. We now need to create a separate router configuration. This is done here: `src/app/modules/example_module/example_module.routes.ts`
-```typescript
-import { Routes } from '@angular/router';
-
-export const exampleModuleRoutes: Routes = [
-    {
-        path: 'example_module/test/index',
-        loadComponent: () => import('./pages/test/test-index/test-index.component').then(m => m.TestIndexComponent)
-    }
-];
-```
-
-Also, your new router must be registered in the main module router configuration: `src/app/app.routes.ts`:
-```typescript
-// ...
-import { exampleModuleRoutes } from './modules/example_module/example_module.routes';
-
-// ...
-const moduleRoutes: Routes = [
-    // other module routes
-    ...exampleModuleRoutes,
-];
-```
-
 ### Communicating with the openITCOCKPIT API
 Most certainly, you will now want your module to interact with the openITCOCKPIT API. This is done by creating your own Angular service and interface.
 Interfaces contain the structure of the API's requests and responses while the service utilizes these objects to communicate with the openITCOCKPIT API.
@@ -303,7 +278,7 @@ ng generate service test
 ```
 
 The generated service file is located at `/opt/openitc/frontend-angular/src/app/modules/example_module/test.service.ts`.
-The completed service looks like this:
+The service is required to handle the actual communication to the openITCOCKPIT API. It handles the requests, responses and also catches errors during the communication.
 
 ```typescript
 import { inject, Injectable } from '@angular/core';
@@ -356,7 +331,10 @@ export class TestService {
 }
 ```
 
-Then, you also need to create your own interface file at `/opt/openitc/frontend-angular/src/app/modules/example_module/test.interface.ts`:
+Then, you also need to create your own interface file.
+The interface defines the fields that the API provides and expects for both Get and POST requests. TypeScript is OOP, so in easy requests, you may re-use the same objet for sending and recieving.
+
+`/opt/openitc/frontend-angular/src/app/modules/example_module/test.interface.ts`.
 ```typescript
 export interface TestGet {
     settings: TestSettings
@@ -373,4 +351,28 @@ export interface TestSettings {
     created: string
     modified: string
 }
+```
+
+Now your new page is created. But we still need to make sure, that openITCOCKPIT actually finds the page. We now need to create a separate router configuration. This is done here: `src/app/modules/example_module/example_module.routes.ts`
+```typescript
+import { Routes } from '@angular/router';
+
+export const exampleModuleRoutes: Routes = [
+    {
+        path: 'example_module/test/index',
+        loadComponent: () => import('./pages/test/test-index/test-index.component').then(m => m.TestIndexComponent)
+    }
+];
+```
+
+Also, your new router must be registered in the main module router configuration: `src/app/app.routes.ts`:
+```typescript
+// ...
+import { exampleModuleRoutes } from './modules/example_module/example_module.routes';
+
+// ...
+const moduleRoutes: Routes = [
+    // other module routes
+    ...exampleModuleRoutes,
+];
 ```

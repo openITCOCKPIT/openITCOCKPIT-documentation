@@ -275,20 +275,6 @@ use ExampleModule\Model\Table\ExampleNotesTable;
 class TestController extends AppController {
  
     public function index() {
-        if (!$this->isApiRequest()) {
-            // The requested URL was: /example_module/test/index.html
-            // The controller only sends the HTML template to the client browser / AngularJS
- 
-            /**********************************************************/
-            /* DO NOT RUN ANY DATABASE QUERY HERE!                    */
-            /* THIS CODE IS ONLY TO SHIP THE TEMPLATE                 */
-            /**********************************************************/
- 
-            // Pass the variable "message" with the content "Hello World (HTML)" to the view for .html requests
-            $this->set('message', 'Hello World (HTML)');
-            return;
-        }
- 
         // This get executed for API requests
         //  The requested URL was: /example_module/test/index.json
  
