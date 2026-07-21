@@ -156,6 +156,7 @@ plugins:
 #  Theme docs: https://squidfunk.github.io/mkdocs-material/getting-started/
 theme:
   name: material
+  custom_dir: overrides
   language: de
   logo: images/logo/openitcockpit-light.png
   favicon: images/favicon/favicon.png
