@@ -22,7 +22,7 @@ mkdir example_module/pages
 
 ### Generating the component
 
-Once your service and interface are ready, you can generate your page component. This component will use the service to communicate with the openITCOCKPIT API.
+Once your API is ready, you can generate your page component. This component will use the service to communicate with the openITCOCKPIT API.
 
 The openITCOCKPIT developers recommend the following directory structure:
 
