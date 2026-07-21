@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block extrahead %}
+  {{ super() }}
+  <!-- Machine readable AI notice -->
+  <meta name="ai-generated" content="true">
+  <meta name="ai-review-status" content="human-verified">
+  <meta property="schema:digitalSourceType" content="http://schema.org">
+{% endblock %}
+
+<!-- Human readable AI notice -->
+{% block content %}
+  <div class="admonition note admonition-no-icon">
+    <p class="admonition-title">🤖 Hinweis: KI-assistierte Inhalte</p>
+    <p style="font-style: italic;">Diese Dokumentation wurde mit Unterstützung künstlicher Intelligenz erstellt und wurde gründlich von Menschen auf Genauigkeit überprüft.</p>
+  </div>
+
+  <!-- Render the actual content -->
+  {{ super() }} 
+{% endblock %}
