@@ -152,7 +152,7 @@ Change the `path` value from `example-module` to `example_module`:
 oitc bake controller Test -p ExampleModule
 ```
 
-This creates a new controller where you can implement your API endpoints.
+This creates a new [controller](https://book.cakephp.org/5.x/controllers.html) where you can implement your API [actions](https://book.cakephp.org/5.x/controllers.html#controller-actions).
 
 ```php
 <?php
@@ -194,7 +194,7 @@ class TestController extends AppController {
 
 ### Assigning Permissions to the "Administrator" Role
 
-By default, access to all API actions is denied.
+By default, access to all API [actions]([actions](https://book.cakephp.org/5.x/controllers.html#controller-actions)) is denied.
 
 To automatically assign all permissions to the **Administrator** role, run:
 
@@ -492,13 +492,13 @@ With the database table in place, you can now generate the corresponding model c
 
 CakePHP's ORM handles creating, reading, updating, and deleting records, so you don't need to write SQL manually.
 
-Generate the model and entity classes:
+Generate the [Table](https://book.cakephp.org/5.x/orm/table-objects.html) and [Entity](https://book.cakephp.org/5.x/orm/entities.html) objects:
 
 ```bash
 oitc bake model -p ExampleModule MypluginSettings
 ```
 
-This command creates an Entity class and a Table class in:
+This command creates both Entity and Table objects in:
 
 - `plugins/ExampleModule/src/Model/Entity`
 ```php

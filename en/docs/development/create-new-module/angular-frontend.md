@@ -22,7 +22,7 @@ mkdir example_module/pages
 
 ### Generating the component
 
-Once your API is ready, you can generate your page component. This component will use the service to communicate with the openITCOCKPIT API.
+Once your service and interface are ready, you can generate your page component. This component will use the service to communicate with the openITCOCKPIT API.
 
 The openITCOCKPIT developers recommend the following directory structure:
 
@@ -157,7 +157,7 @@ export class TestService {
 }
 ```
 
-### Bringing the Page Component to Life
+## Bringing the Page Component to Life
 
 Let's return to the front-end component we created earlier.
 
@@ -409,7 +409,7 @@ export class TestIndexComponent implements OnInit, OnDestroy {
 }
 ```
 
-### Adding Routes
+## Adding Routes
 
 The page itself is now complete, but Angular still needs to know how to reach it.
 
