@@ -1,30 +1,175 @@
+
+
+
+
+
 # Angular Front-End
-Das openITCOCKPIT backend-Modul ist also fertig gebacken. Sicher wollen wir das jetzt auch im Front-End benutzen. Dafür brauchen wir ein Front-End Modul.
 
-Dieses Dokument behandelt die folgenden Schritte:
+Nachdem Sie Ihr openITCOCKPIT-Backend-Modul mithilfe des `bake`-Befehls erstellt sowie die Migration und ORM-Objekte generiert haben, ist es an der Zeit, das Front-End für das ExampleModule zu implementieren.
 
-- Ein neues Angular Modul anlegen
-- Kommunizieren mit der openITCOCKPIT API
-- Generieren der Front-End Komponente
+Diese Anleitung führt Sie durch die folgenden Schritte:
 
-Dieses Beispiel behandelt den Code unseres [openITCOCKPIT ExampleModule Frontend Angular Repository](https://github.com/openITCOCKPIT/openITCOCKPIT-ExampleModule-Frontend-Angular). Hier kann jederzeit das komplette Modul heruntergeladen werden.
+- Erstellen eines neuen Angular-Moduls
+- Kommunikation mit der openITCOCKPIT-API
+- Generieren der Komponente
 
-## Ein neues Angular Modul anlegen
-Zuerst muss der Unterordner für das neue Modul im Angular Projekt angelegt werden. Hier werden dann die Seiten, Controller, Interfaces und Services hinterlegt.
+Dieses Beispiel basiert auf dem [openITCOCKPIT ExampleModule Frontend Angular Repository](https://github.com/openITCOCKPIT/openITCOCKPIT-ExampleModule-Frontend-Angular), in dem Sie jederzeit das vollständige Modul herunterladen können.
+
+## Ein neues Angular-Modul erstellen
+
+Erstellen Sie zunächst Ihr eigenes Modulverzeichnis innerhalb des Angular-Projekts. Dieses Verzeichnis enthält Ihre Seiten, Komponenten, Services und Interfaces.
+
 ```bash
 cd /opt/openitc/frontend-angular/src/app/modules/example_module
 mkdir example_module
 mkdir example_module/pages
 ```
 
-### Generating the component
-Nachdem wir die Interfaces und den Service definiert haben, wird es Zeit, die Seite als Komponente zu erstellen.
+### Die Komponente generieren
 
-Seiten werden mit folgendem Command als Komponenten erstellt `ng generate`.
+Sobald Ihr Service und Ihr Interface bereit sind, können Sie Ihre Seitenkomponente generieren. Diese Komponente verwendet den Service, um mit der openITCOCKPIT-API zu kommunizieren.
+
+Die openITCOCKPIT-Entwickler empfehlen die folgende Verzeichnisstruktur:
+
+```text
+/opt/openitc/frontend-angular/src/app/modules/example_module/  <-- Your folder for everything
+/opt/openitc/frontend-angular/src/app/modules/example_module/pages  <-- All pages are located here, but they are structured by
+/opt/openitc/frontend-angular/src/app/modules/example_module/pages/test/  <-- The controller-name without "Controller"
+/opt/openitc/frontend-angular/src/app/modules/example_module/pages/test/test-index/  <-- The exact controller-action combination.
+```
+
+Diese Konvention existiert aus einem wesentlichen Grund:
+
+- Würde eine Komponente lediglich nach ihrer Aktion benannt werden (zum Beispiel `index`), hätten mehrere Komponenten denselben Namen.
+
+Sie können Ihre Verzeichnisstruktur selbstverständlich anders organisieren, wenn dies besser zu Ihrem Projekt passt. Diese Anleitung orientiert sich jedoch an den empfohlenen openITCOCKPIT-Konventionen.
+
+Nachdem Sie die benötigten Verzeichnisse mit `mkdir` erstellt haben, generieren Sie die erste Seitenkomponente.
+
 ```bash
 cd /opt/openitc/frontend-angular/src/app/modules/example_module/pages/
 ng generate component TestIndex
 ```
+
+Nach Ausführung des Befehls finden Sie ein neues Verzeichnis mit den folgenden Dateien:
+
+Dateien in `/opt/openitc/frontend-angular/src/app/modules/example_module/pages/test/test-index/`
+
+```text
+test-index.component.css
+test-index.component.html
+test-index.component.spec.ts
+test-index.component.ts
+```
+
+Lassen Sie diese Dateien zunächst unverändert. Bevor wir die Komponente selbst implementieren, erstellen wir zuerst den Service und das Interface, die die Kommunikation mit der openITCOCKPIT-API übernehmen.
+
+## Kommunikation mit der openITCOCKPIT-API
+
+Als Nächstes ermöglichen wir unserer Komponente die Kommunikation mit der openITCOCKPIT-API. Dazu erstellen wir einen eigenen Angular-Service und ein entsprechendes Interface.
+
+### Interface
+
+Interfaces definieren die Struktur der API-Anfragen und -Antworten einschließlich aller übertragenen Daten. Da TypeScript objektorientierte Programmierung unterstützt, können Sie dasselbe Interface sowohl für Anfragen als auch für Antworten wiederverwenden, sofern beide dieselbe Struktur besitzen.
+
+Das folgende Interface bildet die Struktur der Tabelle `Settings` ab.
+
+Das Interface definiert die Felder, die von der API sowohl für GET- als auch für POST-Anfragen bereitgestellt und erwartet werden. Da die Datenstruktur in diesem Beispiel identisch ist, kann dasselbe Objekt sowohl zum Senden als auch zum Empfangen von Daten verwendet werden.
+
+`/opt/openitc/frontend-angular/src/app/modules/example_module/test.interface.ts`.
+
+```typescript
+export interface TestGet {
+    settings: TestSettings
+    // _csrfToken: any  This is important, but it is not used from our service.
+}
+
+export interface TestPost {
+    settings: TestSettings
+}
+
+// The actual object definition.
+export interface TestSettings {
+    id: number
+    webhook_url: string
+    created: string
+    modified: string
+}
+```
+
+### Service
+
+Der Service ist für die Kommunikation mit der openITCOCKPIT-API verantwortlich. Er sendet Anfragen, verarbeitet Antworten und behandelt Fehler, die während der Kommunikation auftreten.
+
+Generieren Sie zunächst den Service mit dem Befehl `ng generate`:
+
+```bash
+cd /opt/openitc/frontend-angular/src/app/modules/example_module
+ng generate service test
+```
+
+Die generierte Service-Datei befindet sich unter `/opt/openitc/frontend-angular/src/app/modules/example_module/test.service.ts`.
+
+Im aktuellen ExampleModule sieht der Service wie folgt aus:
+
+```typescript
+import { inject, Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { PROXY_PATH } from '../../tokens/proxy-path.token';
+import { catchError, map, Observable, of } from 'rxjs';
+import { GenericResponseWrapper, GenericSuccessResponse, GenericValidationError } from '../../generic-responses';
+import { TestGet, TestSettings } from './test.interface';
+
+@Injectable({
+    providedIn: 'root'
+})
+export class TestService {
+
+    private readonly http: HttpClient = inject(HttpClient);
+    private readonly proxyPath: string = inject(PROXY_PATH);
+
+    public getSettings(): Observable<TestSettings> {
+        const proxyPath: string = this.proxyPath;
+        return this.http.get<TestGet>(`${proxyPath}/example_module/test/index.json`, {
+            params: {
+                angular: true
+            }
+        }).pipe(
+            map((data: TestGet) => {
+                return data.settings
+            })
+        )
+    }
+
+    public postSettings(data: TestSettings): Observable<GenericResponseWrapper> {
+        const proxyPath: string = this.proxyPath;
+        return this.http.post<GenericResponseWrapper>(`${proxyPath}/example_module/test/index.json?angular=true`, data).pipe(
+            map(data => {
+                // Return true on 200 Ok
+                return {
+                    success: true,
+                    data: {success: true} as GenericSuccessResponse
+                };
+            }),
+            catchError((error: any) => {
+                const err = error.error.error as GenericValidationError;
+                return of({
+                    success: false,
+                    data: err
+                });
+            })
+        );
+    }
+}
+```
+
+## Die Seitenkomponente zum Leben erwecken
+
+Kehren wir nun zu der zuvor erstellten Front-End-Komponente zurück.
+
+Das HTML-Template der Komponente definiert alles, was auf der Seite angezeigt wird. Da der Inhalt von den von openITCOCKPIT empfangenen Daten abhängt, wird das Template basierend auf den API-Antworten dynamisch aktualisiert.
+
+Das HTML-Template sieht wie folgt aus:
 
 ```html
 <!-- Hint from a fellow developer:
@@ -126,7 +271,10 @@ ng generate component TestIndex
 </ng-container>
 ```
 
-Neben dem HTML-Template der neu generierten Komponente, liegt die TypeScript-Datei `test-index.component.ts`:
+Zusammen mit dem HTML-Template hat der Befehl `ng generate` auch die zugehörige TypeScript-Komponentendatei `test-index.component.ts` erstellt.
+
+Das ExampleModule-Repository enthält die folgende Implementierung:
+
 ```typescript
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, inject, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
@@ -267,8 +415,14 @@ export class TestIndexComponent implements OnInit, OnDestroy {
 }
 ```
 
+## Routen hinzufügen
 
-Die Seite ist nun fertig. Zeit, openITCOCKPIT mitzuteilen, dass wir eine neue Komponente haben. Dazu legen wir einen Router für unser neues Modul an: 
+Die Seite selbst ist nun vollständig, aber Angular muss noch wissen, wie sie erreichbar ist.
+
+Erstellen Sie eine eigene Routenkonfiguration unter:
+
+`src/app/modules/example_module/example_module.routes.ts`
+
 ```typescript
 import { Routes } from '@angular/router';
 
@@ -280,7 +434,10 @@ export const exampleModuleRoutes: Routes = [
 ];
 ```
 
-Dieser neue Router muss nun noch im Application Router von openITCOCKPIT erwähnt werden, damit er letztendlich gefunden wird.
+Registrieren Sie abschließend die neue Routenkonfiguration in der zentralen Routing-Konfiguration des openITCOCKPIT-Angular-Frontends:
+
+`src/app/app.routes.ts`
+
 ```typescript
 // ...
 import { exampleModuleRoutes } from './modules/example_module/example_module.routes';
@@ -292,85 +449,4 @@ const moduleRoutes: Routes = [
 ];
 ```
 
-### Kommunizieren mit der openITCOCKPIT API
-Weil wir die API von openITCOCKPIT nutzen wollen, um Daten zu empfangen und zu senden, brauchen wir jetzt sowohl einen Service, als auch ein entsprechendes Interface.
-Das Interface definiert die Objektstrukturen, die vom Service benutzt werden, um die API anzusprechen.
-
-Zuerst generieren wir mit dem `ng generate` Kommando einen Service an:
-```bash
-cd /opt/openitc/frontend-angular/src/app/modules/example_module
-ng generate service test
-```
-
-Der gerade generierte Service liegt nun hier `/opt/openitc/frontend-angular/src/app/modules/example_module/test.service.ts`.
-Der fertige Service sieht wiefolgt aus:
-
-```typescript
-import { inject, Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { PROXY_PATH } from '../../tokens/proxy-path.token';
-import { catchError, map, Observable, of } from 'rxjs';
-import { GenericResponseWrapper, GenericSuccessResponse, GenericValidationError } from '../../generic-responses';
-import { TestGet, TestSettings } from './test.interface';
-
-@Injectable({
-    providedIn: 'root'
-})
-export class TestService {
-
-    private readonly http: HttpClient = inject(HttpClient);
-    private readonly proxyPath: string = inject(PROXY_PATH);
-
-    public getSettings(): Observable<TestSettings> {
-        const proxyPath: string = this.proxyPath;
-        return this.http.get<TestGet>(`${proxyPath}/example_module/test/index.json`, {
-            params: {
-                angular: true
-            }
-        }).pipe(
-            map((data: TestGet) => {
-                return data.settings
-            })
-        )
-    }
-
-    public postSettings(data: TestSettings): Observable<GenericResponseWrapper> {
-        const proxyPath: string = this.proxyPath;
-        return this.http.post<GenericResponseWrapper>(`${proxyPath}/example_module/test/index.json?angular=true`, data).pipe(
-            map(data => {
-                // Return true on 200 Ok
-                return {
-                    success: true,
-                    data: {success: true} as GenericSuccessResponse
-                };
-            }),
-            catchError((error: any) => {
-                const err = error.error.error as GenericValidationError;
-                return of({
-                    success: false,
-                    data: err
-                });
-            })
-        );
-    }
-}
-```
-
-Nachdem wir einen leeren Service angelegt haben, können wir auch die entsprechenden Interfaces in folgender Datei definieren  `/opt/openitc/frontend-angular/src/app/modules/example_module/test.interface.ts`:
-```typescript
-export interface TestGet {
-    settings: TestSettings
-    // _csrfToken: any  This is important, but it is not used from our service.
-}
-
-export interface TestPost {
-    settings: TestSettings
-}
-
-export interface TestSettings {
-    id: number
-    webhook_url: string
-    created: string
-    modified: string
-}
-```
+Nach Abschluss dieser Schritte sollten Sie Ihre Seite innerhalb Ihrer openITCOCKPIT-Instanz unter `example_module/test/index` aufrufen können.
