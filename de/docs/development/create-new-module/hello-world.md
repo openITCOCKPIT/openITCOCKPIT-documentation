@@ -9,7 +9,7 @@ Ein guter Einstiegspunkt wäre die erstellung ihrer ersten Seite mit der ausgabe
 
 ### Einen neuen Controller erstellen
 
-CakePHP [Controller](https://book.cakephp.org/4/en/controllers.html) enthalten die gesamte Businesslogik und stellt die
+CakePHP [Controller](https://book.cakephp.org/5.x/controllers.html) enthalten die gesamte Businesslogik und stellt die
 API Endpunkte für das Frontend dar.
 
 In diesem Beispiel erstellen wir den "TestController"

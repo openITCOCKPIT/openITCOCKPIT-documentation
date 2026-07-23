@@ -1,21 +1,26 @@
 # Database access
 
-openITCOCKPIT uses the [CakePHP ORM](https://book.cakephp.org/5/en/orm.html) to access the database. **Always be sure to use the ORM – never write your own plain SQL queries.**
+openITCOCKPIT uses the [CakePHP ORM](https://book.cakephp.org/5/en/orm.html) to access the database. **Always be sure to
+use the ORM – never write your own plain SQL queries.**
 
-This example builds on the [openITCOCKPIT ExampleModule Repository](https://github.com/openITCOCKPIT/openITCOCKPIT-ExampleModule/tree/master). Feel free to have a look at the code there.
+This example builds on
+the [openITCOCKPIT ExampleModule Repository](https://github.com/openITCOCKPIT/openITCOCKPIT-ExampleModule/tree/master).
+Feel free to have a look at the code there.
 
 ## Creating a new table in the database
 
-To manage schema updates, openITCOCKPIT uses the [CakePHP Migrations plugin](https://book.cakephp.org/migrations/3/en/index.html)
+To manage schema updates, openITCOCKPIT uses
+the [CakePHP Migrations plugin](https://book.cakephp.org/migrations/3/en/index.html)
 
 ### Creating a new table
 
-Let's assume you want to store additional information about a host. To do this, we would create a new table to store this additional data.
+Let's assume you want to store additional information about a host. To do this, we would create a new table to store
+this additional data.
 
-!!! danger
-    NEVER attempt to manipulate any existing tables!
+!!! danger NEVER attempt to manipulate any existing tables!
 
 To create a new, empty "migration" file, please execute the following command:
+
 ```bash
 oitc migrations create -p ExampleModule Initial
 ```
@@ -38,11 +43,12 @@ root @ /opt/openitc/frontend/plugins/ExampleModule - [ExampleModule] #
 ```
 
 To set the file permissions, it is also recommended that you execute the following command:
+
 ```bash
 oitc rights
 ```
 
-The system will create a new, empty "migration" file under the following path: 
+The system will create a new, empty "migration" file under the following path:
 `/opt/openitc/frontend/plugins/ExampleModule/config/Migrations/<timestamp>_Initial.php`
 
 ![new migration file](/images/new-migration.png)
@@ -50,6 +56,7 @@ The system will create a new, empty "migration" file under the following path:
 You can now define the schema for your new table in this file.
 
 `plugins/ExampleModule/config/Migrations/20200331090547_Initial.php`
+
 ```php
 <?php
 declare(strict_types=1);
@@ -119,6 +126,7 @@ openitcockpit-update --no-system-files
 You can use the MySQL CLI or phpMyAdmin to check this.
 
 Table:
+
 ```bash
 $ # mysql --defaults-file=/opt/openitc/etc/mysql/mysql.cnf
 mysql> show tables like 'example_%';
@@ -136,26 +144,48 @@ mysql>
 Table schema:
 
 ```sql
-mysql> show create table example_notes\G
-*************************** 1. row ***************************
-       Table: example_notes
-Create Table: CREATE TABLE `example_notes` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `host_id` int(11) NOT NULL,
-  `notes` varchar(255) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8
-1 row in set (0.00 sec)
- 
-mysql>
+mysql
+> show
+create table example_notes\G
+    *************************** 1. row ***************************
+    Table : example_notes
+Create Table : CREATE TABLE `example_notes`
+(
+    `id`
+    int
+(
+    11
+) NOT NULL AUTO_INCREMENT,
+    `host_id` int
+(
+    11
+) NOT NULL,
+    `notes` varchar
+(
+    255
+) NOT NULL,
+    PRIMARY KEY
+(
+    `id`
+)
+    ) ENGINE=InnoDB DEFAULT CHARSET=utf8
+    1 row in set
+(
+    0.00
+    sec
+)
+    mysql>
 ```
 
 ### Inserting sample data
 
-To make the development process less abstract and thus more meaningful, we recommend inserting some sample data into the new table. You can use the following SQL statement to create an entry for each host.
+To make the development process less abstract and thus more meaningful, we recommend inserting some sample data into the
+new table. You can use the following SQL statement to create an entry for each host.
 
 ```sql
-INSERT INTO `example_notes` (`host_id`, `notes`) SELECT id, CONCAT('Notes for the host: ', name) FROM `hosts`;
+INSERT INTO `example_notes` (`host_id`, `notes`)
+SELECT id, CONCAT('Notes for the host: ', name)
+FROM `hosts`;
 ```
 
 ## Creating a new table object (CakePHP)
@@ -167,6 +197,7 @@ oitc bake model ExampleNotes -p ExampleModule
 ```
 
 Sample command output:
+
 ```bash
 oot @ /opt/openitc/frontend/plugins/ExampleModule - [ExampleModule] # oitc bake model ExampleNotes -p ExampleModule
 
@@ -201,7 +232,8 @@ root @ /opt/openitc/frontend/plugins/ExampleModule - [ExampleModule] #
 oitc rights
 ```
 
-The system has now automatically created a new [Table](https://book.cakephp.org/4/en/orm/table-objects.html) and [Entity](https://book.cakephp.org/4/en/orm/entities.html) object.
+The system has now automatically created a new [Table](https://book.cakephp.org/5.x/orm/table-objects.html)
+and [Entity](https://book.cakephp.org/5.x/orm/entities.html) object.
 
 Now open the file
 `/opt/openitc/frontend/plugins/ExampleModule/src/Model/Table/ExampleNotesTable.php`
@@ -243,7 +275,8 @@ class ExampleNotesTable extends Table {
 }
 ```
 
-The system has detected an [association](https://book.cakephp.org/4/en/orm/associations.html) between the new table and the hosts table and created a [belongsTo](https://book.cakephp.org/4/en/orm/associations.html) association from it.
+The system has detected an [association](https://book.cakephp.org/5.x/orm/associations.html) between the new table and
+the hosts table and created a [belongsTo](https://book.cakephp.org/5.x/orm/associations.html#belongsto-associations) association from it.
 
 To use the hosts table from the core, remove the `ExampleModule` prefix.
 
@@ -259,8 +292,8 @@ $this->belongsTo('Hosts', [
 
 Open the code for your TestController to query the table.
 
-!!! tip
-    Writing queries directly as in the following example is not recommended. You should always create a separate method for each query. This helps structure the code.
+!!! tip Writing queries directly as in the following example is not recommended. You should always create a separate
+method for each query. This helps structure the code.
 
 ```php
 <?php
@@ -275,20 +308,6 @@ use ExampleModule\Model\Table\ExampleNotesTable;
 class TestController extends AppController {
  
     public function index() {
-        if (!$this->isApiRequest()) {
-            // The requested URL was: /example_module/test/index.html
-            // The controller only sends the HTML template to the client browser / AngularJS
- 
-            /**********************************************************/
-            /* DO NOT RUN ANY DATABASE QUERY HERE!                    */
-            /* THIS CODE IS ONLY TO SHIP THE TEMPLATE                 */
-            /**********************************************************/
- 
-            // Pass the variable "message" with the content "Hello World (HTML)" to the view for .html requests
-            $this->set('message', 'Hello World (HTML)');
-            return;
-        }
- 
         // This get executed for API requests
         //  The requested URL was: /example_module/test/index.json
  
@@ -321,11 +340,15 @@ Load the URL `https://example.org/example_module/test/index.json` to display the
 ![json result](/images/json-result.png)
 
 ### Joining tables
-As long as you cleanly define your associations, you can always join your tables using the [contain](https://book.cakephp.org/4/en/orm/retrieving-data-and-resultsets.html#eager-loading-associations-via-contain) method.
+
+As long as you cleanly define your associations, you can always join your tables using
+the [contain]([https://book.cakephp.org/4/en/orm/retrieving-data-and-resultsets.html#eager-loading-associations-via-contain](https://book.cakephp.org/5.x/orm/retrieving-data-and-resultsets.html#eager-loading-associations-via-contain))
+method.
 
 To join the Hosts table, you simply need to "contain" the "Host" table object:
 
 **Code**
+
 ```php
 /** @var ExampleNotesTable $ExampleNotesTable */
 $ExampleNotesTable = TableRegistry::getTableLocator()->get('ExampleModule.ExampleNotes');
@@ -355,7 +378,10 @@ $result = $ExampleNotesTable->find()
 
 ## Querying host and service status
 
-openITCOCKPIT supports several database backends in which status information can be stored. For this reason, related tables must always be loaded via the [DbBackend](https://github.com/openITCOCKPIT/openITCOCKPIT/blob/development/src/itnovum/openITCOCKPIT/Core/DbBackend.php) object.
+openITCOCKPIT supports several database backends in which status information can be stored. For this reason, related
+tables must always be loaded via
+the [DbBackend](https://github.com/openITCOCKPIT/openITCOCKPIT/blob/development/src/itnovum/openITCOCKPIT/Core/DbBackend.php)
+object.
 
 The DbBackend object is available by default in every controller.
 
@@ -377,6 +403,7 @@ $hoststatus = $HoststatusTable->byUuids(
 ```
 
 **Code**
+
 ```php
 <?php
 declare(strict_types=1);
@@ -461,16 +488,16 @@ class TestController extends AppController {
 }
 ```
 
-
 **Result**
 ![hoststatus example](/images/hoststatus-example.png)
 
-
-
 ## Using your own database
-If you need to store data that is not related to openITCOCKPIT data, we recommend you store it in a separate database. Modules can create and manage their own database connections.
+
+If you need to store data that is not related to openITCOCKPIT data, we recommend you store it in a separate database.
+Modules can create and manage their own database connections.
 
 ### Defining a new database connection
+
 Create the file `/ExampleModule/config/datasource.php`
 
 ```php
@@ -511,10 +538,13 @@ return [
 ];
 ```
 
-This example uses the username, password and host configuration of openITCOCKPIT's `mysql.cnf`. You can also enter your own username and password combinations in the file.
+This example uses the username, password and host configuration of openITCOCKPIT's `mysql.cnf`. You can also enter your
+own username and password combinations in the file.
 
 ### Loading and using your own database configuration
-Open the file `/ExampleModule/src/Plugin.php` and load the new database configuration inside the `bootstrap()` method. You can copy and paste the code below:
+
+Open the file `/ExampleModule/src/Plugin.php` and load the new database configuration inside the `bootstrap()` method.
+You can copy and paste the code below:
 
 ```php
 <?php
@@ -532,8 +562,10 @@ class Plugin extends BasePlugin {
 }
 ```
 
-In this final step, you must enter the database configuration in all `table` classes that use their own database connection. 
+In this final step, you must enter the database configuration in all `table` classes that use their own database
+connection.
 `src/SomeTable.php`
+
 ```php
 <?php
 class ExampleNotesTable extends Table {
@@ -544,5 +576,4 @@ class ExampleNotesTable extends Table {
 }
 ```
 
-!!! warning
-    The `defaultConnectionName()` method must be `static`!
+!!! warning The `defaultConnectionName()` method must be `static`!

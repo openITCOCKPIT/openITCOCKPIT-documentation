@@ -1,6 +1,6 @@
 # Datenbankzugriff
 
-openITCOCKPIT nutzt das [ORM von CakePHP](https://book.cakephp.org/4/en/orm.html) um Zugriff zur Datenbank zu erlangen.
+openITCOCKPIT nutzt das [ORM von CakePHP](https://book.cakephp.org/5.x/orm.html) um Zugriff zur Datenbank zu erlangen.
 **Nutzen sie immer das ORM und schreiben Sie niemals eigene plain SQL abfragen**
 
 ## Neue Tabelle in der Datenbank erstellen
@@ -201,7 +201,7 @@ root @ /opt/openitc/frontend/plugins/ExampleModule - [ExampleModule] #
 oitc rights
 ```
 
-Das System hat nun automatisch ein neues [Table](https://book.cakephp.org/4/en/orm/table-objects.html) und [Entity](https://book.cakephp.org/4/en/orm/entities.html) Objekt erstellt.
+Das System hat nun automatisch ein neues [Table](https://book.cakephp.org/5.x/orm/table-objects.html) und [Entity](https://book.cakephp.org/5.x/orm/entities.html) Objekt erstellt.
 
 Öffnen Sie nun die Datei `/opt/openitc/frontend/plugins/ExampleModule/src/Model/Table/ExampleNotesTable.php`
 
@@ -242,7 +242,7 @@ class ExampleNotesTable extends Table {
 }
 ```
 
-Das System hat eine [association](https://book.cakephp.org/4/en/orm/associations.html) zwischen der neuen Tabelle und der Hosts Tabelle erkannt und daraus eine [belongsTo](https://book.cakephp.org/4/en/orm/associations.html)
+Das System hat eine [association](https://book.cakephp.org/5.x/orm/associations.html) zwischen der neuen Tabelle und der Hosts Tabelle erkannt und daraus eine [belongsTo](https://book.cakephp.org/5.x/orm/associations.html#belongsto-associations)
 association erstellt.
 
 Um die Hosts Tabelle aus dem Kern zu nutzen, entfernen Sie den `ExampleModule` Präfix.
@@ -322,7 +322,7 @@ Laden Sie die URL `https://example.org/example_module/test/index.json` um das Er
 ![json result](/images/json-result.png)
 
 ### Tabellen Joinen
-Solange Sie ihre associations sauber definieren, können Sie ihre Tabellen immer durch die [contain](https://book.cakephp.org/4/en/orm/retrieving-data-and-resultsets.html#eager-loading-associations-via-contain) Methode joinen.
+Solange Sie ihre associations sauber definieren, können Sie ihre Tabellen immer durch die [contain](https://book.cakephp.org/5.x/orm/retrieving-data-and-resultsets.html#eager-loading-associations-via-contain) Methode joinen.
 
 Um die Hosts Tabelle zu joinen, müssen Sie einfach das "Host" Tabellen Objekt "containen":
 
