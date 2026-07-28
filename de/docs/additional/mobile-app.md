@@ -15,6 +15,8 @@
 ## App herunterladen
 Die App kann über die jeweiligen App Stores heruntergeladen werden. Bitte beachten Sie, dass die App derzeit nur für iOS verfügbar ist. Die Android-Version wird in Kürze veröffentlicht.
 
+**Die App ist kostenlos und kann mit jedem openITCOCKPIT-Server verwendet werden, unabhängig von der Edition (Community oder Enterprise).**
+
 ### iOS
 [Apple App Store](https://apps.apple.com/de/app/openitcockpit/id6783364695)
 

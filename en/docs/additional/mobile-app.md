@@ -15,6 +15,8 @@
 ## Download the App
 The App can be downloaded from the respective app stores. Please note that the app is currently only available for iOS. The Android version will be released soon.
 
+**The app is free of charge and can be used with any openITCOCKPIT server, regardless of the edition (Community or Enterprise).**
+
 ### iOS
 [Apple App Store](https://apps.apple.com/de/app/openitcockpit/id6783364695)
 
@@ -224,3 +226,118 @@ docker run --rm -it \
 -v /root/openitcockpit-waf/certs:/etc/nginx/certs:ro \
 cr.openitcockpit.io/openitcockpit-mobile-waf:latest
 ```
+
+## Microsoft Entra ID
+
+It is possible, to use Microsoft Entra ID to protect your openITCOCKPIT Server or the WAF from unauthorized access. When Microsoft Entra ID is enabled, users will need an **openITCOCKPIT API key** and a **Microsoft Entra account** to access the openITCOCKPIT App or the Web App. The Microsoft Entra ID login page will be displayed before the openITCOCKPIT login page.
+
+To Enable Microsoft Entra ID, you need to create an application in the Microsoft Entra portal first. In the openITCOCKPIT App, check the option `Enable Microsoft Entra ID` and fill in the `Tenant ID` and `Client ID` (also known as `Application ID`) fields with the values from the Microsoft Entra portal.
+
+The Login button will then change to `Sign in with Microsoft` and the user will be redirected to the Microsoft Entra login page.
+
+![openITCOCKPIT App with Microsoft Entra Login](/images/mobile-app/openitcockpit-app-enable-microsoft-entra.png)
+
+### Microsoft Entra ID Setup
+
+In the Microsoft Entra portal, navigate to `App registrations` and click on `New registration`. This is an required step to get the `Tenant ID` and `Client ID` for the openITCOCKPIT App.
+
+![Microsoft Entra App registration](/images/mobile-app/microsoft-entra-app-registration.png)
+
+Please make sure to set the `Redirect URI` for `Mobile and desktop applications` to the following value:
+
+```text
+openitcockpit://auth-callback
+```
+
+**Do not change the `Redirect URL`, it has to be exactly as shown above, otherwise the Microsoft Entra login will not work in the openITCOCKPIT App.**
+
+![Microsoft Entra - Configure Redirect URI](/images/mobile-app/microsoft-entra-redirect-url.png)
+
+
+## Mobile Device Management (MDM)
+
+The openITCOCKPIT App can be configured through Mobile Device Management (MDM) solutions like Microsoft Intune. This allows you to pre-configure the app for your users and enforce certain settings, like the server address or Microsoft Entra ID credentials. The setup process depends on the MDM solution you are using.
+
+This documentation is using Microsoft Intune for reference, but the process should be similar for other MDM solutions.
+
+### iOS
+
+The configuration is controlled via a XML based profile configuration. All fields are optional. In case you do not want to configure a field, please leave it empty like `<string></string>`.
+
+```XML
+<dict>
+    <key>apiKey</key>
+    <string>API_KEY_OR_EMPTY_STRING</string>
+    
+    <key>serverAddress</key>
+    <string>https://your.openitcockpit.server</string>
+    
+    <key>enableMicrosoftEntraID</key>
+    <true/>
+    
+    <key>microsoftTenantId</key>
+    <string>ae3ff2c9-56df-4e36-98bd-37f9f52f3185</string>
+    
+    <key>microsoftClientId</key>
+    <string>ad785d3e-6bd7e-4e30-b16a-e18dc85edb09</string>
+
+    <key>hideMicrosoftEntraConfig</key>
+    <false/>
+</dict>
+```
+
+!!! note
+    Settings that are controlled by the MDM, cannot be changed by the user in the app. For example, if the `serverAddress` is set via MDM, the user cannot change it in the app.
+
+
+For Microsoft Intune, you have to create a new iOS/iPadOS App first.
+![Microsoft Intune - Create new iOS/iPadOS App](/images/mobile-app/microsoft-intune-ios-app.png)
+This app will be then available to your users through the Microsoft Intune Company Portal.
+
+In the next step, you can configure the app with the XML configuration above. Please make sure to select the option `Managed configuration` and paste the XML configuration into the text field.
+![Microsoft Intune - Managed configuration](/images/mobile-app/microsoft-intune-ios-app-config.png)
+
+As soon as the app is installed on the user's device, the configuration will be applied automatically. All fields controlled by the MDM will be locked and cannot be changed by the user.
+If a profile is active, the user will see the message `Some settings are managed by your organization`.
+
+![openITCOCKPIT App - MDM example](/images/mobile-app/ios-mdm-example.png)
+
+
+## Configure via QR Code
+
+This is an alternative way for configuring the openITCOCKPIT App for users that do not have a Mobile Device Management (MDM) solution. Instead of manually entering the server address or Microsoft Entra ID credentials, the user can scan a QR code to automatically configure the app. Please use the following JSON structure to generate the QR code:
+
+```JSON
+{
+   "serverAddress":"https://your.openitcockpit.server",
+   "apiKey":"<API_KEY_OR_EMPTY_STRING>",
+   "remember_me":true,
+   "enable_microsoft_entra_id":false,
+   "microsoft_tenant_id":"ae3ff2c9_OR_EMPTY_STRING",
+   "microsoft_client_id":"ad785d3e_OR_EMPTY_STRING"
+}
+```
+
+You can use any QR code generator to create the QR code from the JSON structure above. The `serverAddress` field must be set to the URL of your openITCOCKPIT server. The `microsoft_tenant_id` and `microsoft_client_id` are optional and only relevant if `enable_microsoft_entra_id` is set to `true`.
+
+In case you do not want to use Microsoft Entra ID, please set `enable_microsoft_entra_id` to `false` and leave the other two fields empty.
+
+The `apiKey` field can also be left empty, as the user can enter there personal API key after scanning the QR code with the App configuration.
+
+The workflow looks like this:
+
+1. The user scans the QR code containing the configuration for the openITCOCKPIT App.
+2. The user scans it's personal QR code, that contains the API key of the user.
+3. Tap on "Login" to log in to the openITCOCKPIT App.
+
+![openITCOCKPIT App QR Code Scanner](/images/mobile-app/openitcockpit-qr-code-scanner.png){ width=350px }
+
+## Debugging menu
+
+The openITCOCKPIT App has a hidden debugging menu on the login screen, that can be accessed by tapping the openITCOCKPIT logo 5 times within 1.5 seconds.
+The debugging menu allows you to view the current app version and to clear the app storage.
+
+
+![openITCOCKPIT App Debug menu](/images/mobile-app/openitcockpit-app-debug.png){ width=350px }
+
+
