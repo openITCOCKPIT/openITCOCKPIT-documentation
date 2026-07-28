@@ -254,6 +254,12 @@ openitcockpit://auth-callback
 ![Microsoft Entra - Configure Redirect URI](/images/mobile-app/microsoft-entra-redirect-url.png)
 
 
+!!! info
+    The `Tenant ID` and `Client ID` (also known as `Application ID`) **are no secrets** and can be shared with anyone.
+
+    - **Tenant ID**: This simply identifies your specific organization or Microsoft Entra directory instance.
+    - **Application ID**: This identifies a specific application within the tenant's directory. It tells Microsoft which app is requesting a login.
+
 ## Mobile Device Management (MDM)
 
 The openITCOCKPIT App can be configured through Mobile Device Management (MDM) solutions like Microsoft Intune. This allows you to pre-configure the app for your users and enforce certain settings, like the server address or Microsoft Entra ID credentials. The setup process depends on the MDM solution you are using.
@@ -302,10 +308,44 @@ If a profile is active, the user will see the message `Some settings are managed
 
 ![openITCOCKPIT App - MDM example](/images/mobile-app/ios-mdm-example.png)
 
+!!! danger
+    **Before** you delete the app configuration in the MDM, you must push an empty configuration with the same fields to the user devices.
+    Otherwise, the fields controlled by the MDM in the app will be locked and **cannot be changed anymore**.
+
+    This is a known limitation of iOS/iPadOS and has nothing to do with the openITCOCKPIT app.
+    ```XML
+    <dict>
+      <key>apiKey</key>
+      <string></string>
+
+      <key>serverAddress</key>
+      <string></string>
+
+      <key>enableMicrosoftEntraID</key>
+      <false/>
+
+      <key>microsoftTenantId</key>
+      <string></string>
+
+      <key>microsoftClientId</key>
+      <string></string>
+
+      <key>hideMicrosoftEntraConfig</key>
+      <false/>
+    </dict>
+    ```
+    Only **after** the empty configuration has been pushed to **all devices**, you can delete the app configuration in the MDM.
+
 
 ## Configure via QR Code
 
-This is an alternative way for configuring the openITCOCKPIT App for users that do not have a Mobile Device Management (MDM) solution. Instead of manually entering the server address or Microsoft Entra ID credentials, the user can scan a QR code to automatically configure the app. Please use the following JSON structure to generate the QR code:
+This is an alternative way for configuring the openITCOCKPIT App for users that do not have a Mobile Device Management (MDM) solution. Instead of manually entering the server address or Microsoft Entra ID credentials, the user can scan a QR code to automatically configure the app.
+
+!!! info
+    The easiest way to generate the QR code is to use our [QR Code Generator](https://openitcockpit.io/app_qr_generator/) on our website.
+
+
+In case you want to generate the QR code manually, please use the following JSON structure:
 
 ```JSON
 {
@@ -317,7 +357,6 @@ This is an alternative way for configuring the openITCOCKPIT App for users that 
    "microsoft_client_id":"ad785d3e_OR_EMPTY_STRING"
 }
 ```
-
 You can use any QR code generator to create the QR code from the JSON structure above. The `serverAddress` field must be set to the URL of your openITCOCKPIT server. The `microsoft_tenant_id` and `microsoft_client_id` are optional and only relevant if `enable_microsoft_entra_id` is set to `true`.
 
 In case you do not want to use Microsoft Entra ID, please set `enable_microsoft_entra_id` to `false` and leave the other two fields empty.
