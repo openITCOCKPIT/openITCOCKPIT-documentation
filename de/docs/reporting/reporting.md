@@ -115,15 +115,15 @@ harter Zustand berücksichtigt werden soll.
 
 ## Statusseiten
 
-Statusseiten in openITCOCKPIT bieten Statusinformationen über Hosts, Services, Hostguppen, Ervicegroups in aeiner einheitlichen Weise.
+Statusseiten in openITCOCKPIT bieten Statusinformationen über Hosts, Services, Hostguppen, Servicegroups in einer einheitlichen Weise.
 
 Statusseiten können - wenn gewünscht - auch öffentlich (heißt ohne Login) aufgerufen werden. Alle Elemente einer Statusseite können über Aliasnamen annonymisiert werden. 
 Alle Elemente einer Statusseite werden im selben Format dargestellt, so dass nicht ablesbar ist, um welche Art von Element es sich handelt.  
 
 Jedes Element einer Statusseite kann Informationen über die enthaltenden Probleme (bestätigt/nicht betätigt) und Wartungen (laufend, für die nächsten 10 Tage geplant) enthalten.
 
-### Statusseite erstellen
-![](/images/status-pages/status-page-create.png)
+### Statusseite erstellen/editieren
+![](/images/status-pages/status-pages-edit.png)
 
 | Feld            | Erforderlich                 | Beschreibung                                               |
 | ---------------- | ------------------------- | ------------------------------------------------------------ |
@@ -137,16 +137,17 @@ Jedes Element einer Statusseite kann Informationen über die enthaltenden Proble
 | Zeige Bestätigungskommentar  |   | Die originalen Kommentare der Bestätigungen werden angezeigt. |
 | Hostgruppen, Servicegruppen, Hosts, Services | | Die wählbaren Elemente der Seite|
 | Anzeigename | | optionaler Aliasname, wenn gefüllt, wird dieser statt des Originalnamens angezeigt.|
+| Gruppierungskennzeichen | | optionale Gruppierungskennzeichen, wenn gefüllt, wird anhand dieser Gruppenkennzeichen innerhalb der Statusabschnitte gruppiert.|
 
 
 ### Anzeige
 ![](/images/status-pages/status-page-view.png)
 
 #### Interne Anzeige
-![](/images/status-pages/status-page-view-internal.png)
+![](/images/status-pages/status-pages-internal.png)
 
 #### Externe Anzeige
-![](/images/status-pages/status-page-view-external.png)
+![](/images/status-pages/status-pages-external.png)
 
 In- und externe Ansicht sind prinzipiell gleich.aber in der internen Ansicht sind die Elementnamen verlinkt.
 
