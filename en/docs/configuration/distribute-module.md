@@ -48,8 +48,14 @@ The IP address of the satellite and the other parameters of the HTTPS call must 
 On the satellite system, communication is managed by the NSTA service. This requires that the configuration of `/opt/openitc/etc/nsta/nsta.ini` must be edited as follows:
 ```ini
 [nsta]
+; You can find the satellite ID in the openITCOCKPIT interface
 satellite-id=ADD_YOUR_SATELLITE_ID_HERE
+
+; The API key is displayed in the openITCOCKPIT interface at satellite configuration
+; This is NOT a user API key, but a special API key for the satellite system
 api-key=ADD_YOUR_API_KEY_HERE
+
+; Enable Pull mode for the satellite system
 mode=https_pull
 ```
 
@@ -74,12 +80,27 @@ On the satellite system, communication is managed by the NSTA service. This requ
 
 ```ini
 [nsta]
+; Enable Push Mode
 mode=https_push
+
+; The Satellite ID can be found in the openITCOCKPIT interface
 satellite-id=ADD_YOUR_SATELLITE_ID_HERE
+
+; The API key is displayed in the openITCOCKPIT interface at satellite configuration
+; This is NOT a user API key, but a special API key for the satellite system
 api-key=ADD_YOUR_API_KEY_HERE
+
+; The endpoint is the URL of the openITCOCKPIT server
 endpoint=https://demo.openitcockpit.io
+
+; If you want to use a self-signed certificate, you can disable the certificate check here
 insecure-https=true
+
+; The interval in minutes at which the satellite system will push system metrics to the master system.
 system-metrics-interval=15
+
+; Optional HTTP proxy configuration.
+;proxy="http://proxy.example.com:8080"
 ```
 
 You will need to restart the NSTA service for the changes to take effect.

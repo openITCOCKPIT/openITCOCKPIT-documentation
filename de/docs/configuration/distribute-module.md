@@ -63,8 +63,14 @@ Auf dem Satellitensystem wird die Kommunikation vom NSTA verwaltet.
 Deshalb muss dort die Konfiguration `/opt/openitc/etc/nsta/nsta.ini` angepasst werden:
 ```ini
 [nsta]
+; Die Satelliten ID kann der openITCOCKPIT Oberfläche entnommen werden
 satellite-id=ADD_YOUR_SATELLITE_ID_HERE
+
+; Der API Schlüssel wird in der openITCOCKPIT Oberfläche unter der Satelliten Konfiguration angezeigt
+; Es handelt sich hierbei um einen speziellen API Schlüssel für das Satellitensystem, nicht um einen Benutzer API Schlüssel
 api-key=ADD_YOUR_API_KEY_HERE
+
+; Pull Modus aktivieren
 mode=https_pull
 ```
 
@@ -92,12 +98,27 @@ Auf dem Satellitensystem wird die Kommunikation vom NSTA verwaltet.
 Deshalb muss dort die Konfiguration `/opt/openitc/etc/nsta/nsta.ini` angepasst werden:
 ```ini
 [nsta]
+; Push Modus aktivieren
 mode=https_push
+
+; Die Satelliten ID kann der openITCOCKPIT Oberfläche entnommen werden
 satellite-id=ADD_YOUR_SATELLITE_ID_HERE
+
+; Der API Schlüssel wird in der openITCOCKPIT Oberfläche unter der Satelliten Konfiguration angezeigt
+; Es handelt sich hierbei um einen speziellen API Schlüssel für das Satellitensystem, nicht um einen Benutzer API Schlüssel
 api-key=ADD_YOUR_API_KEY_HERE
+
+; Der Endpunkt ist die URL des openITCOCKPIT Servers
 endpoint=https://demo.openitcockpit.io
+
+; Zertifikatsprüfung kann deaktiviert werden, wenn ein selbstsigniertes Zertifikat genutzt wird
 insecure-https=true
+
+; Intervall in Minuten, wie of das Satellitensystem die Systemmetriken an das Mastersystem überträgt.
 system-metrics-interval=15
+
+; Optionale HTTP Proxy Konfiguration
+;proxy="http://proxy.example.com:8080"
 ```
 
 Um die Änderungen zu übernehmen, muss der NSTA Dienst neu gestartet werden.
