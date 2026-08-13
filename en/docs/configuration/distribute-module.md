@@ -24,6 +24,49 @@ You must then select a container, give the satellite a name and enter the IP add
 
 Satellites can be operated using three different synchronisation methods.
 
+## Install the Satellite
+
+Satellite Systems do support the same Linux distributions as the openITCOCKPIT master system. The setup is done via the package manager.
+Please add the [openITCOCKPIT repository](/installation/) first.
+
+
+```
+apt-get install openitcockpit-satellite
+```
+
+### Activating the satellite frontend
+
+Using the web interface on the satellite systems is optional and not activated by default. To enable it, the following two commands must be run on the satellite:
+
+```
+touch /opt/openitc/etc/frontend/enable_web_interface
+/opt/openitc/frontend/UPDATE.sh
+```
+
+After these two commands have run successfully, the first user can then be created:
+```
+sudo -u www-data /opt/openitc/frontend/bin/cake user --username admin --password admin1234
+```
+
+All other users can then be created and managed via the web interface.
+
+### Installing Checkmk on the satellite
+
+Checkmk is optional, but can also be used on the satellite system. Checkmk **requires** that the satellite frontend is activated. The setup is done via the package manager.
+
+!!! info
+    Before Checkmk can be used on a satellite system, at least **one host and service** must be created on the satellite system.
+    (e.g. localhost with a ping check)
+
+```
+apt-get install openitcockpit-checkmk
+
+# Ensure that the Satellite interface is enabled, otherwise Checkmk will not work properly
+touch /opt/openitc/etc/frontend/enable_web_interface
+/opt/openitc/frontend/UPDATE.sh
+```
+
+
 ## NSTA
 
 The nsta service is responsible for communications between the master and satellite systems. The connection status can be viewed under <kbd><kbd>System</kbd> <i class="fa fa-arrow-right"></i> <kbd>Satellite Status</kbd></kbd>.
@@ -48,8 +91,14 @@ The IP address of the satellite and the other parameters of the HTTPS call must 
 On the satellite system, communication is managed by the NSTA service. This requires that the configuration of `/opt/openitc/etc/nsta/nsta.ini` must be edited as follows:
 ```ini
 [nsta]
+; You can find the satellite ID in the openITCOCKPIT interface
 satellite-id=ADD_YOUR_SATELLITE_ID_HERE
+
+; The API key is displayed in the openITCOCKPIT interface at satellite configuration
+; This is NOT a user API key, but a special API key for the satellite system
 api-key=ADD_YOUR_API_KEY_HERE
+
+; Enable Pull mode for the satellite system
 mode=https_pull
 ```
 
@@ -74,12 +123,27 @@ On the satellite system, communication is managed by the NSTA service. This requ
 
 ```ini
 [nsta]
+; Enable Push Mode
 mode=https_push
+
+; The Satellite ID can be found in the openITCOCKPIT interface
 satellite-id=ADD_YOUR_SATELLITE_ID_HERE
+
+; The API key is displayed in the openITCOCKPIT interface at satellite configuration
+; This is NOT a user API key, but a special API key for the satellite system
 api-key=ADD_YOUR_API_KEY_HERE
+
+; The endpoint is the URL of the openITCOCKPIT server
 endpoint=https://demo.openitcockpit.io
+
+; If you want to use a self-signed certificate, you can disable the certificate check here
 insecure-https=true
+
+; The interval in minutes at which the satellite system will push system metrics to the master system.
 system-metrics-interval=15
+
+; Optional HTTP proxy configuration.
+;proxy="http://proxy.example.com:8080"
 ```
 
 You will need to restart the NSTA service for the changes to take effect.
@@ -154,21 +218,6 @@ If the status "State is no longer current" appears, this is usually due to one o
 - the satellite system is overloaded
 - more than one master is querying the satellite
 
-## Activating the satellite frontend
-
-Using the web interface for the satellite systems is optional and not activated by default. To enable this, the following two commands must be run on the satellite:
-
-```
-touch /opt/openitc/etc/frontend/enable_web_interface
-/opt/openitc/frontend/UPDATE.sh
-```
-
-After these two commands have run successfully, the first user can then be created:
-```
-sudo -u www-data /opt/openitc/frontend/bin/cake user --username admin --password admin1234
-```
-
-All other users can then be created and managed via the web interface.
 
 ## Settings
 
