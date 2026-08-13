@@ -34,6 +34,47 @@ Anschließend wählen Sie einen Container aus, vergeben einen Namen für den Sat
 
 Satelliten können in drei verschiedenen Synchronisationsmethoden betrieben werden.
 
+## Installation des Satelliten
+
+Satelliten Systeme unterstützten die gleichen Linux Distributionen wie das openITCOCKPIT Mastersystem. Die Einrichtung erfolgt
+über den Paketmanager und wird über das [openITCOCKPIT Repository](/installation/) bereitgestellt.
+
+```
+apt-get install openitcockpit-satellite
+```
+
+## Satelliten Frontend aktivieren
+
+Die Weboberfläche der Satellitensysteme ist optional und im standard nicht aktiviert. Zum Aktivieren müssen die folgenden zwei
+Befehle auf dem Satelliten ausgeführt werden:
+```
+touch /opt/openitc/etc/frontend/enable_web_interface
+/opt/openitc/frontend/UPDATE.sh
+```
+
+Im Anschluss kann der erste Benutzer erstellt werden.
+```
+sudo -u www-data /opt/openitc/frontend/bin/cake user --username admin --password admin1234
+```
+
+Alle weiteren Benutzer können dann über die Weboberfläche erstellt und verwaltet werden.
+
+### Installation von Checkmk auf dem Satelliten
+
+Checkmk ist optional, kann aber auch auf dem Satellitensystem genutzt werden. Checkmk **setzt voraus**, dass das Satelliten Frontend aktiviert ist. Die Einrichtung erfolgt über den Paketmanager.
+
+!!! info
+    Bevor Checkmk auf einem Satellitensystem genutzt werden kann, muss mindestens **ein Host und Service** auf dem Satellitensystem erstellt werden.
+    (z.B. localhost mit einem Ping Check)
+
+```
+apt-get install openitcockpit-checkmk
+
+# Sicherstellen das das Satelliten Interface aktiviert ist, ansonsten funktioniert Checkmk nicht korrekt
+touch /opt/openitc/etc/frontend/enable_web_interface
+/opt/openitc/frontend/UPDATE.sh
+```
+
 ## NSTA
 
 Für die Kommunikation zwischen Master und Satellite ist der Dienst `nsta` verantwortlich. Der Verbindungsstatus kann unter
@@ -199,21 +240,6 @@ Der Status "State is no longer current" ist in der Regel auf einen der folgenden
 - Satellitensystem ist überlastet
 - mehrere Master fragen einen Satelliten ab
 
-## Satelliten Frontend aktivieren
-
-Die Weboberfläche der Satellitensysteme ist optional und im standard nicht aktiviert. Zum Aktivieren müssen die folgenden zwei
-Befehle auf dem Satelliten ausgeführt werden:
-```
-touch /opt/openitc/etc/frontend/enable_web_interface
-/opt/openitc/frontend/UPDATE.sh
-```
-
-Im Anschluss kann der erste Benutzer erstellt werden.
-```
-sudo -u www-data /opt/openitc/frontend/bin/cake user --username admin --password admin1234
-```
-
-Alle weiteren Benutzer können dann über die Weboberfläche erstellt und verwaltet werden.
 
 ## Einstellungen
 
