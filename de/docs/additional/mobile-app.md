@@ -70,6 +70,10 @@ Die App verwendet die openITCOCKPIT-API für die Authentifizierung. Daher müsse
 
 Der Einfachheit halber können Sie auch den QR-Code aus der openITCOCKPIT-Weboberfläche scannen, um den API-Schlüssel automatisch zu übernehmen.
 
+Die openITCOCKPIT-App erfordert, dass Ihr Gerät in der Lage ist, direkt eine Verbindung zum openITCOCKPIT-Server herzustellen. Dies kann über eine öffentliche Adresse, einen [Reverse Proxy](/additional/behind-reverse-proxy/) oder eine VPN-Verbindung erfolgen.
+Außerdem ist ein gültiges HTTPS-Zertifikat erforderlich. Selbstsignierte Zertifikate funktionieren höchstwahrscheinlich nicht, oder Sie müssen das CA-Zertifikat auf Ihrem mobilen Gerät installiert haben.
+
+![Mobile App Connectivity](/images/mobile-app/app_openitcockpit_connection.png)
 
 ## Web Application Firewall (WAF) / Reverse Proxy <span class="badge badge-danger badge-outlined" title="Enterprise Edition">EE</span>
 
@@ -142,7 +146,8 @@ Die Konfiguration der WAF erfolgt über Umgebungsvariablen. Folgende Optionen st
 | `SSL_PROTOCOLS` | Zu verwendende SSL-Protokolle | Nginx-kompatible Liste von SSL-Protokollen | `TLSv1.2 TLSv1.3` |
 | `SSL_CIPHERS` | Unterstützte SSL-Chiffren | Nginx-kompatible Liste unterstützter SSL-Chiffren | `ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:DHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384:DHE-RSA-CHACHA20-POLY1305` |
 | `SSL_PREFER_SERVER_CIPHERS` | Bevorzugung von Server-Chiffren gegenüber Client-Chiffren aktivieren oder deaktivieren | `on` oder `off` | `on` |
-
+| `LOGIN_BACKGROUND_IMAGE` | Hintergrundbild für die Anmeldeseite | Dateiname | `(empty string)` [Siehe Abschnitt Benutzerdefinierte Bilder](#benutzerdefiniertes-logo-und-hintergrundbild)  |
+| `LOGIN_LOGO_IMAGE` | Logo für die Anmeldeseite | Dateiname | `(empty string)` |
 
 ### Web App
 
@@ -371,6 +376,36 @@ Der Ablauf sieht wie folgt aus:
 3. Auf "Login" tippen, um sich in der openITCOCKPIT-App anzumelden.
 
 ![openITCOCKPIT-App QR-Code-Scanner](/images/mobile-app/openitcockpit-qr-code-scanner.png){ width=350px }
+
+## Benutzerdefiniertes Logo und Hintergrundbild
+
+Das Logo auf dem Anmeldebildschirm und das Hintergrundbild können angepasst werden. Die Bilder werden im WAF-Container gespeichert und müssen nach `/usr/share/nginx/html/custom_images` gemountet werden. Es werden nur **PNG**- und **JPG**-Bilder unterstützt. Die Dateinamen der Bilder müssen über die Umgebungsvariablen `LOGIN_LOGO_IMAGE` und `LOGIN_BACKGROUND_IMAGE` gesetzt werden. Bitte stellen Sie sicher, dass in den Dateinamen keine Sonderzeichen oder Leerzeichen verwendet werden. Beispiel: `LOGIN_BACKGROUND_IMAGE="sunflowers-background.jpg"`.
+
+![Beispiel für benutzerdefinierten Hintergrund und Logo](/images/mobile-app/web-custom-background-and-logo.png)
+
+Leider ist das Laden benutzerdefinierter Bilder in der nativen openITCOCKPIT-App nur möglich, wenn die `serverAddress` per MDM gesetzt wird. Das liegt daran, dass die App die benutzerdefinierten Bilder von einer spezifischen URL laden muss, was nur möglich ist, wenn die Serveradresse bekannt ist. Wenn die Serveradresse per QR-Code oder manuell gesetzt wird, kann die App die benutzerdefinierten Bilder nicht vorab laden.
+
+Wenn jedoch ein MDM zum Setzen der Serveradresse verwendet wird, lädt die App die benutzerdefinierten Bilder automatisch von der WAF.
+
+
+![iOS MDM benutzerdefinierte Bilder](/images/mobile-app/ios-mdm-custom-images.png){ width=350px }
+
+Beispiel für einen Docker-`run`-Befehl mit benutzerdefinierten Bildern:
+```bash
+docker run --rm -it \
+--name openitcockpit-mobile-waf \
+-p 80:80 \
+-p 443:443 \
+-e WEB_APP_ENABLED=1 \
+-e OITC_SERVER=demo.openitcockpit.io \
+-e SSL_CERT_PATH=/etc/nginx/certs/local.crt \
+-e SSL_CERT_KEY_PATH=/etc/nginx/certs/local.key \
+-v /path/on/host/certs:/etc/nginx/certs:ro \
+-v /path/on/host/custom_images:/usr/share/nginx/html/custom_images:ro \
+-e LOGIN_BACKGROUND_IMAGE="sunflowers-background.jpg" \
+-e LOGIN_LOGO_IMAGE="cat-logo.png" \
+cr.openitcockpit.io/openitcockpit-mobile-waf:latest
+```
 
 ## Debug-Menü
 

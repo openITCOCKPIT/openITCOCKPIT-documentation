@@ -69,6 +69,11 @@ The app uses the openITCOCKPIT API for authentication, so you have to [create an
 
 For convenience, you can also scan the QR code from the openITCOCKPIT web interface to automatically fill in the API key.
 
+The openITCOCKPIT App require that your device is able to directly connect to the openITCOCKPIT server. This can be done via a public address, a [reverse proxy](/additional/behind-reverse-proxy/) or with a VPN connection.
+In addition, a valid HTTPS certificate is required. Self-signed certificates will most likely not work, or you have to make sure to install the CA certificate of the self-signed certificate on your mobile device.
+
+![Mobile App Connectivity](/images/mobile-app/app_openitcockpit_connection.png)
+
 ## Web Application Firewall (WAF) / Reverse Proxy <span class="badge badge-danger badge-outlined" title="Enterprise Edition">EE</span>
 
 !!! info "Info"
@@ -140,7 +145,8 @@ The configuration of the WAF can be done via environment variables. The followin
 | `SSL_PROTOCOLS` | SSL protocols to use | Nginx compatible list of SSL protocols | `TLSv1.2 TLSv1.3` |
 | `SSL_CIPHERS` | Supported SSL ciphers | Nginx compatible list of supported SSL ciphers |`ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:DHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384:DHE-RSA-CHACHA20-POLY1305` |
 | `SSL_PREFER_SERVER_CIPHERS` | Enable or disable the preference of server ciphers over client ciphers  | `on` or `off` | `on` |
-
+| `LOGIN_BACKGROUND_IMAGE` | Background image for the login page | File name | `(empty string)` [See Custom Image Section](#custom-logo-and-background-image) |
+| `LOGIN_LOGO_IMAGE` | Logo for the login page | File name | `(empty string)` |
 
 ### Web App
 
@@ -151,7 +157,7 @@ In case this redirect is not working, your Browser is probably sending a differe
 
 ### HTTP 406 Not Acceptable
 
-If the WAF blocks a request, it responds with the HTTP status code **406 Not Acceptable**. This can happen if a route or request method is blocked in the WAF's rule set. In the openITCOCKPIT app, an error message will be displayed in this case.
+If the WAF blocks a request, it responds with the HTTP status code **406 Not Acceptable**. This can happen if a route or request method is blocked in the WAF's ruleset. In the openITCOCKPIT app, an error message will be displayed in this case.
 
 ![Request blocked by the WAF](/images/mobile-app/waf_blocked_request.png)
 
@@ -370,6 +376,36 @@ The workflow looks like this:
 3. Tap on "Login" to log in to the openITCOCKPIT App.
 
 ![openITCOCKPIT App QR Code Scanner](/images/mobile-app/openitcockpit-qr-code-scanner.png){ width=350px }
+
+## Custom Logo and Background Image
+
+The Logo on the login screen and the background image can be customized. The images are stored in the WAF container and have to be mounted to `/usr/share/nginx/html/custom_images`. Only **PNG** and **JPG** images are supported. The file names of the images must be set as environment variables `LOGIN_LOGO_IMAGE` and `LOGIN_BACKGROUND_IMAGE`. Please make sure to not use any special characters or spaces in the file names. For example: `LOGIN_BACKGROUND_IMAGE="sunflowers-background.jpg"`.
+
+![Example custom background and logo](/images/mobile-app/web-custom-background-and-logo.png)
+
+Unfortunately, loading custom images in the native openITCOCKPIT App is only possible, if the `serverAddress` is set via the MDM. This is because the App has to load the custom images from a specific URL, which is only possible if the server address is known. If the server address is set via QR code or manually, the app will not be able to load the custom images upfront.
+
+How ever, when an MDM is used to set the server address, the app will load the custom images from the WAF automatically.
+
+
+![iOS MDM Custom Images](/images/mobile-app/ios-mdm-custom-images.png){ width=350px }
+
+Example Docker run command with custom images:
+```bash
+docker run --rm -it \
+--name openitcockpit-mobile-waf \
+-p 80:80 \
+-p 443:443 \
+-e WEB_APP_ENABLED=1 \
+-e OITC_SERVER=demo.openitcockpit.io \
+-e SSL_CERT_PATH=/etc/nginx/certs/local.crt \
+-e SSL_CERT_KEY_PATH=/etc/nginx/certs/local.key \
+-v /path/on/host/certs:/etc/nginx/certs:ro \
+-v /path/on/host/custom_images:/usr/share/nginx/html/custom_images:ro \
+-e LOGIN_BACKGROUND_IMAGE="sunflowers-background.jpg" \
+-e LOGIN_LOGO_IMAGE="cat-logo.png" \
+cr.openitcockpit.io/openitcockpit-mobile-waf:latest
+```
 
 ## Debugging menu
 
