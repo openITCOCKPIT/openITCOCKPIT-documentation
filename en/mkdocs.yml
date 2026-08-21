@@ -104,6 +104,7 @@ nav:
       - 'Graphing Backend': 'additional/graphing-backend.md'
       - 'Upgrade 3.x to 4.x': 'additional/upgradev3-v4.md'
       - 'Upgrade 4.x to 5.x': 'additional/upgradev4-v5.md'
+      - 'Updating PHP': 'additional/updating-php.md'
       - 'Lets Encrypt Certificates for openITCOCKPIT': 'additional/lets-encrypt-openitcockpit.md'
       - 'Running openITCOCKPIT behind a reverse proxy': 'additional/behind-reverse-proxy.md'
       - 'Mobile App': 'additional/mobile-app.md'

@@ -103,8 +103,8 @@ The elements of the status-page will all shown in the same way, so you cannot re
 
 Status page elements can have additional informations about acknowledgements, downtimes or planned downtimes and you can con wheter this informations should provided on the status page or not.
 
-### Creating
-![](/images/status-pages/status-page-create.png)
+### Creating/Edit
+![](/images/status-pages/status-pages-edit.png)
 
 | Field                                        | Required                  | Description                                                                                               |
 |----------------------------------------------|---------------------------|-----------------------------------------------------------------------------------------------------------|
@@ -118,6 +118,7 @@ Status page elements can have additional informations about acknowledgements, do
 | Acknowlegements comments                     |                           | if marked, theo rigin comment swill be displayed, otherwise ageneric comment                              |
 | Host groups, Service groups, Hosts, Services |                           | the selectable elements of the status page                                                                |
 | Display name                                 |                           | an optional alias name of the elkement, if given the alias will be displayed, otherwise the original name |
+| Grouping identifiers | | Optional grouping identifiers; if populated, grouping within the status sections will be based on this identifiers.|
 
 
 
@@ -125,10 +126,10 @@ Status page elements can have additional informations about acknowledgements, do
 ![](/images/status-pages/status-page-view.png)
 
 #### Internal View
-![](/images/status-pages/status-page-view-internal.png)
+![](/images/status-pages/status-pages-internal.png)
 
 #### External view
-![](/images/status-pages/status-page-view-external.png)
+![](/images/status-pages/status-pages-external.png)
 
 In- / external View are generally the same, but in internal view the element names are links to the elements.
 

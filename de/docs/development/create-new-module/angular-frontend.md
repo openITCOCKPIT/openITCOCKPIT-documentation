@@ -1,11 +1,6 @@
+# Angular-Frontend
 
-
-
-
-
-# Angular Front-End
-
-Nachdem Sie Ihr openITCOCKPIT-Backend-Modul mithilfe des `bake`-Befehls erstellt sowie die Migration und ORM-Objekte generiert haben, ist es an der Zeit, das Front-End für das ExampleModule zu implementieren.
+Nachdem Sie Ihr openITCOCKPIT-Backend-Modul mit dem Bake-Befehl erstellt sowie die Migration und die ORM-Objekte generiert haben, ist es an der Zeit, das Frontend für das ExampleModule zu implementieren.
 
 Diese Anleitung führt Sie durch die folgenden Schritte:
 
@@ -13,7 +8,7 @@ Diese Anleitung führt Sie durch die folgenden Schritte:
 - Kommunikation mit der openITCOCKPIT-API
 - Generieren der Komponente
 
-Dieses Beispiel basiert auf dem [openITCOCKPIT ExampleModule Frontend Angular Repository](https://github.com/openITCOCKPIT/openITCOCKPIT-ExampleModule-Frontend-Angular), in dem Sie jederzeit das vollständige Modul herunterladen können.
+Dieses Beispiel basiert auf dem [openITCOCKPIT ExampleModule Frontend Angular Repository](https://github.com/openITCOCKPIT/openITCOCKPIT-ExampleModule-Frontend-Angular), über das Sie das vollständige Modul jederzeit herunterladen können.
 
 ## Ein neues Angular-Modul erstellen
 
@@ -27,7 +22,7 @@ mkdir example_module/pages
 
 ### Die Komponente generieren
 
-Sobald Ihr Service und Ihr Interface bereit sind, können Sie Ihre Seitenkomponente generieren. Diese Komponente verwendet den Service, um mit der openITCOCKPIT-API zu kommunizieren.
+Sobald Ihr Service und Ihr Interface bereit sind, können Sie Ihre Seitenkomponente generieren. Diese Komponente nutzt den Service, um mit der openITCOCKPIT-API zu kommunizieren.
 
 Die openITCOCKPIT-Entwickler empfehlen die folgende Verzeichnisstruktur:
 
@@ -38,11 +33,11 @@ Die openITCOCKPIT-Entwickler empfehlen die folgende Verzeichnisstruktur:
 /opt/openitc/frontend-angular/src/app/modules/example_module/pages/test/test-index/  <-- The exact controller-action combination.
 ```
 
-Diese Konvention existiert aus einem wesentlichen Grund:
+Diese Konvention existiert vor allem aus einem Grund:
 
-- Würde eine Komponente lediglich nach ihrer Aktion benannt werden (zum Beispiel `index`), hätten mehrere Komponenten denselben Namen.
+- Würde eine Komponente nur nach ihrer Action benannt (zum Beispiel `index`), hätten am Ende mehrere Komponenten denselben Namen.
 
-Sie können Ihre Verzeichnisstruktur selbstverständlich anders organisieren, wenn dies besser zu Ihrem Projekt passt. Diese Anleitung orientiert sich jedoch an den empfohlenen openITCOCKPIT-Konventionen.
+Es steht Ihnen frei, Ihre Verzeichnisstruktur anders zu organisieren, wenn das besser zu Ihrem Projekt passt. Diese Anleitung folgt jedoch den empfohlenen openITCOCKPIT-Konventionen.
 
 Nachdem Sie die benötigten Verzeichnisse mit `mkdir` erstellt haben, generieren Sie die erste Seitenkomponente.
 
@@ -51,10 +46,9 @@ cd /opt/openitc/frontend-angular/src/app/modules/example_module/pages/
 ng generate component TestIndex
 ```
 
-Nach Ausführung des Befehls finden Sie ein neues Verzeichnis mit den folgenden Dateien:
+Nach dem Ausführen des Befehls finden Sie ein neues Verzeichnis mit den folgenden Dateien:
 
 Dateien in `/opt/openitc/frontend-angular/src/app/modules/example_module/pages/test/test-index/`
-
 ```text
 test-index.component.css
 test-index.component.html
@@ -62,19 +56,19 @@ test-index.component.spec.ts
 test-index.component.ts
 ```
 
-Lassen Sie diese Dateien zunächst unverändert. Bevor wir die Komponente selbst implementieren, erstellen wir zuerst den Service und das Interface, die die Kommunikation mit der openITCOCKPIT-API übernehmen.
+Lassen Sie diese Dateien zunächst unverändert. Bevor wir die Komponente selbst implementieren, müssen wir zuerst den Service und das Interface erstellen, die die Kommunikation mit der openITCOCKPIT-API übernehmen.
 
 ## Kommunikation mit der openITCOCKPIT-API
 
-Als Nächstes ermöglichen wir unserer Komponente die Kommunikation mit der openITCOCKPIT-API. Dazu erstellen wir einen eigenen Angular-Service und ein entsprechendes Interface.
+Als Nächstes befähigen wir unsere Komponente dazu, mit der openITCOCKPIT-API zu kommunizieren. Dazu erstellen wir einen eigenen Angular-Service und ein eigenes Interface.
 
 ### Interface
 
-Interfaces definieren die Struktur der API-Anfragen und -Antworten einschließlich aller übertragenen Daten. Da TypeScript objektorientierte Programmierung unterstützt, können Sie dasselbe Interface sowohl für Anfragen als auch für Antworten wiederverwenden, sofern beide dieselbe Struktur besitzen.
+Interfaces definieren die Struktur der API-Anfragen und -Antworten einschließlich aller übertragenen Daten. Da TypeScript objektorientierte Programmierung unterstützt, können Sie dasselbe Interface sowohl für Anfragen als auch für Antworten wiederverwenden, sofern die Strukturen identisch sind.
 
 Das folgende Interface bildet die Struktur der Tabelle `Settings` ab.
 
-Das Interface definiert die Felder, die von der API sowohl für GET- als auch für POST-Anfragen bereitgestellt und erwartet werden. Da die Datenstruktur in diesem Beispiel identisch ist, kann dasselbe Objekt sowohl zum Senden als auch zum Empfangen von Daten verwendet werden.
+Das Interface definiert die Felder, die die API bei GET- und POST-Anfragen bereitstellt und erwartet. Da die Datenstruktur in diesem Beispiel identisch ist, kann dasselbe Objekt zum Senden und Empfangen von Daten verwendet werden.
 
 `/opt/openitc/frontend-angular/src/app/modules/example_module/test.interface.ts`.
 
@@ -99,18 +93,18 @@ export interface TestSettings {
 
 ### Service
 
-Der Service ist für die Kommunikation mit der openITCOCKPIT-API verantwortlich. Er sendet Anfragen, verarbeitet Antworten und behandelt Fehler, die während der Kommunikation auftreten.
+Der Service ist für die Kommunikation mit der openITCOCKPIT-API zuständig. Er sendet Anfragen, verarbeitet Antworten und behandelt alle Fehler, die während der Kommunikation auftreten.
 
-Generieren Sie zunächst den Service mit dem Befehl `ng generate`:
+Generieren Sie den Service zunächst mit dem Befehl `ng generate`:
 
 ```bash
 cd /opt/openitc/frontend-angular/src/app/modules/example_module
 ng generate service test
 ```
 
-Die generierte Service-Datei befindet sich unter `/opt/openitc/frontend-angular/src/app/modules/example_module/test.service.ts`.
+Die generierte Service-Datei liegt unter `/opt/openitc/frontend-angular/src/app/modules/example_module/test.service.ts`.
 
-Im aktuellen ExampleModule sieht der Service wie folgt aus:
+Im aktuellen ExampleModule sieht der Service so aus:
 
 ```typescript
 import { inject, Injectable } from '@angular/core';
@@ -165,11 +159,11 @@ export class TestService {
 
 ## Die Seitenkomponente zum Leben erwecken
 
-Kehren wir nun zu der zuvor erstellten Front-End-Komponente zurück.
+Kehren wir zu der Frontend-Komponente zurück, die wir zuvor erstellt haben.
 
-Das HTML-Template der Komponente definiert alles, was auf der Seite angezeigt wird. Da der Inhalt von den von openITCOCKPIT empfangenen Daten abhängt, wird das Template basierend auf den API-Antworten dynamisch aktualisiert.
+Das HTML-Template der Komponente definiert alles, was auf der Seite angezeigt wird. Da der Inhalt von den Daten abhängt, die von openITCOCKPIT empfangen werden, aktualisiert sich das Template dynamisch auf Basis der API-Antworten.
 
-Das HTML-Template sieht wie folgt aus:
+Das HTML-Template sieht so aus:
 
 ```html
 <!-- Hint from a fellow developer:
@@ -271,7 +265,7 @@ Das HTML-Template sieht wie folgt aus:
 </ng-container>
 ```
 
-Zusammen mit dem HTML-Template hat der Befehl `ng generate` auch die zugehörige TypeScript-Komponentendatei `test-index.component.ts` erstellt.
+Neben dem HTML-Template hat der Befehl `ng generate` auch die zugehörige TypeScript-Komponentendatei `test-index.component.ts` erstellt.
 
 Das ExampleModule-Repository enthält die folgende Implementierung:
 
@@ -417,9 +411,9 @@ export class TestIndexComponent implements OnInit, OnDestroy {
 
 ## Routen hinzufügen
 
-Die Seite selbst ist nun vollständig, aber Angular muss noch wissen, wie sie erreichbar ist.
+Die Seite selbst ist nun fertig, aber Angular muss noch wissen, wie sie zu erreichen ist.
 
-Erstellen Sie eine eigene Routenkonfiguration unter:
+Erstellen Sie eine eigene Routen-Konfiguration unter:
 
 `src/app/modules/example_module/example_module.routes.ts`
 
@@ -434,7 +428,7 @@ export const exampleModuleRoutes: Routes = [
 ];
 ```
 
-Registrieren Sie abschließend die neue Routenkonfiguration in der zentralen Routing-Konfiguration des openITCOCKPIT-Angular-Frontends:
+Registrieren Sie die neue Routen-Konfiguration abschließend in der zentralen Routing-Konfiguration des openITCOCKPIT-Angular-Frontends:
 
 `src/app/app.routes.ts`
 
@@ -449,4 +443,4 @@ const moduleRoutes: Routes = [
 ];
 ```
 
-Nach Abschluss dieser Schritte sollten Sie Ihre Seite innerhalb Ihrer openITCOCKPIT-Instanz unter `example_module/test/index` aufrufen können.
+Nach Abschluss dieser Schritte sollten Sie Ihre Seite unter `example_module/test/index` in Ihrer openITCOCKPIT-Instanz aufrufen können.
