@@ -59,9 +59,9 @@ The Update Interval field defines the interval in seconds during which a map is 
 
 ### Editing maps
 
-Hat man ein Karten Grundgerüst erstellt, kann die visuelle Bearbeitung erfolgen.
+Once you have created the basic map structure, you can proceed with the visual editing.
 
-Dazu klickt man neben das Zahnradsymbol der entsprechenden Karte (1) und anschließend auf "Bearbeite im Karteneditor" (2)
+To do this, click next to the gear icon of the corresponding map (1) and then click on "Edit in map editor" (2).
 
 ![](/images/mapmodule-editinmapeditor.png)
 
@@ -71,13 +71,13 @@ Now you are in the map editor and can perform various actions using the side men
 
 - 1\. Items
 
-Items can be hosts, services, host groups or service groups. You can also link other maps.
+Items can be hosts, services, host groups or service groups, status pages or status page groups. You can also link other maps.
 
 Items are displayed using icon sets. You can also use your own icon sets
 
 - 2\. Lines
 
-Lines can be hosts, services, host groups and service groups, maps and simple status-less lines.
+Lines can be hosts, services, host groups and service groups, status pages or status page groups, maps and simple status-less lines.
 
 - 3\. Summary status element
 
