@@ -444,3 +444,53 @@ const moduleRoutes: Routes = [
 ```
 
 Nach Abschluss dieser Schritte sollten Sie Ihre Seite unter `example_module/test/index` in Ihrer openITCOCKPIT-Instanz aufrufen können.
+
+## Widgets
+Plugins können auch Widgets enthalten, welche ein Benutzer auf dem Dashboard platzieren kann.
+
+Alle Widgets sind Teil der Frontend-Anwendung und werden in der Datei `/opt/openitc/frontend/plugins/ExampleModule/src/Lib/Widgets.php` definiert.
+
+`src/Lib/Widgets.php`
+```php
+<?php
+namespace ExampleModule\Lib;
+ 
+use itnovum\openITCOCKPIT\Core\Dashboards\ModuleWidgetsInterface;
+ 
+class Widgets implements ModuleWidgetsInterface {
+ 
+    /**
+     * @var array
+     */
+    private $ACL_PERMISSIONS = [];
+ 
+    /**
+     * Widgets constructor.
+     * @param $ACL_PERMISSIONS
+     */
+    public function __construct($ACL_PERMISSIONS) {
+        $this->ACL_PERMISSIONS = $ACL_PERMISSIONS;
+    }
+ 
+    /**
+     * @return array
+     */
+    public function getAvailableWidgets() {
+        $widgets = [];
+        //Check for user permissions
+        if (isset($this->ACL_PERMISSIONS['examplemodule']['test']['index'])) {
+            $widgets[] = [
+                'type_id'   => 900, //A unique identify
+                'title'     => __('Example Overview'),
+                'icon'      => 'fas fa-code',
+                'directive' => 'examplemodule-widget',
+                'width'     => 4,
+                'height'    => 13
+            ];
+        }
+ 
+        return $widgets;
+    }
+ 
+}
+```

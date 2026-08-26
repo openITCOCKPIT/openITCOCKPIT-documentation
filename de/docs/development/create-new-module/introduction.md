@@ -12,7 +12,10 @@ Das Frontend basiert auf einem [Angular](https://angular.dev/) und [CoreUI](http
 
 Als IDE empfehlen wir [JetBrains PHPStorm](https://www.jetbrains.com/phpstorm/) und [Mozilla Firefox](https://www.mozilla.org/en-US/firefox/new/) als Browser.
 
-Der Beispielcode ist auf GitHub verfügbar: <https://github.com/openITCOCKPIT/openITCOCKPIT-ExampleModule>
+Der Beispielcode ist auf GitHub verfügbar:
+
+- [Back-End](https://github.com/openITCOCKPIT/openITCOCKPIT-ExampleModule)
+- [Front-End](https://github.com/openITCOCKPIT/openITCOCKPIT-ExampleModule-Frontend-Angular)
 
 ### Voraussetzungen
 
@@ -32,7 +35,7 @@ Es wird zudem empfohlen, git zu nutzen, um ihre änderungen nachzuverfolgen.
 !!! danger "Wichtig"
     Seien Sie sich im Klaren darüber, dass das Aktivieren des debug Modus zu Datenlecks und dem verlust von sensitiven Informationen führen kann.
 
-Standardmäßig läuft openITCOCKPIT im Production Modus. Um Fehlermeldungen angezeigt zu bekommen und unkomprimiertes (nicht minified) JavaScript zu erhalten, müssen Sie den Debug Modus aktivieren.
+Standardmäßig läuft openITCOCKPIT im Production Modus. Um detaillierte Fehlermeldungen angezeigt zu bekommen, müssen Sie den Debug Modus aktivieren.
 
 Dazu öffnen Sie die Datei `/etc/nginx/openitc/master.conf` und setzen den Parameter `OITC_DEBUG` von `0` auf `1`.
 
