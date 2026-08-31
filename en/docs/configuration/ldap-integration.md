@@ -14,25 +14,25 @@ It is recommended to use _Microsoft Active Directory_.
 
 ### Microsoft Active Directory
 
-| Key              | Beschreibung                                                                                                   | Beispiel                                                               |
+| Key              | Description                                                                                                   | Example                                                                 |
 |------------------|----------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------|
 | AUTH_METHOD      | Which authentication method should be used by openITCOCKPIT .                                                  | PHP LDAP                                                               |
 | LDAP.TYPE        | If the LDAP Server is a Microsoft Active Directory or an Open LDAP Server                                      | Active Directory LDAP                                                  |
-| LDAP.ADDRESS     | Hostname or IP address of the LDAP server                                                                      | ad.example.com                                                         |
-| LDAP.PORT        | Port number (389 or 636)                                                                                       | 389                                                                    |
-| LDAP.QUERY       | LDAP filter query which will be used to filter users                                                           | (&(objectClass=user)(samaccounttype=805306368)(objectCategory=person)(cn=*)) |
-| LDAP.BASEDN      | This is the Base-DN that will be searched by openITCOCKPIT                                                     | DC=ad,DC=example,DC=com                                                |
-| LDAP.USERNAME    | Username (sAMAccountName) used by openITCOCKPIT                                                                | ldap_search                                                            |
+| LDAP.ADDRESS     | Hostname or IP address of the LDAP server                                                                      | `ad.example.com`                                                       |
+| LDAP.PORT        | Port number (389 or 636)                                                                                       | `389`                                                                  |
+| LDAP.QUERY       | LDAP filter query which will be used to filter users                                                           | `(&(objectClass=user)(samaccounttype=805306368)(objectCategory=person)(cn=*))` |
+| LDAP.BASEDN      | This is the Base-DN that will be searched by openITCOCKPIT                                                     | `DC=ad,DC=example,DC=com`                                              |
+| LDAP.USERNAME    | Username (sAMAccountName) used by openITCOCKPIT                                                                | `ldap_search`                                                          |
 | LDAP.PASSWORD    | Password of the given username                                                                                 |                                                                        |
-| LDAP.SUFFIX      | The suffix to use                                                                                              | @ad.example.com                                                        |
-| LDAP.USE_TLS     | Plain = Plaintext, StartTLS = tries to establish an encrypted connection, TLS = forces an encrypted connection | StartTLS                                                               |
-| LDAP.GROUP_QUERY | LDAP query to filter LDAP groups                                                                               | ObjectClass=Group                                                      |
+| LDAP.SUFFIX      | The suffix to use                                                                                              | `@ad.example.com`                                                      |
+| LDAP.USE_TLS     | Plain = Plaintext, StartTLS = tries to establish an encrypted connection, TLS = forces an encrypted connection | `StartTLS`                                                             |
+| LDAP.GROUP_QUERY | LDAP query to filter LDAP groups                                                                               | `ObjectClass=Group`                                                    |
 
 
 
 ### Open LDAP
 
-| Key              | Beschreibung                                                                                                         | Beispiel                                      |
+| Key              | Description                                                                                                         | Example                                       |
 |------------------|----------------------------------------------------------------------------------------------------------------------|-----------------------------------------------|
 | AUTH_METHOD      | Which authentication method should be used by openITCOCKPIT .                                                        | `PHP LDAP`                                    |
 | LDAP.TYPE        | If the LDAP Server is a Microsoft Active Directory or an Open LDAP Server                                            | `OpenLDAP`                                    |
@@ -42,7 +42,7 @@ It is recommended to use _Microsoft Active Directory_.
 | LDAP.BASEDN      | This is the Base-DN that will be searched by openITCOCKPIT                                                           | `dc=example,dc=com`                           |
 | LDAP.USERNAME    | Username (as DN=Distinguished Name), used by openITCOCKPIT                                                           | `uid=ldap_search,ou=people,dc=example,dc=com` |
 | LDAP.PASSWORD    | Password of the given username                                                                                       |                                               |
-| LDAP.SUFFIX      | The suffix to use                                                                                                    | `<leer>`                                      |
+| LDAP.SUFFIX      | The suffix to use                                                                                                    | `<blank>`                                     |
 | LDAP.USE_TLS     | Plain = Plaintext, StartTLS = tries to establish an encrypted connection, TLS = forces an encrypted connection       | `Plain`                                       |
 | LDAP.GROUP_QUERY | LDAP query to filter LDAP groups                                                                                     | `ObjectClass=posixGroup`                      |
 
@@ -128,6 +128,80 @@ In this example, a new user is imported via LDAP. The system automatically assig
 ![Import a new LDAP-User and automatically assign user container roles and a user role](/images/import-ldap-user-auto-assign-groups.png)
 
 
+## Automatic importing of Users
+!!! info
+    Requires openITCOCKPIT ≥ 5.7.0
 
+Starting with openITCOCKPIT 5.7.0 it is possible to automatically import users from Active Directory or LDAP. Users will automatically be assigned to the configured User Container Roles and User Roles. This is especially useful for large environments with many users.
 
+Before you start: This feature requires that the import of LDAP groups is already configured and working. Please see [Importing of Groups](#importing-of-groups) above for more information.
 
+To manage permissions of the imported users, the Importer uses the already defined **User Container Roles** and **User Roles**. If not already done, please create the required User Container Roles and User Roles before you start with the automatic import of users.
+
+In the next step, you can create new **LDAP User Defaults**. These defaults define which Users will be imported from the LDAP server and which permissions will be assigned to the users. You can create multiple defaults for different groups of users.
+
+- **Container:** Only defines which containers the Default belongs to. This has no impact on the imported users. It is only used to organize the defaults itself.
+- **Name:** The name of the default.
+- **LDAP Groups:** The importer will search for **all users that are members of the configured LDAP groups**. If multiple groups are configured, the importer will search for all users that are members of **at least one of the configured groups**. Only LDAP groups with an **User Container Role** assignment can be selected.
+- **Additional Container:** Every user imported by this default will be assigned to the configured container. This is an **optional** setting, to append or overrule a container from the User Container Roles.
+- **Fallback User Role:** It is recommended to create a mapping of LDAP Groups to **User Roles** in the definition of user roles itself. However, if no mapping is defined, or no LDAP group matches, the user will be assigned to the configured Fallback User Role. It is recommended to create a Fallback User Role with **limited permissions**, so that users without a matching LDAP group will not have access to openITCOCKPIT.
+
+In case one LDAP group is assigned to multiple LDAP Defaults, the user will be imported by the first matching default. The order is random and cannot be influenced.
+
+![LDAP User Defaults](/images/ldap-user-defaults.png)
+
+The example in the screenshot above will import all users that are members of the LDAP groups `Domain Admins` or `G_Role_IT`.
+
+- For `G_Role_IT`, the User Container Role `AVENDIS Open Source Solutions Team` will be assigned.
+- For `Domain Admins`, the User Container Role `openITCOCKPIT Global Admin` will be assigned.
+- Users that are members of both groups (`Domain Admins` and `G_Role_IT`) will be permitted to all containers of both User Container Roles. The highest permission will be applied.
+
+As **Fallback User role** is the default `Viewer` user role assigned, which still has access to a lot of information. Therefore, it is recommended to create a new Fallback User Role with **no permissions** and assign it to the LDAP User Defaults.
+
+### Import users via Cronjob
+
+By default, openITCOCKPIT will automatically create a new cronjob called `LdapUserImport`. It is disabled by default and needs to be enabled manually. The cronjob will run every 24 hours and import all users that are members of the configured LDAP groups. Navigate to `System Tools -> Cron Jobs` and edit the `LdapUserImport` cronjob to enable it. You can also change the schedule of the cronjob to your needs.
+
+In case the cronjob is missing on your system, you can create a new one with the following settings:
+
+- **Plugin:** `Core`
+- **Task:** `LdapUserImport`
+- **Interval:** `1440` (value in minutes, default is 24 hours)
+- **Priority:** `low`
+- **Enabled:** `Yes`
+
+![Enable or create LdapUserImport cronjob](/images/enable-ldapuserimport-cronjob.png)
+
+You can also force the execution of the cronjob with the command `oitc cronjobs -f -t LdapUserImport`. The output will look similar to this:
+
+```sh
+$ oitc cronjobs -f -t LdapUserImport
+Start openITCOCKPIT cronjobs...
+-------------------------------------------------------------------------------
+Priority: high
+Skipping cronjob ScmModule.CheckResourceGroupStatus
+Priority: low
+Skipping cronjob Core.CleanupTemp
+Skipping cronjob Core.DatabaseCleanup
+[...]
+Scan for new LDAP users. This will take a while...
+✅ Matching default template found for user: Ryan, Thompson (R.Thompson) → AVENDIS Open Source Solutions Team [ID: 1]
+Imported LDAP user: Ryan, Thompson (R.Thompson)
+✅ Matching default template found for user: Thomas, Jones (T.Jones) → AVENDIS Open Source Solutions Team [ID: 1]
+Imported LDAP user: Thomas, Jones (T.Jones)
+✅ Matching default template found for user: Amy, Nguyen (A.Nguyen) → AVENDIS Open Source Solutions Team [ID: 1]
+Imported LDAP user: Amy, Nguyen (A.Nguyen)
+✅ Matching default template found for user: Deborah, Clark (D.Clark) → Contoso Example [ID: 2]
+Imported LDAP user: Deborah, Clark (D.Clark)
+✅ Matching default template found for user: Joseph, Young (J.Young) → Contoso Example [ID: 2]
+Imported LDAP user: Joseph, Young (J.Young)
+✅ Matching default template found for user: Ronald, Jones (R.Jones) → Contoso Example [ID: 2]
+Imported LDAP user: Ronald, Jones (R.Jones)
+✅ Matching default template found for user: Matthew, King (Ma.King) → Contoso Example [ID: 2]
+Imported LDAP user: Matthew, King (Ma.King)
+✅ Matching default template found for user: Timothy, Flores (Ti.Flores) → Contoso Example [ID: 2]
+Imported LDAP user: Timothy, Flores (Ti.Flores)
+Imported 8 users.
+   Ok
+-------------------------------------------------------------------------------
+```
