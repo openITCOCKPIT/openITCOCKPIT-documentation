@@ -1,4 +1,4 @@
-# Update von Ubuntu Focal (20.04) auf Ubuntu Jammy (22.04)
+# Update Ubuntu Focal (20.04) to Ubuntu Jammy (22.04)
 
 !!! danger "Backup"
     Before you start, make sure you have a **working backup** of your system!
