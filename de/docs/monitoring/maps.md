@@ -73,13 +73,13 @@ Nun ist man im Karten editor angelangt und kann nun über das Seitenmenü versch
 
 - 1\. Items
 
-Items können Hosts, Services, Hostgruppen und Servicegruppen sein. Darüber hinaus können andere Karten verlinkt werden.
+Items können Hosts, Services, Hostgruppen und Servicegruppen, Statusseiten und Statusseitengruppen sein. Darüber hinaus können andere Karten verlinkt werden.
 
 Items werden mit Iconsets dargestellt. Eigene Iconsets können auch genutzt werden.
 
 - 2\. Linien
 
-Linien können Hosts, Services, Hostgruppen und Servicegruppen, Karten und einfache, Statuslose Linien sein.
+Linien können Hosts, Services, Hostgruppen und Servicegruppen, Statusseiten, Statusseitengruppen, Karten und einfache, statuslose Linien sein.
 
 - 3\. Zusammenfassungsstatuselement
 
