@@ -15,6 +15,8 @@
 ## Download the App
 The App can be downloaded from the respective app stores. Please note that the app is currently only available for iOS. The Android version will be released soon.
 
+**The app is free of charge and can be used with any openITCOCKPIT server, regardless of the edition (Community or Enterprise).**
+
 ### iOS
 [Apple App Store](https://apps.apple.com/de/app/openitcockpit/id6783364695)
 
@@ -66,6 +68,11 @@ The app uses the openITCOCKPIT API for authentication, so you have to [create an
 ![Mobile App Login](/images/mobile-app/iphone-login-docs.png)
 
 For convenience, you can also scan the QR code from the openITCOCKPIT web interface to automatically fill in the API key.
+
+The openITCOCKPIT App require that your device is able to directly connect to the openITCOCKPIT server. This can be done via a public address, a [reverse proxy](/additional/behind-reverse-proxy/) or with a VPN connection.
+In addition, a valid HTTPS certificate is required. Self-signed certificates will most likely not work, or you have to make sure to install the CA certificate of the self-signed certificate on your mobile device.
+
+![Mobile App Connectivity](/images/mobile-app/app_openitcockpit_connection.png)
 
 ## Web Application Firewall (WAF) / Reverse Proxy <span class="badge badge-danger badge-outlined" title="Enterprise Edition">EE</span>
 
@@ -138,7 +145,8 @@ The configuration of the WAF can be done via environment variables. The followin
 | `SSL_PROTOCOLS` | SSL protocols to use | Nginx compatible list of SSL protocols | `TLSv1.2 TLSv1.3` |
 | `SSL_CIPHERS` | Supported SSL ciphers | Nginx compatible list of supported SSL ciphers |`ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:DHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384:DHE-RSA-CHACHA20-POLY1305` |
 | `SSL_PREFER_SERVER_CIPHERS` | Enable or disable the preference of server ciphers over client ciphers  | `on` or `off` | `on` |
-
+| `LOGIN_BACKGROUND_IMAGE` | Background image for the login page | File name | `(empty string)` [See Custom Image Section](#custom-logo-and-background-image) |
+| `LOGIN_LOGO_IMAGE` | Logo for the login page | File name | `(empty string)` |
 
 ### Web App
 
@@ -149,7 +157,7 @@ In case this redirect is not working, your Browser is probably sending a differe
 
 ### HTTP 406 Not Acceptable
 
-If the WAF blocks a request, it responds with the HTTP status code **406 Not Acceptable**. This can happen if a route or request method is blocked in the WAF's rule set. In the openITCOCKPIT app, an error message will be displayed in this case.
+If the WAF blocks a request, it responds with the HTTP status code **406 Not Acceptable**. This can happen if a route or request method is blocked in the WAF's ruleset. In the openITCOCKPIT app, an error message will be displayed in this case.
 
 ![Request blocked by the WAF](/images/mobile-app/waf_blocked_request.png)
 
@@ -224,3 +232,187 @@ docker run --rm -it \
 -v /root/openitcockpit-waf/certs:/etc/nginx/certs:ro \
 cr.openitcockpit.io/openitcockpit-mobile-waf:latest
 ```
+
+## Microsoft Entra ID
+
+It is possible, to use Microsoft Entra ID to protect your openITCOCKPIT Server or the WAF from unauthorized access. When Microsoft Entra ID is enabled, users will need an **openITCOCKPIT API key** and a **Microsoft Entra account** to access the openITCOCKPIT App or the Web App. The Microsoft Entra ID login page will be displayed before the openITCOCKPIT login page.
+
+To Enable Microsoft Entra ID, you need to create an application in the Microsoft Entra portal first. In the openITCOCKPIT App, check the option `Enable Microsoft Entra ID` and fill in the `Tenant ID` and `Client ID` (also known as `Application ID`) fields with the values from the Microsoft Entra portal.
+
+The Login button will then change to `Sign in with Microsoft` and the user will be redirected to the Microsoft Entra login page.
+
+![openITCOCKPIT App with Microsoft Entra Login](/images/mobile-app/openitcockpit-app-enable-microsoft-entra.png)
+
+### Microsoft Entra ID Setup
+
+In the Microsoft Entra portal, navigate to `App registrations` and click on `New registration`. This is an required step to get the `Tenant ID` and `Client ID` for the openITCOCKPIT App.
+
+![Microsoft Entra App registration](/images/mobile-app/microsoft-entra-app-registration.png)
+
+Please make sure to set the `Redirect URI` for `Mobile and desktop applications` to the following value:
+
+```text
+openitcockpit://auth-callback
+```
+
+**Do not change the `Redirect URL`, it has to be exactly as shown above, otherwise the Microsoft Entra login will not work in the openITCOCKPIT App.**
+
+![Microsoft Entra - Configure Redirect URI](/images/mobile-app/microsoft-entra-redirect-url.png)
+
+
+!!! info
+    The `Tenant ID` and `Client ID` (also known as `Application ID`) **are no secrets** and can be shared with anyone.
+
+    - **Tenant ID**: This simply identifies your specific organization or Microsoft Entra directory instance.
+    - **Application ID**: This identifies a specific application within the tenant's directory. It tells Microsoft which app is requesting a login.
+
+## Mobile Device Management (MDM)
+
+The openITCOCKPIT App can be configured through Mobile Device Management (MDM) solutions like Microsoft Intune. This allows you to pre-configure the app for your users and enforce certain settings, like the server address or Microsoft Entra ID credentials. The setup process depends on the MDM solution you are using.
+
+This documentation is using Microsoft Intune for reference, but the process should be similar for other MDM solutions.
+
+### iOS
+
+The configuration is controlled via a XML based profile configuration. All fields are optional. In case you do not want to configure a field, please leave it empty like `<string></string>`.
+
+```XML
+<dict>
+    <key>apiKey</key>
+    <string>API_KEY_OR_EMPTY_STRING</string>
+    
+    <key>serverAddress</key>
+    <string>https://your.openitcockpit.server</string>
+    
+    <key>enableMicrosoftEntraID</key>
+    <true/>
+    
+    <key>microsoftTenantId</key>
+    <string>ae3ff2c9-56df-4e36-98bd-37f9f52f3185</string>
+    
+    <key>microsoftClientId</key>
+    <string>ad785d3e-6bd7e-4e30-b16a-e18dc85edb09</string>
+
+    <key>hideMicrosoftEntraConfig</key>
+    <false/>
+</dict>
+```
+
+!!! note
+    Settings that are controlled by the MDM, cannot be changed by the user in the app. For example, if the `serverAddress` is set via MDM, the user cannot change it in the app.
+
+
+For Microsoft Intune, you have to create a new iOS/iPadOS App first.
+![Microsoft Intune - Create new iOS/iPadOS App](/images/mobile-app/microsoft-intune-ios-app.png)
+This app will be then available to your users through the Microsoft Intune Company Portal.
+
+In the next step, you can configure the app with the XML configuration above. Please make sure to select the option `Managed configuration` and paste the XML configuration into the text field.
+![Microsoft Intune - Managed configuration](/images/mobile-app/microsoft-intune-ios-app-config.png)
+
+As soon as the app is installed on the user's device, the configuration will be applied automatically. All fields controlled by the MDM will be locked and cannot be changed by the user.
+If a profile is active, the user will see the message `Some settings are managed by your organization`.
+
+![openITCOCKPIT App - MDM example](/images/mobile-app/ios-mdm-example.png)
+
+!!! danger
+    **Before** you delete the app configuration in the MDM, you must push an empty configuration with the same fields to the user devices.
+    Otherwise, the fields controlled by the MDM in the app will be locked and **cannot be changed anymore**.
+
+    This is a known limitation of iOS/iPadOS and has nothing to do with the openITCOCKPIT app.
+    ```XML
+    <dict>
+      <key>apiKey</key>
+      <string></string>
+
+      <key>serverAddress</key>
+      <string></string>
+
+      <key>enableMicrosoftEntraID</key>
+      <false/>
+
+      <key>microsoftTenantId</key>
+      <string></string>
+
+      <key>microsoftClientId</key>
+      <string></string>
+
+      <key>hideMicrosoftEntraConfig</key>
+      <false/>
+    </dict>
+    ```
+    Only **after** the empty configuration has been pushed to **all devices**, you can delete the app configuration in the MDM.
+
+
+## Configure via QR Code
+
+This is an alternative way for configuring the openITCOCKPIT App for users that do not have a Mobile Device Management (MDM) solution. Instead of manually entering the server address or Microsoft Entra ID credentials, the user can scan a QR code to automatically configure the app.
+
+!!! info
+    The easiest way to generate the QR code is to use our [QR Code Generator](https://openitcockpit.io/app_qr_generator/) on our website.
+
+
+In case you want to generate the QR code manually, please use the following JSON structure:
+
+```JSON
+{
+   "serverAddress":"https://your.openitcockpit.server",
+   "apiKey":"<API_KEY_OR_EMPTY_STRING>",
+   "remember_me":true,
+   "enable_microsoft_entra_id":false,
+   "microsoft_tenant_id":"ae3ff2c9_OR_EMPTY_STRING",
+   "microsoft_client_id":"ad785d3e_OR_EMPTY_STRING"
+}
+```
+You can use any QR code generator to create the QR code from the JSON structure above. The `serverAddress` field must be set to the URL of your openITCOCKPIT server. The `microsoft_tenant_id` and `microsoft_client_id` are optional and only relevant if `enable_microsoft_entra_id` is set to `true`.
+
+In case you do not want to use Microsoft Entra ID, please set `enable_microsoft_entra_id` to `false` and leave the other two fields empty.
+
+The `apiKey` field can also be left empty, as the user can enter there personal API key after scanning the QR code with the App configuration.
+
+The workflow looks like this:
+
+1. The user scans the QR code containing the configuration for the openITCOCKPIT App.
+2. The user scans it's personal QR code, that contains the API key of the user.
+3. Tap on "Login" to log in to the openITCOCKPIT App.
+
+![openITCOCKPIT App QR Code Scanner](/images/mobile-app/openitcockpit-qr-code-scanner.png){ width=350px }
+
+## Custom Logo and Background Image
+
+The Logo on the login screen and the background image can be customized. The images are stored in the WAF container and have to be mounted to `/usr/share/nginx/html/custom_images`. Only **PNG** and **JPG** images are supported. The file names of the images must be set as environment variables `LOGIN_LOGO_IMAGE` and `LOGIN_BACKGROUND_IMAGE`. Please make sure to not use any special characters or spaces in the file names. For example: `LOGIN_BACKGROUND_IMAGE="sunflowers-background.jpg"`.
+
+![Example custom background and logo](/images/mobile-app/web-custom-background-and-logo.png)
+
+Unfortunately, loading custom images in the native openITCOCKPIT App is only possible, if the `serverAddress` is set via the MDM. This is because the App has to load the custom images from a specific URL, which is only possible if the server address is known. If the server address is set via QR code or manually, the app will not be able to load the custom images upfront.
+
+How ever, when an MDM is used to set the server address, the app will load the custom images from the WAF automatically.
+
+
+![iOS MDM Custom Images](/images/mobile-app/ios-mdm-custom-images.png){ width=350px }
+
+Example Docker run command with custom images:
+```bash
+docker run --rm -it \
+--name openitcockpit-mobile-waf \
+-p 80:80 \
+-p 443:443 \
+-e WEB_APP_ENABLED=1 \
+-e OITC_SERVER=demo.openitcockpit.io \
+-e SSL_CERT_PATH=/etc/nginx/certs/local.crt \
+-e SSL_CERT_KEY_PATH=/etc/nginx/certs/local.key \
+-v /path/on/host/certs:/etc/nginx/certs:ro \
+-v /path/on/host/custom_images:/usr/share/nginx/html/custom_images:ro \
+-e LOGIN_BACKGROUND_IMAGE="sunflowers-background.jpg" \
+-e LOGIN_LOGO_IMAGE="cat-logo.png" \
+cr.openitcockpit.io/openitcockpit-mobile-waf:latest
+```
+
+## Debugging menu
+
+The openITCOCKPIT App has a hidden debugging menu on the login screen, that can be accessed by tapping the openITCOCKPIT logo 5 times within 1.5 seconds.
+The debugging menu allows you to view the current app version and to clear the app storage.
+
+
+![openITCOCKPIT App Debug menu](/images/mobile-app/openitcockpit-app-debug.png){ width=350px }
+
+

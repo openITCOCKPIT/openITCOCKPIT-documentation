@@ -15,6 +15,8 @@
 ## App herunterladen
 Die App kann über die jeweiligen App Stores heruntergeladen werden. Bitte beachten Sie, dass die App derzeit nur für iOS verfügbar ist. Die Android-Version wird in Kürze veröffentlicht.
 
+**Die App ist kostenlos und kann mit jedem openITCOCKPIT-Server verwendet werden, unabhängig von der Edition (Community oder Enterprise).**
+
 ### iOS
 [Apple App Store](https://apps.apple.com/de/app/openitcockpit/id6783364695)
 
@@ -38,7 +40,7 @@ Dieser Service ist für openITCOCKPIT-Nutzer kostenlos.
 4. Klicken Sie auf `Request and test Auth-Key`.
 
 openITCOCKPIT fordert nun einen Authentifizierungsschlüssel beim Push Gateway Service an. Der Push Gateway Service verwendet die übermittelte System-ID,
-um Ihren openITCOCKPIT-Server zu identifizieren, und erzeugt einen neuen Authentifizierungsschlüssel für Ihren Server.
+um Ihren openITCOCKPIT-Server zu identifizieren und erzeugt einen neuen Authentifizierungsschlüssel für Ihren Server.
 
 Um die Einrichtung abzuschließen, klicken Sie nach der Schlüsselerstellung auf `Konfiguration speichern`.
 
@@ -68,6 +70,10 @@ Die App verwendet die openITCOCKPIT-API für die Authentifizierung. Daher müsse
 
 Der Einfachheit halber können Sie auch den QR-Code aus der openITCOCKPIT-Weboberfläche scannen, um den API-Schlüssel automatisch zu übernehmen.
 
+Die openITCOCKPIT-App erfordert, dass Ihr Gerät in der Lage ist, direkt eine Verbindung zum openITCOCKPIT-Server herzustellen. Dies kann über eine öffentliche Adresse, einen [Reverse Proxy](/additional/behind-reverse-proxy/) oder eine VPN-Verbindung erfolgen.
+Außerdem ist ein gültiges HTTPS-Zertifikat erforderlich. Selbstsignierte Zertifikate funktionieren höchstwahrscheinlich nicht, oder Sie müssen das CA-Zertifikat auf Ihrem mobilen Gerät installiert haben.
+
+![Mobile App Connectivity](/images/mobile-app/app_openitcockpit_connection.png)
 
 ## Web Application Firewall (WAF) / Reverse Proxy <span class="badge badge-danger badge-outlined" title="Enterprise Edition">EE</span>
 
@@ -140,11 +146,12 @@ Die Konfiguration der WAF erfolgt über Umgebungsvariablen. Folgende Optionen st
 | `SSL_PROTOCOLS` | Zu verwendende SSL-Protokolle | Nginx-kompatible Liste von SSL-Protokollen | `TLSv1.2 TLSv1.3` |
 | `SSL_CIPHERS` | Unterstützte SSL-Chiffren | Nginx-kompatible Liste unterstützter SSL-Chiffren | `ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:DHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384:DHE-RSA-CHACHA20-POLY1305` |
 | `SSL_PREFER_SERVER_CIPHERS` | Bevorzugung von Server-Chiffren gegenüber Client-Chiffren aktivieren oder deaktivieren | `on` oder `off` | `on` |
-
+| `LOGIN_BACKGROUND_IMAGE` | Hintergrundbild für die Anmeldeseite | Dateiname | `(empty string)` [Siehe Abschnitt Benutzerdefinierte Bilder](#benutzerdefiniertes-logo-und-hintergrundbild)  |
+| `LOGIN_LOGO_IMAGE` | Logo für die Anmeldeseite | Dateiname | `(empty string)` |
 
 ### Web App
 
-Die WAF prüft bei eingehenden Anfragen an `/`, ob der `Accept`-Header `text/html` oder `application/xhtml+xml` enthält, und leitet die Anfrage dann zur Web App unter `/app/` weiter.
+Die WAF prüft bei eingehenden Anfragen an `/`, ob der `Accept`-Header `text/html` oder `application/xhtml+xml` enthält und leitet die Anfrage dann zur Web App unter `/app/` weiter.
 Falls diese Weiterleitung nicht funktioniert, sendet Ihr Browser wahrscheinlich einen anderen `Accept`-Header. In diesem Fall rufen Sie bitte direkt `/app/` auf, um auf die Web App zuzugreifen.
 
 ![openITCOCKPIT Mobile Web App in einem Webbrowser](/images/mobile-app/waf_desktop_example.png)
@@ -166,7 +173,7 @@ Mobiles Endgerät --> Reverse Proxy (gültiges SSL-Zertifikat) --> WAF (selbstsi
 #### Apache2-Beispiel
 
 Dieses Beispiel zeigt, wie ein Apache2-Reverse-Proxy vor der WAF konfiguriert werden kann. Der Reverse Proxy übernimmt die SSL-Terminierung und leitet die Anfragen per HTTPS an die WAF weiter.
-In diesem Beispiel läuft die WAF auf demselben Server wie der Reverse Proxy unter `127.0.0.1:5555`, und der Reverse Proxy lauscht auf `waf.example.org`.
+In diesem Beispiel läuft die WAF auf demselben Server wie der Reverse Proxy unter `127.0.0.1:5555` und der Reverse Proxy lauscht auf `waf.example.org`.
 
 ```apache
 <VirtualHost 207.154.223.22:80>
@@ -226,4 +233,185 @@ docker run --rm -it \
 -v /root/openitcockpit-waf/certs:/etc/nginx/certs:ro \
 cr.openitcockpit.io/openitcockpit-mobile-waf:latest
 ```
+
+## Microsoft Entra ID
+
+Es ist möglich, Microsoft Entra ID zu verwenden, um Ihren openITCOCKPIT-Server oder die WAF vor unbefugtem Zugriff zu schützen. Wenn Microsoft Entra ID aktiviert ist, benötigen Benutzer einen **openITCOCKPIT API-Schlüssel** und ein **Microsoft Entra Konto**, um auf die openITCOCKPIT-App oder die Web App zuzugreifen. Die Microsoft Entra ID Anmeldeseite wird vor der openITCOCKPIT-Anmeldeseite angezeigt.
+
+Um Microsoft Entra ID zu aktivieren, müssen Sie zuerst eine Anwendung im Microsoft Entra Portal erstellen. Aktivieren Sie in der openITCOCKPIT-App die Option `Enable Microsoft Entra ID` und füllen Sie die Felder `Tenant ID` und `Client ID` (auch bekannt als `Application ID`) mit den Werten aus dem Microsoft Entra Portal aus.
+
+Die Anmeldeschaltfläche ändert sich dann zu `Sign in with Microsoft` und der Benutzer wird zur Microsoft Entra Anmeldeseite weitergeleitet.
+
+![openITCOCKPIT-App mit Microsoft Entra Anmeldung](/images/mobile-app/openitcockpit-app-enable-microsoft-entra.png)
+
+### Microsoft Entra ID einrichten
+
+Navigieren Sie im Microsoft Entra Portal zu `App registrations` und klicken Sie auf `New registration`. Dies ist ein erforderlicher Schritt, um die `Tenant ID` und `Client ID` für die openITCOCKPIT-App zu erhalten.
+
+![Microsoft Entra App-Registrierung](/images/mobile-app/microsoft-entra-app-registration.png)
+
+Stellen Sie bitte sicher, dass die `Redirect URI` für `Mobile and desktop applications` auf den folgenden Wert gesetzt ist:
+
+```text
+openitcockpit://auth-callback
+```
+
+**Ändern Sie die `Redirect URL` nicht. Sie muss exakt wie oben angegeben sein, sonst funktioniert die Microsoft Entra Anmeldung in der openITCOCKPIT-App nicht.**
+
+![Microsoft Entra - Redirect URI konfigurieren](/images/mobile-app/microsoft-entra-redirect-url.png)
+
+
+!!! info
+    Die `Tenant ID` und `Client ID` (auch bekannt als `Application ID`) **sind keine Geheimnisse** und können mit jedem geteilt werden.
+
+    - **Tenant ID**: Diese identifiziert einfach Ihre konkrete Organisation bzw. Ihre Microsoft Entra Verzeichnisinstanz.
+    - **Application ID**: Diese identifiziert eine bestimmte Anwendung innerhalb des Verzeichnisses des Tenants. Sie teilt Microsoft mit, welche App eine Anmeldung anfordert.
+
+## Mobile Device Management (MDM)
+
+Die openITCOCKPIT-App kann über Mobile Device Management (MDM) Lösungen wie _Microsoft Intune_ konfiguriert werden. Dadurch können Sie die App für Ihre Benutzer vorkonfigurieren und bestimmte Einstellungen erzwingen, z. B. die Serveradresse oder Microsoft Entra ID-Anmeldedaten. Der Einrichtungsprozess hängt von der verwendeten MDM-Lösung ab.
+
+Diese Dokumentation verwendet _Microsoft Intune_ als Referenz, der Ablauf sollte jedoch bei anderen MDM-Lösungen ähnlich sein.
+
+### iOS
+
+Die Konfiguration wird über ein XML-basiertes Profil gesteuert. Alle Felder sind optional. Falls Sie ein Feld nicht konfigurieren möchten, lassen Sie es leer, z. B. `<string></string>`.
+
+```XML
+<dict>
+    <key>apiKey</key>
+    <string>API_KEY_OR_EMPTY_STRING</string>
+    
+    <key>serverAddress</key>
+    <string>https://your.openitcockpit.server</string>
+    
+    <key>enableMicrosoftEntraID</key>
+    <true/>
+    
+    <key>microsoftTenantId</key>
+    <string>ae3ff2c9-56df-4e36-98bd-37f9f52f3185</string>
+    
+    <key>microsoftClientId</key>
+    <string>ad785d3e-6bd7e-4e30-b16a-e18dc85edb09</string>
+
+    <key>hideMicrosoftEntraConfig</key>
+    <false/>
+</dict>
+```
+
+!!! note
+    Einstellungen, die über das MDM gesteuert werden, können vom Benutzer in der App nicht geändert werden. Wenn beispielsweise `serverAddress` per MDM gesetzt ist, kann der Benutzer diesen Wert in der App nicht ändern.
+
+
+Für _Microsoft Intune_ müssen Sie zuerst eine neue iOS-/iPadOS-App erstellen.
+![Microsoft Intune - Neue iOS/iPadOS-App erstellen](/images/mobile-app/microsoft-intune-ios-app.png)
+Diese App ist dann für Ihre Benutzer über das _Microsoft Intune Unternehmensportal_ verfügbar.
+
+Im nächsten Schritt können Sie die App mit der obigen XML-Konfiguration konfigurieren. Stellen Sie sicher, dass Sie die Option `Managed configuration` auswählen und die XML-Konfiguration in das Textfeld einfügen.
+![Microsoft Intune - Verwaltete Konfiguration](/images/mobile-app/microsoft-intune-ios-app-config.png)
+
+Sobald die App auf dem Gerät des Benutzers installiert ist, wird die Konfiguration automatisch angewendet. Alle vom MDM gesteuerten Felder werden gesperrt und können vom Benutzer nicht geändert werden.
+Wenn ein Profil aktiv ist, sieht der Benutzer die Meldung `Some settings are managed by your organization`.
+
+![openITCOCKPIT-App - MDM-Beispiel](/images/mobile-app/ios-mdm-example.png)
+
+!!! danger
+    **Bevor** Sie die App Konfiguration im MDM **löschen**, müssen Sie eine leere Konfiguration mit den gleichen Feldern auf die Geräte der Benutzer pushen.
+    Anderenfalls werden die vom MDM gesteuerten Felder in der App gesperrt und **können nicht mehr geändert werden**.
+    
+    Dies ist eine bekannte Einschränkung von iOS/iPadOS und hat nichts mit der openITCOCKPIT-App zu tun.
+    ```XML
+    <dict>
+      <key>apiKey</key>
+      <string></string>
+
+      <key>serverAddress</key>
+      <string></string>
+
+      <key>enableMicrosoftEntraID</key>
+      <false/>
+
+      <key>microsoftTenantId</key>
+      <string></string>
+
+      <key>microsoftClientId</key>
+      <string></string>
+
+      <key>hideMicrosoftEntraConfig</key>
+      <false/>
+    </dict>
+    ```
+    Erst **nachdem** die leere Konfiguration auf **alle Geräte der Benutzer gepusht wurde**, können Sie die App-Konfiguration im MDM löschen.
+
+## Konfiguration per QR-Code
+
+Dies ist eine alternative Möglichkeit zur Konfiguration der openITCOCKPIT-App für Benutzer, die keine Mobile Device Management im Einsatz haben. Anstatt die Serveradresse oder Microsoft Entra ID-Anmeldedaten manuell einzugeben, kann der Benutzer einen QR-Code scannen, um die App automatisch zu konfigurieren.
+
+!!! info
+    Der einfachste Weg zur Erstellung des QR-Codes ist die Nutzung unseres [QR Code Generators](https://openitcockpit.io/app_qr_generator/) auf unserer Website.
+
+
+Falls Sie den QR-Code manuell erzeugen möchten, verwenden Sie bitte die folgende JSON-Struktur:
+
+```JSON
+{
+   "serverAddress":"https://your.openitcockpit.server",
+   "apiKey":"<API_KEY_OR_EMPTY_STRING>",
+   "remember_me":true,
+   "enable_microsoft_entra_id":false,
+   "microsoft_tenant_id":"ae3ff2c9_OR_EMPTY_STRING",
+   "microsoft_client_id":"ad785d3e_OR_EMPTY_STRING"
+}
+```
+Sie können jeden QR-Code-Generator verwenden, um den QR-Code aus der obigen JSON-Struktur zu erstellen. Das Feld `serverAddress` muss auf die URL Ihres openITCOCKPIT-Servers gesetzt werden. `microsoft_tenant_id` und `microsoft_client_id` sind optional und nur relevant, wenn `enable_microsoft_entra_id` auf `true` gesetzt ist.
+
+Wenn Sie Microsoft Entra ID nicht verwenden möchten, setzen Sie `enable_microsoft_entra_id` auf `false` und lassen Sie die anderen beiden Felder leer.
+
+Das Feld `apiKey` kann ebenfalls leer bleiben, da der Benutzer seinen persönlichen API-Schlüssel nach dem Scannen des QR-Codes mit der App-Konfiguration eingeben kann.
+
+Der Ablauf sieht wie folgt aus:
+
+1. Der Benutzer scannt den QR-Code, der die Konfiguration für die openITCOCKPIT-App enthält.
+2. Der Benutzer scannt seinen persönlichen QR-Code, der den API-Schlüssel des Benutzers enthält.
+3. Auf "Login" tippen, um sich in der openITCOCKPIT-App anzumelden.
+
+![openITCOCKPIT-App QR-Code-Scanner](/images/mobile-app/openitcockpit-qr-code-scanner.png){ width=350px }
+
+## Benutzerdefiniertes Logo und Hintergrundbild
+
+Das Logo auf dem Anmeldebildschirm und das Hintergrundbild können angepasst werden. Die Bilder werden im WAF-Container gespeichert und müssen nach `/usr/share/nginx/html/custom_images` gemountet werden. Es werden nur **PNG**- und **JPG**-Bilder unterstützt. Die Dateinamen der Bilder müssen über die Umgebungsvariablen `LOGIN_LOGO_IMAGE` und `LOGIN_BACKGROUND_IMAGE` gesetzt werden. Bitte stellen Sie sicher, dass in den Dateinamen keine Sonderzeichen oder Leerzeichen verwendet werden. Beispiel: `LOGIN_BACKGROUND_IMAGE="sunflowers-background.jpg"`.
+
+![Beispiel für benutzerdefinierten Hintergrund und Logo](/images/mobile-app/web-custom-background-and-logo.png)
+
+Leider ist das Laden benutzerdefinierter Bilder in der nativen openITCOCKPIT-App nur möglich, wenn die `serverAddress` per MDM gesetzt wird. Das liegt daran, dass die App die benutzerdefinierten Bilder von einer spezifischen URL laden muss, was nur möglich ist, wenn die Serveradresse bekannt ist. Wenn die Serveradresse per QR-Code oder manuell gesetzt wird, kann die App die benutzerdefinierten Bilder nicht vorab laden.
+
+Wenn jedoch ein MDM zum Setzen der Serveradresse verwendet wird, lädt die App die benutzerdefinierten Bilder automatisch von der WAF.
+
+
+![iOS MDM benutzerdefinierte Bilder](/images/mobile-app/ios-mdm-custom-images.png){ width=350px }
+
+Beispiel für einen Docker-`run`-Befehl mit benutzerdefinierten Bildern:
+```bash
+docker run --rm -it \
+--name openitcockpit-mobile-waf \
+-p 80:80 \
+-p 443:443 \
+-e WEB_APP_ENABLED=1 \
+-e OITC_SERVER=demo.openitcockpit.io \
+-e SSL_CERT_PATH=/etc/nginx/certs/local.crt \
+-e SSL_CERT_KEY_PATH=/etc/nginx/certs/local.key \
+-v /path/on/host/certs:/etc/nginx/certs:ro \
+-v /path/on/host/custom_images:/usr/share/nginx/html/custom_images:ro \
+-e LOGIN_BACKGROUND_IMAGE="sunflowers-background.jpg" \
+-e LOGIN_LOGO_IMAGE="cat-logo.png" \
+cr.openitcockpit.io/openitcockpit-mobile-waf:latest
+```
+
+## Debug-Menü
+
+Die openITCOCKPIT-App besitzt ein verstecktes Debug-Menü auf dem Anmeldebildschirm, das durch 5-maliges Tippen auf das openITCOCKPIT-Logo innerhalb von 1,5 Sekunden geöffnet werden kann.
+Im Debug-Menü können Sie den App-Speicher leeren und bekommen die installierte App-Version angezeigt.
+
+![openITCOCKPIT-App Debug-Menue](/images/mobile-app/openitcockpit-app-debug.png){ width=350px }
+
 
