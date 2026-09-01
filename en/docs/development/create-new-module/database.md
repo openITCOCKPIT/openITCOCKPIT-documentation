@@ -421,17 +421,7 @@ class TestController extends AppController {
  
     public function index() {
         if (!$this->isApiRequest()) {
-            // The requested URL was: /example_module/test/index.html
-            // The controller only sends the HTML template to the client browser / AngularJS
- 
-            /**********************************************************/
-            /* DO NOT RUN ANY DATABASE QUERY HERE!                    */
-            /* THIS CODE IS ONLY TO SHIP THE TEMPLATE                 */
-            /**********************************************************/
- 
-            // Pass the variable "message" with the content "Hello World (HTML)" to the view for .html requests
-            $this->set('message', 'Hello World (HTML)');
-            return;
+            throw new \Cake\Http\Exception\MethodNotAllowedException();
         }
  
         // This get executed for API requests
@@ -577,3 +567,119 @@ class ExampleNotesTable extends Table {
 ```
 
 !!! warning The `defaultConnectionName()` method must be `static`!
+## Linking core tables with plugin tables
+In some cases, a link to an openITCOCKPIT core table object is required from a module's table object.
+
+In this example, we want to delete the "additional notes" from the module table as soon as the associated host is deleted. To implement this, we do not need to modify any core code.
+
+!!! warning
+Only core tables that use the `PluginManagerTableTrait` can be extended by modules.
+
+```php
+class HostsTable extends Table {
+use PluginManagerTableTrait;
+}
+```
+If you want to extend a core table that does not already use the PluginManagerTableTrait, do not hesitate to send us a pull request.
+
+### config/associations.php
+Create the file `/opt/openitc/frontend/plugins/ExampleModule/config/associations.php` to define a list of core tables to associate with your plugin tables.
+
+```php
+<?php
+return [
+    'Hosts' => [ //Core Table
+        'ExampleModule.ExampleNotes' //Plugin Tables
+    ]
+];
+```
+
+### Defining the Table::bindCoreAssociations method
+
+You now need to create the `bindCoreAssociations()` method in your Plugin-table class.
+
+Within this method you can define table associations that would normally have been defined in the core `HostsTable` class.
+
+`opt/openitc/frontend/plugins/ExampleModule/src/Model/Table/ExampleNotesTable.php`
+
+```php
+<?php
+declare(strict_types=1);
+ 
+namespace ExampleModule\Model\Table;
+ 
+use App\Model\Table\HostsTable;
+use Cake\Datasource\RepositoryInterface;
+use Cake\ORM\Query;
+use Cake\ORM\RulesChecker;
+use Cake\ORM\Table;
+use Cake\Validation\Validator;
+ 
+class ExampleNotesTable extends Table {
+    /**
+     * Initialize method
+     *
+     * @param array $config The configuration for the Table.
+     * @return void
+     */
+    public function initialize(array $config): void {
+        parent::initialize($config);
+ 
+        $this->setTable('example_notes');
+        $this->setDisplayField('id');
+        $this->setPrimaryKey('id');
+ 
+        $this->belongsTo('Hosts', [
+            'foreignKey' => 'host_id',
+            'joinType'   => 'INNER',
+            'className'  => 'Hosts',
+        ]);
+    }
+ 
+ 
+    public function bindCoreAssociations(RepositoryInterface $coreTable) {
+ 
+        // Link the Core HostsTable with the Plugin table without modifying core code.       
+ 
+        switch ($coreTable->getAlias()) {
+            case 'Hosts':
+                $coreTable->hasOne('ExampleNote', [ //Singular => hasOne!
+                    'className' => 'ExampleModule.ExampleNotes',
+                    'dependent' => true
+                ]);
+                break;
+        }
+    }
+}
+```
+
+### Testing associations
+
+**Code**
+```php
+//Query core Hosts Table to test Plugin associations
+/** @var HostsTable $HostsTable */
+$HostsTable = TableRegistry::getTableLocator()->get('Hosts');
+$hosts = $HostsTable->find()
+    ->select([
+        'Hosts.id',
+        'Hosts.name',
+        'Hosts.uuid'
+    ])
+    ->contain([
+        'ExampleNote' => function(Query $query){
+        $query->select([
+            'id',
+            'host_id',
+            'notes'
+        ]);
+            return $query;
+        }
+        //'ExampleNote' //Singular => hasOne!
+    ])
+    ->all();
+```
+
+
+**Result**
+![json result with hosts 2](/images/json-result-with-hosts-2.png)

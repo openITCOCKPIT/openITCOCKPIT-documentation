@@ -3,6 +3,9 @@
 openITCOCKPIT nutzt das [ORM von CakePHP](https://book.cakephp.org/5.x/orm.html) um Zugriff zur Datenbank zu erlangen.
 **Nutzen sie immer das ORM und schreiben Sie niemals eigene plain SQL abfragen**
 
+Dieses Beispiel baut auf dem [openITCOCKPIT ExampleModule Repository](https://github.com/openITCOCKPIT/openITCOCKPIT-ExampleModule/tree/master) auf.
+Schauen Sie sich den Code dort gerne an.
+
 ## Neue Tabelle in der Datenbank erstellen
 
 Um Schema updates zu managen, nutzt openITCOCKPIT das [CakePHP Migrations plugin](https://book.cakephp.org/migrations/3/en/index.html)
@@ -276,20 +279,6 @@ use ExampleModule\Model\Table\ExampleNotesTable;
 class TestController extends AppController {
  
     public function index() {
-        if (!$this->isApiRequest()) {
-            // The requested URL was: /example_module/test/index.html
-            // The controller only sends the HTML template to the client browser / AngularJS
- 
-            /**********************************************************/
-            /* DO NOT RUN ANY DATABASE QUERY HERE!                    */
-            /* THIS CODE IS ONLY TO SHIP THE TEMPLATE                 */
-            /**********************************************************/
- 
-            // Pass the variable "message" with the content "Hello World (HTML)" to the view for .html requests
-            $this->set('message', 'Hello World (HTML)');
-            return;
-        }
- 
         // This get executed for API requests
         //  The requested URL was: /example_module/test/index.json
  
@@ -396,17 +385,7 @@ class TestController extends AppController {
  
     public function index() {
         if (!$this->isApiRequest()) {
-            // The requested URL was: /example_module/test/index.html
-            // The controller only sends the HTML template to the client browser / AngularJS
- 
-            /**********************************************************/
-            /* DO NOT RUN ANY DATABASE QUERY HERE!                    */
-            /* THIS CODE IS ONLY TO SHIP THE TEMPLATE                 */
-            /**********************************************************/
- 
-            // Pass the variable "message" with the content "Hello World (HTML)" to the view for .html requests
-            $this->set('message', 'Hello World (HTML)');
-            return;
+            throw new \Cake\Http\Exception\MethodNotAllowedException();
         }
  
         // This get executed for API requests
@@ -466,107 +445,6 @@ class TestController extends AppController {
 
 **Ergebnis**
 ![hoststatus example](/images/hoststatus-example.png)
-
-## Daten anzeigen
-
-### AngularJS Controller
-
-Zuerst müssen Sie zum Laden der Daten eine Methode in ihren `TestIndexController.js` Implementieren.
-
-```php
-angular.module('openITCOCKPIT')
-    .controller('TestIndexController', function($scope, $http){
- 
-        //Name TestIndexController same as in ng.states.js
-        //Convention: Controller name + Action Name + 'Controller' = TestIndexController
- 
- 
-        $scope.load = function(){
- 
-            // Query String parameters
-            var params = {
-                'angular': true
-            };
- 
-            $http.get("/example_module/test/index.json", {
-                params: params
-            }).then(function(result){
- 
-                //Save notes from json result into local $scope.notes variable
-                $scope.notes = result.data.result;
- 
-            }, function errorCallback(result){
-                if(result.status === 403){
-                    $state.go('403');
-                }
- 
-                if(result.status === 404){
-                    $state.go('404');
-                }
-            });
-        };
- 
-        //Fire on page load
-        $scope.load();
- 
-    });
-```
-
-### HTML View Updaten
-Im zweiten Schritt müssen Sie ihre Template-Logik in ihre View Datei packen `templates/Test/index.php`.
-
-```php
-<?php
-/**
- * @var \App\View\AppView $this
- * @var string $message
- */
-?>
- 
-<div class="row">
-    <div class="col-xl-12">
-        <div id="panel-1" class="panel">
-            <div class="panel-hdr">
-                <h2>
-                    <?php echo __('Example Module'); ?>
-                    <span class="fw-300"><i><?php echo __('Hello World'); ?></i></span>
-                </h2>
-            </div>
-            <div class="panel-container show">
-                <div class="panel-content">
- 
-                    <!-- Output "Hello World (HTML)" that was set by the controller -->
-                    <?= h($message); ?>
- 
-                    <table class="table table-striped m-0 table-bordered table-hover table-sm">
-                        <thead>
-                        <tr>
-                            <th><?= __('Host name') ?></th>
-                            <th><?= __('Note') ?></th>
-                        </tr>
-                        </thead>
- 
-                        <tbody>
-                        <!-- Repeat this TR for each record in $scope.notes -->
-                        <tr ng-repeat="note in notes">
-                            <td>
-                                <!-- Print the content of the variable -->
-                                {{ note.host.name }}
-                            </td>
-                            <td>{{ note.notes }}</td>
-                        </tr>
-                        </tbody>
- 
-                    </table>
- 
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-```
-
-![angularjs view with data](/images/angularjs-view-with-data.png)
 
 ## Eigene Datenbank nutzen
 Müssen Sie Daten speichern, die keinen zusammenhang mit openITCOCKPIT daten haben, wird empfohlen, diese in einer
@@ -650,3 +528,123 @@ class ExampleNotesTable extends Table {
 
 !!! warning
     Die Methode `defaultConnectionName()` muss `static` sein!
+
+## Core Tabellen mit Plugin tabellen verlinken
+In manchen Fällen wird ein link zu einem openITCOCKPIT core Tabellenobjekt von einem Tabellenobjekt eines Moduls benötigt.
+
+In diesem Beispiel möchten wir die "additional notes" aus der Modul Tabelle löschen, sobald der zugehörige Host gelöscht
+wird. Um dies zu Implementieren müssen wir keinerlei core Code anpassen.
+
+!!! warning
+    Es können ausschließlich core Tabellen, die den `PluginManagerTableTrait` nutzen von Modulen erweitert werden
+
+```php
+class HostsTable extends Table {
+use PluginManagerTableTrait;
+}
+```
+Sollten Sie eine core Tabelle erweitern, welche nicht bereits den `PluginManagerTableTrait` nutzt, zögern Sie nicht
+und senden Sie uns einen Pull Request.
+
+### config/associations.php
+Erstellen Sie die Datei `/opt/openitc/frontend/plugins/ExampleModule/config/associations.php` um eine liste von core
+Tabellen zu definieren, welche mit ihren Plugin-Tabellen assoziiert werden, sollen.
+
+```php
+<?php
+return [
+    'Hosts' => [ //Core Table
+        'ExampleModule.ExampleNotes' //Plugin Tables
+    ]
+];
+```
+
+### Definieren der Table::bindCoreAssociations Methode
+Nun müssen Sie die `bindCoreAssociations()` Methode in ihrer Plugin-table Klasse erstellen.
+
+Innerhalb dieser Methode können Sie Tabellen associations definieren, die normalerweise in der core `HostsTable` Klasse
+definiert worden wären.
+
+`opt/openitc/frontend/plugins/ExampleModule/src/Model/Table/ExampleNotesTable.php`
+
+```php
+<?php
+declare(strict_types=1);
+ 
+namespace ExampleModule\Model\Table;
+ 
+use App\Model\Table\HostsTable;
+use Cake\Datasource\RepositoryInterface;
+use Cake\ORM\Query;
+use Cake\ORM\RulesChecker;
+use Cake\ORM\Table;
+use Cake\Validation\Validator;
+ 
+class ExampleNotesTable extends Table {
+    /**
+     * Initialize method
+     *
+     * @param array $config The configuration for the Table.
+     * @return void
+     */
+    public function initialize(array $config): void {
+        parent::initialize($config);
+ 
+        $this->setTable('example_notes');
+        $this->setDisplayField('id');
+        $this->setPrimaryKey('id');
+ 
+        $this->belongsTo('Hosts', [
+            'foreignKey' => 'host_id',
+            'joinType'   => 'INNER',
+            'className'  => 'Hosts',
+        ]);
+    }
+ 
+ 
+    public function bindCoreAssociations(RepositoryInterface $coreTable) {
+ 
+        // Link the Core HostsTable with the Plugin table without modifying core code.       
+ 
+        switch ($coreTable->getAlias()) {
+            case 'Hosts':
+                $coreTable->hasOne('ExampleNote', [ //Singular => hasOne!
+                    'className' => 'ExampleModule.ExampleNotes',
+                    'dependent' => true
+                ]);
+                break;
+        }
+    }
+}
+```
+
+### Association testen
+
+**Code**
+```php
+//Query core Hosts Table to test Plugin associations
+/** @var HostsTable $HostsTable */
+$HostsTable = TableRegistry::getTableLocator()->get('Hosts');
+$hosts = $HostsTable->find()
+    ->select([
+        'Hosts.id',
+        'Hosts.name',
+        'Hosts.uuid'
+    ])
+    ->contain([
+        'ExampleNote' => function(Query $query){
+        $query->select([
+            'id',
+            'host_id',
+            'notes'
+        ]);
+            return $query;
+        }
+        //'ExampleNote' //Singular => hasOne!
+    ])
+    ->all();
+```
+
+
+**Ergebnis**
+![json result with hosts 2](/images/json-result-with-hosts-2.png)
