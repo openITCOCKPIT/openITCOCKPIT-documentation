@@ -1,4 +1,4 @@
-# Update von Ubuntu Jammy (22.04) auf Ubuntu Noble (24.04)
+# Update Ubuntu Jammy (22.04) to Ubuntu Noble (24.04)
 
 !!! danger "Backup"
     Before you start, make sure you have a **working backup** of your system!
