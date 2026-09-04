@@ -25,10 +25,12 @@ In der folgenden Tabelle finden Sie die Liste der Ports, die openITCOCKPIT stand
 | 8083     | 127.0.0.1 | Ja                      | Port              | WebSocket Server                       |
 | ⚠️ 8084  | 127.0.0.1 | Ja                      | Port              | nodejs_server (veraltet)               |
 | 8085     | 127.0.0.1 | Ja                      | Port              | Nginx (Grafana Auth Proxy)             |
+| 8091     | 127.0.0.1 | Ja                      | Port              | Statusengine Go                        |
 | 8428     | 127.0.0.1 | Ja                      | Port              | victoria-metrics (Docker)              |
 | 8888     | 127.0.0.1 | Ja                      | Port              | graphite-web (Docker)                  |
 | 9090     | 127.0.0.1 | Ja                      | Port              | Prometheus                             |
 | 9099     | 127.0.0.1 | Ja                      | Port              | binaryd (Nur wenn containerisiert)     |
+| 9105     | 127.0.0.1 | Ja                      | Port              | Statusengine Go                        |
 | 9949     | 127.0.0.1 | Ja                      | Port              | Event-Collectd                         |
 | 11211    | 127.0.0.1 | Ja                      | Port              | memcached                              |
 
