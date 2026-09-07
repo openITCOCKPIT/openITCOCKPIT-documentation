@@ -21,6 +21,7 @@ It is recommended to use _Microsoft Active Directory_.
 | LDAP.ADDRESS     | Hostname or IP address of the LDAP server                                                                      | `ad.example.com`                                                       |
 | LDAP.PORT        | Port number (389 or 636)                                                                                       | `389`                                                                  |
 | LDAP.QUERY       | LDAP filter query which will be used to filter users                                                           | `(&(objectClass=user)(samaccounttype=805306368)(objectCategory=person)(cn=*))` |
+| LDAP.QUERY       | LDAP filter query which will be used to filter users, **without disabled** users                               | `(&(objectClass=user)(sAMAccountType=805306368)(objectCategory=person)(cn=*)(!(userAccountControl:1.2.840.113556.1.4.803:=2)))` |
 | LDAP.BASEDN      | This is the Base-DN that will be searched by openITCOCKPIT                                                     | `DC=ad,DC=example,DC=com`                                              |
 | LDAP.USERNAME    | Username (sAMAccountName) used by openITCOCKPIT                                                                | `ldap_search`                                                          |
 | LDAP.PASSWORD    | Password of the given username                                                                                 |                                                                        |
