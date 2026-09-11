@@ -90,6 +90,11 @@ To finish the upgrade, please run the following command:
 openitcockpit-update
 ```
 
+On openITCOCKPIT **Satellite Systems** you need to run the command:
+```bash
+/opt/openitc/frontend/UPDATE.sh
+```
+
 It is also recommended to reboot the system.
 
 ```bash
