@@ -119,6 +119,81 @@ curl --no-progress-meter --no-buffer -T . -N \
 
 Standardmäßig abonniert dieses curl-Beispiel alle Topics. Um das Abonnement zu ändern, fügen Sie `{"subscribe": ["statusngin_servicechecks"]}` ein und drücken Sie `Return`. Mit `{"unsubscribe": ["statusngin_servicechecks"]}` können Sie den Empfang von Ereignissen eines bestimmten Topics beenden.
 
+### Verwendung eines Reverse Proxys
+
+Bei Verwendung eines Reverse Proxys muss sichergestellt werden, dass WebSocket-Verbindungen korrekt an den Backend-Server weitergeleitet werden.
+openITCOCKPIT verwendet Nginx als Webserver, daher beziehen sich die folgenden Reverse-Proxy-Beispiele auf Nginx.
+
+#### Erweiterung des Standard Virtual-Hosts
+Die Ports `80` und `443` werden bereits vom Standard Virtual-Host verwendet, um openITCOCKPIT selbst bereitzustellen.
+Wenn Sie den Standard Virtual-Host erweitern möchten, hinterlegen Sie die Konfiguration in der Datei `/etc/nginx/openitc/custom.conf`.
+
+```nginx
+location /eventstream {
+    proxy_pass http://127.0.0.1:8091/ws; 
+    
+    proxy_http_version 1.1;
+    proxy_set_header Upgrade $http_upgrade;
+    proxy_set_header Connection "Upgrade";
+    
+    proxy_set_header Host $host;
+    proxy_set_header X-Real-IP $remote_addr;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header X-Forwarded-Proto $scheme;
+    
+    proxy_read_timeout 600s;
+    proxy_send_timeout 600s;
+}
+```
+
+Um die Änderungen zu übernehmen, laden Sie die Nginx-Konfiguration neu:
+
+```bash
+systemctl reload nginx
+```
+
+Der Event Stream ist nun unter `wss://<host>/eventstream` erreichbar. Zum Beispiel mit `curl`. Fügen Sie in diesem Fall den Parameter `-T .` **nicht** hinzu.
+```bash
+curl -k --no-progress-meter --no-buffer  -H "Authorization: Bearer <api-key>" wss://192.168.56.2/eventstream
+```
+
+#### Neue Virtual-Host-Konfiguration
+
+Falls Sie einen neuen Virtual Host für den Event Stream erstellen möchten, können Sie das folgende Nginx-Konfigurationsbeispiel verwenden.
+Beispielsweise können Sie die folgende Konfiguration in eine neue Datei unter `/etc/nginx/sites-enabled/` einfügen.
+
+```nginx
+server {
+    listen 9999;
+
+    location /ws {
+        proxy_pass http://127.0.0.1:8091/ws; 
+        
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection "Upgrade";
+        
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        
+        proxy_read_timeout 600s;
+        proxy_send_timeout 600s;
+    }
+}
+```
+
+Um die Änderungen zu übernehmen, laden Sie die Nginx-Konfiguration neu:
+
+```bash
+systemctl reload nginx
+```
+
+Der Event Stream ist nun unter `ws://<host>:9999/ws` erreichbar. Zum Beispiel mit `curl`. Fügen Sie in diesem Fall den Parameter `-T .` **nicht** hinzu.
+```bash
+curl --no-progress-meter --no-buffer  -H "Authorization: Bearer <api-key>" ws://192.168.56.2:9999/ws
+```
 
 ## Event Stream Topics
 

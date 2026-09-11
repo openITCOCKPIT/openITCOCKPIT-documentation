@@ -135,6 +135,82 @@ curl --no-progress-meter --no-buffer -T . -N \
 
 By default, this curl example will subscribe to all topics. To change the subscription, past `{"subscribe": ["statusngin_servicechecks"]}` and press `Return`. You can also use `{"unsubscribe": ["statusngin_servicechecks"]}` to stop receiving events for a specific topic.
 
+### Using an Reverse Proxy
+
+When using a reverse proxy, you need to ensure that WebSocket connections are properly forwarded to the backend server.
+openITCOCKPIT is using Nginx as web server, so the reverse proxy configuration example above is for Nginx.
+
+#### Extending the Default Virtual Host
+Port `80` and `443` are already used by the default virtual host to serve openITCOCKPIT itself.
+In case you want to extend the default virtual host, you need to place the configuration in the file: `/etc/nginx/openitc/custom.conf`.
+
+```nginx
+location /eventstream {
+    proxy_pass http://127.0.0.1:8091/ws; 
+    
+    proxy_http_version 1.1;
+    proxy_set_header Upgrade $http_upgrade;
+    proxy_set_header Connection "Upgrade";
+    
+    proxy_set_header Host $host;
+    proxy_set_header X-Real-IP $remote_addr;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header X-Forwarded-Proto $scheme;
+    
+    proxy_read_timeout 600s;
+    proxy_send_timeout 600s;
+}
+```
+
+To apply the changes, reload the Nginx configuration with:
+
+```bash
+systemctl reload nginx
+```
+
+The Event Stream is now reachable at: `wss://<host>/eventstream`. For example using `curl`. Do **not** add the `-T .` parameter in this case.
+```bash
+curl -k --no-progress-meter --no-buffer  -H "Authorization: Bearer <api-key>" wss://192.168.56.2/eventstream
+```
+
+#### New Virtual Host Configuration
+
+In case you want to create a new virtual host for the Event Stream, you can use the following Nginx configuration example.
+For example, you can paste the following configuration into a new file under `/etc/nginx/sites-enabled/`
+
+```nginx
+server {
+    listen 9999;
+
+    location /ws {
+        proxy_pass http://127.0.0.1:8091/ws; 
+        
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection "Upgrade";
+        
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        
+        proxy_read_timeout 600s;
+        proxy_send_timeout 600s;
+    }
+}
+```
+
+To apply the changes, reload the Nginx configuration with:
+
+```bash
+systemctl reload nginx
+```
+
+The Event Stream is now reachable at: `ws://<host>:9999/ws`. For example using `curl`. Do **not** add the `-T .` parameter in this case.
+```bash
+curl --no-progress-meter --no-buffer  -H "Authorization: Bearer <api-key>" ws://192.168.56.2:9999/ws
+```
+
 
 ## Event Stream Topics
 
