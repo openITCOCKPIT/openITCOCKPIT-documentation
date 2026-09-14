@@ -83,6 +83,7 @@ nav:
       - 'Organizational Trees': 'configuration/organizational-trees.md'
   - 'Development':
       - 'API': 'development/api.md'
+      - 'WebSocket Event Stream': 'development/websocket-event-stream.md'
       - 'Database schema': 'development/database-schema.md'
       - 'Setup development system': 'development/setup-dev-env.md'
       - 'Creating a new Module':
