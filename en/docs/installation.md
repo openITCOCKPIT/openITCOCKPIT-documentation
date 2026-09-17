@@ -28,7 +28,16 @@ apt-get install apt-transport-https curl gnupg2 ca-certificates
 
 mkdir -p /etc/apt/keyrings
 curl https://packages5.openitcockpit.io/repokey.txt | tee /etc/apt/keyrings/openitcockpit-keyring.asc
-echo "deb [signed-by=/etc/apt/keyrings/openitcockpit-keyring.asc] https://packages5.openitcockpit.io/openitcockpit/$(lsb_release -sc)/stable $(lsb_release -sc) main" > /etc/apt/sources.list.d/openitcockpit.list
+
+tee /etc/apt/sources.list.d/openitcockpit.sources <<EOF
+Types: deb
+URIs: https://packages5.openitcockpit.io/openitcockpit/$(. /etc/os-release && echo "${UBUNTU_CODENAME:-$VERSION_CODENAME}")/stable
+Suites: $(. /etc/os-release && echo "${UBUNTU_CODENAME:-$VERSION_CODENAME}")
+Components: main
+Signed-By: /etc/apt/keyrings/openitcockpit-keyring.asc
+Enabled: yes
+EOF
+
 apt-get update
 ```
 
@@ -38,7 +47,16 @@ openITCOCKPIT requires Docker. Alternatively, you can follow the [official instr
 
 ```
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
-echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu $(. /etc/os-release && echo "${UBUNTU_CODENAME:-$VERSION_CODENAME}") stable" | tee /etc/apt/sources.list.d/docker.list > /dev/null
+
+tee /etc/apt/sources.list.d/docker.sources <<EOF
+Types: deb
+URIs: https://download.docker.com/linux/ubuntu
+Suites: $(. /etc/os-release && echo "${UBUNTU_CODENAME:-$VERSION_CODENAME}")
+Components: stable
+Architectures: $(dpkg --print-architecture)
+Signed-By: /etc/apt/keyrings/docker.asc
+EOF
+
 apt-get update
 ```
 
@@ -83,7 +101,16 @@ apt-get install apt-transport-https curl gnupg2 ca-certificates
 
 mkdir -p /etc/apt/keyrings
 curl https://packages5.openitcockpit.io/repokey.txt | tee /etc/apt/keyrings/openitcockpit-keyring.asc
-echo "deb [signed-by=/etc/apt/keyrings/openitcockpit-keyring.asc] https://packages5.openitcockpit.io/openitcockpit/$(lsb_release -sc)/stable $(lsb_release -sc) main" > /etc/apt/sources.list.d/openitcockpit.list
+
+tee /etc/apt/sources.list.d/openitcockpit.sources <<EOF
+Types: deb
+URIs: https://packages5.openitcockpit.io/openitcockpit/$(. /etc/os-release && echo "$VERSION_CODENAME")/stable
+Suites: $(. /etc/os-release && echo "$VERSION_CODENAME")
+Components: main
+Signed-By: /etc/apt/keyrings/openitcockpit-keyring.asc
+Enabled: yes
+EOF
+
 apt-get update
 ```
 
@@ -93,7 +120,16 @@ openITCOCKPIT requires Docker. Alternatively, you can follow the [official instr
 
 ```
 curl -fsSL https://download.docker.com/linux/debian/gpg -o /etc/apt/keyrings/docker.asc
-echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/debian $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | tee /etc/apt/sources.list.d/docker.list > /dev/null
+
+tee /etc/apt/sources.list.d/docker.sources <<EOF
+Types: deb
+URIs: https://download.docker.com/linux/debian
+Suites: $(. /etc/os-release && echo "$VERSION_CODENAME")
+Components: stable
+Architectures: $(dpkg --print-architecture)
+Signed-By: /etc/apt/keyrings/docker.asc
+EOF
+
 apt-get update
 ```
 
