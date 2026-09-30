@@ -16,13 +16,29 @@ Eventuell muss nach dem Wechsel, der Community oder Enterprise Lizenzschlüssel 
 
 ### Debian
 ```
-echo "deb [signed-by=/etc/apt/keyrings/openitcockpit-keyring.asc] https://packages5.openitcockpit.io/openitcockpit/$(lsb_release -sc)/nightly $(lsb_release -sc) main" > /etc/apt/sources.list.d/openitcockpit.list
+tee /etc/apt/sources.list.d/openitcockpit.sources <<EOF
+Types: deb
+URIs: https://packages5.openitcockpit.io/openitcockpit/$(. /etc/os-release && echo "$VERSION_CODENAME")/nightly
+Suites: $(. /etc/os-release && echo "$VERSION_CODENAME")
+Components: main
+Signed-By: /etc/apt/keyrings/openitcockpit-keyring.asc
+Enabled: yes
+EOF
+
 apt-get update
 ```
 
 ### Ubuntu
 ```
-echo "deb [signed-by=/etc/apt/keyrings/openitcockpit-keyring.asc] https://packages5.openitcockpit.io/openitcockpit/$(lsb_release -sc)/nightly $(lsb_release -sc) main" > /etc/apt/sources.list.d/openitcockpit.list
+tee /etc/apt/sources.list.d/openitcockpit.sources <<EOF
+Types: deb
+URIs: https://packages5.openitcockpit.io/openitcockpit/$(. /etc/os-release && echo "${UBUNTU_CODENAME:-$VERSION_CODENAME}")/nightly
+Suites: $(. /etc/os-release && echo "${UBUNTU_CODENAME:-$VERSION_CODENAME}")
+Components: main
+Signed-By: /etc/apt/keyrings/openitcockpit-keyring.asc
+Enabled: yes
+EOF
+
 apt-get update
 ```
 
@@ -43,16 +59,31 @@ apt-get dist-upgrade
 
 ## Wechsel auf das Stable Repository
 
-Eventuell muss nach dem Wechsel, der Community oder Enterprise Lizenzschlüssel erneut aktiviert werden.
 
 ### Debian
 ```
-echo "deb https://packages5.openitcockpit.io/openitcockpit/$(lsb_release -sc)/stable $(lsb_release -sc) main" > /etc/apt/sources.list.d/openitcockpit.list
+tee /etc/apt/sources.list.d/openitcockpit.sources <<EOF
+Types: deb
+URIs: https://packages5.openitcockpit.io/openitcockpit/$(. /etc/os-release && echo "$VERSION_CODENAME")/stable
+Suites: $(. /etc/os-release && echo "$VERSION_CODENAME")
+Components: main
+Signed-By: /etc/apt/keyrings/openitcockpit-keyring.asc
+Enabled: yes
+EOF
+
 apt-get update
 ```
 
 ### Ubuntu
 ```
-echo "deb https://packages5.openitcockpit.io/openitcockpit/$(lsb_release -sc)/stable $(lsb_release -sc) main" > /etc/apt/sources.list.d/openitcockpit.list
+tee /etc/apt/sources.list.d/openitcockpit.sources <<EOF
+Types: deb
+URIs: https://packages5.openitcockpit.io/openitcockpit/$(. /etc/os-release && echo "${UBUNTU_CODENAME:-$VERSION_CODENAME}")/stable
+Suites: $(. /etc/os-release && echo "${UBUNTU_CODENAME:-$VERSION_CODENAME}")
+Components: main
+Signed-By: /etc/apt/keyrings/openitcockpit-keyring.asc
+Enabled: yes
+EOF
+
 apt-get update
 ```
