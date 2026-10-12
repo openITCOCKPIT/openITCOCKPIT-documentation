@@ -8,12 +8,13 @@
 
 - openITCOCKPIT 5.6.1 or higher
 - iOS 17.5 or higher
+- Android 12 or higher
 - The openITCOCKPIT server must be reachable from the mobile device (e.g. via VPN or public IP address)
 - A valid HTTPS certificate is required. Self-signed certificates will most likely not work.
 
 
 ## Download the App
-The App can be downloaded from the respective app stores. Please note that the app is currently only available for iOS. The Android version will be released soon.
+The App can be downloaded from the respective app stores.
 
 **The app is free of charge and can be used with any openITCOCKPIT server, regardless of the edition (Community or Enterprise).**
 
@@ -21,11 +22,15 @@ The App can be downloaded from the respective app stores. Please note that the a
 [Apple App Store](https://apps.apple.com/de/app/openitcockpit/id6783364695)
 
 <a href="https://apps.apple.com/de/app/openitcockpit/id6783364695" target="_blank">
-  <img src="/images/mobile-app/Download_on_the_App_Store_Badge_US-UK_RGB_blk_092917.svg" alt="Download on the App Store" width="120">
+  <img src="/images/mobile-app/Download_on_the_App_Store_Badge_US-UK_RGB_blk_092917.svg" alt="Download on the App Store" height="40" style="height:40px!important;">
 </a>
 
 ### Android
-Google Play Store (Soon available)
+[Google Play Store](https://play.google.com/store/apps/details?id=io.openitcockpit.mobile)
+
+<a href="https://play.google.com/store/apps/details?id=io.openitcockpit.mobile" target="_blank">
+  <img src="/images/mobile-app/GetItOnGooglePlay_Badge_Web_color_English.svg" alt="Get it on Google Play" height="40" style="height:40px!important;">
+</a>
 
 ## Setup Push Notifications
 
