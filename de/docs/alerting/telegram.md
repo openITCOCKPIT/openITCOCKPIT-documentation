@@ -24,14 +24,16 @@ authentifiziert haben.
 
 ### 1. Einen Telegram-Bot erstellen
 
-- ![](/images/telegram/2-botfather.png)
+![](/images/telegram/2-botfather.png)
+
 - Starte einen neuen Telegram-Chat mit @BotFather.
 - Klicke auf „Start“ und führe den Befehl `/newbot` aus:
     - Wähle einen Namen für deinen Bot, beispielsweise `DEV-openITCOCKPIT`.
     - Wähle einen Benutzernamen für deinen Bot, beispielsweise `oitc_uzumymw_bot`.
 - Öffne deine openITCOCKPIT-Instanz.
 - Kopiere das von BotFather bereitgestellte API-Token in den Bereich System Configuration -> APIs -> Telegram.
-- ![](/images/telegram/3-oitc-tele-api.png)
+
+![](/images/telegram/3-oitc-tele-api.png)
 
 ### 2. Kontakte konfigurieren
 
@@ -40,18 +42,23 @@ authentifiziert haben.
 - Füge die Benachrichtigungsbefehle hinzu, die du verwenden möchtest:
     - `host-notify-by-telegram`
     - `service-notify-by-telegram`
-- ![](/images/telegram/4-contact.png)
+
+![](/images/telegram/4-contact.png)
+
 - Speichere deine Änderungen und navigiere anschließend zur Seite System Configuration -> APIs -> Telegram.
 - Auf dieser Seite werden die Benutzer angezeigt, die für die Verwendung der Telegram-Benachrichtigungsbefehle
   konfiguriert sind.
 - Klicke neben dem entsprechenden Benutzer auf „Generate Key“ und sende den generierten Schlüssel an diesen Benutzer.
-- ![](/images/telegram/5-join-openitcockpit.png)
+
+![](/images/telegram/5-join-openitcockpit.png)
 
 ### 3. Dem Bot beitreten
 
 - Bitte den Benutzer, deinen Bot in der Telegram-App zu suchen und auf „Start“ zu klicken, um einen Chat zu öffnen. In
   diesem Beispiel kann der Bot durch die Suche nach `oitc_uzumymw_bot` gefunden werden.
-- ![](/images/telegram/6-join-telegram.png)
+
+![](/images/telegram/6-join-telegram.png)
+
 - Nachdem der Chat gestartet wurde, muss sich der Benutzer beim Bot authentifizieren.
 - Der Benutzer muss `/auth THEUSERSGENERATEDKEY` an den Bot senden. Dabei muss `THEUSERSGENERATEDKEY` durch den für sein
   Konto generierten Schlüssel ersetzt werden. Bei erfolgreicher Authentifizierung sendet der Bot eine
@@ -64,7 +71,7 @@ Anschließend stehen dem Benutzer mehrere Optionen zur Verfügung:
 - `/help` zeigt diesen Hilfetext erneut an.
 - `/delete` löscht diese Bot-Verbindung in openITCOCKPIT.
 
-- ![](/images/telegram/7-testmessage.png)
+![](/images/telegram/7-testmessage.png)
 
 ### Nützliche Informationen
 
