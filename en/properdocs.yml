@@ -156,9 +156,9 @@ plugins:
   - search
   - glightbox
 
-#  Theme docs: https://squidfunk.github.io/mkdocs-material/getting-started/
+#  Theme docs: https://jaywhj.github.io/mkdocs-materialx/
 theme:
-  name: material
+  name: materialx
   custom_dir: overrides
   language: en
   logo: images/logo/openitcockpit-light.png

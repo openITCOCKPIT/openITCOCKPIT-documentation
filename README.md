@@ -24,17 +24,17 @@ cd openITCOCKPIT-documentation/
 
 2. Build Docker image
 ```
-docker build . -t openitcockpit/mkdocs
+docker build . -t openitcockpit/properdocs
 ```
 
 3. Run Docker Container (German Docs [🇩🇪])
 ```
-docker run --rm -it -v "$PWD":/docs -w /docs/de -p 8000:8000 openitcockpit/mkdocs
+docker run --rm -it -v "$PWD":/docs -w /docs/de -p 8000:8000 openitcockpit/properdocs
 ```
 
 3. Run Docker Container (English Docs [🇺🇸])
 ```
-docker run --rm -it -v "$PWD":/docs -w /docs/en -p 8000:8000 openitcockpit/mkdocs
+docker run --rm -it -v "$PWD":/docs -w /docs/en -p 8000:8000 openitcockpit/properdocs
 ```
 
 4. Open in Web Browser
@@ -59,13 +59,13 @@ cd openITCOCKPIT-documentation/
 
 2. Build Docker image
 ```
-docker build . -t openitcockpit/mkdocs
+docker build . -t openitcockpit/properdocs
 ```
 
 3. Build all languages
 ```
-docker run --rm -it -v "$PWD":/docs -w /docs/de -p 8000:8000 openitcockpit/mkdocs /usr/bin/mkdocs build
-docker run --rm -it -v "$PWD":/docs -w /docs/en -p 8000:8000 openitcockpit/mkdocs /usr/bin/mkdocs build
+docker run --rm -it -v "$PWD":/docs -w /docs/de -p 8000:8000 openitcockpit/properdocs /usr/bin/properdocs build
+docker run --rm -it -v "$PWD":/docs -w /docs/en -p 8000:8000 openitcockpit/properdocs /usr/bin/properdocs build
 
 mkdir htdocs
 cp -r de/site/. htdocs/
