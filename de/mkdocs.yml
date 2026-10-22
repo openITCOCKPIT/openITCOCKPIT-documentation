@@ -156,9 +156,9 @@ plugins:
   - search
   - glightbox
 
-#  Theme docs: https://jaywhj.github.io/mkdocs-materialx/
+#  Theme docs: https://squidfunk.github.io/mkdocs-material/
 theme:
-  name: materialx
+  name: material
   font: false
   topbar_style: primary  # or glass
   custom_dir: overrides
