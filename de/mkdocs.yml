@@ -51,6 +51,7 @@ nav:
       - 'Mattermost': 'alerting/mattermost.md'
       - 'PagerDuty': 'alerting/pagerduty.md'
       - 'Slack': 'alerting/slack.md'
+      - 'Telegram': 'alerting/telegram.md'
       - 'ServiceNow': 'alerting/servicenow.md'
       - 'Jira': 'alerting/jira.md'
       - 'E-Mail Layouts anpassen': 'alerting/email-layouts.md'
