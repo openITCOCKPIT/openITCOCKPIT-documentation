@@ -5,7 +5,8 @@ RUN apk add python3-dev gcc g++ make automake
 RUN pip install --break-system-packages properdocs==1.6.7 && \
 pip install --break-system-packages mkdocs-materialx==10.2.1 && \
 pip install --break-system-packages markdown-include==0.8.1 && \
-pip install --break-system-packages mkdocs-glightbox==0.5.2
+pip install --break-system-packages mkdocs-glightbox==0.5.2 && \
+pip install --break-system-packages selectolax==1.0.0
 
 # https://properdocs.org/user-guide/installation/
 # https://jaywhj.github.io/mkdocs-materialx/installation.html
