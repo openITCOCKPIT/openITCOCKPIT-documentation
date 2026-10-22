@@ -159,6 +159,7 @@ plugins:
 #  Theme docs: https://jaywhj.github.io/mkdocs-materialx/
 theme:
   name: materialx
+  font: false
   topbar_style: primary  # or glass
   custom_dir: overrides
   language: de
