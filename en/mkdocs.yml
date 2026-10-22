@@ -52,6 +52,7 @@ nav:
       - 'PagerDuty': 'alerting/pagerduty.md'
       - 'Slack': 'alerting/slack.md'
       - 'ServiceNow': 'alerting/servicenow.md'
+      - 'Telegram': 'alerting/telegram.md'
       - 'Jira': 'alerting/jira.md'
       - 'Custom Email Layouts': 'alerting/email-layouts.md'
       - 'Custom Alert Module': 'alerting/custom-alert-module.md'
