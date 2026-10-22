@@ -2,6 +2,43 @@
 
 {% block extrahead %}
   {{ super() }}
+  <style>
+    .ai-content-notice {
+      margin: 0 0 0.9rem;
+      padding-left: 0.65rem;
+      border-left: 2px solid var(--md-default-fg-color--lighter);
+      display: flex;
+      align-items: flex-start;
+      gap: 0.45rem;
+      font-size: 0.74rem;
+      line-height: 1.35;
+      color: var(--md-default-fg-color--light);
+      opacity: 0.85;
+    }
+
+    .ai-content-notice-icon-wrap {
+      display: inline-flex;
+      align-items: center;
+      flex: 0 0 auto;
+      margin-top: 0.02rem;
+    }
+
+    .ai-content-notice-icon {
+      width: 1.15rem;
+      height: auto;
+      opacity: 0.72;
+    }
+
+    .ai-content-notice strong {
+      font-weight: 600;
+      color: var(--md-default-fg-color--light);
+    }
+
+    .ai-content-notice p {
+      margin: 0;
+      font-style: italic;
+    }
+  </style>
   <!-- Machine readable AI notice -->
   <meta name="ai-generated" content="true">
   <meta name="ai-review-status" content="human-verified">
@@ -10,11 +47,14 @@
 
 <!-- Human readable AI notice -->
 {% block content %}
-  <div class="admonition note admonition-no-icon">
-    <p class="admonition-title">🤖 AI-Assisted Content Notice</p>
-    <p style="font-style: italic;">This documentation was generated with the assistance of artificial intelligence and has been human-reviewed for accuracy.</p>
+  <div class="ai-content-notice" role="note" aria-label="AI-assisted content notice">
+    <picture class="ai-content-notice-icon-wrap" aria-hidden="true">
+      <source srcset="/images/ai/eu-ai-label-white.svg" media="(prefers-color-scheme: dark)">
+      <img class="ai-content-notice-icon" src="/images/ai/eu-ai-label-black.svg" alt="">
+    </picture>
+    <p><strong>AI-assisted content notice:</strong> This documentation was created with support from artificial intelligence and has been reviewed by humans for accuracy.</p>
   </div>
 
   <!-- Render the actual content -->
-  {{ super() }} 
+  {{ super() }}
 {% endblock %}

@@ -23,14 +23,16 @@ have connected to the bot and authenticated using a key generated in openITCOCKP
 
 ### 1. Create a Telegram Bot
 
-- ![](/images/telegram/2-botfather.png)
+![](/images/telegram/2-botfather.png)
+
 - Start a new Telegram chat with @BotFather.
 - Click "start" and run `/newbot`:
     - Choose a name for your bot, such as `DEV-openITCOCKPIT`
     - Choose a username for your bot, such as `oitc_uzumymw_bot`
 - Open your openITCOCKPIT instance
 - Copy the API token provided by BotFather into System Configuration -> APIs -> Telegram.
-- ![](/images/telegram/3-oitc-tele-api.png)
+
+![](/images/telegram/3-oitc-tele-api.png)
 
 ### 2. Configure Contacts
 
@@ -39,17 +41,22 @@ have connected to the bot and authenticated using a key generated in openITCOCKP
 - Add the notification commands you want to use:
     - `host-notify-by-telegram`
     - `service-notify-by-telegram`
-- ![](/images/telegram/4-contact.png)
+
+![](/images/telegram/4-contact.png)
+
 - Save your changes, then navigate to System Configuration -> APIs -> Telegram Page.
 - The page displays the users configured to use the Telegram notification commands.
 - Click Generate Key next to the relevant user and send the generated key to that user.
-- ![](/images/telegram/5-join-openitcockpit.png)
+
+![](/images/telegram/5-join-openitcockpit.png)
 
 ### 3. Joining Your Bot
 
 - Ask the user to find your bot in the Telegram app and click Start to open a chat. In this example, the bot can be
   found by searching for  `oitc_uzumymw_bot`.
-- ![](/images/telegram/6-join-telegram.png)
+
+![](/images/telegram/6-join-telegram.png)
+
 - After starting the chat, the user must authenticate with the bot.
 - The user must send `/auth THEUSERSGENERATEDKEY` to the bot, replacing THEUSERSGENERATEDKEY with the key generated for
   their account. The bot will send a confirmation message if authentication is successful.
@@ -61,7 +68,7 @@ Now, the user has several options to chose from:
 - `/help` shows this help text again
 - `/delete` deletes this bot connection in openITCOCKPIT
 
-- ![](/images/telegram/7-testmessage.png)
+![](/images/telegram/7-testmessage.png)
 
 ### Useful info
 

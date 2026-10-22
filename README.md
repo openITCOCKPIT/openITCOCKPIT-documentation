@@ -64,8 +64,8 @@ docker build . -t openitcockpit/mkdocs
 
 3. Build all languages
 ```
-docker run --rm -it -v "$PWD":/docs -w /docs/de -p 8000:8000 openitcockpit/mkdocs /usr/bin/mkdocs build
-docker run --rm -it -v "$PWD":/docs -w /docs/en -p 8000:8000 openitcockpit/mkdocs /usr/bin/mkdocs build
+docker run --rm -it -v "$PWD":/docs -w /docs/de -p 8000:8000 openitcockpit/mkdocs /usr/bin/properdocs build
+docker run --rm -it -v "$PWD":/docs -w /docs/en -p 8000:8000 openitcockpit/mkdocs /usr/bin/properdocs build
 
 mkdir htdocs
 cp -r de/site/. htdocs/

@@ -156,9 +156,11 @@ plugins:
   - search
   - glightbox
 
-#  Theme docs: https://squidfunk.github.io/mkdocs-material/getting-started/
+#  Theme docs: https://squidfunk.github.io/mkdocs-material/
 theme:
   name: material
+  font: false
+  topbar_style: primary  # or glass
   custom_dir: overrides
   language: en
   logo: images/logo/openitcockpit-light.png
