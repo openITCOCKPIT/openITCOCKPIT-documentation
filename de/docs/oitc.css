@@ -106,3 +106,38 @@ img {
 .admonition-no-icon .admonition-title {
     padding-left: 0.6rem!important;
 }
+
+.md-typeset h1,
+.md-typeset h2,
+.md-typeset h3,
+.md-typeset h4,
+.md-typeset h5,
+.md-typeset h6 {
+  font-weight: 300; /* Standard ist 700. Nutzen Sie 300 für Light oder 400 für Normal */
+  letter-spacing: -0.01em; /* Macht lange Überschriften optisch noch etwas eleganter */
+}
+
+/* Optional: Wenn dir die Überschriften in der rechten Navigation (Table of Contents) auch zu fett sind */
+.md-nav__link--active,
+.md-toc__link {
+  font-weight: 400;
+}
+
+/* Soften content heading contrast in both color schemes */
+[data-md-color-scheme="blue"] .md-typeset h1,
+[data-md-color-scheme="blue"] .md-typeset h2,
+[data-md-color-scheme="blue"] .md-typeset h3,
+[data-md-color-scheme="blue"] .md-typeset h4,
+[data-md-color-scheme="blue"] .md-typeset h5,
+[data-md-color-scheme="blue"] .md-typeset h6 {
+    color: rgba(0, 0, 0, 0.78);
+}
+
+[data-md-color-scheme="slate"] .md-typeset h1,
+[data-md-color-scheme="slate"] .md-typeset h2,
+[data-md-color-scheme="slate"] .md-typeset h3,
+[data-md-color-scheme="slate"] .md-typeset h4,
+[data-md-color-scheme="slate"] .md-typeset h5,
+[data-md-color-scheme="slate"] .md-typeset h6 {
+    color: rgba(255, 255, 255, 0.88);
+}
