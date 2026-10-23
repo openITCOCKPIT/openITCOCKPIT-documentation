@@ -152,13 +152,15 @@ extra_css:
   - vendor/font-awesome-4.7.0/css/font-awesome.min.css
   - oitc.css
 
+# https://jaywhj.github.io/mkdocs-materialx/plugins/search.html?h=search
 plugins:
-  - search
+  - search:
+      provider: lunr
   - glightbox
 
 #  Theme docs: https://squidfunk.github.io/mkdocs-material/
 theme:
-  name: material
+  name: materialx
   font: false
   topbar_style: primary  # or glass
   custom_dir: overrides

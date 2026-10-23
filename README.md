@@ -88,6 +88,23 @@ docker run --rm -it --name my-apache-app -p 8080:80 -v "$PWD/htdocs":/usr/local/
 Go to `http://127.0.0.1:8080/`
 
 
+## ProperDocs
+
+Currently the documentation is available in two flavors: The legacy version is build with MkDocs, while the new version is built with ProperDocs.
+The ProperDocs version is currently available as preview and can be build like so:
+
+1. Build Docker image
+```
+docker build -f Dockerfile.properdocs . -t openitcockpit/properdocs
+```
+
+2. Serve ProperDocs
+```
+docker run --rm -it -v "$PWD":/docs -w /docs/de -p 8000:8000 openitcockpit/properdocs
+docker run --rm -it -v "$PWD":/docs -w /docs/en -p 8000:8000 openitcockpit/properdocs
+```
+
+
 ## License
 ```
 Copyright (C) 2015-2025  it-novum GmbH
