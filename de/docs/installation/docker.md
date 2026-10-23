@@ -77,6 +77,14 @@ Das Starten der Container erfolgt mit Hilfe des Befehls
 docker compose up -d
 ```
 
+Der Startvorgang kann etwas dauern. Sobald Sie diese Meldung in den Logs sehen, sind die Container hochgefahren und bereit.
+```
+openitcockpit-1        | ################################################################################
+openitcockpit-1        | #                                                                              #
+openitcockpit-1        | #                          openITCOCKPIT is now ready                          #
+openitcockpit-1        | #                                                                              #
+openitcockpit-1        | ################################################################################
+```
 
 ## Container aktualisieren
 

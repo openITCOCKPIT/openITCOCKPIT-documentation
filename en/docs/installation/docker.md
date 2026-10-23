@@ -76,6 +76,14 @@ The containers are started with the help of the command
 docker compose up -d
 ```
 
+The starup process may take a few moments. As soon as you see this message in the logs, the containers are up and running.
+```
+openitcockpit-1        | ################################################################################
+openitcockpit-1        | #                                                                              #
+openitcockpit-1        | #                          openITCOCKPIT is now ready                          #
+openitcockpit-1        | #                                                                              #
+openitcockpit-1        | ################################################################################
+```
 
 ## Update containers
 
