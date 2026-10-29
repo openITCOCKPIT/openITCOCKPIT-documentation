@@ -158,7 +158,7 @@ plugins:
 
 #  Theme docs: https://squidfunk.github.io/mkdocs-material/
 theme:
-  name: material
+  name: materialx
   font: false
   topbar_style: primary  # or glass
   custom_dir: overrides

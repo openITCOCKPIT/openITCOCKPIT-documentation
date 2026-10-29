@@ -24,17 +24,17 @@ cd openITCOCKPIT-documentation/
 
 2. Build Docker image
 ```
-docker build . -t openitcockpit/mkdocs
+docker build . -t openitcockpit/properdocs
 ```
 
 3. Run Docker Container (German Docs [🇩🇪])
 ```
-docker run --rm -it -v "$PWD":/docs -w /docs/de -p 8000:8000 openitcockpit/mkdocs
+docker run --rm -it -v "$PWD":/docs -w /docs/de -p 8000:8000 openitcockpit/properdocs
 ```
 
 3. Run Docker Container (English Docs [🇺🇸])
 ```
-docker run --rm -it -v "$PWD":/docs -w /docs/en -p 8000:8000 openitcockpit/mkdocs
+docker run --rm -it -v "$PWD":/docs -w /docs/en -p 8000:8000 openitcockpit/properdocs
 ```
 
 4. Open in Web Browser
@@ -59,13 +59,13 @@ cd openITCOCKPIT-documentation/
 
 2. Build Docker image
 ```
-docker build . -t openitcockpit/mkdocs
+docker build . -t openitcockpit/properdocs
 ```
 
 3. Build all languages
 ```
-docker run --rm -it -v "$PWD":/docs -w /docs/de -p 8000:8000 openitcockpit/mkdocs /usr/bin/properdocs build
-docker run --rm -it -v "$PWD":/docs -w /docs/en -p 8000:8000 openitcockpit/mkdocs /usr/bin/properdocs build
+docker run --rm -it -v "$PWD":/docs -w /docs/de -p 8000:8000 openitcockpit/properdocs /usr/bin/properdocs build
+docker run --rm -it -v "$PWD":/docs -w /docs/en -p 8000:8000 openitcockpit/properdocs /usr/bin/properdocs build
 
 mkdir htdocs
 cp -r de/site/. htdocs/
@@ -78,7 +78,7 @@ cp -r en/site/. htdocs/en
 
 Copy the content of the `htdocs` folder to your web servers document root.
 
-To documentation does **not require** any server side programing languages like php, python or java. 
+The documentation does **not require** any server side programming languages like php, python or java. 
 
 You can also use an Apache2 web server running inside of a Docker container like in this example:
 ```
@@ -87,6 +87,24 @@ docker run --rm -it --name my-apache-app -p 8080:80 -v "$PWD/htdocs":/usr/local/
 
 Go to `http://127.0.0.1:8080/`
 
+
+## MkDocs (Legacy)
+
+Currently the documentation is available in two flavors: The legacy version is build with MkDocs, while the new version is built with ProperDocs.
+The MkDocs version is the legacy version and can be build like so:
+
+1. Build Docker image
+```
+docker build -f Dockerfile.mkdocs . -t openitcockpit/mkdocs
+```
+
+2. Serve MkDocs
+```
+docker run --rm -it -v "$PWD":/docs -w /docs/de -p 8000:8000 openitcockpit/mkdocs
+docker run --rm -it -v "$PWD":/docs -w /docs/en -p 8000:8000 openitcockpit/mkdocs
+```
+
+The legacy version will probably be removed in the future.
 
 ## License
 ```
