@@ -237,7 +237,7 @@ dnf --refresh check-update
 cat <<EOT > /etc/yum.repos.d/openitcockpit.repo
 [openitcockpit]
 name=openITCOCKPIT Monitoring System
-baseurl=https://packages5.openitcockpit.io/openitcockpit/RHEL8/stable/\$basearch/
+baseurl=https://packages5.openitcockpit.io/openitcockpit/RHEL9/stable/\$basearch/
 enabled=1
 gpgcheck=1
 gpgkey=https://packages5.openitcockpit.io/repokey.txt
