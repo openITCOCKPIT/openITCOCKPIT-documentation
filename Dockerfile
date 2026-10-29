@@ -1,9 +1,5 @@
 FROM alpine:3.24
 
-# Known Issues
-# Search shows html anchor tags in search results
-# Search preview does not render markdown (code blocks are missing)
-
 RUN apk update && apk add python3 py3-pip py3-wheel git
 RUN apk add python3-dev gcc g++ make automake
 RUN pip install --break-system-packages properdocs==1.6.7 && \
