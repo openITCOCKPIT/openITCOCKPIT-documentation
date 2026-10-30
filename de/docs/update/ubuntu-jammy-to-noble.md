@@ -109,7 +109,7 @@ Auf einem openITCOCKPIT Satellit nutzen Sie den folgenden Befehl
 /opt/openitc/frontend/UPDATE.sh
 ```
 
-Um das Update abzuschließen, wird ein Neustart empfohlen
+Ein Neustart des Systems ist erforderlich, um den neuen Kernel zu aktivieren
 ```
 reboot
 ```
