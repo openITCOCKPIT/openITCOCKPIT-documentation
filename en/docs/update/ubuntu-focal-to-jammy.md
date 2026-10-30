@@ -8,6 +8,11 @@ Please make sure to run all commands as `root` user.
 In order to always be able to use the latest version of openITCOCKPIT, it is important to keep the underlying operating system up to date.
 You can use this guide to upgrade your Ubuntu Focal System to Ubuntu Jammy.
 
+!!! warning "End of life"
+    Ubuntu 20.04 (Focal) reached its end of life in May 2025 and no longer receives security updates.
+    Use this guide only to migrate an existing installation - a fresh installation of a supported
+    release is usually the better choice.
+
 ##  Requirements
  -  openITCOCKPIT in version 4.x
  -  No packages containing `lxd`
@@ -19,7 +24,7 @@ If you have `lxd` packages installed on your system, they must be removed first.
 apt list --installed | grep lxd
 ```
 
-If any `lxd` packages where found, remove tham like so
+If any `lxd` packages were found, remove them like so
 ```
 apt -y remove lxd*
 ```

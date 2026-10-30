@@ -5,11 +5,16 @@
 
 Führen Sie alle Kommandos als `root` Benutzer aus.
 
-Um immer die aktuelle Version von openITCOCKPIT verwenden zu können, ist es wichtig, dass zugrundeliegende Betriebssystem aktuell zu halten.
+Um immer die aktuelle Version von openITCOCKPIT verwenden zu können, ist es wichtig, das zugrundeliegende Betriebssystem aktuell zu halten.
 Mit dieser Anleitung können Sie Ihr Debian Bullseye System auf Debian Bookworm aktualisieren.
 
+!!! warning "End of Life"
+    Debian 11 (Bullseye) hat im August 2026 das Ende seiner Lebenszeit erreicht und erhält keine
+    Sicherheitsupdates mehr. Nutzen Sie diese Anleitung nur, um eine bestehende Installation zu migrieren -
+    eine Neuinstallation auf einem unterstützten Release ist in der Regel die bessere Wahl.
+
 ##  Voraussetzungen
- -  openITCOCKPIT in der Version 4.x
+ -  openITCOCKPIT in der Version 4.x oder 5.x
  -  Keine Pakete die `lxd` beinhalten.
 
 ## Entfernen aller `lxd` Pakete
@@ -43,37 +48,68 @@ openitcockpit_upd=$(apt-mark showmanual | grep openitcockpit | xargs echo)" "$(a
 ```
 
 ## Paketquellen ändern
-Nun können die Paketquellen auf den nächsten Debian-Release geändert werden
-```
-echo "deb http://deb.debian.org/debian bookworm main contrib non-free" > /etc/apt/sources.list
-echo "deb-src http://deb.debian.org/debian bookworm main contrib non-free" >> /etc/apt/sources.list
-echo "deb http://security.debian.org/debian-security bookworm-security main contrib non-free" >> /etc/apt/sources.list
-echo "deb-src http://security.debian.org/debian-security bookworm-security main contrib non-free" >> /etc/apt/sources.list
-echo "deb http://deb.debian.org/debian bookworm-updates main contrib non-free" >> /etc/apt/sources.list
-echo "deb-src http://deb.debian.org/debian bookworm-updates main contrib non-free" >> /etc/apt/sources.list
+Nun müssen die Paketquellen auf den nächsten Debian-Release geändert werden. Überschreiben Sie
+`/etc/apt/sources.list` nicht - dort kann eine Mirror- oder Proxy-Konfiguration stehen, und das
+openITCOCKPIT Repository liegt in `/etc/apt/sources.list.d/openitcockpit.sources`.
 
-sed -i 's/bullseye/bookworm/g' /etc/apt/sources.list.d/*.list
+Ersetzen Sie den Release-Namen in allen Quelldateien - das schließt die `*.sources` Dateien im
+deb822-Format mit ein:
+
+```bash
+for f in /etc/apt/sources.list /etc/apt/sources.list.d/*.list /etc/apt/sources.list.d/*.sources; do
+    [ -f "$f" ] && sed -i 's/bullseye/bookworm/g' "$f"
+done
 ```
+
+Debian 12 hat die Komponente `non-free-firmware` eingeführt. Ergänzen Sie diese, falls sie fehlt:
+
+```bash
+sed -i 's/ main contrib non-free$/ main contrib non-free non-free-firmware/' /etc/apt/sources.list
+```
+
+Prüfen Sie, dass keine Bullseye-Quelle übrig ist:
+
+```bash
+grep -rn bullseye /etc/apt/sources.list /etc/apt/sources.list.d/ 2>/dev/null
+```
+
+Der `grep` Befehl darf keine Zeile mehr ausgeben.
 
 ## Upgrade durchführen
-Jetzt wird das eigentliche Upgrade von Debian 10 auf 11 durchgeführt.
-```
+Jetzt wird das eigentliche Upgrade von Debian 11 auf 12 durchgeführt.
+```bash
 apt update
+
+# Simulation (nur prüfen) - darf keine unerfüllten Abhängigkeiten melden
+apt -s full-upgrade $openitcockpit_upd php-json php-curl php-gearman php-xml
+
+# Upgrade wirklich ausführen
 apt -y full-upgrade $openitcockpit_upd php-json php-curl php-gearman php-xml
 ```
 
 ### Update von PHP
-Nun werden alle PHP Pakete aktualisiert.
+Nun werden alle PHP Pakete aktualisiert. Debian 12 bringt PHP 8.2 mit, die alten 7.4 Pakete müssen
+entfernt werden.
 
-```
-dpkg -l | awk '/php7.4/ { print $2}' | xargs apt-get purge -y
+```bash
+dpkg -l | awk '/^ii +php7\.4/ { print $2 }' | xargs -r apt-get purge -y
 rm -rf /etc/php/7.4/
 ```
 
-### Zeitzone in php.ini anpassen
+### Zeitzone in php.ini anpassen (optional)
 
+openITCOCKPIT verwendet die Zeitzone aus der PHP-Konfiguration. Prüfen Sie den aktuellen Wert in
+`/etc/php/8.2/fpm/php.ini`:
+
+```bash
+grep '^;\?date.timezone' /etc/php/8.2/fpm/php.ini
 ```
-date.timezone = Europe/Berlin
+
+Ist der Wert leer oder passt nicht zur Zeitzone des Systems, setzen Sie ihn auf die Systemzeitzone:
+
+```bash
+timezone=$(timedatectl show -p Timezone --value)
+sed -i "s|^;\?date.timezone =.*|date.timezone = ${timezone}|" /etc/php/8.2/fpm/php.ini
 ```
 
 ### PHP FPM (neu-)starten

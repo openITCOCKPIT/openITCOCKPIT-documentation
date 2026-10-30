@@ -136,7 +136,7 @@ apt-get update
 ## Installing openITCOCKPIT
 
 !!! danger
-    openITCOCKPIT expecteds the Linux default umask to be set to `022` (default for most Linux distributions).
+    openITCOCKPIT expects the Linux default umask to be set to `022` (default for most Linux distributions).
     If you are unsure change the umask to `022` before you continue with the update.
     ```
     umask 0022
