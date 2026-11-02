@@ -226,7 +226,7 @@ openITCOCKPIt verwaltet im Hintergrund alle nötigen Konfigurationsänderungen s
 Hosts können zu jedem Zeitpunkt vom Mastersystem auf einen Satelliten und zurück verschoben werden.
 
 
-![](/images/host-satellite.png)
+![Screenshot: Host auf einem Satelliten erstellen](/images/host-satellite.png)
 
 ## State is no longer current
 

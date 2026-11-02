@@ -20,7 +20,7 @@ The ticket author and a link to the ticket are displayed in the host / service a
 
 When the host or service regains an Up or Ok status, the PagerDuty ticket is automatically closed (if still open).
 
-![](/images/pagerduty-incidents.png)
+![Screenshot: What can I do with the PagerDuty module?](/images/pagerduty-incidents.png)
 
 ### What can I configure?
 
@@ -49,11 +49,11 @@ Configuration → API Access.
 Click on the "**Create New Api Key**" button, enter a description, select API version 2 and confirm by pressing "**
 Create Key**".
 
-![](/images/pagerduty-createapikey.png)
+![Screenshot: Simple integration](/images/pagerduty-createapikey.png)
 
 In the next dialog, copy the API key created in openITCOCKPIT to the PagerDuty settings page.
 
-![](/images/pagerduty-getapikey.png)
+![Screenshot: Simple integration](/images/pagerduty-getapikey.png)
 
 You should now immediately save your key as it will not be possible to display it again.
 
@@ -64,7 +64,7 @@ Navigate to the Configuration → Services menu item and click on "**\+ New Serv
 Here it is important that "openITCOCKPIT" is selected as the "**Integration Type**" from the selection box ("Select a
 tool").
 
-![](/images/pagerduty-addservice.png)
+![Screenshot: Simple integration](/images/pagerduty-addservice.png)
 
 The Incident Behaviour option must be set to "*Create incidents*"!
 
@@ -89,7 +89,7 @@ If your system is behind a proxy, you may need to manually adjust the hostname t
 To create an openITCOCKPIT API key, click on your user profile in the top left corner in openITCOCKPIT and scroll to the
 bottom of the page. From here you can create a new API key.
 
-![](/images/pagerduty-serviceextensions.png)
+![Screenshot: Two-way integration](/images/pagerduty-serviceextensions.png)
 
 Click on "**Save**" to save the extension.
 
@@ -100,7 +100,7 @@ configuration.
 
 Don't forget to save your changes.
 
-![](/images/pagerduty-config.png)
+![Screenshot: Updating the openITCOCKPIT configuration](/images/pagerduty-config.png)
 
 So that the host/service contact person can be notified when a problem occurs, the nominated individual will need the
 PagerDuty notification commands.
@@ -109,13 +109,13 @@ Search for "Contacts" in the openITCOCKPIT menu or go directly to "Monitoring→
 
 On the contact page, click the gear symbol on the right.
 
-![](/images/menu-contacts.png)
+![Screenshot: Updating the openITCOCKPIT configuration](/images/menu-contacts.png)
 
-![](/images/contacts-editcontact.png)
+![Screenshot: Updating the openITCOCKPIT configuration](/images/contacts-editcontact.png)
 
 Edit the contact you want PagerDuty to notify, add the command "*host-notify-by-pagerduty*" to the host commands and "*
 service-notify-by-pagerduty*" to the service commands.
 
-![](/images/contacts-pagerdutynotifications.png)
+![Screenshot: Updating the openITCOCKPIT configuration](/images/contacts-pagerdutynotifications.png)
 
 **Finished. The configuration is now complete.**

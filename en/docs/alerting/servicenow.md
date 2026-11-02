@@ -11,7 +11,7 @@
 
 In order to connect the ServiceNow module to a ServiceNow (London) instance, you must first create a ServiceNow user.
 
-![](/images/servicenow-usersmenu.png)
+![Screenshot: Creating ServiceNow users](/images/servicenow-usersmenu.png)
 
 The following parameters must be specified:
 
@@ -29,9 +29,9 @@ The new role 'incident\_manager' must also be added to the user (at the bottom o
 
 The role must then be saved by clicking **Save** and the user updated by clicking **Update**.
 
-![](/images/servicenow-userrolesedit.png)
+![Screenshot: Creating ServiceNow users](/images/servicenow-userrolesedit.png)
 
-![](/images/servicenow-userrolesedit2.png)
+![Screenshot: Creating ServiceNow users](/images/servicenow-userrolesedit2.png)
 
 ### Configure the ServiceNow custom incident summary
 
@@ -41,21 +41,21 @@ To do this, first open any incident (Menu → Incidents → All → click on Inc
 
 On the page that is displayed, the table 'Incident' and the view 'Default view' should be selected at the top left.
 
-![](/images/servicenow-incidentfields.png)
+![Screenshot: Configure the ServiceNow custom incident summary](/images/servicenow-incidentfields.png)
 
 To clone the selected view, open the drop-down menu which currently shows 'Default view' and click on '**New…**'
 
-![](/images/servicenow-incidentnew.png)
+![Screenshot: Configure the ServiceNow custom incident summary](/images/servicenow-incidentnew.png)
 
 Select the name 'openITCOCKPIT' and confirm this choice with OK.
 
-![](/images/servicenow-createview.png)
+![Screenshot: Configure the ServiceNow custom incident summary](/images/servicenow-createview.png)
 
 The new view should now be selected in the drop-down menu.
 
 On the left side, in the tab 'Field Types', enter the filter 'URL'. A new URL field object should appear.
 
-![](/images/servicenow-newurlfield.png)
+![Screenshot: Configure the ServiceNow custom incident summary](/images/servicenow-newurlfield.png)
 
 **The URL object** can be dragged and dropped to the desired position in the boxes on the right-hand side.
 
@@ -65,21 +65,21 @@ Recommended configuration:
 
 (Arrange the objects for the 'Host URL' and 'Service URL' fields in the second box under the 'Description' object)
 
-![](/images/servicenow-incidentfieldtype.png)
+![Screenshot: Configure the ServiceNow custom incident summary](/images/servicenow-incidentfieldtype.png)
 
 After adding the two URL objects, they must be edited using the gear wheel icon on the right.
 
 The name 'u_host_url' must be selected for the label 'Host URL' and the name 'u_service_url' for the 'Service URL' label.
 
-![](/images/servicenow-hosturlproperties.png)
+![Screenshot: Configure the ServiceNow custom incident summary](/images/servicenow-hosturlproperties.png)
 
-![](/images/servicenow-serviceurlproperties.png)
+![Screenshot: Configure the ServiceNow custom incident summary](/images/servicenow-serviceurlproperties.png)
 
 Then the configuration can be saved by clicking 'Save' in the top right. The tab can now be closed.
 
 A 'View Rule' must now be created so that the Incident View you just created will automatically be selected for Incidents created by openITCOCKPIT.
 
-![](/images/servicenow-viewrules.png)
+![Screenshot: Configure the ServiceNow custom incident summary](/images/servicenow-viewrules.png)
 
 The view rule should be defined as follows:
 
@@ -93,7 +93,7 @@ The Caller value corresponds to the name of the ServiceNow user created for open
 
 Now save your new rule by clicking on ‘Submit’
 
-![](/images/servicenow-newviewrole.png)
+![Screenshot: Configure the ServiceNow custom incident summary](/images/servicenow-newviewrole.png)
 
 ### Save module configuration
 
@@ -109,7 +109,7 @@ For 'Impact' and 'Urgency' there are 3 available options each (High, Medium, Low
 
 Details on the priority classification can be found in the official [ServiceNow documentation](https://docs.servicenow.com/bundle/london-it-service-management/page/product/incident-management/reference/r_PrioritizationOfIncidents.html?cshalt=yes).
 
-![](/images/servicenow-config.png)
+![Screenshot: Save module configuration](/images/servicenow-config.png)
 
 ### Activate notifications
 
@@ -121,7 +121,7 @@ The notification for the 'Recovery' state must always be activated to ensure the
 
 Because these involve changes to the Nagios configuration, an [Export](../../monitoring/basic-principles/#how-do-i-carry-out-an-export) must be carried out after this step.
 
-![](/images/contacts-servicenownotifications.png)
+![Screenshot: Activate notifications](/images/contacts-servicenownotifications.png)
 
 ## Setting up two-way integration
 
@@ -145,7 +145,7 @@ The following settings must also be made in the '**When to run**' tab:
 
 The 'Caller' and 'Updated by' values correspond to the name of the user that has been created (in this instance 'openITCOCKPIT').
 
-![](/images/servicenow-businessrule.png)
+![Screenshot: Setting up two-way integration](/images/servicenow-businessrule.png)
 
 In the '**Advanced**' tab, the following source code must be inserted into the 'Script' field (no 'Condition' is required at this point):
 
@@ -226,9 +226,9 @@ To get the debug output from calling the business rule in ServiceNow (for exampl
 
 To activate debug mode, click on the 'available here' link and then on the 'Update' button in the subsequent tab that opens.
 
-![](/images/servicenow-debugbusinessrule.png)
+![Screenshot: Debugging](/images/servicenow-debugbusinessrule.png)
 
-![](/images/servicenow-scriptexecutionhistory.png)
+![Screenshot: Debugging](/images/servicenow-scriptexecutionhistory.png)
 
 You can then navigate back to the incident and update it.
 
@@ -246,7 +246,7 @@ The ServiceNow Incident number (with link) will be displayed in the acknowledgem
 
 Schematic representation of possible interactions with ServiceNow:
 
-![](/images/servicenow-schema.png)
+![Figure: Usage](/images/servicenow-schema.png)
 
 The 'ServiceNow' tab appears in the hosts and services browser when the ServiceNow module is activated. If you need to provide any host or service-specific incident settings that deviate from the global configuration, these can be made here.
 
@@ -258,4 +258,4 @@ The incident 'State' and 'Updated By' fields are sent in addition to the inciden
 
 When changing the Incident State to 'Closed' or 'Resolved', the 'Resolution Code', the 'Resolution Notes' and the system ID of the 'Resolved By' user are also sent to openITCOCKPIT.
 
-![](/images/servicenow-schema2.png)
+![Figure: Usage](/images/servicenow-schema2.png)

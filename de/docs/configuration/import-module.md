@@ -12,13 +12,13 @@ In einem ersten Schritt muss unter *Host-Standardeinstellungen* mindestens eine 
 
 Navigieren Sie zu `Verwaltung -> Objektimport -> Host-Standardeinstellungen` und erstellen Sie über den Button **New** eine neue Definition.
 
-![](/images/import-module/host_defaults.png)
+![Screenshot: Host-Standardeinstellungen](/images/import-module/host_defaults.png)
 
 Mit der Auswahl eines Containers wird festgelegt, in welchen Container die neuen Host importiert werden sollen. Mittels Hosttemplate kann definiert werden, welche Vorlage bei neu importierten Hosts als Basis genutzt werden soll. Durch die Auswahl weiterer Shared Container kann auch direkt ein Aufbau spezieller Sichten realisiert werden. Als letztes Hostdetail wird noch ausgewählt, ob die neuen Hosts auf dem Mastersystem oder einem Satelliten angelegt werden sollen.
 
 In den optionalen Sektionen können schließlich die Regeln für die automatische Servicezuweisung definiert werden.
 
-![](/images/import-module/servicetemplategroup_matches.png)
+![Screenshot: Host-Standardeinstellungen](/images/import-module/servicetemplategroup_matches.png)
 
 Das Bild zeigt exemplarische die Zuweisung von Servicetemplate Groups, bei denen eines der Attribute Hostname, Description, Address oder Software mit einem regulären Ausdruck verglichen wird. Sofern der reguläre Ausdruck gefunden wird, erfolgt eine Zuweisung der ausgewählten Servicetemplate Group.
 
@@ -45,11 +45,11 @@ Nach der Definition einer Host-Standardeinstellungen-Vorlage können direkt Impo
 
 Navigieren Sie zu `Verwaltung -> Objektimport -> Importeure`
 
-![](/images/import-module/csv_settings.png)
+![Screenshot: CSV Import](/images/import-module/csv_settings.png)
 
 Wichtig sind insbesondere die richtigen Attribute im Mapping und die Auswahl einer Host-Standardeinstellungen-Vorlage, damit die Zuordnungen richtig erfolgen können.
 
-![](/images/import-module/csv_mapping.png)
+![Screenshot: CSV Import](/images/import-module/csv_mapping.png)
 
 Eine funktionierende CSV-Datei für den Import könnte wie folgt aussehen:
 
@@ -66,7 +66,7 @@ Für den Import von openITCOCKPIT Agents benötigt man eine spezielle Host-Stand
 
 Navigieren Sie zu `Verwaltung -> Objektimport -> Host-Standardeinstellungen`
 
-![](/images/import-module/agent_checks_matches.png)
+![Screenshot: openITCOCKPIT Agent](/images/import-module/agent_checks_matches.png)
 
 Alle weiteren Parameter verhalten sich analog zu anderen Host-Standardeinstellungen und werden daher an dieser Stelle nicht mehr beschrieben.
 
@@ -74,7 +74,7 @@ Navigieren Sie zu `Verwaltung -> Objektimport -> Importeure`
 
 Die Einstellungen des Importers sind dann ähnlichen denen eines CSV-Importers. Wichtig ist als Datenquelle den openITCOCKPIT Agent auszuwählen und bei den Host Default Zuweisungen das richtige Template auszuwählen.
 
-![](/images/import-module/agent_host_defaults_assignment.png)
+![Screenshot: openITCOCKPIT Agent](/images/import-module/agent_host_defaults_assignment.png)
 
 ### CMDB
 
@@ -84,17 +84,17 @@ Dabei müssen die CMDB spezifischen Verbindungsdaten eingeben werden.
 
 Navigieren Sie zu `Verwaltung -> Objektimport -> Externe Systeme`
 
-![](/images/import-module/ext_systems_conn_settings.png)
+![Screenshot: CMDB](/images/import-module/ext_systems_conn_settings.png)
 
 Darüber hinaus ist zu definieren, welche Objekttypen aus der CMDB in den Import mit einbezogen werden sollen.
 
-![](/images/import-module/ext_systems_object_types.png)
+![Screenshot: CMDB](/images/import-module/ext_systems_object_types.png)
 
 Nachdem die CMDB als externes System eingerichtet wurde, kann der Importer wie gewohnt erstellt werden. Als Datenquelle ist die entsprechende CMDB (i-doit, iTop, ...) in Kombination mit dem Externen System, das abgefragt werden soll, auszuwählen.
 
 Navigieren Sie zu `Verwaltung -> Objektimport -> Importeure`
 
-![](/images/import-module/importer_cmdb_source.png)
+![Screenshot: CMDB](/images/import-module/importer_cmdb_source.png)
 
 !!! info "Hinweis"
     Durch den Import der Hosts werden die Hosts auch im Assetinformationen aus der CMDB erweitert.
@@ -109,7 +109,7 @@ Nachdem das System angelegt wurde, kann der Importer erzeugt werden.
 
 Navigieren Sie zu `Verwaltung -> Objektimport -> Importeure`
 
-![](/images/import-module/importer_ext_mon_source.png)
+![Screenshot: Externes Monitoring System](/images/import-module/importer_ext_mon_source.png)
 
 ### CMDB + Externes Monitoring System
 
@@ -119,7 +119,7 @@ Navigieren Sie zu `Verwaltung -> Objektimport -> Importeure`
 
 Der Importer kann nun mit beiden Datenquellen erstellt werden.
 
-![](/images/import-module/importer_both_source.png)
+![Screenshot: CMDB + Externes Monitoring System](/images/import-module/importer_both_source.png)
 
 ### Proxmox VE
 
@@ -129,7 +129,7 @@ Die Proxmox VE-spezifischen Verbindungsdaten müssen angegeben werden.
 
 Navigieren Sie zu `Verwaltung -> Objektimport -> Externe Systeme`
 
-![](/images/import-module/proxmox_external_system.png)
+![Screenshot: Proxmox VE](/images/import-module/proxmox_external_system.png)
 
 Sie können auch definieren, welche Objekttypen importiert werden sollen. Aktuell werden `QEMU` und `LXC` unterstützt.
 
@@ -139,7 +139,7 @@ Navigieren Sie zu `Verwaltung -> Objektimport -> Importeure`
 
 Um automatisch Services für die importierten VMs und LXC-Container zu erstellen, ist es erforderlich, eine Software-Zuordnung in der Konfiguration des `Host Defaults` zu definieren. Erstellen Sie zwei `Software`-Regeln, eine für `QEMU` und eine für `LXC`, und weisen Sie die entsprechenden Servicetemplategruppen zu.
 
-![](/images/import-module/proxmox_host_defaults_mapping.png)
+![Screenshot: Proxmox VE](/images/import-module/proxmox_host_defaults_mapping.png)
 
 ## Import der Daten
 
@@ -149,15 +149,15 @@ Navigieren Sie zu `Verwaltung -> Objektimport -> Importierte Hosts`
 
 Über den Button **Import starten** kann der gewünschte Importer ausgewählt werden.
 
-![](/images/import-module/start_import.png)
+![Screenshot: Import der Daten](/images/import-module/start_import.png)
 
 Bei erfolgreicher Verbindung werden alle zu importierenden Systeme aufgelistet und man kann über den Button **Starte Datenimport** den Import beginnen.
 
-![](/images/import-module/hosts_for_import.png)
+![Screenshot: Import der Daten](/images/import-module/hosts_for_import.png)
 
 Im nächsten Schritt erhält man eine Übersicht mit allen Hosts, den zugewiesenen Services und weiteren Informationen. Die Übernahme in das Monitoring erfolgt über den Button **Mit dem Monitoring-System synchronisieren**.
 
-![](/images/import-module/import_sync_monitoring.png)
+![Screenshot: Import der Daten](/images/import-module/import_sync_monitoring.png)
 
 !!! info "Hinweis"
     Zur Aktivierung der Überwachung muss wie gewohnt ein Refresh der Monitoringkonfiguration erfolgen.
@@ -172,44 +172,44 @@ Bei dem Import aus externen Monitoringsystemen wird in der Regel nicht nur die K
 #### Icinga2
 Icinga2 verfügt über einen Eventbroker, von dem die Statusdaten in Echtzeit ermittelt werden können. 
 
-![](/images/import-module/import_icinga2_oitc_1.png)
+![Screenshot: Icinga2](/images/import-module/import_icinga2_oitc_1.png)
 
-![](/images/import-module/import_icinga2_oitc_2.png)
+![Screenshot: Icinga2](/images/import-module/import_icinga2_oitc_2.png)
 
 Dadurch können sogar Acknowledgements und Downtimes in Echtzeit von Icinga2 in openITCOCKPIT übertragen werden.
 
-![](/images/import-module/import_icinga2_oitc_3.png)
+![Screenshot: Icinga2](/images/import-module/import_icinga2_oitc_3.png)
 
-![](/images/import-module/import_icinga2_oitc_4.png)
+![Screenshot: Icinga2](/images/import-module/import_icinga2_oitc_4.png)
 
 #### PRTG
 
 Für PRTG bietet das Importmodul die Möglichkeit Statusinformation und Performancendaten zu übertragen. Anders als bei Icinga2 müssen die Informationen über eine API abgefragt werden. Dadurch ist eine Echtzeitauswertung der Daten nicht möglich. Auch bietet die PRTG-API keine Möglichkeit Downtimes oder Acknowledgments auszulesen.
 
-![](/images/import-module/import_prtg_oitc_1.png)
+![Screenshot: PRTG](/images/import-module/import_prtg_oitc_1.png)
 
-![](/images/import-module/import_prtg_oitc_2.png)
+![Screenshot: PRTG](/images/import-module/import_prtg_oitc_2.png)
 
-![](/images/import-module/import_prtg_oitc_3.png)
+![Screenshot: PRTG](/images/import-module/import_prtg_oitc_3.png)
 
 #### OpManager / ManageEngine
 
 Der OpManager von ManageEngine kann ebenfalls über eine API angebunden werden. Auch hier ist eine Abfrage der API zur Ermittlung der Informationen notwendig, was eine Auswertung in Echtzeit nicht möglich macht. Zudem muss darauf geachtet werden, dass die Anzahl der API Calls limitiert ist und gegebenenfalls die Lizenz des OpManagers erweitert werden muss.
 
-![](/images/import-module/import_opmanager_oitc_1.png)
+![Screenshot: OpManager / ManageEngine](/images/import-module/import_opmanager_oitc_1.png)
 
-![](/images/import-module/import_opmanager_oitc_2.png)
+![Screenshot: OpManager / ManageEngine](/images/import-module/import_opmanager_oitc_2.png)
 
-![](/images/import-module/import_opmanager_oitc_3.png)
+![Screenshot: OpManager / ManageEngine](/images/import-module/import_opmanager_oitc_3.png)
 
-![](/images/import-module/import_opmanager_oitc_4.png)
+![Screenshot: OpManager / ManageEngine](/images/import-module/import_opmanager_oitc_4.png)
 
 #### FlowChief
 
 Aus dem [FlowChief Plantexplorer](https://facts.flowchief.de/de-de/Topics/Plantexplorer/Plantexplorer.htm) können einzelne Knoten mit ihren Prozessvariablen von openITCOCKPIT importiert werden.
 Knoten werden dabei als Host und Prozessvariablen als Dienste erstellt. Statusänderungen werden über eine WebSocket Schnittstelle aboniert um keine zusätzliche Last auf dem FlowChief System zu erzeugen.
 
-![](/images/import-module/FlowChief_data_in_openitcockpit.png)
+![Abbildung: FlowChief](/images/import-module/FlowChief_data_in_openitcockpit.png)
 
 #### LibreNMS
 
@@ -219,9 +219,9 @@ Alle Informationen werden in regelmäßigen Abständen vom LibreNMS System über
 Aktive `Alarme` werden in openITCOCKPIT im Longoutput des Hosts angezeigt und können je nach Konfiguration den Hoststatus auf "Down" wechseln.
 `Ports` und `Services` aus LibreNMS werden in openITCOCKPIT als Service erstellt. openITCOCKPIT versucht dabei den Namen des `Ports` so genau wie möglich nachzubilden.
 
-![](/images/import-module/librenms_example_host.png)
+![Screenshot: LibreNMS](/images/import-module/librenms_example_host.png)
 
-![](/images/import-module/librenms_host_in_openitcockpit.png)
+![Screenshot: LibreNMS](/images/import-module/librenms_host_in_openitcockpit.png)
 
 ### Externe Systeme
 
@@ -231,9 +231,9 @@ Neben Informationen zu der Konfiguration, liefern externe Systeme in der Regel a
 
 i-doit ist eines der Systeme, die auch Assetinformationen liefern können. Dabei werden Unterkategorien sogar auf einer Seite zusammengeführt und ansprechend dargestellt. Für weiterführende Informationen existiert eine Verlinkung, die direkt auf das Asset verweist.
 
-![](/images/import-module/import_oitc_idoit_asset_1.png)
+![Screenshot: i-doit](/images/import-module/import_oitc_idoit_asset_1.png)
 
-![](/images/import-module/import_oitc_idoit_asset_2.png)
+![Screenshot: i-doit](/images/import-module/import_oitc_idoit_asset_2.png)
 
 Neben den Assetinformationen können auch Abhängigkeiten zwischen den einzelnen Assets als Servicebaum dargestellt werden.
 
@@ -243,9 +243,9 @@ Analog zu i-doit liefert iTop ebenfalls Assetinformationen, die bei den Hosts im
 
 Und auch die Abhängigkeiten können ähnlich wie bei i-doit dargestellt werden.
 
-![](/images/import-module/import_oitc_itop_tree_1.png)
+![Screenshot: iTop](/images/import-module/import_oitc_itop_tree_1.png)
 
-![](/images/import-module/import_oitc_itop_tree_2.png)
+![Screenshot: iTop](/images/import-module/import_oitc_itop_tree_2.png)
 
 #### Proxmox VE
 
@@ -255,14 +255,14 @@ Alle Informationen werden in einem konfigurierbaren Intervall gesammelt und auss
 
 Für die Verbindung benötigt openITCOCKPIT ein _normales_ Benutzerkonto auf dem Proxmox VE System oder den VMs.
 
-![](/images/import-module/proxmox_external_system.png)
+![Screenshot: Proxmox VE](/images/import-module/proxmox_external_system.png)
 
 Hosts, die aus Proxmox VE importiert wurden, erhalten einen "Proxmox VE"-Reiter mit nützlichen Informationen zur VM oder zum Container. Außerdem gibt es einen Link zur entsprechenden VM oder zum Container in der Proxmox VE Weboberfläche.
 Die Graphen zeigen die CPU-Auslastung (in Prozent), die Speicherauslastung (in Gigabyte), den Netzwerkverkehr (in Mbit/s) und die Festplatten-I/O (in MB/s). Die Metriken werden aus der Proxmox VE API übernommen und regelmäßig aktualisiert.
 
 Um automatisch Services für die importierten VMs und LXC-Container zu erstellen, ist es erforderlich, eine Software-Zuordnung in der Konfiguration des `Host Defaults` zu definieren. Erstellen Sie zwei `Software`-Regeln, eine für `QEMU` und eine für `LXC`, und weisen Sie die entsprechenden Servicetemplategruppen zu.
 
-![](/images/import-module/proxmox_host_defaults_mapping.png)
+![Screenshot: Proxmox VE](/images/import-module/proxmox_host_defaults_mapping.png)
 
 Zusätzlich kann der Benutzer verschiedene Aktionen wie Starten, Stoppen, Neustarten oder Herunterfahren einer VM direkt aus der openITCOCKPIT Weboberfläche ausführen.
 Es ist ebenfalls möglich, Snapshots einer VM oder eines Containers zu erstellen, zu löschen oder zurückzusetzen.
@@ -271,4 +271,4 @@ Bei Verwendung der Aktion `Reboot` plant openITCOCKPIT automatisch eine Downtime
 
 Alle automatisch erstellten Services werden als `Externer Service` markiert, da die Datenerhebung über die Proxmox VE API und nicht über einen Agenten erfolgt.
 
-![](/images/import-module/proxmox_host_tab.png)
+![Screenshot: Proxmox VE](/images/import-module/proxmox_host_tab.png)

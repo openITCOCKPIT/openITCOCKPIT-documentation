@@ -12,7 +12,7 @@
 Um das ServiceNow Modul mit einer ServiceNow (London) Instanz zu verbinden, muss ein ServiceNow Benutzer angelegt
 werden.
 
-![](/images/servicenow-usersmenu.png)
+![Screenshot: ServiceNow Benutzer anlegen](/images/servicenow-usersmenu.png)
 
 Die Angabe folgender Parameter ist nötig:
 
@@ -31,9 +31,9 @@ Dem Benutzer muss (am Ende der Seite) über Roles → Edit die neue Role 'incide
 
 Danach muss die Role über **Save** gespeichert und der Benutzer über **Update** aktualisiert werden.
 
-![](/images/servicenow-userrolesedit.png)
+![Screenshot: ServiceNow Benutzer anlegen](/images/servicenow-userrolesedit.png)
 
-![](/images/servicenow-userrolesedit2.png)
+![Screenshot: ServiceNow Benutzer anlegen](/images/servicenow-userrolesedit2.png)
 
 ### ServiceNow Benutzerdefinierte Incident Übersicht konfigurieren
 
@@ -45,23 +45,23 @@ Menübutton oben links und navigiert zu dem Punkt Configure → Form Design.
 
 Auf dieser Seite sollten oben links die Tabelle 'Incident' und die Ansicht 'Default view' ausgewählt sein.
 
-![](/images/servicenow-incidentfields.png)
+![Screenshot: ServiceNow Benutzerdefinierte Incident Übersicht konfigurieren](/images/servicenow-incidentfields.png)
 
 Um die ausgewählte Ansicht zu klonen, öffnet man das Dropdown Menü, welches aktuell 'Default view' anzeigt und klickt
 auf '**New...**'
 
-![](/images/servicenow-incidentnew.png)
+![Screenshot: ServiceNow Benutzerdefinierte Incident Übersicht konfigurieren](/images/servicenow-incidentnew.png)
 
 Auch hier sollte der Name 'openITCOCKPIT' gewählt und mit OK bestätigt werden.
 
-![](/images/servicenow-createview.png)
+![Screenshot: ServiceNow Benutzerdefinierte Incident Übersicht konfigurieren](/images/servicenow-createview.png)
 
 Nun sollte im Dropdown die neue View ausgewählt sein.
 
 Auf der linken Seite gibt man im Tab 'Field Types' den Filter 'URL' ein. Es sollte ein Objekt für ein neues URL-Feld
 erscheinen.
 
-![](/images/servicenow-newurlfield.png)
+![Screenshot: ServiceNow Benutzerdefinierte Incident Übersicht konfigurieren](/images/servicenow-newurlfield.png)
 
 **Das URL-Objekt** wird per Drag-and-drop auf die rechte Seite an die gewünschte Stelle in die Boxen gezogen.
 
@@ -71,23 +71,23 @@ Empfohlene Konfiguration:
 
 (Die Objekte für die Felder 'Host URL' und 'Service URL' in der zweiten Box unter dem Objekt 'Description' anordnen)
 
-![](/images/servicenow-incidentfieldtype.png)
+![Screenshot: ServiceNow Benutzerdefinierte Incident Übersicht konfigurieren](/images/servicenow-incidentfieldtype.png)
 
 Nach dem Hinzufügen der zwei URL Objekte müssen diese über das Zahnrad auf der rechten Seite editiert werden.
 
 Für das Label 'Host URL' muss der Name 'u\_host\_url' und für das Label 'Service URL' der Name 'u\_service\_url' gewählt
 werden.
 
-![](/images/servicenow-hosturlproperties.png)
+![Screenshot: ServiceNow Benutzerdefinierte Incident Übersicht konfigurieren](/images/servicenow-hosturlproperties.png)
 
-![](/images/servicenow-serviceurlproperties.png)
+![Screenshot: ServiceNow Benutzerdefinierte Incident Übersicht konfigurieren](/images/servicenow-serviceurlproperties.png)
 
 Danach kann die Konfiguration oben rechts mit 'Save' gespeichert und der Tab geschlossen werden.
 
 Damit die eben angelegte Incident View automatisch für von openITCOCKPIT angelegte Incidents ausgewählt wird, muss
 eine 'View Rule' erstellt werden.
 
-![](/images/servicenow-viewrules.png)
+![Screenshot: ServiceNow Benutzerdefinierte Incident Übersicht konfigurieren](/images/servicenow-viewrules.png)
 
 Die View Rule sollte wie folgt definiert werden:
 
@@ -101,7 +101,7 @@ Der Wert für Caller entspricht dem Names des für openITCOCKPIT angelegten Serv
 
 Gespeichert wird die Rule mit 'Submit'
 
-![](/images/servicenow-newviewrole.png)
+![Screenshot: ServiceNow Benutzerdefinierte Incident Übersicht konfigurieren](/images/servicenow-newviewrole.png)
 
 ### Modul Konfiguration speichern
 
@@ -122,7 +122,7 @@ Details zur Prioritätsberechnung gibt es in der
 offiziellen [ServiceNow Dokumentation](https://docs.servicenow.com/bundle/london-it-service-management/page/product/incident-management/reference/r_PrioritizationOfIncidents.html?cshalt=yes)
 .
 
-![](/images/servicenow-config.png)
+![Screenshot: Modul Konfiguration speichern](/images/servicenow-config.png)
 
 ### Benachrichtigung aktivieren
 
@@ -136,7 +136,7 @@ Zur korrekten Funktionsweise muss immer die Benachrichtigung bei Auftreten des '
 Da es sich hierbei um Änderungen an der Nagios Konfiguration handelt, muss nach diesem Schritt ein [Export](../../monitoring/basic-principles/#wie-fuhre-ich-einen-export-aus) durchgeführt
 werden.
 
-![](/images/contacts-servicenownotifications.png)
+![Screenshot: Benachrichtigung aktivieren](/images/contacts-servicenownotifications.png)
 
 ## Zwei-Wege-Integration Einrichten
 
@@ -164,7 +164,7 @@ Im Tab '**When to run**' müssen folgende Einstellungen getroffen werden:
 
 Der 'Caller' und 'Updated by' Wert entspricht dem Namen des angelegten Benutzers (hier 'openITCOCKPIT').
 
-![](/images/servicenow-businessrule.png)
+![Screenshot: Zwei-Wege-Integration Einrichten](/images/servicenow-businessrule.png)
 
 Im Tab '**Advanced**' muss folgender Quellcode in das 'Script' Feld eingefügt werden (es wird an dieser Stelle keine 
 'Condition' benötigt):
@@ -249,9 +249,9 @@ im Menü zu 'System Diagnostics' → 'Debug Business Rule' navigiert werden.
 Zum Aktivieren des Debug Modus muss auf den Link 'available here' und im sich darauf hin öffnenden Tab auf den Button 
 'Update' geklickt werden.
 
-![](/images/servicenow-debugbusinessrule.png)
+![Screenshot: Debugging](/images/servicenow-debugbusinessrule.png)
 
-![](/images/servicenow-scriptexecutionhistory.png)
+![Screenshot: Debugging](/images/servicenow-scriptexecutionhistory.png)
 
 Danach kann wieder zum Incident navigiert und dieses aktualisiert werden.
 
@@ -271,7 +271,7 @@ Hierbei wird in der Acknowledgement Nachricht die ServiceNow Incident Nummer (mi
 
 Schematische Darstellung möglicher Interaktionen mit ServiceNow:
 
-![](/images/servicenow-schema.png)
+![Abbildung: Benutzung](/images/servicenow-schema.png)
 
 Im Hosts - und Services Browser erscheint bei Aktivierung des ServiceNow Moduls der Tab 'ServiceNow'. Dort können von
 der globalen Konfiguration abweichende Host- bzw. Service-Spezifische Incident Einstellungen getroffen werden.
@@ -287,4 +287,4 @@ Dabei werden die Incident Felder 'State' und 'Updated By' neben der Incident 'Nu
 Beim Ändern des Incident State auf 'Closed' oder 'Resolved' wird zusätzlich der 'Resolution Code', die 'Resolution
 Notes', sowie die System-ID des 'Resolved By' Benutzers an openITCOCKPIT übertragen.
 
-![](/images/servicenow-schema2.png)
+![Abbildung: Benutzung](/images/servicenow-schema2.png)

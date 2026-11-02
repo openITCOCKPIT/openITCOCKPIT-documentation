@@ -61,7 +61,7 @@ Dort können Sie einem oder mehreren Benutzern den Bericht schicken.
 Wenn Sie einen "Sofortigen Bericht" erstellt haben, klicken Sie auf das Menü des entsprechenden "Sofortigen Bericht" (1)
 und anschließend auf die Schaltfläche "Generieren" (2).
 
-![](/images/instantreports-generate.png)
+![Screenshot: Sofortigen Bericht generieren](/images/instantreports-generate.png)
 
 Im sich öffnenden Formular geben Sie anschließend das Format an, in dem der Bericht generiert werden soll, sowie den zu
 berücksichtigenden Zeitraum.
@@ -123,7 +123,7 @@ Alle Elemente einer Statusseite werden im selben Format dargestellt, so dass nic
 Jedes Element einer Statusseite kann Informationen über die enthaltenden Probleme (bestätigt/nicht betätigt) und Wartungen (laufend, für die nächsten 10 Tage geplant) enthalten.
 
 ### Statusseite erstellen/editieren
-![](/images/status-pages/status-pages-edit.png)
+![Screenshot: Statusseite erstellen/editieren](/images/status-pages/status-pages-edit.png)
 
 | Feld            | Erforderlich                 | Beschreibung                                               |
 | ---------------- | ------------------------- | ------------------------------------------------------------ |
@@ -141,13 +141,13 @@ Jedes Element einer Statusseite kann Informationen über die enthaltenden Proble
 
 
 ### Anzeige
-![](/images/status-pages/status-page-view.png)
+![Screenshot: Anzeige](/images/status-pages/status-page-view.png)
 
 #### Interne Anzeige
-![](/images/status-pages/status-pages-internal.png)
+![Screenshot: Interne Anzeige](/images/status-pages/status-pages-internal.png)
 
 #### Externe Anzeige
-![](/images/status-pages/status-pages-external.png)
+![Screenshot: Externe Anzeige](/images/status-pages/status-pages-external.png)
 
 In- und externe Ansicht sind prinzipiell gleich.aber in der internen Ansicht sind die Elementnamen verlinkt.
 
@@ -206,7 +206,7 @@ Optional können Sie der Statusseiten-Gruppe einen Freitext hinzufügen. So kön
 
 Die Erstellung neuer Statusseiten-Gruppen erfolgt in zwei Schritten. Im ersten Schritt definieren Sie die Statusseiten-Matrix.
 
-![](/images/status-page-groups/create-status-page-group-step1.png)
+![Screenshot: Erstellung](/images/status-page-groups/create-status-page-group-step1.png)
 
 | Feld                              | Erforderlich              | Beschreibung                                                                                        |
 |-----------------------------------|---------------------------|-----------------------------------------------------------------------------------------------------|
@@ -230,7 +230,7 @@ openITCOCKPIT berechnet den Status jeder Zelle in einer Statusseiten-Gruppe, ind
 
 Dieses Vorgehen stellt sicher, dass kritische Probleme innerhalb einer Gruppe sofort auf Sammlungs- oder Kategorie-Ebene sichtbar sind und Sie schnell reagieren können.
 
-![](/images/status-page-groups/create-status-page-group-step2.png)
+![Screenshot: Erstellung](/images/status-page-groups/create-status-page-group-step2.png)
 
 ### Ansicht
 
@@ -260,20 +260,20 @@ Der Bereich „Statusübersicht“ zeigt die zweidimensionale Matrix aller Samml
 
 Unterhalb der Matrix wird eine Tabelle angezeigt, die alle Probleme (sofern vorhanden) detailliert auflistet, damit Sie diese schnell identifizieren und beheben können.
 
-![](/images/status-page-groups/status_page_group_view.png)
+![Screenshot: Problemtabelle](/images/status-page-groups/status_page_group_view.png)
 
 #### Dashboard
 
 Statusseiten-Gruppen können auch zum Dashboard eines Benutzers hinzugefügt werden, um schnellen Zugriff und Monitoring zu ermöglichen.
 
-![](/images/status-page-groups/status_page_group_widget.png)
+![Screenshot: Dashboard](/images/status-page-groups/status_page_group_widget.png)
 
 Das Widget zeigt die gleichen Informationen wie die Standardansicht der Statusseiten-Gruppen, einschließlich Gesamtstatus, Host- und Service-Zähler, benutzerdefinierte Informationen und die Statusübersicht-Matrix.
-![](/images/status-page-groups/statuspage_group_as_dashboard.png)
+![Screenshot: Dashboard](/images/status-page-groups/statuspage_group_as_dashboard.png)
 
 Sie können ein automatisches Aktualisierungsintervall für das Widget konfigurieren, damit die angezeigten Daten immer aktuell sind.
 
-![](/images/status-page-groups/status_page_group_refresh.png)
+![Screenshot: Dashboard](/images/status-page-groups/status_page_group_refresh.png)
 
 
 ## Autoreports <span class="badge badge-primary badge-outlined" title="Community Edition">CE</span>
@@ -363,7 +363,7 @@ Im Hauptmenü unter Systemkonfiguration → System → Autoreport Globals lassen
 den Autoreports einstellen. Beschreibungen zu den einzelnen Optionen finden sich direkt in der Tabelle unter dem "Info
 Button".
 
-![](/images/autoreportModule-globalsinfo.png)
+![Screenshot: Autoreport Globals](/images/autoreportModule-globalsinfo.png)
 
 Bitte Beachten Sie, dass die Optionen die Sie dort setzen sich auf alle über das Autoreport-Modul generierten Berichte
 auswirkt!

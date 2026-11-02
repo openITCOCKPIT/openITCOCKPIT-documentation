@@ -12,7 +12,7 @@ Navigate to `Administration -> Object Import -> Export / Import`
 
 First, select all items that should be exported. As already mentioned, the module also recognises dependencies to other items. For example, if you export a service template  you don't have to worry about which command is used or which contacts are needed, the import/export module takes care of everything.
 
-![](/images/import_export/export_items.png)
+![Screenshot: Exporting configuration items](/images/import_export/export_items.png)
 
 Clicking on __*Export configuration items*__ generates a .json file that is ready to use for the import on a different system.
 
@@ -26,24 +26,24 @@ Clicking on __*Export configuration items*__ generates a .json file that is read
 
 For the import only an exported .json file is needed. You can simply drop it to the upload field or click on the field to search for the file.
 
-![](/images/import_export/import_file.png)
+![Screenshot: Importing configuration items](/images/import_export/import_file.png)
 
 ### Summary information
 After the file has been selected, the module displays a summary of the import and possible conflicts.
 
-![](/images/import_export/import_summary.png)
+![Screenshot: Summary information](/images/import_export/import_summary.png)
 
 ### Only new items found
 
 If only new items are imported, the module shows in the __*Import*__ area that no conflicts were found and that the import is ready.
 
-![](/images/import_export/import_ready.png)
+![Screenshot: Only new items found](/images/import_export/import_ready.png)
 
 ### Changes to existing items found
 
 In case of overwriting existing items, the module outputs a warning and displays the changes in detail.
 
-![](/images/import_export/import_danger.png)
+![Screenshot: Changes to existing items found](/images/import_export/import_danger.png)
 
 The import can be executed even if there are differences in the configuration.
 
@@ -51,10 +51,10 @@ The import can be executed even if there are differences in the configuration.
 
 A final message shows that the import has been successfully completed and that all changes have been logged in the changelog.
 
-![](/images/import_export/import_finished.png)
+![Screenshot: Import finished successfully](/images/import_export/import_finished.png)
 
 ## Changelog
 
 As usual, all changes are logged in the changelog. The logged-in user is used as the user who made the changes. In this way, it is also possible to track who made the changes during an import.
 
-![](/images/import_export/changelog.png)
+![Screenshot: Changelog](/images/import_export/changelog.png)

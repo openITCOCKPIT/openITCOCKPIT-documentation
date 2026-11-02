@@ -7,11 +7,11 @@ The dashboard is the homepage for openITCOCKPIT and consists of only one tab by 
 
 To add new tabs, click on the + symbol in the upper right-hand corner of the dashboard.
 
-![](/images/dashboards-newdashboard.png)
+![Screenshot: Adding dashboards](/images/dashboards-newdashboard.png)
 
 This will open the following window:
 
-![](/images/dashboards-newdashboardpopup.png)
+![Screenshot: Adding dashboards](/images/dashboards-newdashboardpopup.png)
 
 To create an empty, new tab, enter a name for the tab at the top and then click on the <span class="badge badge-primary">Create new tab</span> button.
 
@@ -19,7 +19,7 @@ To create a tab from a template, select a shared tab from the list and then clic
 
 If you create a tab from a template and something about the template is then changed, the following dialog will appear when you next access the tab.
 
-![](/images/dashboards-sharing-update.png)
+![Screenshot: Adding dashboards](/images/dashboards-sharing-update.png)
 
 You can now choose whether you want to update your tab or not.
 
@@ -29,7 +29,7 @@ In openITCOCKPIT you have the ability to split tabs. To do this, first click on 
 
 The shared dashboards will then be available to other users in openITCOCKPIT.
 
-![](/images/dashboards-sharing.png)
+![Screenshot: Sharing dashboards](/images/dashboards-sharing.png)
 
 If a dashboard is already shared, the selection list will show the option <span class="badge badge-default">Stop sharing</span>. This can be used to stop sharing the dashboard tab again.
 
@@ -43,19 +43,19 @@ When used with full-screen mode for dashboards, this can be useful for displayin
 
 To delete a dashboard, first click on the downward pointing arrow (1) on a dashboard tab and then on <span class="badge badge-danger">Delete</span> (2).
 
-![](/images/dashboards-delete.png)
+![Screenshot: Deleting dashboards](/images/dashboards-delete.png)
 
 ### Adding widgets
 
 To add a new widget to a dashboard, click the <span class="badge badge-success">Add widget</span> button.
 
-![](/images/dashboards-addwidget.png)
+![Screenshot: Adding widgets](/images/dashboards-addwidget.png)
 
 A list with all available widgets will then appear.
 
 After you have added the corresponding widget, you may need to configure it.
 
-![](/images/dashboard-widgetconfig.png)
+![Screenshot: Adding widgets](/images/dashboard-widgetconfig.png)
 
 After saving the widget configuration, the widget will be displayed with its content.
 

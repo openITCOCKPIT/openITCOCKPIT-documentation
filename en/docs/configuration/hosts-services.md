@@ -182,7 +182,7 @@ service template group, the corresponding services are created on the assigned h
 
 There are three different ways to assign service template groups in openITCOCKPIT.
 
-![](/images/servicetemplategroups-allocate.png)
+![Screenshot: Assigning service template groups](/images/servicetemplategroups-allocate.png)
 
 #### Assign to host
 
@@ -192,7 +192,7 @@ created are listed and can also be deselected using the selection box.
 If one of the services in this service template group already exists on the target host, it will not be created again by
 default, but you can select it again in the list if you wish to create it again.
 
-![](/images/servicetemplategroups-allocatetohost.png)
+![Screenshot: Assign to host](/images/servicetemplategroups-allocatetohost.png)
 
 #### Assign to a host group
 
@@ -374,7 +374,7 @@ value by clicking on the red button (1) behind the input field.
 Host defaults define, for example, which containers and services should be assigned to the hosts that are being
 imported. This depends, however, on the import source.
 
-![](/images/importmodule-hostdefaults.png)
+![Screenshot: Host defaults](/images/importmodule-hostdefaults.png)
 
 First, a container must be selected for the data that is being imported and a name given for the default setting.
 
@@ -405,14 +405,14 @@ The CSV file that you want to import must have a header. This means the columns 
 individual headings. For the import to succeed, the file must have a separator character/delimiter, unique identifier,
 host name and host address header fields.
 
-![](/images/importmopdule-csvwithheader.png)
+![Screenshot: CSV with Header](/images/importmopdule-csvwithheader.png)
 
 ###### CSV without Header
 
 The difference between a CSV file with a header and one without is that the columns in a non-header CSV file do not have
 headings. For these files you will have to number the columns.
 
-![](/images/importmodule-csvwithoutheader.png)
+![Screenshot: CSV without Header](/images/importmodule-csvwithoutheader.png)
 
 A = 0, B = 1, C = 2, D = 3
 
@@ -421,11 +421,11 @@ A = 0, B = 1, C = 2, D = 3
 The host defaults must be set when the importer is created. This ensures that the imported hosts are assigned default
 settings.
 
-![](/images/importmodule-editimporter.png)
+![Screenshot: Assigning default host settings](/images/importmodule-editimporter.png)
 
 ### Imported hosts
 
-![](/images/importmodule-importhostoverview.png)
+![Figure: Imported hosts](/images/importmodule-importhostoverview.png)
 
 All newly created hosts or hosts already included in the monitoring setup are displayed in the list. All upcoming
 changes for services, if any, will be displayed accordingly. The completeness of the entries is indicated by a variety
@@ -437,7 +437,7 @@ the configuration table. This must now be exported and all configuration objects
 All importers available on the system are listed in the upper area under "Start import". After clicking on one of these
 importers, the appropriate module will open. In the example below, this is a CSV importer.
 
-![](/images/importmodule-uploadcsv.png)
+![Screenshot: Imported hosts](/images/importmodule-uploadcsv.png)
 
 ## Hostgroups
 

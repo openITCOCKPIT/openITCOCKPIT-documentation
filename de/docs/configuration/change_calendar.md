@@ -6,13 +6,13 @@ Mit dem Change Kalender Feature können Infrastrukturänderungen direkt in openI
 
 Im Menü ist der Changekalender unter `Changekalender` aufrufbar. Hier können Änderungskalender aufgelistet, hinzugefügt, geändert und gelöscht werden.
 
-![](/images/change_calendar/list_calendars.png)
+![Screenshot: Kalender Management](/images/change_calendar/list_calendars.png)
 
 ## Neuen Kalender erstellen
 
 Um einen neuen Kalender von Grund auf zu erstellen, muss man auf die Schaltfläche "+ Neu" in der oberen rechten Ecke des Bildschirms klicken.
 
-![](/images/change_calendar/new_calendar.png)
+![Screenshot: Neuen Kalender erstellen](/images/change_calendar/new_calendar.png)
 
 **Erforderliche Felder:**
 
@@ -29,34 +29,34 @@ Um einen neuen Kalender von Grund auf zu erstellen, muss man auf die Schaltfläc
     - Zur Unterscheidung können unterschiedliche Farbe für den Kalender genutzt werden, die in dem Widget verwendet werden.
     - Das hilft den Nutzern, die verschiedenen Kalender, die in einem einzigen Widget erscheinen, zu unterscheiden.
 
-![](/images/change_calendar/new_calendar_example.png)
+![Screenshot: Neuen Kalender erstellen](/images/change_calendar/new_calendar_example.png)
 
 **Changekalender erfolgreich erstellt**
 
-![](/images/change_calendar/calendar_created_success.png)
+![Screenshot: Neuen Kalender erstellen](/images/change_calendar/calendar_created_success.png)
 
 ## Managing Events
 
 Auf der Kalender-Indexseite können bestehende Kalender geändert werden, wenn der/die Nutzer/in die Rechte dafür hat. 
 Mit dem Recht, einen Kalender zu bearbeiten, hat der Nutzer die Möglichkeit, die Daten des Kalenders selbst und die zugrunde liegenden Ereignisse zu bearbeiten.
 
-![](/images/change_calendar/manage_calendar.png)
+![Screenshot: Managing Events](/images/change_calendar/manage_calendar.png)
 
 ### Erzeuge ein Event
 
 Ein Ereignis kann mit einem Klick auf eines der "+"-Zeichen innerhalb eines Tages erstellt werden.
 
-![](/images/change_calendar/calendar_create_event.png)
+![Screenshot: Erzeuge ein Event](/images/change_calendar/calendar_create_event.png)
 
 ### Ändern eines Events
 
 Die Events können geändert werden, indem auf ein bestehendes Ereignis in der Kalenderverwaltung geklickt wird.
 
-![](/images/change_calendar/calendar_modify_event.png)
+![Screenshot: Ändern eines Events](/images/change_calendar/calendar_modify_event.png)
 
 Das Event kann dann geändert oder gelöscht werden.
 
-![](/images/change_calendar/calendar_modify_delete_event.png)
+![Screenshot: Ändern eines Events](/images/change_calendar/calendar_modify_delete_event.png)
 
 ## Kalender Widget
 
@@ -66,15 +66,15 @@ Für den Kalender existiert auch ein Widget, das im Dashboard mit eingebunden we
 
 Zunächst werden alle Kalender ausgewählt, die im Widget angezeigt werden sollen.
 
-![](/images/change_calendar/calendar_widget_1.png)
+![Screenshot: Erstellung eines Widgets](/images/change_calendar/calendar_widget_1.png)
 
 Der Anzeigetyp ist der Zeitbereich für den Kalender.
 
-![](/images/change_calendar/calendar_widget_2.png)
+![Screenshot: Erstellung eines Widgets](/images/change_calendar/calendar_widget_2.png)
 
 Wenn das Widget gespeichert wird, werden die ausgewählten Kalender im Widget angezeigt.
 
-![](/images/change_calendar/calendar_widget_3.png)
+![Screenshot: Erstellung eines Widgets](/images/change_calendar/calendar_widget_3.png)
 
 ## CLI Import
 

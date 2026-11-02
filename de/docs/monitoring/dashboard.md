@@ -8,11 +8,11 @@ Das Dashboard ist die Startseite von openITCOCKPIT und besteht im Standard aus n
 
 Um neue Tabs hinzuzufügen, klickt man auf das <span class="badge badge-success">+</span> Symbol im oberen rechten Rand des Dashboards
 
-![](/images/dashboards-newdashboard.png)
+![Screenshot: Dashboard hinzufügen](/images/dashboards-newdashboard.png)
 
 Dies öffnet folgendes Fenster:
 
-![](/images/dashboards-newdashboardpopup.png)
+![Screenshot: Dashboard hinzufügen](/images/dashboards-newdashboardpopup.png)
 
 Zum Erstellen eines leeren, neuen Tabs muss im oberen Bereich ein Name für den Tab angegeben werden und anschließend auf den <span class="badge badge-primary">Erstellen neuen Tab</span> Button geklickt werden.
 
@@ -20,7 +20,7 @@ Zum Erstellen eines Tabs aus einer Vorlage wählt man einen freigegebenen Tab au
 
 Erstellt man einen Tab aus einer Vorlage und an dieser Vorlage ändert sich etwas, erscheint beim nächsten Aufruf des Tabs folgender Dialog.
 
-![](/images/dashboards-sharing-update.png)
+![Screenshot: Dashboard hinzufügen](/images/dashboards-sharing-update.png)
 
 Man kann nun auswählen, ob man seinen Tab aktualisieren möchte, oder auch nicht.
 
@@ -30,7 +30,7 @@ Es gibt in openITCOCKPIT die möglichkeit Tabs zu teilen. Dazu klickt man zuerst
 
 Die geteilten Dashboards stehen dann anderen Benutzern in openITCOCKPIT zur Verfügung.
 
-![](/images/dashboards-sharing.png)
+![Screenshot: Dashboard teilen](/images/dashboards-sharing.png)
 
 Wenn ein Dashboard bereits geteilt ist, dann steht in der Auswahlliste <span class="badge badge-default">Stoppe Teilen</span>. Darüber kann das Teilen des Dashboard-Tabs wieder gestoppt werden.
 
@@ -44,19 +44,19 @@ Im Zusammenspiel mit der Vollbildansicht der Dashboards kann dies nützlich sein
 
 Um ein Dashboard zu löschen, klicken Sie zuerst auf den nach unten zeigenden Pfeil (1) an einem Dashboard Tab und danach auf <span class="badge badge-danger">Löschen</span> (2).
 
-![](/images/dashboards-delete.png)
+![Screenshot: Dashboard löschen](/images/dashboards-delete.png)
 
 ### Widget hinzufügen
 
 Um ein neues Widget auf einem Dashboard hinzuzufügen, klicken Sie auf die Schaltfläche <span class="badge badge-success">Widget hinzufügen</span>
 
-![](/images/dashboards-addwidget.png)
+![Screenshot: Widget hinzufügen](/images/dashboards-addwidget.png)
 
 Anschließend öffnet sich eine Auswahlliste mit allen verfügbaren Widgets.
 
 Nach dem man das entsprechende Widget hinzugefügt hat, muss dies gegebenenfalls noch konfiguriert werden.
 
-![](/images/dashboard-widgetconfig.png)
+![Screenshot: Widget hinzufügen](/images/dashboard-widgetconfig.png)
 
 Nach dem Speichern der Widget-Konfiguration wird das Widget mit Inhalt angezeigt.
 

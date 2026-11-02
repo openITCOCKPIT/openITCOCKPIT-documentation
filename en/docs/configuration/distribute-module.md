@@ -205,7 +205,7 @@ When creating a host, you can choose the satellite system for running the checks
 
 Hosts can be moved from the master system to a satellite and back at any time.
 
-![](/images/host-satellite.png)
+![Screenshot: Creating a host on a satellite](/images/host-satellite.png)
 
 ## State is no longer current
 

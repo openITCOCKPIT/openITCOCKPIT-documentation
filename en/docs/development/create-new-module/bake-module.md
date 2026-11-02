@@ -392,7 +392,7 @@ class Menu implements MenuInterface {
 
 **Result**
 
-![](/images/new-menu-headline.png)
+![Screenshot: Creating Menu Items Under a New Heading](/images/new-menu-headline.png)
 
 Run the following command to update the menu:
 

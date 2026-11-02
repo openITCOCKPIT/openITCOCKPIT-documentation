@@ -12,7 +12,7 @@ This macro type is often used to store path information, passwords and SNMP comm
 
 It is possible to hide values, e.g. to not make passwords directly visible. To do this, either select the "Hide value" option when creating or editing a macro or click on the button on the overview page. 
 
-![](/images/UserDefinedMacros-hideValue.png)
+![Screenshot: Custom macros](/images/UserDefinedMacros-hideValue.png)
 
 ![Overview about User defined macros](/images/UserDefinedMacros-Overview.png)
 
