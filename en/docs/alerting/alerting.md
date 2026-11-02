@@ -3,10 +3,10 @@
 openITCOCKPIT offers a variety of notification methods. In addition to the most common method,
 the [email notification](../../beginners/setup-email-notifications/#setting-up-email-notifications), there are many
 other options available out-of-the-box or by installing modules in openITCOCKPIT. Examples
-include [browser push notification](../../beginners/setup-browser-push-notifications/#browser-push-benachrichtigungen-einrichten)
+include [browser push notification](../../beginners/setup-browser-push-notifications/#setting-up-push-notifications)
 ,
 [PagerDuty](../pagerduty/#pagerduty-ee), messaging services like [Mattermost](../mattermost/#mattermost-ce)
-, [Slack](../slack/#slack-ee) and ticketing systems like [AxiosAssyst](../axiosassyst/#axios-assyst-ce)
+, [Slack](../slack/#slack-ee) and ticketing systems like [AxiosAssyst](../axiosassyst/#axios-assyst-ee)
 or [ServiceNow](../servicenow/#servicenow-ee).
 
 ## Contacts

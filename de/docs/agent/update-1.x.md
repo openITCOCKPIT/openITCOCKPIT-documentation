@@ -85,7 +85,7 @@ apt-get install ./openitcockpit-agent_3.x.x_amd64.deb
 
 apt fragt Sie, ob Ihre aktuellen Konfigurationsdateien `/etc/openitcockpit-agent/config.ini` und `/etc/openitcockpit-agent/customchecks.ini` beibehalten werden sollen. Bestätigen Sie mit `N` oder `O`, um Ihre aktuelle Konfiguration zu behalten.
 
-Denken Sie daran, die [erforderlichen Konfigurationsänderungen](#erforderliche-konfigurationsänderungen) anzuwenden. Starten Sie anschließend den Agenten neu
+Denken Sie daran, die [erforderlichen Konfigurationsänderungen](#erforderliche-konfigurationsanderungen) anzuwenden. Starten Sie anschließend den Agenten neu
 ```
 systemctl restart openitcockpit-agent
 ```
@@ -111,7 +111,7 @@ mv /etc/openitcockpit-agent/customchecks.cnf.save /etc/openitcockpit-agent/custo
 systemctl restart openitcockpit-agent
 ```
 
-Denken Sie daran, die [erforderlichen Konfigurationsänderungen](#erforderliche-konfigurationsänderungen) anzuwenden.
+Denken Sie daran, die [erforderlichen Konfigurationsänderungen](#erforderliche-konfigurationsanderungen) anzuwenden.
 
 ### Arch Linux
 Laden Sie das aktuelle Paket `openitcockpit-agent-3.x.x-1-x86_64.pkg.tar.zst` von der [Releases-Seite](https://github.com/openITCOCKPIT/openitcockpit-agent-go/releases) herunter.
@@ -134,7 +134,7 @@ mv /etc/openitcockpit-agent/customchecks.cnf.save /etc/openitcockpit-agent/custo
 systemctl restart openitcockpit-agent
 ```
 
-Denken Sie daran, die [erforderlichen Konfigurationsänderungen](#erforderliche-konfigurationsänderungen) anzuwenden.
+Denken Sie daran, die [erforderlichen Konfigurationsänderungen](#erforderliche-konfigurationsanderungen) anzuwenden.
 
 ### Windows
 Laden Sie das aktuelle Paket `openitcockpit-agent-3.x.x-amd64.msi` von der [Releases-Seite](https://github.com/openITCOCKPIT/openitcockpit-agent-go/releases) herunter.
@@ -147,7 +147,7 @@ Alte Konfiguration übernehmen
 2. Öffnen Sie `C:\Program Files\it-novum\openitcockpit-agent` mit dem Windows Explorer
 3. Löschen Sie die Standarddateien `config.ini` und `customchecks.ini`
 4. Benennen Sie die Datei `config.cnf` in `config.ini` und `customchecks.cnf` in `customchecks.ini` um.
-5. Denken Sie daran, die [erforderlichen Konfigurationsänderungen](#erforderliche-konfigurationsänderungen) anzuwenden.
+5. Denken Sie daran, die [erforderlichen Konfigurationsänderungen](#erforderliche-konfigurationsanderungen) anzuwenden.
 6. Starten Sie den Dienst `openITCOCKPITAgent`
 
 
@@ -175,7 +175,7 @@ Wenn Sie es bevorzugen, können Sie auch die CLI verwenden:
 sudo installer -pkg openitcockpit-agent-3.x.x-darwin-amd64.pkg -target / -verbose
 ```
 
-Denken Sie daran, die [erforderlichen Konfigurationsänderungen](#erforderliche-konfigurationsänderungen) anzuwenden und den Agenten anschließend neu zu starten.
+Denken Sie daran, die [erforderlichen Konfigurationsänderungen](#erforderliche-konfigurationsanderungen) anzuwenden und den Agenten anschließend neu zu starten.
 ```
 sudo su
 /bin/launchctl stop com.it-novum.openitcockpit.agent
@@ -198,7 +198,7 @@ Die folgenden Checks weisen Breaking Changes auf und müssen manuell angepasst o
 * Sensoren-bezogene Checks wurden neu implementiert.
   - Es wird empfohlen, die alten Sensoren-bezogenen Dienste zu löschen und sie über den Assistenten neu zu erstellen
   - Die Unterstützung für Lüfter wurde entfernt
-* QEMU wurde durch _libvirt_ ersetzt. Alle QEMU-bezogenen Dienste müssen gelöscht werden. Lesen Sie dazu [wie Sie die Libvirt-Unterstützung aktivieren](../build-binary/#libvirt-unterstützung-aktivieren-nur-linux) und erstellen Sie die Dienste über den Assistenten neu
+* QEMU wurde durch _libvirt_ ersetzt. Alle QEMU-bezogenen Dienste müssen gelöscht werden. Lesen Sie dazu [wie Sie die Libvirt-Unterstützung aktivieren](../build-binary/#libvirt-unterstutzung-aktivieren-nur-linux) und erstellen Sie die Dienste über den Assistenten neu
 * Die Docker-Checks verwenden nun die Docker-API und müssen daher über den Assistenten neu erstellt werden. Außerdem ist Docker jetzt auch für Windows verfügbar.
 
 ##### Windows

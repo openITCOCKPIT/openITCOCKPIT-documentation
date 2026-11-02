@@ -35,7 +35,7 @@ Zudem kann man hier dem Benutzer schon API Keys für die API-Key authentifizieru
 |---|---|---|
 | Container Rollen | :fontawesome-solid-xmark: | [Benutzercontainerrolle](#benutzer-container-rollen). Optionales Pflichtfeld - Entweder Container, Container Rollen oder beides muss ausgewählt sein |
 | Container | :fontawesome-solid-xmark: | [Container](../container/). Optionales Pflichtfeld - Entweder Container, Container Rollen oder beides muss ausgewählt sein |
-| Benutzer Rolle | :fontawesome-solid-xmark: | [Benutzer Rollen](#benutzerrollen-verwalten) |
+| Benutzer Rolle | :fontawesome-solid-xmark: | [Benutzer Rollen](#benutzer-rollen-verwalten) |
 | ist aktiv | :fontawesome-solid-xmark: | Bestimmt ob ein Benutzer sich in openITCOCKPIT anmelden kann oder nicht |
 | E-Mail Adresse | :fontawesome-solid-xmark: | E-Mail Adresse des Benutzers |
 | Vorname | :fontawesome-solid-xmark: | Vorname des Benutzers |

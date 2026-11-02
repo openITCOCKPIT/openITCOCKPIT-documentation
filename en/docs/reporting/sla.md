@@ -104,7 +104,7 @@ The `Service -> Browser` page also contains a badge, which displays the service 
 
 The SLA service details overview does additionally contain a list of the last 10 days.
 
-##SLA Host status overview for host groups
+## SLA Host status overview for host groups
 
 There is an overview page for the host groups that shows all the hosts included with their current SLA availability status in the form of a heat map. The hosts status overview is integrated as a tab in the extended view of the host group.   
 

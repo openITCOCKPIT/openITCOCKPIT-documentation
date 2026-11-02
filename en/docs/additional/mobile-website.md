@@ -141,7 +141,7 @@ Select the desired host or service from the list and click on the `Actions` tab.
 After that proceed as it is described in [Create downtime](#create-downtime)
 
 In this action you are not able to create recurring downtimes. Crating recurring downtimes is described in the
-[Create recurring downtime](#create-recurring-downtime) section
+[Create recurring downtime](#create-downtime) section
 
 More information regarding [Schedule Maintenance](../../monitoring/user-interface/#planned-maintenance)
 
@@ -207,7 +207,7 @@ downtimes for its services too.
     downtimes. This option allows you to crate a downtime not only for the host but its services with the same
     parameters too. The `Comment` field can describe the downtime.
 
-    The option `Recurring downtime` allows you to [create recurring downtimes](#create-recurring-downtime)
+    The option `Recurring downtime` allows you to [create recurring downtimes](#create-downtime)
 
     `Start` and `End` defines the start and end time of the downtime
 

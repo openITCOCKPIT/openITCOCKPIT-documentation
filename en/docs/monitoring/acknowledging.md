@@ -21,7 +21,7 @@ To confirm an individual host's status, navigate to `Monitoring -> Hosts` and cl
 
 ![ack host status in browser](/images/hostbrowser-ackstatus.png)
 
-You can also select whether only the status of the host itself or the status of the host as well as its services should be confirmed. In addition, you can leave a comment and set the options [Sticky](#klebrig-sticky) and [Notify](#notify).
+You can also select whether only the status of the host itself or the status of the host as well as its services should be confirmed. In addition, you can leave a comment and set the options [Sticky](#sticky) and [Notify](#notify).
 
 ![ack host](/images/ackhost.png)
 

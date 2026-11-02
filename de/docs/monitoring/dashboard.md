@@ -190,11 +190,11 @@ Eine Karte muss vorher über das [MapModul](../maps/#map-modul-ce) erstellt werd
 ##### Ereigniskorrelation
 ![evk widget](/images/dashboard-evkwidget.png)
 
-Das Widget zeigt eine zuvor erstelle [Ereigniskorrelation](../eventcorrelation/#ereigniskorrelationsmodul-eventcorrelation-ce) an.
+Das Widget zeigt eine zuvor erstelle [Ereigniskorrelation](../eventcorrelation/#ereigniskorrelation-eventcorrelation-ce) an.
 
 ###### Konfiguration
 
-Eine Ereigniskorrelation muss vorher über das [EventcorrelationModule](../eventcorrelation/#ereigniskorrelationsmodul-eventcorrelation-ce) erstellt werden. Anschließend kann die Ereigniskorrelation über die Konfigurationsoberfläche des Widgets ausgewählt werden. Zur Konfigurationsoberfläche des Widgets gelangt man über das Zahnradsymbol im oberen rechten Bereich des Widgets.
+Eine Ereigniskorrelation muss vorher über das [EventcorrelationModule](../eventcorrelation/#ereigniskorrelation-eventcorrelation-ce) erstellt werden. Anschließend kann die Ereigniskorrelation über die Konfigurationsoberfläche des Widgets ausgewählt werden. Zur Konfigurationsoberfläche des Widgets gelangt man über das Zahnradsymbol im oberen rechten Bereich des Widgets.
 
 ### Widget löschen
 
