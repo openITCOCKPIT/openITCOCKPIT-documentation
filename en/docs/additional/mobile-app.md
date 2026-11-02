@@ -74,7 +74,7 @@ The app uses the openITCOCKPIT API for authentication, so you have to [create an
 
 For convenience, you can also scan the QR code from the openITCOCKPIT web interface to automatically fill in the API key.
 
-The openITCOCKPIT App require that your device is able to directly connect to the openITCOCKPIT server. This can be done via a public address, a [reverse proxy](/additional/behind-reverse-proxy/) or with a VPN connection.
+The openITCOCKPIT App require that your device is able to directly connect to the openITCOCKPIT server. This can be done via a public address, a [reverse proxy](../behind-reverse-proxy/) or with a VPN connection.
 In addition, a valid HTTPS certificate is required. Self-signed certificates will most likely not work, or you have to make sure to install the CA certificate of the self-signed certificate on your mobile device.
 
 ![Mobile App Connectivity](/images/mobile-app/app_openitcockpit_connection.png)

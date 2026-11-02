@@ -63,4 +63,4 @@ The `--format` parameter can be used to specify the type of email to be sent.
 All email attachments such as logos and graphs can be excluded via the `--no-attachments` parameter in order to save storage space.
 
 ## Changing email logos
-The logo used for your emails can be changed using the [Design Module](/additional/theming/).
+The logo used for your emails can be changed using the [Design Module](../../additional/theming/).

@@ -91,7 +91,7 @@ Additionally, Jira will notify openITCOCKPIT when an issue is closed in Jira. Th
 !!! danger
     For security reasons, it is recommended to create a new openITCOCKPIT user and user role without any permissions.
 
-To set up webhooks, an openITCOCKPIT [API Key](/development/api/#api-keys) is required.
+To set up webhooks, an openITCOCKPIT [API Key](../../development/api/#api-keys) is required.
 
 ### Jira Data Center
 

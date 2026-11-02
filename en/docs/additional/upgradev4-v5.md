@@ -22,7 +22,7 @@ These instructions describe how to update your current installation of openITCOC
 For Docker (or any other container runtime) based installations of openITCOCKPIT no manually upgrade process is required.
 All you have to do is stop the containers, pull the new images and start the containers again.
 
-Please see the [container update instructions](/installation/docker/#update-containers) for more information.
+Please see the [container update instructions](../../installation/docker/#update-containers) for more information.
 
 ### Supported operating systems:
 
@@ -41,10 +41,10 @@ _*Enterprise Linux includes  Red Hat Enterprise Linux and RHEL based distributio
     are **not supported by openITCOCKPIT 5**
     Please update your operating system first, before you continue.
 
-- Update [Ubuntu Bionic to Focal](/update/ubuntu-bionic-to-focal/)
-- Update [Ubuntu Focal to Jammy](/update/ubuntu-focal-to-jammy/)
-- Update [Debian Buster to Bullseye](/update/debian-buster-to-bullseye/)
-- Update [Debian Bullseye to Bookworm](/update/debian-bullseye-to-bookworm/)
+- Update [Ubuntu Bionic to Focal](../../update/ubuntu-bionic-to-focal/)
+- Update [Ubuntu Focal to Jammy](../../update/ubuntu-focal-to-jammy/)
+- Update [Debian Buster to Bullseye](../../update/debian-buster-to-bullseye/)
+- Update [Debian Bullseye to Bookworm](../../update/debian-bullseye-to-bookworm/)
 
 
 ### Preparing the system

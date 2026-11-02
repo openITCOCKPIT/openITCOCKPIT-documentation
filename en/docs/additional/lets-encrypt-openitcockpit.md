@@ -78,7 +78,7 @@ certbot renew --dry-run
 
 It is recommended to monitor the certificate in openITCOCKPIT. This step is optional.
 
-The easiest way to monitor the certificate is by using the plugin [matteocorti/check_ssl_cert](https://github.com/matteocorti/check_ssl_cert/releases) and the [openITCOCKPIT Monitoring Agent](/beginners/openitcockpit-agent/).
+The easiest way to monitor the certificate is by using the plugin [matteocorti/check_ssl_cert](https://github.com/matteocorti/check_ssl_cert/releases) and the [openITCOCKPIT Monitoring Agent](../../beginners/openitcockpit-agent/).
 
 ### Installing check_ssl_cert
 

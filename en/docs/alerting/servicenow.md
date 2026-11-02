@@ -119,7 +119,7 @@ Several commands or a different time period can also be selected.
 
 The notification for the 'Recovery' state must always be activated to ensure the system functions correctly.
 
-Because these involve changes to the Nagios configuration, an [Export](../monitoring/basic-principles/#how-do-i-carry-out-an-export) must be carried out after this step.
+Because these involve changes to the Nagios configuration, an [Export](../../monitoring/basic-principles/#how-do-i-carry-out-an-export) must be carried out after this step.
 
 ![](/images/contacts-servicenownotifications.png)
 

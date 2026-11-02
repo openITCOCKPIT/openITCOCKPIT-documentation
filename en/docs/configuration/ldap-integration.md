@@ -7,7 +7,7 @@ only be available to a limited extent or not at all.
 ## LDAP authentication
 
 To enable authentication against LDAP, first
-navigate to `System Configuration -> System -> `[`System Settings`](/configuration/systemsettings/)
+navigate to `System Configuration -> System -> `[`System Settings`](../systemsettings/)
 to configure the LDAP server that should be used.
 
 It is recommended to use _Microsoft Active Directory_.
@@ -51,7 +51,7 @@ It is recommended to use _Microsoft Active Directory_.
 ## Importing of users
 
 Before an LDAP-user is able to login to the openITCOCKPIT interface, it is required to import the user first.
-This is done under `User management -> Manage Users -> `[`Import from LDAP`](/configuration/usermanagement/#create-new-user-active-directory-ldap)
+This is done under `User management -> Manage Users -> `[`Import from LDAP`](../usermanagement/#create-new-user-active-directory-ldap)
 
 ![Import LDAP User](/images/import-ldap-user.png)
 
@@ -85,7 +85,7 @@ Imported 50 groups, removed 3 groups from database.
 
 ## Automatic permissions via LDAP groups
 
-openITCOCKPIT supports the automatic assignment of [User Container Roles](/configuration/usermanagement/#user-container-roles) and [User Roles](https://docs.openitcockpit.io/en/configuration/usermanagement/#manage-user-roles)
+openITCOCKPIT supports the automatic assignment of [User Container Roles](../usermanagement/#user-container-roles) and [User Roles](https://docs.openitcockpit.io/en/configuration/usermanagement/#manage-user-roles)
 via LDAP groups. 
 über LDAP-Gruppen. Obviously this is only available for users imported from LDAP.
 

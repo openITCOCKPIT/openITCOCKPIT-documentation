@@ -4,7 +4,7 @@ Dieser Guide zeigt das grundlegende Konzept hinter openITCOCKPIT auf und hilft b
 Er richtet sich an neue Benutzer, die grade mit der Benutzung von openITCOCKPIT angefangen haben.
 
 Sollten Sie Ihr openITCOCKPIT noch nicht installiert haben, können Sie entweder
-unsere [Installationsanleitung](../installation/) in dieser Dokumentation nutzen oder aber
+unsere [Installationsanleitung](../../installation/) in dieser Dokumentation nutzen oder aber
 den [Downloadbereich unserer Webseite](https://openitcockpit.io/download/#download) besuchen.
 
 ![openitcockpit-login](/images/openitcockpit-login.png)

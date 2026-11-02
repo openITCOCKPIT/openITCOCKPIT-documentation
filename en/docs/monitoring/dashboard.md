@@ -151,11 +151,11 @@ The automap must be created beforehand using the [automap](../maps/#automap) fun
 ##### Autoreport overview
 ![Autoreport overview widget](/images/dashboard-autoreportoverviewwidget.png)
 
-This widget shows an availability indicator for a previously created [autoreport](../../reporting/#autoreports-ce) an. 
+This widget shows an availability indicator for a previously created [autoreport](../../reporting/reporting/#autoreports-ce) an. 
 
 ###### Configuration
 
-The widget requires a previously created [autoreports](../../reporting/#autoreports-ce). This report can then be selected in the widget's configuration interface. Options for displaying availability, log data and dynamic colouring are also available. The widget configuration interface can be accessed via the gear symbol in the upper right area of the widget.
+The widget requires a previously created [autoreports](../../reporting/reporting/#autoreports-ce). This report can then be selected in the widget's configuration interface. Options for displaying availability, log data and dynamic colouring are also available. The widget configuration interface can be accessed via the gear symbol in the upper right area of the widget.
 
 ##### Grafana (automatically generated)
 

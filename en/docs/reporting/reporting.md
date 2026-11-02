@@ -36,7 +36,7 @@ Once this option has been enabled, you can send reports to one or more users.
 | Type                       | :fontawesome-solid-xmark: | Object type to be evaluated. Host groups, hosts, service groups and services are possible                                       |
 | Type-Object                | :fontawesome-solid-xmark: | Depending on the type selected, either hosts, host groups, services or service groups must be selected in the next field        |
 | Evaluation                 | :fontawesome-solid-xmark: | Which objects are evaluated -> Only hosts, hosts and services or only services                                                  |
-| Time period                | :fontawesome-solid-xmark: | [Time period](../configuration/timeperiods/) to consider                                                                        |
+| Time period                | :fontawesome-solid-xmark: | [Time period](../../configuration/timeperiods/) to consider                                                                        |
 | Reflection State           | :fontawesome-solid-xmark: | The type of state to be evaluated. Hard state or soft and hard state                                                            |
 | Consider maintenance times |                           | Determines whether maintenance times are to be taken into account                                                               |
 | Summary Display            |                           | Determines whether an overall view of the status of host and services is displayed instead of the listings of individual hosts. |
@@ -88,7 +88,7 @@ The reflection state defines whether either both a soft and hard state or only a
 | ---------------- | ------------------------- | ------------------------------------------------------------ |
 | Evaluation       | :fontawesome-solid-xmark: | Hosts or hosts including services                            |
 | Report Format    | :fontawesome-solid-xmark: | Report format HTML or PDF                                    |
-| Time Period      | :fontawesome-solid-xmark: | [Time period](../configuration/timeperiods/) to consider     |
+| Time Period      | :fontawesome-solid-xmark: | [Time period](../../configuration/timeperiods/) to consider     |
 | From             |                           | Start period of evaluation                                   |
 | To               |                           | End period of evaluation                                     |
 | Reflection State | :fontawesome-solid-xmark: | The type of state to be evaluated. Hard state or soft and hard state |
@@ -311,7 +311,7 @@ From here you can select the output format and the time range to be evaluated. A
 | Report description         |                           | Description of the Autoreport                                                                                |
 | Set Start                  |                           | Start date of the report is to be defined                                                                    |
 | Start date                 |                           | Start date of the report. Can only be edited if "Set Start" has been activated.                              |
-| Time period                | :fontawesome-solid-xmark: | [Time period](../configuration/timeperiods/) to consider                                                     |
+| Time period                | :fontawesome-solid-xmark: | [Time period](../../configuration/timeperiods/) to consider                                                     |
 | Evaluation Period          | :fontawesome-solid-xmark: | Day, Week, Month, Quarter or Year                                                                            |
 | Transmission interval      | :fontawesome-solid-xmark: | Daily, Weekly, Monthly, Quarterly, Yearly or Never                                                           |
 | Guaranteed availability    | :fontawesome-solid-xmark: | Availability in percent. Either "Guaranteed availability" or "Maximum number of failures" must be specified  |

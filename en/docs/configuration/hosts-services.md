@@ -479,7 +479,7 @@ activating / deactivating notifications.
 Clicking on the "+" symbol for a host in the list opens an expanded view containing the host's services and overall
 status.
 
-If the SLA module is installed, an additional tab called "SLA Hosts Status" is displayed, which shows an [overview page](/reporting/sla/#sla-host-status-overview-for-host-groups) that displays all hosts in the host group with their current SLA availability status in the form of a heat map. 
+If the SLA module is installed, an additional tab called "SLA Hosts Status" is displayed, which shows an [overview page](../../reporting/sla/#sla-host-status-overview-for-host-groups) that displays all hosts in the host group with their current SLA availability status in the form of a heat map. 
 
 ## Service groups
 

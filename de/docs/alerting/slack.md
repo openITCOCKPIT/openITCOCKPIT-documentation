@@ -84,7 +84,7 @@ Aktiviere "Interactive Messages" und füge die zuvor kopierte "Request URL" ein.
 
 Füge deinem Kontakt, die bei der Modulinstallation automatisch erstellten Kommandos hinzu, oder ersetze die Alten.
 
-Danach speichern und [exportieren](../monitoring/basic-principles/#wie-fuhre-ich-einen-export-aus).
+Danach speichern und [exportieren](../../monitoring/basic-principles/#wie-fuhre-ich-einen-export-aus).
 
 ![](/images/contacts-slacknotifications.png)
 

@@ -27,7 +27,7 @@ Satellites can be operated using three different synchronisation methods.
 ## Install the Satellite
 
 Satellite Systems do support the same Linux distributions as the openITCOCKPIT master system. The setup is done via the package manager.
-Please add the [openITCOCKPIT repository](/installation/) first.
+Please add the [openITCOCKPIT repository](../../installation/) first.
 
 
 ```

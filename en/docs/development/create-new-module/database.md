@@ -342,7 +342,7 @@ Load the URL `https://example.org/example_module/test/index.json` to display the
 ### Joining tables
 
 As long as you cleanly define your associations, you can always join your tables using
-the [contain]([https://book.cakephp.org/4/en/orm/retrieving-data-and-resultsets.html#eager-loading-associations-via-contain](https://book.cakephp.org/5.x/orm/retrieving-data-and-resultsets.html#eager-loading-associations-via-contain))
+the [contain](https://book.cakephp.org/5.x/orm/retrieving-data-and-resultsets.html#eager-loading-associations-via-contain)
 method.
 
 To join the Hosts table, you simply need to "contain" the "Host" table object:
