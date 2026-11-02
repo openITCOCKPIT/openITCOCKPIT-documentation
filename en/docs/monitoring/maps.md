@@ -63,7 +63,7 @@ Once you have created the basic map structure, you can proceed with the visual e
 
 To do this, click next to the gear icon of the corresponding map (1) and then click on "Edit in map editor" (2).
 
-![](/images/mapmodule-editinmapeditor.png)
+![](/images/mapmodule-editInmapeditor.png)
 
 Now you are in the map editor and can perform various actions using the side menu.
 

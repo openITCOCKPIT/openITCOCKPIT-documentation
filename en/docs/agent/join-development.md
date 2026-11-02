@@ -14,7 +14,7 @@ git clone https://github.com/openITCOCKPIT/openitcockpit-agent-go.git
 
 3. Install Go tools
 Press `ctrl` + `shift` + `P` (Windows and Linux) or `cmd` + `shift` + `P` on macOS and select `Go: Install/Update Tools`
-![Install Go tools](images/agent/vscode_install_go_tools.png)
+![Install Go tools](../images/agent/vscode_install_go_tools.png)
 
 Select all tools and confirm with `Ok`
 ![Select and install Go tools](/images/agent/vscode_install_all_go_tools.png)
