@@ -112,7 +112,7 @@ For openITCOCKPIT Satellite execute
 /opt/openitc/frontend/UPDATE.sh
 ```
 
-A restart of the system is recommended to complete the update
+A restart of the system is required to complete the update
 ```
 reboot
 ```

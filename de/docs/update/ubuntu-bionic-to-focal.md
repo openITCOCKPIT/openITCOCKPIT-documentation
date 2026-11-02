@@ -112,7 +112,7 @@ Auf einem openITCOCKPIT Satellit nutzen Sie den folgenden Befehl
 /opt/openitc/frontend/UPDATE.sh
 ```
 
-Um das Update abzuschließen, wird ein Neustart empfohlen
+Um das Update abzuschließen, ist ein Neustart erforderlich
 ```
 reboot
 ```
