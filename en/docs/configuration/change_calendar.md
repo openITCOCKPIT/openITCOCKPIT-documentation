@@ -6,13 +6,13 @@ The Change Calendar feature is able to manage your infrastructure changes direct
 
 Navigate to `Changecalendar` to list, add, modify and delete the change calendars.
 
-![](/images/change_calendar/list_calendars.png)
+![Screenshot: Calendar management](/images/change_calendar/list_calendars.png)
 
 ## Create a Calendar
 
 To create a new calendar from scratch, you’ll have to click on the `+ New` button in the top right corner of your screen. 
 
-![](/images/change_calendar/new_calendar.png)
+![Screenshot: Create a Calendar](/images/change_calendar/new_calendar.png)
 
 **Required fields are:**
 
@@ -29,34 +29,34 @@ To create a new calendar from scratch, you’ll have to click on the `+ New` but
     -   Select a varying color for the calendar, which will be used on the widget.
     -   This helps the users distinguish the different calendars which appear on one single widget.
 
-![](/images/change_calendar/new_calendar_example.png)
+![Screenshot: Create a Calendar](/images/change_calendar/new_calendar_example.png)
 
 **Changecalendar created successfully**
 
-![](/images/change_calendar/calendar_created_success.png)
+![Screenshot: Create a Calendar](/images/change_calendar/calendar_created_success.png)
 
 ## Managing events
 
 On the Calendar index page existing calendars can be modified if the user has the rights for. 
 With the right to edit a calendar the user has the possibility to edit the data of the calendar itself and the underlying events.
 
-![](/images/change_calendar/manage_calendar.png)
+![Screenshot: Managing events](/images/change_calendar/manage_calendar.png)
 
 ### Create an event
 
 The creation of an event is done by clicking on a `+` sign inside a day.
 
-![](/images/change_calendar/calendar_create_event.png)
+![Screenshot: Create an event](/images/change_calendar/calendar_create_event.png)
 
 ### Modify an event
 
 The events can be modified by clicking on an existing event in the calendar management.
 
-![](/images/change_calendar/calendar_modify_event.png)
+![Screenshot: Modify an event](/images/change_calendar/calendar_modify_event.png)
 
 The event can then be edited or deleted.
 
-![](/images/change_calendar/calendar_modify_delete_event.png)
+![Screenshot: Modify an event](/images/change_calendar/calendar_modify_delete_event.png)
 
 ## Calendar widget
 
@@ -66,15 +66,15 @@ There is also a calendar widget.
 
 First select all calendars that should be shown in the widget.
 
-![](/images/change_calendar/calendar_widget_1.png)
+![Screenshot: Creating a widget](/images/change_calendar/calendar_widget_1.png)
 
 The display type is the timerange for the calendar.
 
-![](/images/change_calendar/calendar_widget_2.png)
+![Screenshot: Creating a widget](/images/change_calendar/calendar_widget_2.png)
 
 Saving the widget will then show the selected calendars in the widget.
 
-![](/images/change_calendar/calendar_widget_3.png)
+![Screenshot: Creating a widget](/images/change_calendar/calendar_widget_3.png)
 
 ## CLI import
 

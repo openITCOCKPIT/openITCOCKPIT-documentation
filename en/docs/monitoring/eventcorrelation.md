@@ -24,25 +24,25 @@ The following operators are possible:
 
 The "AND" operator requires that all its services have the status OK so that the virtual service also receives an OK status.
 
-![](/images/EVC-andOperator.png)
+![Screenshot: AND](/images/EVC-andOperator.png)
 
 ### OR
 
 With the "OR" operator, at least one service must have the status OK for the virtual service to receive an OK status.
 
-![](/images/EVC-orOperator.png)
+![Screenshot: OR](/images/EVC-orOperator.png)
 
 ### EQUALS
 
 The "EQUALS" operator can only have one service. This operator is suitable for "looping through" a service status in order to use it again in a later level.
 
-![](/images/EVC-eqOperator.png)
+![Screenshot: EQUALS](/images/EVC-eqOperator.png)
 
 ### MIN
 
 The "MIN" operator also requires a number as a specifier. This number indicates how many services must have the status OK so that the virtual service receives an OK status.
 
-![](/images/EVC-min2Operator.png)
+![Screenshot: MIN](/images/EVC-min2Operator.png)
 
 
 ### SCORE
@@ -80,7 +80,7 @@ This system helps you flexibly assess the combined status of your services based
 Scores can be negative or positive values, and the thresholds can be set according to your specific requirements. A score value of `Infinity` is niot supported, but you can use a very high value to achieve a similar effect.
 
 
-![](/images/evc_scoring_operator.png)
+![Screenshot: SCORE](/images/evc_scoring_operator.png)
 
 The SCORE operator can operate in four different modes:
 
@@ -102,7 +102,7 @@ A tooltip will show the thresholds defined in the operator configuration.
 >
 > 11 (total score) is not ≥ 900 (unknown threshold)
 
-![](/images/EVC-scoreOperator.png)
+![Screenshot: SCORE](/images/EVC-scoreOperator.png)
 
 | Field                               | Required                  | Description                                                                                                                   |
 |-------------------------------------|---------------------------|-------------------------------------------------------------------------------------------------------------------------------|

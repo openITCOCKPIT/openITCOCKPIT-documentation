@@ -24,25 +24,25 @@ Es gibt folgende Operatoren:
 
 Der "UND" Operator verlangt, dass alle seine Services den Status OK haben, damit der virtuelle Service auch den Status OK bekommt.
 
-![](/images/EVC-andOperator.png)
+![Screenshot: UND / AND](/images/EVC-andOperator.png)
 
 ### ODER / OR
 
 Beim "ODER" Operator muss mindestens ein Service den Status OK haben, damit der virtuelle Service den Status OK bekommt.
 
-![](/images/EVC-orOperator.png)
+![Screenshot: ODER / OR](/images/EVC-orOperator.png)
 
 ### GLEICH / EQUAL
 
 Der "GLEICH" oder "EQUAL" Operator kann nur einen Service haben. Dieser Operator eignet sich dazu ein Servicestatus "durchzuschleifen" um ihn in einer späteren Ebene wieder verwenden zu können.
 
-![](/images/EVC-eqOperator.png)
+![Screenshot: GLEICH / EQUAL](/images/EVC-eqOperator.png)
 
 ### MIN
 
 Min ist ein Operator, der zusätzlich noch eine Zahl als Angabe benötigt. Diese Zahl gibt an, wie viele Services den Status OK haben müssen, damit der virtuelle Service den Status OK bekommt.
 
-![](/images/EVC-min2Operator.png)
+![Screenshot: MIN](/images/EVC-min2Operator.png)
 
 ### SCORE
 
@@ -79,7 +79,7 @@ Dieses System hilft, den kombinierten Status Ihrer Services flexibel anhand ihre
 
 Punktwerte können negative oder positive Werte sein und die Operator-Schwellenwerte können nach Ihren Anforderungen gesetzt werden. Ein Wert von `Unendlich` wird nicht unterstützt, aber Sie können einen sehr hohen Wert verwenden, um einen ähnlichen Effekt zu erzielen.
 
-![](/images/evc_scoring_operator.png)
+![Screenshot: SCORE](/images/evc_scoring_operator.png)
 
 Der SCORE-Operator kann in vier verschiedenen Modi arbeiten:
 
@@ -102,22 +102,22 @@ Ein Tooltip zeigt die in der Operator-Konfiguration definierten Schwellenwerte a
 >
 > 11 (Gesamtpunktzahl) ist nicht ≥ 900 (Unbekannter-Schwellenwert)
 
-![](/images/EVC-scoreOperator.png)
+![Screenshot: SCORE](/images/EVC-scoreOperator.png)
 
 
 | Feld                               | Erforderlich              | Beschreibung                                                                                                                                 |
 |------------------------------------|---------------------------|----------------------------------------------------------------------------------------------------------------------------------------------|
 | Basiskonfiguration                 |                           |                                                                                                                                              |
 | Container                          | :fontawesome-solid-xmark: | [Container](../../configuration/container/#container) in dem der Host erstellt werden soll                                                                    |
-| Hostvorlage                        | :fontawesome-solid-xmark: | [Hostvorlage](#hostvorlagen) von der der Host abgeleitet werden soll                                                                         |
+| Hostvorlage                        | :fontawesome-solid-xmark: | [Hostvorlage](../../configuration/hosts-services/#hostvorlagen) von der der Host abgeleitet werden soll                                                                         |
 | Host Name / Name der Korrelation   | :fontawesome-solid-xmark: | Name des Hosts bzw. Name der zu erstellenden Ereigniskorrelation                                                                             |
 | Beschreibung                       |                           | Beschreibung der Hostvorlage. Wird als Beschreibung des Hosts weitervererbt                                                                  |
 | Priorität                          |                           | Priorität zum filtern in Listen                                                                                                              |
 | Prüfungskonfiguration              |                           |                                                                                                                                              |
 | Prüfungszeitraum                   | :fontawesome-solid-xmark: | Definition, in welchem [Zeitraum](../../configuration/timeperiods/) Prüfungen stattfinden sollen                                                              |
-| Prüfungsintervall                  | :fontawesome-solid-xmark: | Definiert in welchem Intervall Prüfungen stattfinden sollen. Siehe [Intervalle](#intervalle)                                                 |
-| Wiederholungsintervall             | :fontawesome-solid-xmark: | Definiert den Wartezeitraum bevor eine neue Prüfung stattfindet, nachdem ein nicht UP status erreicht wurde. Siehe [Intervalle](#intervalle) |
-| Max. Anzahl der Prüfversuche       | :fontawesome-solid-xmark: | Bestimmt die Anzahl der Prüfversuche, bevor ein Host in einen Hard State über geht. Siehe [Intervalle](#intervalle)                          |
+| Prüfungsintervall                  | :fontawesome-solid-xmark: | Definiert in welchem Intervall Prüfungen stattfinden sollen. Siehe [Intervalle](../../configuration/hosts-services/#intervalle)                                                 |
+| Wiederholungsintervall             | :fontawesome-solid-xmark: | Definiert den Wartezeitraum bevor eine neue Prüfung stattfindet, nachdem ein nicht UP status erreicht wurde. Siehe [Intervalle](../../configuration/hosts-services/#intervalle) |
+| Max. Anzahl der Prüfversuche       | :fontawesome-solid-xmark: | Bestimmt die Anzahl der Prüfversuche, bevor ein Host in einen Hard State über geht. Siehe [Intervalle](../../configuration/hosts-services/#intervalle)                          |
 | Benachrichtigungskonfiguration     |                           |                                                                                                                                              |
 | Benachrichtigungszeitraum          | :fontawesome-solid-xmark: | Bestimmt den Zeitraum in dem für einen Host Benachrichtigungen versendet werden.                                                             |
 | Benachrichtigungsintervall         | :fontawesome-solid-xmark: | Definiert den Zeitlichen Abstand von Benachrichtigungen, die zu diesem Host versendet werden                                                 |

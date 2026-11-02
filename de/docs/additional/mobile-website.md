@@ -148,7 +148,7 @@ Danach verfahren Sie wie im Abschnitt [Wartungszeit erstellen](#wartungszeit-ers
 
 Hier können keine wiederkehrenden Wartungszeiten eingerichtet
 werden. Wie Sie eine wiederkehrende Wartungszeit einrichten können, wird im Abschnitt
-[wiederkehrende Wartungszeit erstellen](#wiedekehrende-wartungszeit-erstellen) erläutert.
+[wiederkehrende Wartungszeit erstellen](#wartungszeit-erstellen) erläutert.
 
 Weitere Informationen zu [Plane Wartung](../../monitoring/user-interface/#plane-wartung)
 
@@ -217,7 +217,7 @@ Bei hosts ist lediglich noch die Option zum Setzen der downtimes auf dessen Serv
     Services der gewählten Hosts zusätzlich eine Wartungszeit mit den selben parametern erstellt werden soll.
     Mit dem Kommentar können Sie die Wartungszeit beschreiben.
 
-    Mit dem Auswahlfeld `Wiederkehrende Wartungszeit` können Sie [Wiederkehrende Wartungszeiten erstellen](#wiedekehrende-wartungszeit-erstellen)
+    Mit dem Auswahlfeld `Wiederkehrende Wartungszeit` können Sie [Wiederkehrende Wartungszeiten erstellen](#wartungszeit-erstellen)
 
     Die Felder `Start` und `Ende` definieren den start und endzeitpunkt der Wartungszeit.
 

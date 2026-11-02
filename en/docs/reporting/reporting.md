@@ -50,7 +50,7 @@ Once this option has been enabled, you can send reports to one or more users.
 When you have created an “Instant Report”, click on the menu of the corresponding “Instant Report” (1)
 and then on the “Generate” button (2).
 
-![](/images/instantreports-generate.png)
+![Screenshot: Generate the Report](/images/instantreports-generate.png)
 
 In the form that opens, choose the report format and the period you want the report to cover.
 The report will then be displayed in the browser or made available for download.
@@ -104,7 +104,7 @@ The elements of the status-page will all shown in the same way, so you cannot re
 Status page elements can have additional informations about acknowledgements, downtimes or planned downtimes and you can con wheter this informations should provided on the status page or not.
 
 ### Creating/Edit
-![](/images/status-pages/status-pages-edit.png)
+![Screenshot: Creating/Edit](/images/status-pages/status-pages-edit.png)
 
 | Field                                        | Required                  | Description                                                                                               |
 |----------------------------------------------|---------------------------|-----------------------------------------------------------------------------------------------------------|
@@ -123,13 +123,13 @@ Status page elements can have additional informations about acknowledgements, do
 
 
 ### View 
-![](/images/status-pages/status-page-view.png)
+![Screenshot: View](/images/status-pages/status-page-view.png)
 
 #### Internal View
-![](/images/status-pages/status-pages-internal.png)
+![Screenshot: Internal View](/images/status-pages/status-pages-internal.png)
 
 #### External view
-![](/images/status-pages/status-pages-external.png)
+![Screenshot: External view](/images/status-pages/status-pages-external.png)
 
 In- / external View are generally the same, but in internal view the element names are links to the elements.
 
@@ -192,7 +192,7 @@ Optionally, you can add custom text to the Status Page Group. This allows you to
 
 The creation of new Status Page Groups is separated into two steps. In the first step, you need to define the status page matrix.
 
-![](/images/status-page-groups/create-status-page-group-step1.png)
+![Screenshot: Creating](/images/status-page-groups/create-status-page-group-step1.png)
 
 | Field                                        | Required                  | Description                                                                                               |
 |----------------------------------------------|---------------------------|-----------------------------------------------------------------------------------------------------------|
@@ -216,7 +216,7 @@ openITCOCKPIT calculates the status of each cell in a Status Page Group by evalu
 
 This approach ensures that any critical issue within a group is immediately visible at the collection or category level, making it easy to identify and respond to problems.
 
-![](/images/status-page-groups/create-status-page-group-step2.png)
+![Screenshot: Creating](/images/status-page-groups/create-status-page-group-step2.png)
 
 ### View
 
@@ -246,21 +246,21 @@ The "Status Overview" section displays the 2-dimensional matrix of all collectio
 
 Below the matrix, a table lists all problems (if any) in detail, so you can quickly identify and address issues.
 
-![](/images/status-page-groups/status_page_group_view.png)
+![Screenshot: Problems Table](/images/status-page-groups/status_page_group_view.png)
 
 #### Dashboard
 
 Status Page Groups can also be added to a user's Dashboard for quick access and monitoring.
 
-![](/images/status-page-groups/status_page_group_widget.png)
+![Screenshot: Dashboard](/images/status-page-groups/status_page_group_widget.png)
 
 The widget displays the same information as the default view of Status Page Groups, including the overall state, host and service counters, custom information, and the status overview matrix.
-![](/images/status-page-groups/statuspage_group_as_dashboard.png)
+![Screenshot: Dashboard](/images/status-page-groups/statuspage_group_as_dashboard.png)
 
 You can configure an auto-refresh interval for the widget to ensure the displayed data is always up to date.
 
 
-![](/images/status-page-groups/status_page_group_refresh.png)
+![Screenshot: Dashboard](/images/status-page-groups/status_page_group_refresh.png)
 
 ## Autoreports <span class="badge badge-primary badge-outlined" title="Community Edition">CE</span>
 
@@ -337,6 +337,6 @@ From here you can select the output format and the time range to be evaluated. A
 
 Various standard settings for the autoreports can be set in the main menu under System configuration → System → Autoreport global settings. Descriptions of the individual options can be found directly in the table under the “Info" button.
 
-![](/images/autoreportModule-globalsinfo.png)
+![Screenshot: Autoreport global settings](/images/autoreportModule-globalsinfo.png)
 
 Please note that the options you select will affect all reports generated by the autoreport module!

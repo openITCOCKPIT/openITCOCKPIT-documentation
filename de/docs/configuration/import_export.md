@@ -12,7 +12,7 @@ Wechsele zu `Verwaltung -> Objektimport -> Export / Import`
 
 Zunächst werden alle Elemente ausgewählt, die exportiert werden sollen. Wie bereits erwähnt, erkennt das Modul Abhängigkeiten zu anderen Elementen und Abhängigkeiten müssen nicht beachtet werden. Wenn zum Beispiel ein Servicetemplate exportiert wird, werden automatisch die Kommandos, Kontakte etc. mit übernommen.
 
-![](/images/import_export/export_items.png)
+![Screenshot: Export der Configuration Items](/images/import_export/export_items.png)
 
 Mit einem Klick auf __*Export configuration items*__, wird eine .json-Datei erzeugt, die für den Import auf einem anderen System verwendet werden kann.
 
@@ -26,24 +26,24 @@ Mit einem Klick auf __*Export configuration items*__, wird eine .json-Datei erze
 
 Für den Import wird die exportierte .json-Datei benötigt. Die Datei kann einfach per Drag-and-Drop in das Upload-Feld gezogen werden oder es kann durch einen Klick auf das Feld nach der Datei gesucht werden.
 
-![](/images/import_export/import_file.png)
+![Screenshot: Import der Configuration Items](/images/import_export/import_file.png)
 
 ### Zusammenfassung
 Nachdem die Datei ausgewählt wurde, zeigt das Modul eine Zusammenfassung des Imports und mögliche Konflikte an.
 
-![](/images/import_export/import_summary.png)
+![Screenshot: Zusammenfassung](/images/import_export/import_summary.png)
 
 ### Ausschließliche neue Items
 
 Werden nur neue Elemente importiert, zeigt das Modul im Bereich __*Import*__ an, dass keine Konflikte gefunden wurden und dass der Import ohne Probleme durchgeführt werden kann.
 
-![](/images/import_export/import_ready.png)
+![Screenshot: Ausschließliche neue Items](/images/import_export/import_ready.png)
 
 ### Abweichungen zu bestehenden Konfigurationen
 
 Im Falle des Überschreibens bestehender Elemente gibt das Modul eine Warnung aus und zeigt die Änderungen im Detail an.
 
-![](/images/import_export/import_danger.png)
+![Screenshot: Abweichungen zu bestehenden Konfigurationen](/images/import_export/import_danger.png)
 
 Der Import kann aber auch dann durchgeführt werden, wenn es Unterschiede in der Konfiguration gibt.
 
@@ -51,10 +51,10 @@ Der Import kann aber auch dann durchgeführt werden, wenn es Unterschiede in der
 
 Eine abschließende Meldung zeigt an, dass der Import erfolgreich abgeschlossen wurde und dass alle Änderungen im Changelog protokolliert wurden.
 
-![](/images/import_export/import_finished.png)
+![Screenshot: Import erfolgreich](/images/import_export/import_finished.png)
 
 ## Changelog
 
 Wie üblich werden alle Änderungen im Changelog protokolliert. Der angemeldete Benutzer wird als der Benutzer verwendet, der die Änderungen vorgenommen hat. Auf diese Weise ist es auch bei einem Import möglich zu verfolgen, wer die Änderungen vorgenommen hat.
 
-![](/images/import_export/changelog.png)
+![Screenshot: Changelog](/images/import_export/changelog.png)

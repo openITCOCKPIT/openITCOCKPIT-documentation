@@ -61,7 +61,7 @@ The port indicates the port on which the exporter is running.
 
 Some exporters require special YAML configurations (e.g. Blackbox, SNMP and some others). The "YAML configuration" field  is provided should this be needed.
 
-![](/images/prometheusmodule-exportersedit.png)
+![Screenshot: Creating an exporter in openITCOCKPIT](/images/prometheusmodule-exportersedit.png)
 
 ### Monitoring a host with Prometheus in openITCOCKPIT
 
@@ -75,7 +75,7 @@ Once you have edited your host as required, make sure you save your changes.
 
 Once this has been done, you will need to export your configuration.
 
-![](/images/select-prometheus-exporters.png)
+![Screenshot: Monitoring a host with Prometheus in openITCOCKPIT](/images/select-prometheus-exporters.png)
 
 #### Metrics, services and notifications
 
@@ -83,7 +83,7 @@ Now navigate to Monitoring → Prometheus → Query in the main menu and select 
 
 All metrics available through the exporter will be listed. All the metrics displayed will now be captured and stored by Prometheus.
 
-![](/images/prometheus-queries.png)
+![Screenshot: Metrics, services and notifications](/images/prometheus-queries.png)
 
 ##### Notifications
 
@@ -91,7 +91,7 @@ To set up notifications for the metrics, one or more services must be created.
 
 To do this, select the desired metric and create the appropriate PromQL query.
 
-![](/images/prometheus-promql.png)
+![Screenshot: Notifications](/images/prometheus-promql.png)
 
 Prometheus also offers the ability to coordinate multiple metrics with each other. For example, you can query the memory usage under Linux: 
 `node_memory_MemAvailable_bytes{uuid="d6e35fc3-3ea5-4580-9b31-7cc69e828fb2"} / node_memory_MemTotal_bytes{uuid="d6e35fc3-3ea5-4580-9b31-7cc69e828fb2"} * 100`
@@ -100,7 +100,7 @@ Further examples can be found under "PromQL help" (top right) as a module. The U
 
 The individual Services can be found under Monitoring → Prometheus → Query → Alarm Rules. All queries are listed here by host. If you move the mouse over the graph, you will see the familiar oITC pop-over graph, which then sends the query to Prometheus and displays the current values:
 
-![](/images/prometheus-alertrules.png)
+![Screenshot: Notifications](/images/prometheus-alertrules.png)
 
 On a host itself, however, it is no longer possible to see what a service is monitored by.
 

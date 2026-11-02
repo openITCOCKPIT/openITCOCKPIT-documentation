@@ -143,54 +143,54 @@ host.
 
 The navigation bar links to various actions on a host
 
-![](/images/hosts-browsertopnavbar.png)
+![Screenshot: Navigation bar](/images/hosts-browsertopnavbar.png)
 
 #### Resetting the check time
 
-![](/images/hosts-browserresetchecktime.png)
+![Screenshot: Resetting the check time](/images/hosts-browserresetchecktime.png)
 
 This resets the check time of the host. This has the same effect as `resetting the check time` in the status
 information.
 
 #### Object documentation
 
-![](/images/hosts-browserdocumentation.png)
+![Screenshot: Object documentation](/images/hosts-browserdocumentation.png)
 
 Documentation on the host can be entered here
 
 #### Notifications
 
-![](/images/hosts-browsernotifications.png)
+![Screenshot: Notifications](/images/hosts-browsernotifications.png)
 
 To get an overview of all notifications sent to the host, click this button
 
 #### History
 
-![](/images/hosts-browsercheckhistory.png)
+![Screenshot: History](/images/hosts-browsercheckhistory.png)
 
 The history contains the results for each host check including date, check attempt, status type and the output
 
 #### Status history
 
-![](/images/hosts-browserstatehistory.png)
+![Screenshot: Status history](/images/hosts-browserstatehistory.png)
 
 The status history contains the results of each time the host changes its status.
 
 #### Confirmation history
 
-![](/images/hosts-browseracknowledgmenthistory.png)
+![Screenshot: Confirmation history](/images/hosts-browseracknowledgmenthistory.png)
 
 The confirmation history contains all confirmations regarding the host status.
 
 #### Editing hosts
 
-![](/images/hosts-browseredit.png)
+![Screenshot: Editing hosts](/images/hosts-browseredit.png)
 
 The host can be edited here
 
 #### More actions
 
-![](/images/hosts-browsermoreactions.png)
+![Screenshot: More actions](/images/hosts-browsermoreactions.png)
 
 ##### Service list
 
@@ -280,7 +280,7 @@ The timeline gives an accurate overview of the host as well as what activities h
 information on when a host status was confirmed, maintenance times were entered into, notifications were sent and when
 the host had which status.
 
-![](/images/hosts-browsertimeline.png)
+![Screenshot: Timeline](/images/hosts-browsertimeline.png)
 
 ### Grafana
 
@@ -296,60 +296,60 @@ information, a timeline and, if modules are installed, even more information dis
 
 The navigation bar links various actions on a service.
 
-![](/images/services-browsertopnavbar.png)
+![Screenshot: Navigation bar](/images/services-browsertopnavbar.png)
 
 #### Reset the check time
 
-![](/images/hosts-browserresetchecktime.png)
+![Screenshot: Reset the check time](/images/hosts-browserresetchecktime.png)
 
 This resets the check time for the service. This has the same effect as `resetting the check time` in the status
 information.
 
 #### Object documentation
 
-![](/images/hosts-browserdocumentation.png)
+![Screenshot: Object documentation](/images/hosts-browserdocumentation.png)
 
 Documentation for the service can be entered here.
 
 #### Notifications
 
-![](/images/hosts-browsernotifications.png)
+![Screenshot: Notifications](/images/hosts-browsernotifications.png)
 
 Click on this button to get an overview of all sent notifications for the service.
 
 #### History
 
-![](/images/hosts-browsercheckhistory.png)
+![Screenshot: History](/images/hosts-browsercheckhistory.png)
 
 The history contains the results from each service check including the date, check attempt, status type and output.
 
 #### Status history
 
-![](/images/hosts-browserstatehistory.png)
+![Screenshot: Status history](/images/hosts-browserstatehistory.png)
 
 The status history contains the results of each time the service changes its status.
 
 #### Confirmation history
 
-![](/images/hosts-browseracknowledgmenthistory.png)
+![Screenshot: Confirmation history](/images/hosts-browseracknowledgmenthistory.png)
 
 The confirmation history contains all status confirmations for the service.
 
 #### Editing hosts
 
-![](/images/hosts-browseredit.png)
+![Screenshot: Editing hosts](/images/hosts-browseredit.png)
 
 The service host can be edited here.
 
 #### Editing services
 
-![](/images/services-browsereditservice.png)
+![Screenshot: Editing services](/images/services-browsereditservice.png)
 
 Here you can edit the service itself.
 
 #### More actions
 
-![](/images/services-browsermoreactions.png)
+![Screenshot: More actions](/images/services-browsermoreactions.png)
 
 ##### Service list
 
@@ -405,4 +405,4 @@ when the service had which status.
 
 The host status is also included.
 
-![](/images/services-browsertimeline.png)
+![Screenshot: Timeline](/images/services-browsertimeline.png)

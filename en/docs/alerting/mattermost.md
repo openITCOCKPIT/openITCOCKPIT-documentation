@@ -4,7 +4,7 @@
 
 This module offers the possibility of setting up a two-way integration of Mattermost in openITCOCKPIT. Alerts can be sent to Mattermost and acknowledgments can be sent from Mattermost to openITCOCKPIT.
 
-![](/images/mattermost-chat.png)
+![Screenshot: What can I do with the Mattermost module?](/images/mattermost-chat.png)
 
 ## What can I configure?
 
@@ -24,7 +24,7 @@ Create a new [bot account](https://docs.mattermost.com/developer/bot-accounts.ht
 Benutzer) (or normal user account) for openITCOCKPIT in your Mattermost environment.
 Now create a new [incoming webhook.](https://docs.mattermost.com/developer/webhooks-incoming.html)
 
-![](/images/mattermost-webhooks.png)
+![Screenshot: Mattermost configuration](/images/mattermost-webhooks.png)
 
 Once you click "Save", Mattermost will present you with a webhook URL. For Example: [*http://192.168.122.1/hooks/1nmqus1wsfr988e81sr8whqrte*](http://192.168.122.1/hooks/1nmqus1wsfr988e81sr8whqrte). Copy this into a text file. You will need it later.
 
@@ -50,7 +50,7 @@ Also read: [Enable Insecure Outgoing Connections](https://docs.mattermost.com/ad
 
 Open the Mattermost Module configuration and fill in the required fields.
 
-![](/images/mattermost-config.png)
+![Screenshot: openITCOCKPIT configuration](/images/mattermost-config.png)
 
 ## Commands
 

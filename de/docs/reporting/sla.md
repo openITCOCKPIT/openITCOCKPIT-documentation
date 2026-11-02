@@ -108,7 +108,7 @@ einzelne Services haben eine eigene Verfügbarkeitsanzeige im  `Services ->Brows
 
 Auf der SLA Service Übersicht bekommt man zusätzlich eine Auflistung der letzten 10 Tage.
 
-##SLA Host Status Übersicht für Hostgruppen
+## SLA Host Status Übersicht für Hostgruppen
 
 Für die Hostgruppen gibt es eine Übersichtseite, die alle beinhalteten Hosts mit ihrem aktuellen SLA-Verfügbarkeitsstatus in Form einer Heatmap anzeigt. Die Hosts Status Übersicht ist in der erweiterten Ansicht der Hostgruppe als Tab eingebunden.   
 

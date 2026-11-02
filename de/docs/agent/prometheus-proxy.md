@@ -47,7 +47,7 @@ Die neueste Version finden Sie auf der [offiziellen Download-Seite](https://open
 
 ### Den Agent konfigurieren
 
-Es ist wichtig, alle Prometheus-Exporter, die Sie über den openITCOCKPIT-Agent bereitstellen möchten, in die Konfigurationsdatei `prometheus_exporters.ini` einzutragen. Den genauen Dateipfad für verschiedenen Betriebssystemen finden Sie auf [dieser Seite](/agent/debugging/#paths).
+Es ist wichtig, alle Prometheus-Exporter, die Sie über den openITCOCKPIT-Agent bereitstellen möchten, in die Konfigurationsdatei `prometheus_exporters.ini` einzutragen. Den genauen Dateipfad für verschiedenen Betriebssystemen finden Sie auf [dieser Seite](/agent/debugging/#pfade).
 
 Fügen Sie für jeden Exporter einen neuen Abschnitt hinzu.
 

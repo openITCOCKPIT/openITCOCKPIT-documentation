@@ -187,7 +187,7 @@ rstellt wird.
 
 Es gibt in openITCOCKPIT drei verschiedene Möglichkeiten Servicevorlagengruppen zuzuweisen.
 
-![](/images/servicetemplategroups-allocate.png)
+![Screenshot: Servicevorlagengruppen zuweisen](/images/servicetemplategroups-allocate.png)
 
 #### Zuweisen zu Host
 
@@ -197,7 +197,7 @@ erstellenden Services aufgelistet und können auch über die Auswahlbox abgewäh
 Sollte ein Service dieser Servicevorlagengruppe bereits auf dem Zielhost existieren, so wird dieser standardmäßig nicht 
 zusätzlich erstellt, es sei denn man markiert diesen wieder in der Liste.
 
-![](/images/servicetemplategroups-allocatetohost.png)
+![Screenshot: Zuweisen zu Host](/images/servicetemplategroups-allocatetohost.png)
 
 #### Einer Hostgruppe zuweisen
 
@@ -382,7 +382,7 @@ Wert der Vorlage ist möglich, indem Sie auf die rote Schaltfläche (1) hinter d
 
 Host Standardeinstellungen definieren beispielsweise welcher Container und Dienste den importierten Hosts zugewiesen werden sollen. Dies ist abhängig von der Import-Quelle.
 
-![](/images/importmodule-hostdefaults.png)
+![Screenshot: Host-Standardeinstellungen](/images/importmodule-hostdefaults.png)
 
 Zunächst muss ein Container ausgewählt werden, in den die Daten importiert werden sollen und vergeben einen Namen für die Standardeinstellung.
 
@@ -412,14 +412,14 @@ Hier hat die CSV Datei, die man Importieren möchte einen Header. Das bedeutet, 
 Überschriften gekennzeichnet ist. Pflichtvoraussetzung für den Import ist hier ein Trennzeichen, eindeutige Kennung, 
 Hostname und Host Adresse.
 
-![](/images/importmopdule-csvwithheader.png)
+![Screenshot: CSV mit Header](/images/importmopdule-csvwithheader.png)
 
 ###### CSV ohne Header
 
 Der Unterschied zwischen einer CSV mit Header und einer ohne Header besteht darin, dass die Spalten bei einer CSV ohne 
 Header nicht mit überschriften versehen sind. Hier muss also mit der Nummerierung der Spalten gearbeitet werden.
 
-![](/images/importmodule-csvwithoutheader.png)
+![Screenshot: CSV ohne Header](/images/importmodule-csvwithoutheader.png)
 
 A = 0, B = 1, C = 2, D = 3
 
@@ -428,11 +428,11 @@ A = 0, B = 1, C = 2, D = 3
 Die Host-Standardeinstellungen müssen bei der Erstellung des Importers gesetzt werden. Dies Sorgt dafür, dass den 
 importierten Hosts Standardeinstellungen zugewiesen werden.
 
-![](/images/importmodule-editimporter.png)
+![Screenshot: Zuweisung von Host-Standardeinstellungen](/images/importmodule-editimporter.png)
 
 ### Importierte Host
 
-![](/images/importmodule-importhostoverview.png)
+![Abbildung: Importierte Host](/images/importmodule-importhostoverview.png)
 
 In der Liste werden alle neuen oder bereits in das Monitoring aufgenommenen Host angezeigt. 
 Alle bevorstehende Änderungen für Services, falls welche vorhanden sind, werden entsprechend angezeigt. 
@@ -446,7 +446,7 @@ Konfigurationsobjekte werden überwacht.
 Im oberen Bereich unter dem Punkt "Import Starten" werden alle auf dem System verfügbaren Importer aufgelistet. Nach dem
 Klicken auf einen dieser Importers öffnet sich das passende Modal. Im unteren Beispiel ist das ein CSV Importer.
 
-![](/images/importmodule-uploadcsv.png)
+![Screenshot: Importierte Host](/images/importmodule-uploadcsv.png)
 
 
 ## Hostgruppen

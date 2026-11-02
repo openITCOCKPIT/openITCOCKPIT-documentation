@@ -7,7 +7,7 @@ Daher können Sie alle Monitoring-Plugins verwenden, die mit Naemon, Nagios, Shi
 Die Idee hinter benutzerdefinierten Checks ist es, eine einfache Methode bereitzustellen, um eine tiefere Überwachung spezialisierter Dienste wie Datenbankserver usw. zu ermöglichen.
 
 ## Pfad zur customchecks.ini festlegen
-Standardmäßig sucht der Agent nach einer Datei `customchecks.ini` im [Standardverzeichnis](/agent/debugging/#paths).
+Standardmäßig sucht der Agent nach einer Datei `customchecks.ini` im [Standardverzeichnis](/agent/debugging/#pfade).
 
 Sie können den Speicherort in der `config.ini` ändern:
 

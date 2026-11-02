@@ -5,7 +5,7 @@
 Like other notification modules, the Telegram module uses a Telegram bot to send notifications and acknowledgements from
 openITCOCKPIT to a Telegram chat.
 
-![](/images/telegram/1-feature.png)
+![Screenshot: What can I do with the Telegram Module?](/images/telegram/1-feature.png)
 
 ## How To Configure?
 
@@ -23,7 +23,7 @@ have connected to the bot and authenticated using a key generated in openITCOCKP
 
 ### 1. Create a Telegram Bot
 
-![](/images/telegram/2-botfather.png)
+![Screenshot: 1. Create a Telegram Bot](/images/telegram/2-botfather.png)
 
 - Start a new Telegram chat with @BotFather.
 - Click "start" and run `/newbot`:
@@ -32,7 +32,7 @@ have connected to the bot and authenticated using a key generated in openITCOCKP
 - Open your openITCOCKPIT instance
 - Copy the API token provided by BotFather into System Configuration -> APIs -> Telegram.
 
-![](/images/telegram/3-oitc-tele-api.png)
+![Screenshot: 1. Create a Telegram Bot](/images/telegram/3-oitc-tele-api.png)
 
 ### 2. Configure Contacts
 
@@ -42,20 +42,20 @@ have connected to the bot and authenticated using a key generated in openITCOCKP
     - `host-notify-by-telegram`
     - `service-notify-by-telegram`
 
-![](/images/telegram/4-contact.png)
+![Screenshot: 2. Configure Contacts](/images/telegram/4-contact.png)
 
 - Save your changes, then navigate to System Configuration -> APIs -> Telegram Page.
 - The page displays the users configured to use the Telegram notification commands.
 - Click Generate Key next to the relevant user and send the generated key to that user.
 
-![](/images/telegram/5-join-openitcockpit.png)
+![Screenshot: 2. Configure Contacts](/images/telegram/5-join-openitcockpit.png)
 
 ### 3. Joining Your Bot
 
 - Ask the user to find your bot in the Telegram app and click Start to open a chat. In this example, the bot can be
   found by searching for  `oitc_uzumymw_bot`.
 
-![](/images/telegram/6-join-telegram.png)
+![Screenshot: 3. Joining Your Bot](/images/telegram/6-join-telegram.png)
 
 - After starting the chat, the user must authenticate with the bot.
 - The user must send `/auth THEUSERSGENERATEDKEY` to the bot, replacing THEUSERSGENERATEDKEY with the key generated for
@@ -68,7 +68,7 @@ Now, the user has several options to chose from:
 - `/help` shows this help text again
 - `/delete` deletes this bot connection in openITCOCKPIT
 
-![](/images/telegram/7-testmessage.png)
+![Screenshot: 3. Joining Your Bot](/images/telegram/7-testmessage.png)
 
 ### Useful info
 

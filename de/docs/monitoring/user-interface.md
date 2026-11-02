@@ -145,53 +145,53 @@ Zusatzinformationen zum Host.
 
 Die Navigationsleiste verlinkt zu verschiedenen Aktionen zu einem Host
 
-![](/images/hosts-browsertopnavbar.png)
+![Screenshot: Navigationsleiste](/images/hosts-browsertopnavbar.png)
 
 #### Prüfzeit Zurücksetzen
 
-![](/images/hosts-browserresetchecktime.png)
+![Screenshot: Prüfzeit Zurücksetzen](/images/hosts-browserresetchecktime.png)
 
 Hiermit wird die Prüfzeit des Hosts zurückgesetzt. Dies hat denselben effekt wie `Prüfzeitraum zurücksetzen` in den Statusinformationen
 
 #### Objekt Dokumentation
 
-![](/images/hosts-browserdocumentation.png)
+![Screenshot: Objekt Dokumentation](/images/hosts-browserdocumentation.png)
 
 Hier kann eine Dokumentation zum Host eingetragen werden
 
 #### Benachrichtigungen
 
-![](/images/hosts-browsernotifications.png)
+![Screenshot: Benachrichtigungen](/images/hosts-browsernotifications.png)
 
 Um eine Übersicht aller gesendeten Benachrichtigungen zum Host zu bekommen, klicken Sie auf diese Schaltfläche
 
 #### Verlaufshistorie
 
-![](/images/hosts-browsercheckhistory.png)
+![Screenshot: Verlaufshistorie](/images/hosts-browsercheckhistory.png)
 
 Die Verlaufshistorie enthält das Ergebnis jeder Überprüfung des Hosts mit Datum, Prüfversuch, Statustyp und der Ausgabe
 
 #### Statushistorie
 
-![](/images/hosts-browserstatehistory.png)
+![Screenshot: Statushistorie](/images/hosts-browserstatehistory.png)
 
 Die Statushistorie enthält die Ergebnisse wann der Host seinen Status gewechselt hat
 
 #### Bestätigungshistorie
 
-![](/images/hosts-browseracknowledgmenthistory.png)
+![Screenshot: Bestätigungshistorie](/images/hosts-browseracknowledgmenthistory.png)
 
 Die Bestätigungshistorie enthält alle Bestätigungen zum Status des Hosts
 
 #### Host editieren
 
-![](/images/hosts-browseredit.png)
+![Screenshot: Host editieren](/images/hosts-browseredit.png)
 
 Hier kann der Host editiert werden
 
 #### Mehr Aktionen
 
-![](/images/hosts-browsermoreactions.png)
+![Screenshot: Mehr Aktionen](/images/hosts-browsermoreactions.png)
 
 ##### Service Liste
 
@@ -286,7 +286,7 @@ Die Zeitleiste gibt eine genaue Übersicht über den Host, was und wann passiert
 Hoststatus bestätigt, Wartungszeiten eingetragen, Benachrichtigungen gesendet worden sind und wann der Host, welchen 
 Status hatte.
 
-![](/images/hosts-browsertimeline.png)
+![Screenshot: Zeitleiste](/images/hosts-browsertimeline.png)
 
 ### Grafana
 
@@ -305,61 +305,61 @@ angezeigt.
 
 Die Navigationsleiste verlinkt zu verschiedenen Aktionen zu einem Service.
 
-![](/images/services-browsertopnavbar.png)
+![Screenshot: Navigationsleiste](/images/services-browsertopnavbar.png)
 
 #### Prüfzeit Zurücksetzen
 
-![](/images/hosts-browserresetchecktime.png)
+![Screenshot: Prüfzeit Zurücksetzen](/images/hosts-browserresetchecktime.png)
 
 Hiermit wird die Prüfzeit des Services zurückgesetzt. Dies hat denselben Effekt wie `Prüfzeitraum zurücksetzen` in den 
 Statusinformationen
 
 #### Objekt Dokumentation
 
-![](/images/hosts-browserdocumentation.png)
+![Screenshot: Objekt Dokumentation](/images/hosts-browserdocumentation.png)
 
 Hier kann eine Dokumentation zum Service eingetragen werden
 
 #### Benachrichtigungen
 
-![](/images/hosts-browsernotifications.png)
+![Screenshot: Benachrichtigungen](/images/hosts-browsernotifications.png)
 
 Klicken Sie auf diese Schaltfläche, um eine Übersicht aller gesendeten Benachrichtigungen zum Service zu bekommen 
 
 #### Verlaufshistorie
 
-![](/images/hosts-browsercheckhistory.png)
+![Screenshot: Verlaufshistorie](/images/hosts-browsercheckhistory.png)
 
 Die Verlaufshistorie enthält das Ergebnis jeder Überprüfung des Services mit Datum, Prüfversuch, Statustyp und der 
 Ausgabe
 
 #### Statushistorie
 
-![](/images/hosts-browserstatehistory.png)
+![Screenshot: Statushistorie](/images/hosts-browserstatehistory.png)
 
 Die Statushistorie enthält die Ergebnisse, wann der Service seinen Status gewechselt hat
 
 #### Bestätigungshistorie
 
-![](/images/hosts-browseracknowledgmenthistory.png)
+![Screenshot: Bestätigungshistorie](/images/hosts-browseracknowledgmenthistory.png)
 
 Die Bestätigungshistorie enthält alle Bestätigungen zum Status des Service
 
 #### Host editieren
 
-![](/images/hosts-browseredit.png)
+![Screenshot: Host editieren](/images/hosts-browseredit.png)
 
 Hier kann der Host des Services editiert werden
 
 #### Service editieren
 
-![](/images/services-browsereditservice.png)
+![Screenshot: Service editieren](/images/services-browsereditservice.png)
 
 Hier kann der Service selbst editiert werden
 
 #### Mehr Aktionen
 
-![](/images/services-browsermoreactions.png)
+![Screenshot: Mehr Aktionen](/images/services-browsermoreactions.png)
 
 ##### Service liste
 
@@ -415,4 +415,4 @@ welchen Status hatte.
 
 Darüber hinaus ist zudem der Hoststatus enthalten.
 
-![](/images/services-browsertimeline.png)
+![Screenshot: Zeitleiste](/images/services-browsertimeline.png)

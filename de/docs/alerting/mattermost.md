@@ -5,7 +5,7 @@
 Dieses Modul bietet die Möglichkeit einer Zwei-Wege-Integration von Mattermost in openITCOCKPIT. Alarme können an
 Mattermost gesendet werden und Bestätigungen (Acknowledgements) können von Mattermost an openITCOCKPIT geschickt werden.
 
-![](/images/mattermost-chat.png)
+![Screenshot: Was kann ich mit dem Mattermost Modul tun?](/images/mattermost-chat.png)
 
 ## Was kann ich konfigurieren?
 
@@ -26,7 +26,7 @@ Benutzer) für openITCOCKPIT in Ihrer Mattermost Umgebung.
 
 Anschließend erstellen Sie einen neuen [Incoming Webhook.](https://docs.mattermost.com/developer/webhooks-incoming.html)
 
-![](/images/mattermost-webhooks.png)
+![Screenshot: Mattermost Konfiguration](/images/mattermost-webhooks.png)
 
 Sobald Sie auf "Save" klicken, wird Mattermost Ihnen eine Webhook URL anzeigen. For
 Example: [*http://192.168.122.1/hooks/1nmqus1wsfr988e81sr8whqrte*](http://192.168.122.1/hooks/1nmqus1wsfr988e81sr8whqrte)
@@ -58,7 +58,7 @@ auch: [Enable Insecure Outgoing Connections](https://docs.mattermost.com/adminis
 
 Öffnen Sie die Mattermost Module Konfiguration und füllen Sie die erforderlichen Felder aus.
 
-![](/images/mattermost-config.png)
+![Screenshot: openITCOCKPIT Konfiguration](/images/mattermost-config.png)
 
 ## Kommandos
 

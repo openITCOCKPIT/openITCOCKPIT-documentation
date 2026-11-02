@@ -21,7 +21,7 @@ Der Autor und ein Link zum Ticket werden in der Host / Service Acknowledgement N
 Wenn der Host oder Service den Status Up oder Ok wiedererlangt, wird das PagerDuty Ticket automatisch geschlossen,
 sofern es noch geöffnet war.
 
-![](/images/pagerduty-incidents.png)
+![Screenshot: Was kann ich mit dem PagerDuty Modul tun?](/images/pagerduty-incidents.png)
 
 ### Was kann ich konfigurieren?
 
@@ -51,11 +51,11 @@ Api Access.
 Klicke auf den "**Create New Api Key**" Button, gib eine Beschreibung ein, wähle API version 2 aus und bestätige mit "**
 Create Key**".
 
-![](/images/pagerduty-createapikey.png)
+![Screenshot: Einfache Integration](/images/pagerduty-createapikey.png)
 
 Kopiere im nächsten Dialog den API Key im openITCOCKPIT auf die Seite PagerDuty settings.
 
-![](/images/pagerduty-getapikey.png)
+![Screenshot: Einfache Integration](/images/pagerduty-getapikey.png)
 
 Da der API Key nicht erneut angezeigt werden kann, sollte dieser sofort gespeichert werden.
 
@@ -66,7 +66,7 @@ Navigiere zum Menüpunkt Configuration → Services und klicke auf "**\+ New Ser
 Hier ist es wichtig, dass als "Integration Type" aus der Auswahlbox ("Select a tool") "**openITCOCKPIT**" ausgewählt
 wird.
 
-![](/images/pagerduty-addservice.png)
+![Screenshot: Einfache Integration](/images/pagerduty-addservice.png)
 
 Die Option Incident Behavior muss auf "*Create incidents*" eingestellt werden!
 
@@ -90,7 +90,7 @@ Wenn dein System hinter einem Proxy ist, musst du den Hostnamen eventuell manuel
 Um einen openITCOCKPIT API Key zu erstellen, klicke auf dein Benutzerprofil in der linken oberen Ecke im openITCOCKPIT
 und scrolle bis zum Ende der Seite. Dort kannst du einen neuen API Key erstellen.
 
-![](/images/pagerduty-serviceextensions.png)
+![Screenshot: Zwei-Wege Integration](/images/pagerduty-serviceextensions.png)
 
 Klicke auf "**Save**", um die Erweiterung zu speichern.
 
@@ -101,7 +101,7 @@ Schließlich müssen alle noch nicht kopierten Parameter in die Konfiguration de
 
 Vergiss nicht deine Änderungen zu speichern.
 
-![](/images/pagerduty-config.png)
+![Screenshot: Aktualisieren der openITCOCKPIT Konfiguration](/images/pagerduty-config.png)
 
 Um nach dem Auftreten eines Problems benachrichtigt zu werden, benötigt der Host- / Servicekontakt die PagerDuty
 Benachrichtigungsbefehle.
@@ -110,13 +110,13 @@ Suche im openITCOCKPIT Menü nach "Contacts" oder gehe direkt zu "Monitoring→ 
 
 Klicke auf der Kontaktseite auf das Zahnrad auf der rechten Seite.
 
-![](/images/menu-contacts.png)
+![Screenshot: Aktualisieren der openITCOCKPIT Konfiguration](/images/menu-contacts.png)
 
-![](/images/contacts-editcontact.png)
+![Screenshot: Aktualisieren der openITCOCKPIT Konfiguration](/images/contacts-editcontact.png)
 
 Bearbeite den Kontakt, über den PagerDuty benachrichtigt werden soll, füge den Befehl "*host-notify-by-pagerduty*" zu
 den Host Commands hinzu und "*service-notify-by-pagerduty*" zu den Service Commands.
 
-![](/images/contacts-pagerdutynotifications.png)
+![Screenshot: Aktualisieren der openITCOCKPIT Konfiguration](/images/contacts-pagerdutynotifications.png)
 
 **Fertig. Die Konfiguration ist abgeschlossen.**  

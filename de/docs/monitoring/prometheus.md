@@ -73,7 +73,7 @@ Der Port gibt an auf welchem Port der Exporter läuft.
 Manche Exporter benötigen Spezielle YAML Konfigurationen (bspw. Blackbox, SNMP und einige andere). Zu diesem Zweck gibt 
 es das Feld "YAML Konfiguration".
 
-![](/images/prometheusmodule-exportersedit.png)
+![Screenshot: Anlegen eines Exporters in openITCOCKPIT](/images/prometheusmodule-exportersedit.png)
 
 ### Überwachen eines Hosts mit Prometheus in openITCOCKPIT
 
@@ -85,7 +85,7 @@ Um einen Host mit Prometheus zu überwachen, muss entweder ein neuer Host erstel
 
 Dort wird am Ende des Formulars die Konfiguration des Prometheus Exporters dargestellt.
 
-![](/images/select-prometheus-exporters.png)
+![Screenshot: Überwachen eines Hosts mit Prometheus in openITCOCKPIT](/images/select-prometheus-exporters.png)
 
 Hat man seinen Host entsprechend bearbeitet, speichert man ihn ab.
 
@@ -99,7 +99,7 @@ Auswahlliste aus.
 Es werden alle durch den Exporter verfügbaren Metriken aufgelistet. Alle diese angezeigten Metriken werden nun von 
 Prometheus erfasst und gespeichert.
 
-![](/images/prometheus-queries.png)
+![Screenshot: Metriken, Services und Benachrichtigungen](/images/prometheus-queries.png)
 
 ##### Benachrichtigungen
 
@@ -107,7 +107,7 @@ Um Benachrichtigungen zu den Metriken einzurichten, muss ein oder mehrere Servic
 
 Dazu wählt man die entsprechende Metrik aus und erstellt die passende PromQL Abfrage.
 
-![](/images/prometheus-promql.png)
+![Screenshot: Benachrichtigungen](/images/prometheus-promql.png)
 
 Prometheus bietet auch die Möglichkeit mehrere Metriken miteinander zu verrechnen. So kann mann dann zum Beispiel die 
 Memory Usage unter Linux abfragen:  
@@ -120,7 +120,7 @@ Die Einzelnen "Services" findet mann dann unter Monitoring → Prometheus → Ab
 Queries pro Host aufgelistet. Wenn man mit der Maus über den Graphen geht, bekommt man den bekannten oITC Popover-Graph,
 der dann die Abfrage an Prometheus schickt und die aktuellen Werte anzeigt:
 
-![](/images/prometheus-alertrules.png)
+![Screenshot: Benachrichtigungen](/images/prometheus-alertrules.png)
 
 Auf einem Host selbst kann man dann nicht mehr erkennen, durch was ein Service überwacht wird.
 

@@ -4,7 +4,7 @@
 
 Using the Slack module you can receive notifications from openITCOCKPIT directly in a channel in your Slack Workspace.
 
-![](/images/slack-chatnotification.png)
+![Screenshot: What can I do with the Slack module?](/images/slack-chatnotification.png)
 
 ## What can I configure?
 
@@ -27,21 +27,21 @@ Go to [https://api.slack.com/apps?new\_app=1](https://api.slack.com/apps?new_app
 
 Choose the name of your own actual app and your own Slack workspace.
 
-![](/images/slack-createapp.png)
+![Screenshot: Facility](/images/slack-createapp.png)
 
 Select "Incoming Webhooks" in the left menu, enable the option in the top right and add the webhook to your workspace by clicking on the button below.
 
-![](/images/slack-webhooks.png)
+![Screenshot: Facility](/images/slack-webhooks.png)
 
 Choose a channel where the openITCOCKPIT messages should be posted.
 
-![](/images/slack-identity.png)
+![Screenshot: Facility](/images/slack-identity.png)
 
 Copy the webhook URL you just created and paste it into `openITCOCKPIT -> Administration -> Slack`.
 
-![](/images/slack-copywebhookurl.png)
+![Screenshot: Facility](/images/slack-copywebhookurl.png)
 
-![](/images/slack-configempty.png)
+![Screenshot: Facility](/images/slack-configempty.png)
 
 ### **Two-way integration**
 
@@ -55,11 +55,11 @@ The webhook may need to be reinstalled. If this is the case, follow the instruct
 
 Should reinstallation be necessary, the new webhook URL in openITCOCKPIT must also be updated.
 
-![](/images/slack-scopes.png)
+![Screenshot: Two-way integration](/images/slack-scopes.png)
 
 Once this has been done, copy the newly generated OAuth access token and paste it into openITCOCKPIT.
 
-![](/images/slack-oauth.png)
+![Screenshot: Two-way integration](/images/slack-oauth.png)
 
 For "Two-Way-Integration" to be enabled, your Slack settings should appear as follows.
 
@@ -67,13 +67,13 @@ Optionally, the outgoing connection can be established via your configured proxy
 
 Save your settings and in the next step copy the "Request URL".
 
-![](/images/slack-configfilled.png)
+![Screenshot: Two-way integration](/images/slack-configfilled.png)
 
 Enable "Interactive Messages" and paste in the "Request URL" you copied earlier.
 
-![](/images/slack-interactivemessages.png)
+![Screenshot: Two-way integration](/images/slack-interactivemessages.png)
 
-![](/images/slack-interactivemessages2.png)
+![Screenshot: Two-way integration](/images/slack-interactivemessages2.png)
 
 ### **Enable Slack notifications**
 
@@ -81,7 +81,7 @@ Add the commands automatically created during the module installation to your co
 
 Now save and [export](../../monitoring/basic-principles/#how-do-i-carry-out-an-export).
 
-![](/images/contacts-slacknotifications.png)
+![Screenshot: Enable Slack notifications](/images/contacts-slacknotifications.png)
 
 ## Commands
 

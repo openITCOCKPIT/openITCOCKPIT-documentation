@@ -1,5 +1,5 @@
 site_name: openITCOCKPIT 5
-site_url: http://mkdocs.oitc.itn:8000/
+site_url: https://docs.openitcockpit.io/en/
 repo_url: https://github.com/openITCOCKPIT/openITCOCKPIT-documentation
 edit_uri: https://github.com/openITCOCKPIT/openITCOCKPIT-documentation/blob/main/en/docs/
 repo_name: GitHub
@@ -11,7 +11,7 @@ nav:
       - 'Installation': 'installation.md'
       - 'Docker': 'installation/docker.md'
   - 'Update':
-      - 'General update': 'update/general.md'
+      - 'Updating openITCOCKPIT': 'update/general.md'
       - 'Update Ubuntu Bionic to Focal': 'update/ubuntu-bionic-to-focal.md'
       - 'Update Ubuntu Focal to Jammy': 'update/ubuntu-focal-to-jammy.md'
       - 'Update Ubuntu Jammy to Noble': 'update/ubuntu-jammy-to-noble.md'
@@ -23,9 +23,6 @@ nav:
       - 'Container permissions': 'beginners/container-permissions.md'
       - 'Create your first host': 'beginners/create-first-host.md'
       - 'Monitoring through openITCOCKPIT Agent': 'beginners/openitcockpit-agent.md'
-      - 'Monitoring through Checkmk': 'beginners/monitoring-checkmk.md'
-      - 'Monitoring through NRPE': 'beginners/monitoring-nrpe.md'
-      - 'Monitoring through Prometheus': 'monitoring/prometheus/#monitoring-with-prometheus-ee'
       - 'Check by SSH': 'beginners/check-by-ssh.md'
       - 'Setup browser push notifications': 'beginners/setup-browser-push-notifications.md'
       - 'Setup Email notifications': 'beginners/setup-email-notifications.md'
@@ -37,15 +34,13 @@ nav:
       - 'Downtimes': 'monitoring/downtimes.md'
       - 'Graphing': 'monitoring/graphing.md'
       - 'Monitoring through Prometheus': 'monitoring/prometheus.md'
-      - 'Monitoring through Checkmk': 'beginners/monitoring-checkmk/#monitoring-with-checkmk-ce'
-      - 'Monitoring through NRPE': 'beginners/monitoring-nrpe/#monitoring-using-nrpe'
+      - 'Monitoring through Checkmk': 'beginners/monitoring-checkmk.md'
+      - 'Monitoring through NRPE': 'beginners/monitoring-nrpe.md'
       - 'Maps': 'monitoring/maps.md'
       - 'Eventcorrelation': 'monitoring/eventcorrelation.md'
       - 'Software Inventory': 'monitoring/software-inventory.md'
   - 'Alerting / Notifications':
       - 'Notifications': 'alerting/alerting.md'
-      - 'Setup Email notifications': 'beginners/setup-email-notifications/#setting-up-email-notifications'
-      - 'Setup browser push notifications': 'beginners/setup-browser-push-notifications/#setting-up-browser-push-notifications'
       - 'System health notification': 'alerting/system-health-notifications.md'
       - 'Axios Assyst': 'alerting/axiosassyst.md'
       - 'Mattermost': 'alerting/mattermost.md'
@@ -163,6 +158,15 @@ theme:
   topbar_style: primary  # or glass
   custom_dir: overrides
   language: en
+  features:
+    - navigation.top
+    - navigation.tracking
+    - toc.follow
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+    - content.code.select
+    - content.tabs.link
   logo: images/logo/openitcockpit-light.png
   favicon: images/favicon/favicon.png
   palette:

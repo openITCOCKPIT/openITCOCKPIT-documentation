@@ -13,7 +13,7 @@ Dieser Makro Type wird häuft zum Speichern von Pfadangaben, Kennwörter und SNM
 
 
 Es besteht die Möglichkeit Werte auszublenden, um z.B. Passwörter nicht direkt sichtbar zu machen. Dazu wählt man entweder beim Erstellen oder editieren von einem Makro die Option "Wert verstecken" an oder klickt auf der Übersichtsseite die Schaltfläche.
-![](/images/UserDefinedMacros-hideValue.png)
+![Screenshot: Benutzerdefinierte Makros](/images/UserDefinedMacros-hideValue.png)
 
 ![Overview about User defined macros](/images/UserDefinedMacros-Overview.png)
 

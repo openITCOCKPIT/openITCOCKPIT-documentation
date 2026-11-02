@@ -74,7 +74,7 @@ The configuration file is automatically generated under `/opt/openitc/etc/carbon
 
 ### Graphite-Web
 
-The configuration file is automatically generated under [Carbon-Cache instances](#carbon-cache-instanzen).
+The configuration file is automatically generated under [Carbon-Cache instances](#carbon-cache-instances).
 
 The configuration file is automatically generated under `/opt/openitc/etc/carbon/local_settings.py`.
 

@@ -13,6 +13,11 @@ Mit dieser Anleitung können Sie Ihr Debian Bookworm System auf Debian Trixie ak
     Das Upgrade installiert die aktuellste openITCOCKPIT Version, die für Debian Trixie verfügbar ist.
     Es ist nicht möglich, während des Betriebssystem-Upgrades auf der bisherigen openITCOCKPIT Version zu bleiben.
 
+!!! info "Dauer und Erreichbarkeit"
+    Rechnen Sie mit 15 bis 60 Minuten, abhängig von der Anzahl der Pakete und der Leistung des Systems.
+    Ab dem Stoppen von PHP-FPM ist die openITCOCKPIT Weboberfläche nicht mehr erreichbar, bis die Konfiguration
+    am Ende dieser Anleitung neu geschrieben wurde.
+
 ---
 
 ## Voraussetzungen
@@ -45,7 +50,9 @@ apt -y remove lxd*
 ---
 
 ## Docker-Repository hinzufügen
-Damit Docker aus den offiziellen Quellen installiert werden kann, muss das Repository hinzugefügt werden:
+openITCOCKPIT benötigt Docker - das Graphing Backend mit Graphite und Grafana läuft in Containern.
+Damit Docker aus den offiziellen Quellen in einer von openITCOCKPIT unterstützten Version installiert wird,
+muss das Repository hinzugefügt werden:
 
 ```bash
 # Keyring-Verzeichnis anlegen
@@ -72,7 +79,7 @@ apt -y full-upgrade
 
 ---
 
-## Stoppen Sie den PHP-FPM Dienst
+## PHP-FPM stoppen
 Vor dem Upgrade sollte PHP-FPM 8.2 angehalten werden, um Konflikte zu vermeiden:
 
 ```bash
@@ -166,7 +173,7 @@ apt -y -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confold"
 Die `Dpkg::Options` behalten bestehende Konfigurationsdateien ohne Rückfrage bei. Konfigurationsdateien,
 die von openITCOCKPIT verwaltet werden, werden im letzten Schritt durch das Update-Skript neu geschrieben.
 
-Bei Fehler:
+Schlägt das Upgrade fehl, setzen Sie es so fort:
 
 ```bash
 dpkg --configure -a
@@ -176,7 +183,7 @@ dpkg --configure -a
 
 ## Nicht mehr benötigte Pakete löschen
 ```bash
-apt autoremove
+apt -y autoremove
 ```
 
 ---
@@ -192,14 +199,16 @@ systemctl restart php8.4-fpm.service
 Im letzten Schritt werden alle Konfigurationsdateien aktualisiert und bei Bedarf neu generiert.
 
 ### openITCOCKPIT Master
-Wenn Sie das Update auf einem openITCOCKPIT Master System ausführen, nutzen Sie den folgenden Befehl
-```
+Wenn Sie das Update auf einem openITCOCKPIT Master System ausführen, nutzen Sie den folgenden Befehl:
+
+```bash
 openitcockpit-update --cc
 ```
 
 ### openITCOCKPIT Satellit
-Auf einem openITCOCKPIT Satellit nutzen Sie den folgenden Befehl
-```
+Auf einem openITCOCKPIT Satellit nutzen Sie den folgenden Befehl:
+
+```bash
 /opt/openitc/frontend/UPDATE.sh
 ```
 

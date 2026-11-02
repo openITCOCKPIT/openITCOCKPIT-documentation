@@ -1,7 +1,7 @@
-## Beginners Guide
+## Einsteiger-Anleitung
 
-Dieser Guide zeigt das grundlegende Konzept hinter openITCOCKPIT auf und hilft bei der Überwachung Ihres ersten Hosts.
-Er richtet sich an neue Benutzer, die grade mit der Benutzung von openITCOCKPIT angefangen haben.
+Diese Anleitung zeigt das grundlegende Konzept hinter openITCOCKPIT auf und hilft bei der Überwachung Ihres ersten Hosts.
+Sie richtet sich an neue Benutzer, die gerade mit der Benutzung von openITCOCKPIT angefangen haben.
 
 Sollten Sie Ihr openITCOCKPIT noch nicht installiert haben, können Sie entweder
 unsere [Installationsanleitung](../../installation/) in dieser Dokumentation nutzen oder aber

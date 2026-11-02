@@ -392,7 +392,7 @@ class Menu implements MenuInterface {
 
 **Ergebnis**
 
-![](/images/new-menu-headline.png)
+![Screenshot: Menüeinträge unter einer neuen Überschrift erstellen](/images/new-menu-headline.png)
 
 Führen Sie den folgenden Befehl aus, um das Menü zu aktualisieren:
 
