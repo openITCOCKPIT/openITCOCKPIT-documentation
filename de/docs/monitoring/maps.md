@@ -65,7 +65,7 @@ Hat man ein Karten Grundgerüst erstellt, kann die visuelle Bearbeitung erfolgen
 
 Dazu klickt man neben das Zahnradsymbol der entsprechenden Karte (1) und anschließend auf "Bearbeite im Karteneditor" (2)
 
-![](/images/mapmodule-editinmapeditor.png)
+![](/images/mapmodule-editInmapeditor.png)
 
 Nun ist man im Karten editor angelangt und kann nun über das Seitenmenü verschiedene Aktionen erledigen.
 
