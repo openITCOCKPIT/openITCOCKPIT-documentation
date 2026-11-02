@@ -9,7 +9,7 @@ This involves usage information such as CPU, memory, SWAP or disk usage and IO i
 
 By default, the system polls new values every 30 seconds. Since the openITCOCKPIT Monitoring Agent does not have to provide historical data, but only the current status of the system, outdated information is regularly overwritten with new information and is not saved.
 
-In order to enable your own checks or the execution of existing Nagios plugins, a configuration file can be used to specify which commands (command or path to an executable file) are to be executed at specific time intervals and with defined timeouts. These checks are called [custom checks](/agent/define-customchecks/).
+In order to enable your own checks or the execution of existing Nagios plugins, a configuration file can be used to specify which commands (command or path to an executable file) are to be executed at specific time intervals and with defined timeouts. These checks are called [custom checks](../define-customchecks/).
 
 Using this method, pre existing Naemon, Nagios, Shinken, Icinga 1 and Sensu plugins can be easily integrated into the openITCOCKPIT Monitoring Agent.
 
@@ -105,4 +105,4 @@ Enforce minimum TLS 1.3 and does not restrict usage of cipher suites.
 ## Start Monitoring
 Open the openITCOCKPIT web interface and navigate to `openITCOCKPIT Agent -> Agent Wizard` and select the host you want to monitor. Follow the wizard to monitor your target system with the openITCOCKPIT Monitoring Agent in 5 steps. The wizard covers everything from choosing the communication method over installing and configuring the Agent up to service creation.
 
-The [openITCOCKPIT Beginners guide](/beginners/openitcockpit-agent/) covers all steps in detail.
+The [openITCOCKPIT Beginners guide](../../beginners/openitcockpit-agent/) covers all steps in detail.

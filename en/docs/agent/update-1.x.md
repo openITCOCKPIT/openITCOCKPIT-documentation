@@ -198,7 +198,7 @@ The following list of checks have breaking changes and needs to be manually modi
 * Sensor related checks got reimplemented.
   - It's recommended to delete the old Sensor related services and recreated them via the Wizard 
   - Support for Fans got removed
-* QEMU got replaced with _libvirt_. All QEMU related services needs to be deleted. Please see [how to enable libvirt support](/agent/build-binary/#enable-libvirt-support-linux-only) and recreated the services via the Wizard 
+* QEMU got replaced with _libvirt_. All QEMU related services needs to be deleted. Please see [how to enable libvirt support](../build-binary/#enable-libvirt-support-linux-only) and recreated the services via the Wizard 
 * The Docker checks are using the Docker API now and therefore need to be recreated via the Wizard. Also Docker is now available for Windows.
 
 ##### Windows

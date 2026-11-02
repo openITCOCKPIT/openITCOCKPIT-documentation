@@ -133,7 +133,7 @@ Es können auch mehrere Commands oder eine andere Time period ausgewählt sein.
 
 Zur korrekten Funktionsweise muss immer die Benachrichtigung bei Auftreten des 'Recovery' States aktiviert sein!
 
-Da es sich hierbei um Änderungen an der Nagios Konfiguration handelt, muss nach diesem Schritt ein [Export](../monitoring/basic-principles/#wie-fuhre-ich-einen-export-aus) durchgeführt
+Da es sich hierbei um Änderungen an der Nagios Konfiguration handelt, muss nach diesem Schritt ein [Export](../../monitoring/basic-principles/#wie-fuhre-ich-einen-export-aus) durchgeführt
 werden.
 
 ![](/images/contacts-servicenownotifications.png)

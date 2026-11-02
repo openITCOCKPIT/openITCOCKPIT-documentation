@@ -335,7 +335,7 @@ apt-get install -f
 ```
 
 #### Ihre openITCOCKPIT Version ist < 3.7.3
-Der Aktualisierungsprozess benötigt openITCOCKPIT mindestens in der Version 3.7.3. Bitte beachten Sie unsere [Blogposts]((https://openitcockpit.io/blog/#blog)
+Der Aktualisierungsprozess benötigt openITCOCKPIT mindestens in der Version 3.7.3. Bitte beachten Sie unsere [Blogposts](https://openitcockpit.io/blog/#blog)
 falls Sie von einer älteren Version 3 aktualisieren möchten - speziell von Version 3.5 oder älter. Manuelle änderungen
 sind nötig, falls Sie ihre Performance Graphen in der neueren Version nutzen möchten.
 

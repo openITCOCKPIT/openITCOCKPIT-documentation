@@ -15,7 +15,7 @@ This documentation covers the following Enterprise Linux versions:
 
 ### Using Debian or Ubuntu?
 If you are using Debian or Ubuntu, you have to upgrade to the next major version of your distribution to get a supported php version.
-Please follow our [upgrade documentation](/update/ubuntu-jammy-to-noble/) to do so. **Changing the PHP version through third party repositories is not supported and will break the system.**
+Please follow our [upgrade documentation](../../update/ubuntu-jammy-to-noble/) to do so. **Changing the PHP version through third party repositories is not supported and will break the system.**
 
 ## Which PHP version is my system using?
 

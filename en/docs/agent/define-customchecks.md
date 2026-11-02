@@ -7,7 +7,7 @@ So you can use all monitoring plugins that work with: Naemon, Nagios, Shinken, I
 The idea behind custom checks is to provide an easy method to get a deeper monitoring of specialized services like Database Servers etc.
 
 ## Set path to customchecks.ini
-By default the Agent will search for an `customchecks.ini` in [the default directory](/agent/debugging/#paths).
+By default the Agent will search for an `customchecks.ini` in [the default directory](../debugging/#paths).
 
 You can change the location in the `config.ini`
 

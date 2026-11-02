@@ -40,11 +40,11 @@ Grafana is automatically installed with every installation of openITCOCKPIT via 
 
 openITCOCKPIT attempts to create automated dashboards in Grafana for all hosts. A corresponding panel with the associated metrics and units is created for each service.
 
-This process is carried out every 12 hours by a [cron job](/configuration/cronjobs/) running in the background. The dashboards created can be viewed in the detailed hosts view.
+This process is carried out every 12 hours by a [cron job](../../configuration/cronjobs/) running in the background. The dashboards created can be viewed in the detailed hosts view.
 
 ![Auto generated Grafana dashboard](/images/auto-generated-grafana-dashboard.png)
 
-Automatically created Grafana dashboards can also be integrated as a widget in the [openITCOCKPIT Dashboard](/monitoring/dashboard/) eingebunden werden.
+Automatically created Grafana dashboards can also be integrated as a widget in the [openITCOCKPIT Dashboard](../dashboard/) eingebunden werden.
 
 
 ### Creating custom Grafana dashboards
@@ -70,8 +70,8 @@ When all metrics have been added, the dashboard can be saved by clicking the "Sy
 ![Example of userdefined Grafana dashboard](/images/example-of-userdefined-grafana-dashboard.png)
 
 
-Custom Grafana dashboards can also be included as a widget in the [openITCOCKPIT Dashboard](/monitoring/dashboard/) eingebunden werden.
+Custom Grafana dashboards can also be included as a widget in the [openITCOCKPIT Dashboard](../dashboard/) eingebunden werden.
 
 ### Configuration
 
-Information on the available configuration options can be found in the section [Graphing Backend](/additional/graphing-backend/)
+Information on the available configuration options can be found in the section [Graphing Backend](../../additional/graphing-backend/)

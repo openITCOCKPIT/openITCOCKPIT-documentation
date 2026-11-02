@@ -3,7 +3,7 @@
 
 !!! danger "End of Life"
     Die Mobile Webseite von openITCOCKPIT wird in dieser Form ab Version 5.6.1 als veraltet markiert.
-    Bitte nutzen Sie die [Mobile App für iOS und Android Geräte](./mobile-app.md).
+    Bitte nutzen Sie die [Mobile App für iOS und Android Geräte](../mobile-app/).
     
     **Das End of Life ist mit der Version 5.7.0 geplant.**
     Danach wird es eine neue Version der mobilen Webseite geben, welche eine gemeinsame Codebasis mit der Mobilen App nutzt.

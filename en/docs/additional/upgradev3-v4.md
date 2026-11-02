@@ -315,7 +315,7 @@ apt-get install -f
 
 #### If your openITCOCKPIT version is < 3.7.3
 
-For the update process to complete successfully, you must be using at least version 3.7.3 of openITCOCKPIT. Please note our [blog posts]((https://openitcockpit.io/blog/#blog) if you want to update from an older version 3 - especially if you are working with version 3.5 or older. It will be necessary to make manual changes if you want to use the newer version of the performance graph.
+For the update process to complete successfully, you must be using at least version 3.7.3 of openITCOCKPIT. Please note our [blog posts](https://openitcockpit.io/blog/#blog) if you want to update from an older version 3 - especially if you are working with version 3.5 or older. It will be necessary to make manual changes if you want to use the newer version of the performance graph.
 
 #### Table nagios servicechecks is 36626 MB but /var/lib/mysql only has 16316 MB free disk space
 

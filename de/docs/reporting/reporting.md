@@ -46,7 +46,7 @@ Dort können Sie einem oder mehreren Benutzern den Bericht schicken.
 | Typ | :fontawesome-solid-xmark: | Objekttyp der ausgewertet werden soll. Hostgruppen, Hosts, Servicegruppen und Services sind möglich  |
 | Typ-Objekte | :fontawesome-solid-xmark: | Abhängig vom gewählten Typ müssen im nächsten Feld entweder Hosts, Hostgruppen, Services oder Servicegruppen ausgewählt werden |
 | Auswertung | :fontawesome-solid-xmark: | Welche Objekte ausgewertet werden -> Nur Hosts, Hosts und Services oder nur Services |
-| Zeitraum | :fontawesome-solid-xmark: | [Zeitraum](../configuration/timeperiods/) der Berücksichtigt werden soll |
+| Zeitraum | :fontawesome-solid-xmark: | [Zeitraum](../../configuration/timeperiods/) der Berücksichtigt werden soll |
 | Reflexionszustand | :fontawesome-solid-xmark: | Der auszuwertende Statustyp. Hard-State oder Soft und Hard-State |
 | Berücksichtige Wartungszeiten |  | Bestimmt ob Wartungszeiten berücksichtigt werden sollen |
 | Zusammenfassungsanzeige |  | Bestimmt ob anstelle der Auflistungen von einzelnen Hosts eine Gesamtansicht der Status von Host und Services angezeigt wird |
@@ -106,7 +106,7 @@ harter Zustand berücksichtigt werden soll.
 |---|---|---|
 | Auswertung | :fontawesome-solid-xmark: | Hosts oder Hosts inklusive Services |
 | Berichtsformat | :fontawesome-solid-xmark: | Berichtsformat HTML oder PDF |
-| Zeitraum | :fontawesome-solid-xmark: | [Zeitraum](../configuration/timeperiods/) der berücksichtigt werden soll |
+| Zeitraum | :fontawesome-solid-xmark: | [Zeitraum](../../configuration/timeperiods/) der berücksichtigt werden soll |
 | Von |  | Start Zeitraum der Auswertung |
 | Bis |  | End Zeitraum der Auswertung |
 | Reflexionszustand | :fontawesome-solid-xmark: | Der auszuwertende Statustyp. Hard-State oder Soft und Hard-State |
@@ -337,7 +337,7 @@ angezeigt.
 | Berichtsbeschreibung |  | Beschreibung des Autoreports |
 | Setze Start |  | Startdatum des Berichts soll definiert werden |
 | Startdatum |  | Startdatum des Berichts. Kann nur bearbeitet werden wenn "Setze Start" aktiviert wurde |
-| Zeitraum | :fontawesome-solid-xmark: | [Zeitraum](../configuration/timeperiods/) der berücksichtigt werden soll |
+| Zeitraum | :fontawesome-solid-xmark: | [Zeitraum](../../configuration/timeperiods/) der berücksichtigt werden soll |
 | Bewertungszeitraum | :fontawesome-solid-xmark: | Tag, Woche, Monat, Quartal oder Jahr |
 | Sendungsintervall | :fontawesome-solid-xmark: | Täglich, Wöchentlich, Monatlich, Vierteljährlich, Jährlich oder niemals |
 | Garantierte Verfügbarkeit | :fontawesome-solid-xmark: | Verfügbarkeit in Prozent. Es muss entweder "Garantierte Verfügbarkeit" oder "Maximale Anzahl von Ausfällen" angegeben sein |

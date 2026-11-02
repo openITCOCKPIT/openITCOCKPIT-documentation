@@ -209,7 +209,7 @@ Die Host-, Services-Views und ihre Detailseiten sind von den entsprechenden Seit
 ![sevicegroup](../images/oitc-desktop/desktop-servicegroups.png)
 ![servicegroup-extended](../images/oitc-desktop/desktop-servicegroups-extended.png)
 ### RessourcenCenter
-Siehe [Resource Center Server Dokumentation](../configuration/resource-center.md)
+Siehe [Resource Center Server Dokumentation](../../configuration/resource-center/)
 #### Ressourcen
 ![resources](../images/oitc-desktop/desktop-resources.png)
 ![resources-statuslog](../images/oitc-desktop/desktop-resources-statuslog.png)

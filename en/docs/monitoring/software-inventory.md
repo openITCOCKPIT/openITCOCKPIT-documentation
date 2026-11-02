@@ -6,7 +6,7 @@ This helps you ensure that your systems are up-to-date and secure.
 The information is collected by the [openITCOCKPIT Agent](https://openitcockpit.io/download_agent/) and can be viewed and managed via the openITCOCKPIT web interface.
 
 The Agent can operate in Pull or Push mode, depending on your network setup and requirements.
-Please refer to the [Agent Documentation](/agent/overview/) for more details on installation and configuration.
+Please refer to the [Agent Documentation](../../agent/overview/) for more details on installation and configuration.
 
 ## Supporting Operating Systems
 

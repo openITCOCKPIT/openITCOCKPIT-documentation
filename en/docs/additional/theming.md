@@ -2,7 +2,7 @@
 
 ## Design Module
 
-You can adapt the appearance of your openITCOCKPIT installation as required using the DesignModule, which can be installed via the openITCOCKPIT [integrated Package manager](/configuration/packagemanager/).
+You can adapt the appearance of your openITCOCKPIT installation as required using the DesignModule, which can be installed via the openITCOCKPIT [integrated Package manager](../../configuration/packagemanager/).
 
 You can also adjust the colours of the web interface and the logos used by the system via the design editor. No programming skills are required for completing these tasks.
 

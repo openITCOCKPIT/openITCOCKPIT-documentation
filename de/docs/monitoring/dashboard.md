@@ -155,11 +155,11 @@ Die automatische Karte muss vorher über die [Automatischen Karten](../maps/#aut
 ##### Autoreport Übersicht
 ![Autoreport overview widget](/images/dashboard-autoreportoverviewwidget.png)
 
-Das Widget zeigt eine Verfügbarkeitsanzeige eines zuvor erstellen [Autoreports](../../reporting/#autoreports-ce) an. 
+Das Widget zeigt eine Verfügbarkeitsanzeige eines zuvor erstellen [Autoreports](../../reporting/reporting/#autoreports-ce) an. 
 
 ###### Konfiguration
 
-Das Widget setzt einen zuvor erstellten [Autoreports](../../reporting/#autoreports-ce) voraus. Dieser Report kann anschließend in der Konfigurationsoberfläche des Widgets ausgewählt werden. Zudem sind Optionen zur Anzeige der Verfügbarkeit, Logdaten sowie die dynamische Farbgestaltung verfügbar. Zur Konfigurationsoberfläche des Widgets gelangt man über das Zahnradsymbol im oberen rechten Bereich des Widgets.
+Das Widget setzt einen zuvor erstellten [Autoreports](../../reporting/reporting/#autoreports-ce) voraus. Dieser Report kann anschließend in der Konfigurationsoberfläche des Widgets ausgewählt werden. Zudem sind Optionen zur Anzeige der Verfügbarkeit, Logdaten sowie die dynamische Farbgestaltung verfügbar. Zur Konfigurationsoberfläche des Widgets gelangt man über das Zahnradsymbol im oberen rechten Bereich des Widgets.
 
 ##### Grafana (automatisch generiert)
 

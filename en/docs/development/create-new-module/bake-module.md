@@ -194,7 +194,7 @@ class TestController extends AppController {
 
 ### Assigning Permissions to the "Administrator" Role
 
-By default, access to all API [actions]([actions](https://book.cakephp.org/5.x/controllers.html#controller-actions)) is denied.
+By default, access to all API [actions](https://book.cakephp.org/5.x/controllers.html#controller-actions) is denied.
 
 To automatically assign all permissions to the **Administrator** role, run:
 

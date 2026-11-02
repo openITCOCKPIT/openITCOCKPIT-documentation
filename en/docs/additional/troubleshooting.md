@@ -223,7 +223,7 @@ is installed and running.
 
 To ensure that the Mod-Gearman Worker is installed on your openITCOCKPIT Server execute `apt-get install openitcockpit-mod-gearman-worker-go-local`
 
-If this does not resolve the issue, please take a look at the [Mod-Gearman section](/additional/mod-gearman/) for more information.
+If this does not resolve the issue, please take a look at the [Mod-Gearman section](../mod-gearman/) for more information.
 
 ### Grafana is missing
 

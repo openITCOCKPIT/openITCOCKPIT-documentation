@@ -57,7 +57,7 @@ sudo /bin/launchctl stop com.it-novum.openitcockpit.agent
 ```
 
 ### Windows
-Open a new `PowerShell` window. Administrator privileges are not required but recommended. Please see [Windows Service Configuration](/agent/windows-service/) how to enable `Verbose` and `Debug` options.
+Open a new `PowerShell` window. Administrator privileges are not required but recommended. Please see [Windows Service Configuration](../windows-service/) how to enable `Verbose` and `Debug` options.
 
 ```ps1
 cd "C:\Program Files\openitcockpit\openitcockpit-agent"

@@ -2,7 +2,7 @@
 
 !!! danger "End of Life"
     The openITCOCKPIT mobile website in its current form is marked as deprecated starting with version 5.6.1.
-    Please use the [Mobile App for iOS and Android devices](./mobile-app.md).
+    Please use the [Mobile App for iOS and Android devices](../mobile-app/).
     
     **The End of Life is planned for version 5.7.0.**
     After that, there will be a new version of the mobile website, which will share its codebase with the Mobile App.

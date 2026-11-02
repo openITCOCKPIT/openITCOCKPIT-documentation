@@ -34,7 +34,7 @@ You can find the latest setup on the [official download page](https://openitcock
 
 ### Configure the Agent
 
-It is important to add all Prometheus Exporters you want to expose through the openITCOCKPIT Agent into the configuration file `prometheus_exporters.ini`. Please see [this page](/agent/debugging/#paths) for the exact file location on different operating systems.
+It is important to add all Prometheus Exporters you want to expose through the openITCOCKPIT Agent into the configuration file `prometheus_exporters.ini`. Please see [this page](../debugging/#paths) for the exact file location on different operating systems.
 
 Add a new section for each exporter.
 
@@ -120,7 +120,7 @@ tls_config:
 Before you continue, make sure to refresh your monitoring configuration.
 ![Refresh monitoring configuration](/images/openITCOCKPIT-Refresh-Monitoring-Config.png)
 
-Thats it! Now you are ready to start monitoring. For more information about how to use Prometheus with openITCOCKPIT, please see [this documentation](/monitoring/prometheus/).
+Thats it! Now you are ready to start monitoring. For more information about how to use Prometheus with openITCOCKPIT, please see [this documentation](../../monitoring/prometheus/).
 
 ![Query Prometheus through openITCOCKPIT Agent Proxy](/images/agent/query_prometheus_via_agent_proxy.png){ align=center }
 

@@ -2,7 +2,7 @@
 
 ## What can I do with the Microsoft Teams Module?
 
-Similar to the [Slack module](/alerting/slack), this integration will provide communications from openITCOCKPIT into a
+Similar to the [Slack module](../slack/), this integration will provide communications from openITCOCKPIT into a
 Teams chat within MicrosoftTeams.
 
 ![](/images/microsoft-teams/title.png)

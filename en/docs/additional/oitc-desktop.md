@@ -203,7 +203,7 @@ The host and services views and their detail pages are derived from the correspo
 ![sevicegroup](../images/oitc-desktop/desktop-servicegroups.png)
 ![servicegroup-extended](../images/oitc-desktop/desktop-servicegroups-extended.png)
 ### Resource center
-See [Resource Center Server Dokumentation](../configuration/resource-center.md)
+See [Resource Center Server Dokumentation](../../configuration/resource-center/)
 #### Resources
 ![resources](../images/oitc-desktop/desktop-resources.png)
 ![resources-statuslog](../images/oitc-desktop/desktop-resources-statuslog.png)

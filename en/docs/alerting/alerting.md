@@ -38,12 +38,12 @@ Service notifications are configured according to the same scheme.
 | Phone                         | :fontawesome-solid-xmark: | Telephone number of the contact. Either an email address, telephone number or both must be given                                                                                            |
 | Users                         |                           | The person using the contact. To receive browser notifications, a user must be assigned to the contact. The user ID is automatically set as a contact macro $_CONTACTOITCUSERID$ available. |
 | Host notification             |
-| Host time period              | :fontawesome-solid-xmark: | [The period during which notifications should be sent](../../../configuration/timeperiods/)                                                                                                    |
+| Host time period              | :fontawesome-solid-xmark: | [The period during which notifications should be sent](../../configuration/timeperiods/)                                                                                                    |
 | Host command                  | :fontawesome-solid-xmark: | Command to be used for notifications                                                                                                                                                        |
 | Host notifications enabled    |                           | Enables notifications for hosts with this contact                                                                                                                                           |
 | Push notifications to browser |                           | Activates the push notifications via the browser                                                                                                                                            |
 | Service notifications         |                           |                                                                                                                                                                                             |
-| Service time period           | :fontawesome-solid-xmark: | [The period during which notifications should be sent](../../../configuration/timeperiods/)                                                                                                       |
+| Service time period           | :fontawesome-solid-xmark: | [The period during which notifications should be sent](../../configuration/timeperiods/)                                                                                                       |
 | Service command               | :fontawesome-solid-xmark: | Command to be used for notification                                                                                                                                                         |
 | Service notifications enabled |                           | Enables notifications for services with this contact                                                                                                                                        |
 | Push notifications to browser |                           | Activates the push notifications via the browser                                                                                                                                            |
@@ -80,7 +80,7 @@ escalation defines a range of considerations that must be taken into account bef
 This range is determined by the first notification (how any notifications are required for the escalation to take
 effect) and the last notification (how any notifications are required for the default notification options for the
 object to apply again). If an escalation period is defined, the escalation definition will only take effect within the
-specified [timeperiod](../../../configuration/timeperiods/). The escalation options can be used to select which states will
+specified [timeperiod](../../configuration/timeperiods/). The escalation options can be used to select which states will
 trigger an escalation. These are the states for hosts:
 
 - Recovery
@@ -108,7 +108,7 @@ The Contacts and Contact Groups fields define the contacts that will be notified
 | First notification    | :fontawesome-solid-xmark: | The number of notifications transferred before the escalation rule overrides the notification settings.                                             |
 | Last notification     | :fontawesome-solid-xmark: | When the number of final notifications is reached, the notification rule is disabled and the host or service's notification options are reinstated. |
 | Notification interval | :fontawesome-solid-xmark: | IHow often the escalation notifications are to be sent                                                                                              |
-| Escalation period     |                           | [Time range](../../../configuration/timeperiods/) in which the escalation notifications are to be sent                                                 |
+| Escalation period     |                           | [Time range](../../configuration/timeperiods/) in which the escalation notifications are to be sent                                                 |
 | Contacts              | :fontawesome-solid-xmark: | Escalation contact. At least one contact or contact group must be selected                                                                          |
 | Contact groups        | :fontawesome-solid-xmark: | Escalation contact group. At least one contact or contact group must be selected                                                                    |
 | Escalation options    |                           | The states for which the escalation will be activated                                                                                               |
@@ -125,7 +125,7 @@ The Contacts and Contact Groups fields define the contacts that will be notified
 | First notification      | :fontawesome-solid-xmark: | The number of notifications transferred before the escalation rule overrides the notification settings.                                             |
 | Last notification       | :fontawesome-solid-xmark: | When the number of final notifications is reached, the notification rule is disabled and the host or service's notification options are reinstated. |
 | Notification interval   | :fontawesome-solid-xmark: | How often the escalation notifications are to be sent                                                                                               |
-| Escalation period       |                           | [Time range](../../../configuration/timeperiods/) in which the escalation notifications are to be sent                                                 |
+| Escalation period       |                           | [Time range](../../configuration/timeperiods/) in which the escalation notifications are to be sent                                                 |
 | Contacts                | :fontawesome-solid-xmark: | Escalation contact. At least one contact or contact group must be selected                                                                          |
 | Contact groups          | :fontawesome-solid-xmark: | Escalation contact group. At least one contact or contact group must be selected                                                                    |
 | Escalation options      |                           | The states for which the escalation will be activated                                                                                               |

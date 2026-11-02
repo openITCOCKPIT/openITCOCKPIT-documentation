@@ -42,12 +42,12 @@ Die Konfiguration zur Servicebenachrichtigung erfolgt nach demselben Schema.
 | Telefon | :fontawesome-solid-xmark: | Telefonnummer des Kontakts. Entweder E-Mail Adresse, Telefonnummer oder beides muss gegeben sein |
 | Benutzer | | Benutzer des Kontakts.  Für Browser-Benachrichtigungen muss dem Kontakt ein Benutzer zugewiesen werden. Die Benutzer-ID ist automatisch als Kontaktmakro $_CONTACTOITCUSERID$ verfügbar.  |
 | Host-Benachrichtigung |
-| Hostzeitspanne | :fontawesome-solid-xmark: | [Zeitraum](../configuration/timeperiods/) in dem Benachrichtigt werden soll |
+| Hostzeitspanne | :fontawesome-solid-xmark: | [Zeitraum](../../configuration/timeperiods/) in dem Benachrichtigt werden soll |
 | Hostkommando | :fontawesome-solid-xmark: | Kommando, welches zum benachrichtigen verwendet werden soll |
 | Hostbenachrichtigung aktiviert |  | Aktiviert die Benachrichtigungen für Hosts mit diesem Kontakt |
 | Push-Benachrichtigungen an den Browser |  | Aktiviert die Push-Benachrichtigungen über den Browser |
 | Servicebenachrichtigungen |  |  |
-| Servicezeitspanne | :fontawesome-solid-xmark: | [Zeitraum](../configuration/timeperiods/) in dem Benachrichtigt werden soll |
+| Servicezeitspanne | :fontawesome-solid-xmark: | [Zeitraum](../../configuration/timeperiods/) in dem Benachrichtigt werden soll |
 | Servicekommando | :fontawesome-solid-xmark: | Kommando, welches zum benachrichtigen verwendet werden soll |
 | Servicebenachrichtigung aktiviert |  | Aktiviert die Benachrichtigungen für Services mit diesem Kontakt |
 | Push-Benachrichtigungen an den Browser |  | Aktiviert die Push-Benachrichtigungen über den Browser |
@@ -86,7 +86,7 @@ werden sollen. Dieser Bereich wird bestimmt durch die Erste Benachrichtigung (Ab
 die Eskalation) und die letzte Benachrichtigung (Ab der wievielten Benachrichtigung greift wieder die Standardmäßig
 definierten Benachrichtigungsoptionen des Objekts)
 ist ein Eskalationszeitraum definiert, so greift die Eskalationsdefinition nur innerhalb des
-angegebenem [Zeitabschnittes](../configuration/timeperiods/). Über die Eskalationsoptionen kann ausgewählt werden für
+angegebenem [Zeitabschnittes](../../configuration/timeperiods/). Über die Eskalationsoptionen kann ausgewählt werden für
 welche Zustände eine Eskalation angestoßen werden soll. Dies sind für Hosts die Zustände:
 
 - Wiederherstellung (Recovery)
@@ -114,7 +114,7 @@ Die Felder Kontakte und Kontaktgruppen definieren die Kontakte, die im Eskalatio
 | Erste Benachrichtigung | :fontawesome-solid-xmark: |  Die Anzahl der Benachrichtigungen, die vor der Eskalationsregel übergeben wurden, überschreibt die Benachrichtigungseinstellungen.  |
 | Letzte Benachrichtigung | :fontawesome-solid-xmark: |  Wenn die Anzahl der letzten Benachrichtigungen erreicht ist, wird die Benachrichtigungsregel deaktiviert und die Benachrichtigungsoptionen des Hosts oder Services werden erneut verwendet.  |
 | Benachrichtigungsintervall | :fontawesome-solid-xmark: | In welchem Abstand erfolgen die Eskalationsbenachrichtigungen |
-| Eskalationszeitraum |  | [Zeitabschnitte](../configuration/timeperiods/) in dem die Eskalationsbenachrichtigungen versendet werden  |
+| Eskalationszeitraum |  | [Zeitabschnitte](../../configuration/timeperiods/) in dem die Eskalationsbenachrichtigungen versendet werden  |
 | Kontakte | :fontawesome-solid-xmark: | Eskalationskontakt. Es muss entweder mindestens ein Kontakt oder eine Kontaktgruppe ausgewählt werden |
 | Kontaktgruppen | :fontawesome-solid-xmark: | Eskalationskontaktgruppe. Es muss entweder mindestens ein Kontakt oder eine Kontaktgruppe ausgewählt werden |
 | Eskalationsoptionen |  | Für welche Zustände wird die Eskalation aktiviert |
@@ -131,7 +131,7 @@ Die Felder Kontakte und Kontaktgruppen definieren die Kontakte, die im Eskalatio
 | Erste Benachrichtigung | :fontawesome-solid-xmark: |  Die Anzahl der Benachrichtigungen, die vor der Eskalationsregel übergeben wurden, überschreibt die Benachrichtigungseinstellungen.  |
 | Letzte Benachrichtigung | :fontawesome-solid-xmark: |  Wenn die Anzahl der letzten Benachrichtigungen erreicht ist, wird die Benachrichtigungsregel deaktiviert und die Benachrichtigungsoptionen des Hosts oder Services werden erneut verwendet.  |
 | Benachrichtigungsintervall | :fontawesome-solid-xmark: | In welchem Abstand erfolgen die Eskalationsbenachrichtigungen |
-| Eskalationszeitraum |  | [Zeitabschnitte](../configuration/timeperiods/), in dem die Eskalationsbenachrichtigungen versendet werden  |
+| Eskalationszeitraum |  | [Zeitabschnitte](../../configuration/timeperiods/), in dem die Eskalationsbenachrichtigungen versendet werden  |
 | Kontakte | :fontawesome-solid-xmark: | Eskalationskontakt. Es muss entweder mindestens ein Kontakt oder eine Kontaktgruppe ausgewählt werden |
 | Kontaktgruppen | :fontawesome-solid-xmark: | Eskalationskontaktgruppe. Es muss entweder mindestens ein Kontakt oder eine Kontaktgruppe ausgewählt werden |
 | Eskalationsoptionen |  | Für welche Zustände wird die Eskalation aktiviert |
@@ -190,7 +190,7 @@ Host Abhängigkeiten unterscheiden sich in ihrer Funktion nicht von Service Abh�
 1. Ein Host kann Abhängigkeiten zu einem oder mehreren Hosts haben.
 2. Host Abhängigkeiten werden Standardmäßig nicht vererbt (Über Option vererbbar).
 3. Host Abhängigkeiten können zum Unterdrücken von Benachrichtigungen und Check Ausführungen genutzt werden.
-4. Host Abhängigkeiten sind, wenn konfiguriert, nur innerhalb von [Zeitabschnitten](../configuration/timeperiods/)
+4. Host Abhängigkeiten sind, wenn konfiguriert, nur innerhalb von [Zeitabschnitten](../../configuration/timeperiods/)
    gültig.
 
 | Feld | Erforderlich | Beschreibung |
@@ -200,7 +200,7 @@ Host Abhängigkeiten unterscheiden sich in ihrer Funktion nicht von Service Abh�
 | Abhängige Hosts | :fontawesome-solid-xmark: | Hosts, die eine Abhängigkeit zu den gewählten Hosts haben |
 | Hostgruppen | | Hostgruppen, von denen eine Abhängigkeit erstellt werden soll |
 | Abhängige Hostgruppen | | Hostgruppen, die eine Abhängigkeit zu den gewählten Hosts / Hostgruppen haben |
-| Zeitraum |  | [Zeitraum](../configuration/timeperiods/), in dem die Abhängigkeit gültig ist |
+| Zeitraum |  | [Zeitraum](../../configuration/timeperiods/), in dem die Abhängigkeit gültig ist |
 | Erbt Elternteil |  | [Vererbung der Abhängigkeit](#abhangigkeitsvererbung) |
 | Ausführungsfehlerkriterien |  | Siehe [Ausführungsfehlerkriterien](#ausfuhrungsfehlerkriterien) |
 | Kriterien für Benachrichtigungsfehler |  | Siehe [Benachrichtigungsfehlerkriterien](#benachrichtigungsfehlerkriterien) |
@@ -213,7 +213,7 @@ Service Abhängigkeiten unterscheiden sich in ihrer Funktion nicht von Host Abh�
 2. Ein Service kann Abhängigkeiten zu Services haben, die nicht in verbindung mit demselben Host stehen.
 3. Service Abhängigkeiten werden Standardmäßig nicht vererbt (über Option vererbbar).
 4. Service Abhängigkeiten können zum Unterdrücken von Benachrichtigungen und Check Ausführungen genutzt werden.
-5. Service Abhängigkeiten sind, wenn konfiguriert, nur innerhalb von [Zeitabschnitten](../configuration/timeperiods/)
+5. Service Abhängigkeiten sind, wenn konfiguriert, nur innerhalb von [Zeitabschnitten](../../configuration/timeperiods/)
    gültig.
 
 | Feld | Erforderlich | Beschreibung |
@@ -223,7 +223,7 @@ Service Abhängigkeiten unterscheiden sich in ihrer Funktion nicht von Host Abh�
 | Abhängige Services | :fontawesome-solid-xmark: | Services, eine Abhängigkeit zu den gewählten Services haben |
 | Servicegruppen | | Servicegruppen, von denen eine Abhängigkeit erstellt werden soll |
 | Abhängige Servicegruppen | | Servicegruppen, die eine Abhängigkeit zu den gewählten Services / Servicegruppen haben |
-| Zeitraum |  | [Zeitraum](../configuration/timeperiods/), in dem die Abhängigkeit gültig ist |
+| Zeitraum |  | [Zeitraum](../../configuration/timeperiods/), in dem die Abhängigkeit gültig ist |
 | Erbt Elternteil |  | [Vererbung der Abhängigkeit](#abhangigkeitsvererbung) |
 | Ausführungsfehlerkriterien |  | Siehe [Ausführungsfehlerkriterien](#ausfuhrungsfehlerkriterien) |
 | Kriterien für Benachrichtigungsfehler |  | Siehe [Benachrichtigungsfehlerkriterien](#benachrichtigungsfehlerkriterien) |
