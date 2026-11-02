@@ -8,6 +8,11 @@ Führen Sie alle Kommandos als `root` Benutzer aus.
 Um immer die aktuelle Version von openITCOCKPIT verwenden zu können, ist es wichtig, dass zugrundeliegende Betriebssystem aktuell zu halten.
 Mit dieser Anleitung können Sie Ihr Debian Buster System auf Debian Bullseye aktualisieren.
 
+!!! warning "End of Life"
+    Debian 10 (Buster) hat im Juni 2024 das Ende seiner Lebenszeit erreicht, Debian 11 (Bullseye) im August 2026.
+    Beide Releases erhalten keine Sicherheitsupdates mehr. Nutzen Sie diese Anleitung nur, um eine bestehende
+    Installation zu migrieren - eine Neuinstallation auf einem unterstützten Release ist in der Regel die bessere Wahl.
+
 ##  Voraussetzungen
  -  openITCOCKPIT in der Version 4.x
  -  Keine Pakete die `lxd` beinhalten.

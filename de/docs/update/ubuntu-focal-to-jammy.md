@@ -8,6 +8,11 @@ Führen Sie alle Kommandos als `root` Benutzer aus.
 Um immer die aktuelle Version von openITCOCKPIT verwenden zu können, ist es wichtig, dass zugrundeliegende Betriebssystem aktuell zu halten.
 Mit dieser Anleitung können Sie Ihr Ubuntu Focal System auf Ubuntu Jammy aktualisieren.
 
+!!! warning "End of Life"
+    Ubuntu 20.04 (Focal) hat im Mai 2025 das Ende seiner Lebenszeit erreicht und erhält keine
+    Sicherheitsupdates mehr. Nutzen Sie diese Anleitung nur, um eine bestehende Installation zu migrieren -
+    eine Neuinstallation auf einem unterstützten Release ist in der Regel die bessere Wahl.
+
 ##  Voraussetzungen
  -  openITCOCKPIT in der Version 4.x
  -  Keine Pakete die `lxd` beinhalten.

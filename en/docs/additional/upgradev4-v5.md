@@ -274,7 +274,7 @@ During the update you may be asked if you want to overwrite some configuration f
 To start the update, execute:
 
 !!! danger
-    openITCOCKPIT expecteds the Linux default umask to be set to `022` (default for most Linux distributions).
+    openITCOCKPIT expects the Linux default umask to be set to `022` (default for most Linux distributions).
     If you are unsure change the umask to `022` before you continue with the update.
     ```
     umask 0022
@@ -307,7 +307,7 @@ While an upgrade is **recommended**, it is not required (at least for now)
 #### Step 1 - Update the operating system
 
 !!! danger
-    openITCOCKPIT expecteds the Linux default umask to be set to `022` (default for most Linux distributions).
+    openITCOCKPIT expects the Linux default umask to be set to `022` (default for most Linux distributions).
     If you are unsure change the umask to `022` before you continue with the update.
     ```
     umask 0022

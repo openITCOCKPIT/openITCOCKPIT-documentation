@@ -8,6 +8,11 @@ Führen Sie alle Kommandos als `root` Benutzer aus.
 Um immer die aktuelle Version von openITCOCKPIT verwenden zu können, ist es wichtig, dass zugrundeliegende Betriebssystem aktuell zu halten.
 Mit dieser Anleitung können Sie Ihr Ubuntu Bionic System auf Ubuntu Focal aktualisieren.
 
+!!! warning "End of Life"
+    Ubuntu 18.04 (Bionic) hat im Mai 2023 das Ende seiner Lebenszeit erreicht, Ubuntu 20.04 (Focal) im Mai 2025.
+    Beide Releases erhalten keine Sicherheitsupdates mehr. Nutzen Sie diese Anleitung nur, um eine bestehende
+    Installation zu migrieren - eine Neuinstallation auf einem unterstützten Release ist in der Regel die bessere Wahl.
+
 ##  Voraussetzungen
  -  openITCOCKPIT in der Version 4.x
  -  Keine Pakete die `lxd` beinhalten

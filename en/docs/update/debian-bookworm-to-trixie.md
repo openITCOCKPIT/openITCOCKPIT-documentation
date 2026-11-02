@@ -130,14 +130,13 @@ openitcockpit_upd=$(apt-mark showmanual | grep openitcockpit | grep -v '^openitc
 The Debian package sources now need to be adjusted to the new Trixie release:
 
 ```bash
-# sources.list and any *.list files (e.g. docker.list)
-sed -i 's/bookworm/trixie/g' /etc/apt/sources.list /etc/apt/sources.list.d/*.list
-
-# deb822 style sources - default since Debian 13, may not exist on Bookworm
-if [ -f /etc/apt/sources.list.d/debian.sources ]; then
-    sed -ri 's/\bbookworm-security\b/trixie-security/g; s/\bbookworm-updates\b/trixie-updates/g; s/\bbookworm\b/trixie/g' /etc/apt/sources.list.d/debian.sources
-fi
+for f in /etc/apt/sources.list /etc/apt/sources.list.d/*.list /etc/apt/sources.list.d/*.sources; do
+    [ -f "$f" ] && sed -i 's/bookworm/trixie/g' "$f"
+done
 ```
+
+This also updates `/etc/apt/sources.list.d/debian.sources` and the openITCOCKPIT repository in
+`/etc/apt/sources.list.d/openitcockpit.sources` - both use the deb822 format.
 
 Verify that no Bookworm source is left:
 
