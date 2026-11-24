@@ -65,6 +65,8 @@ Der Checkmk Agent wird nicht als Daemon ausgeführt. Der Agent wird durch `xinet
 
 #### Setup mit xinetd
 
+Einige Linux-Distributionen haben `xinetd` möglicherweise nicht mehr in den Standard-Repositories. In diesem Fall können Sie das unten beschriebene Systemd-Setup verwenden.
+
 ```
 apt-get install xinetd
 chmod +x /usr/local/bin/check_mk_agent

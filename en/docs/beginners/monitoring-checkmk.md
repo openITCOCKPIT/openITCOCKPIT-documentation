@@ -50,8 +50,7 @@ To begin using this tool, you must first copy the Checkmk agent from your openIT
 
 `scp /opt/openitc/check_mk/agents/check_mk_agent.linux root@172.16.166.179:/usr/local/bin/check_mk_agent`
 
-!!! tip
-    "All Checkmk agents for the various operating systems can be found here"
+!!! tip "All Checkmk agents for the various operating systems can be found here"
     `/opt/openitc/check_mk/agents/`
 
 **Now connect to the remote host via SSH**
@@ -59,9 +58,11 @@ To begin using this tool, you must first copy the Checkmk agent from your openIT
 The Checkmk agent itself is not running as daemon. The agent is executed by `xinetd`, or `systemd` if configured accordingly.
 
 !!! danger "Security Notice"
-   By default, Checkmk uses unencrypted plain text communication!
+    By default, Checkmk uses unencrypted plain text communication!
 
 #### Setup using xinetd
+
+Some Linux distributions may not have `xinetd` anymore in the default repositories. In this case, you can go with the systemd setup described below.
 
 ```
 apt-get install xinetd
