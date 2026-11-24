@@ -56,15 +56,17 @@ To begin using this tool, you must first copy the Checkmk agent from your openIT
 
 **Now connect to the remote host via SSH**
 
-The Checkmk agent is not run as a daemon but rather by `xinetd`.
+The Checkmk agent itself is not running as daemon. The agent is executed by `xinetd`, or `systemd` if configured accordingly.
+
+!!! danger "Security Notice"
+   By default, Checkmk uses unencrypted plain text communication!
+
+#### Setup using xinetd
 
 ```
 apt-get install xinetd
 chmod +x /usr/local/bin/check_mk_agent
 ```
-
-!!! danger "Security Notice"
-   By default, Checkmk uses unencrypted plain text communication!
 
 Next you need to copy the following configuration to `/etc/xinetd.d/check_mk`:
 
@@ -96,6 +98,46 @@ To enable the new configuration, you must restart `xinetd`:
 ```
 systemctl restart xinetd.service
 ```
+
+### Setup using systemd
+
+Create a new file `/etc/systemd/system/check_mk.socket` with the following content:
+
+```
+[Unit]
+Description=Checkmk Agent Socket
+
+[Socket]
+ListenStream=6556
+Accept=yes
+
+[Install]
+WantedBy=sockets.target
+```
+
+Next, create a service definition at `/etc/systemd/system/check_mk@.service` (the `@` is important) with the following content:
+
+```
+[Unit]
+Description=Checkmk Agent Service
+
+[Service]
+User=root
+ExecStart=-/usr/local/bin/check_mk_agent
+StandardInput=socket
+StandardOutput=socket
+StandardError=journal
+```
+
+In the last step, you have to enable and start the socket unit:
+
+```
+sudo systemctl daemon-reload
+sudo systemctl enable --now check_mk.socket
+```
+
+Other than `xinetd`, systemd does not provide any `only_from` equivalent to restrict access to specific IP addresses.
+You can restrict access via a firewall rule, for example `ufw allow from 10.0.20.1 to any port 6556 proto tcp`
 
 That's everything that needs to be done on the remote host.
 
