@@ -103,7 +103,7 @@ Um die neue Konfiguration zu aktivieren, müssen Sie `xinetd` neu starten:
 systemctl restart xinetd.service
 ```
 
-### Setup mit systemd
+#### Setup mit systemd
 
 Erstellen Sie eine neue Datei `/etc/systemd/system/check_mk.socket` mit folgendem Inhalt:
 

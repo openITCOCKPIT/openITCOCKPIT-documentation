@@ -99,7 +99,7 @@ To enable the new configuration, you must restart `xinetd`:
 systemctl restart xinetd.service
 ```
 
-### Setup using systemd
+#### Setup using systemd
 
 Create a new file `/etc/systemd/system/check_mk.socket` with the following content:
 
