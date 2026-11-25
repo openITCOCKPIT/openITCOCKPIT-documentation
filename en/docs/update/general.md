@@ -25,7 +25,7 @@ apt update
 Update
 
 ```bash
-apt -y full-upgrade
+apt full-upgrade
 ```
 
 ## Red Hat Enterprise Linux
